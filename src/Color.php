@@ -8,7 +8,7 @@
             $color = new Color();
             $color -> red = $red;
             $color -> green = $green;
-            $color -> b = $blue;
+            $color -> blue = $blue;
 
             return $color;
         }

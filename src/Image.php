@@ -76,14 +76,4 @@
             }
         }
     }
-
-    $image = Image::create(512, 512);
-    $image -> registerColor("orange", Color::fromRGB(255, 128, 64));
-    $image -> registerColor("blue", Color::fromRGB(64, 191, 255));
-
-    $image -> setBackgroundColor("blue");
-    $image -> fill(256, 256, "orange");
-
-    header("Content-type: image/png");
-    $image -> as(IMG_PNG);
 ?>
