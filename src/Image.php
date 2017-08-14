@@ -22,6 +22,10 @@
 
         public function __destruct() {
             imagedestroy($this -> imageResource);
+
+            foreach ($this -> colors as $color) {
+                imagecolordeallocate($color);
+            }
         }
 
         public function as($type) : bool{
