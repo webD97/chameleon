@@ -62,15 +62,6 @@
             }
         }
 
-        public function fill(int $x, int $y, string $color) : bool {
-            if ($this -> isColorRegistered($color)) {
-                return imagefill($this -> imageResource, $x, $y, $this -> getRegisteredColor($color));
-            }
-            else {
-                throw new ColorNotFoundException($color);
-            }
-        }
-
         public function setBackgroundColor(string $color) : bool {
             if ($this -> isColorRegistered($color)) {
                 return imagefill($this -> imageResource, 0, 0, $this -> getRegisteredColor($color));

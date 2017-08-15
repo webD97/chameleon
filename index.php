@@ -7,7 +7,6 @@
     $image -> registerColor("blue", Color::fromRGB(64, 191, 255));
 
     $image -> setBackgroundColor("blue");
-    $image -> fill(256, 256, "orange");
 
     header("Content-type: image/png");
     $image -> as(IMG_PNG);
