@@ -19,3 +19,4 @@ $image -> draw($elli);
 header("Content-type: image/png");
 $image -> as(IMG_PNG);
 ```
+![Output](http://chameleon.webd97.de/index.php)
