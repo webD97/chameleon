@@ -8,6 +8,10 @@
         private $thickness;
         private $color;
 
+        public function draw($imageresource) {
+            
+        }
+
         /**
          * Class constructor
          *
