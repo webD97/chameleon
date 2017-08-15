@@ -2,6 +2,7 @@
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\RGBColor;
+    use Chameleon\Exceptions\ValueOutOfBoundsException;
 
     final class RGBColorTest extends TestCase {
 
