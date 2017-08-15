@@ -1,11 +1,12 @@
 <?php
-    require_once("ColorNotFoundException.php");
+    namespace Chameleon;
+
+    require_once("Exceptions/ColorNotFoundException.php");
     require_once("Vector2.php");
     require_once("Primitives/IPrimitive.php");
 
-    use Primitives\IPrimitive;
-
-    use Colors\IColor;
+    use Chameleon\Primitives\IPrimitive;
+    use Chameleon\Colors\IColor;
 
     class Image {
         private $imageResource;

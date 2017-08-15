@@ -1,5 +1,5 @@
 <?php
-    namespace Colors;
+    namespace Chameleon\Colors;
 
     require_once("Color.php");
 

@@ -1,5 +1,5 @@
 <?php
-    namespace Primitives;#
+    namespace Chameleon\Primitives;
 
     require_once(__DIR__ . "/IPrimitive.php");
 

@@ -1,13 +1,15 @@
 <?php
-    namespace Primitives;
+    namespace Chameleon\Primitives;
     
     require_once(__DIR__ . "/Primitive.php");
+
+    use Chameleon\Vector2;
 
     class Rectangle extends Primitive {
         private $width;
         private $height;
 
-        public function __construct(\Vector2 $point, int $width, int $height) {
+        public function __construct(Vector2 $point, int $width, int $height) {
             $this -> point = $point;
             $this -> width = $width;
             $this -> height = $height;

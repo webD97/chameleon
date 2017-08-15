@@ -1,5 +1,5 @@
 <?php
-    namespace Colors;
+    namespace Chameleon\Colors;
 
     interface IColor {
         public function getRed() : int;

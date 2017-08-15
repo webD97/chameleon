@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon;
+
     class Vector2 {
         private $x;
         private $y;
