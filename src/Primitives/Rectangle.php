@@ -14,6 +14,8 @@
         }
 
         public function draw($imageResource) {
+            parent::draw($imageResource);
+
             imagerectangle($imageResource, 
                 $this -> point -> getX(),
                 $this -> point -> getY() + $this -> height,

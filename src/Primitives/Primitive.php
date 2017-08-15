@@ -14,7 +14,9 @@
          * @param $imageResource The GD image resource
          * @return void
          */
-        public abstract function draw($imageResource);
+        public function draw($imageResource) {
+            // Draw decorators
+        }
 
         /**
          * Set primitve position
