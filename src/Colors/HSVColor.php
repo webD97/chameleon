@@ -26,8 +26,6 @@
             $this -> setHue($hue);
             $this -> setSaturation($saturation);
             $this -> setValue($value);
-
-            $this -> makeRGB();
         }
 
         public function __toString() : string {
@@ -56,6 +54,7 @@
             }
 
             $this -> hue = $hue;
+            $this -> makeRGB();
         }
 
         /**
@@ -80,6 +79,7 @@
             }
 
             $this -> saturation = $saturation;
+            $this -> makeRGB();
         }
 
         /**
@@ -104,6 +104,7 @@
             }
 
             $this -> value = $value;
+            $this -> makeRGB();
         }
 
 

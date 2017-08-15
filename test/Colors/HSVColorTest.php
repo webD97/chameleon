@@ -78,5 +78,16 @@
             $this -> expectException(ValueOutOfBoundsException::class);
             $this -> color -> setValue(-0.1);
         }
+
+        public function testRGBConversion() {
+            // HSV: (200, 0.75, 1)
+            // RGB: (64, 191, 255)
+
+            $this -> color = new HSVColor(200, 0.75, 1);
+
+            $this -> assertEquals(64, $this -> color -> getRed());
+            $this -> assertEquals(191, $this -> color -> getGreen());
+            $this -> assertEquals(255, $this -> color -> getBlue());
+        }
     }
 ?>
