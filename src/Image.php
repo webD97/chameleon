@@ -1,5 +1,4 @@
 <?php
-    require_once("Color.php");
     require_once("ColorNotFoundException.php");
     require_once("Vector2.php");
     require_once("Primitives/IPrimitive.php");
@@ -44,7 +43,7 @@
             return $this -> imageResource;
         }
 
-        public function registerColor(string $name, Color $color) : bool {
+        public function registerColor(string $name, Colors\IColor $color) : bool {
             if (!isset($this -> colors[$name])) {
                 return $this -> colors[$name] = imagecolorallocate($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue());
             }
