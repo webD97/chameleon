@@ -24,10 +24,10 @@
             return "hsv(" . $this -> hue . ", " . $this -> saturation . ", " . $this -> value . ")";
         }
 
-        private function setRGB($hue, $saturation, $value) {
-            $this -> red = round($hue * 255);
-            $this -> green = round($saturation * 255);
-            $this -> blue = round($value * 255);
+        private function setRGB($red, $green, $blue) {
+            $this -> red = round($red * 255);
+            $this -> green = round($green * 255);
+            $this -> blue = round($blue * 255);
         }
 
         private function makeRGB() {
