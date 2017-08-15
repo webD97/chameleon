@@ -22,12 +22,24 @@
             return $this -> red;
         }
 
+        public function setRed(int $red) {
+            $this -> red = $red;
+        }
+
         public function getGreen() : int {
             return $this -> green;
         }
 
+        public function setGreen(int $green) {
+            $this -> green = $green;
+        }
+
         public function getBlue() : int {
             return $this -> blue;
+        }
+
+        public function setBlue(int $blue) {
+            $this -> blue = $blue;
         }
     }
 ?>
