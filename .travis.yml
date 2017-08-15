@@ -1,4 +1,5 @@
 language: php
+before_install: composer install
 php:
   - '7.0'
   - '7.1'
