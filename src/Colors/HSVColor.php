@@ -24,6 +24,30 @@
             return "hsv(" . $this -> hue . ", " . $this -> saturation . ", " . $this -> value . ")";
         }
 
+        public function getHue() : int {
+            return $this -> hue;
+        }
+
+        public function setHue(int $hue) {
+            $this -> hue = $hue;
+        }
+
+        public function getSaturation() : int {
+            return $this -> saturation;
+        }
+
+        public function setSaturation(int $saturation) {
+            $this -> saturation = $saturation;
+        }
+
+        public function getValue() : int {
+            return $this -> value;
+        }
+
+        public function setValue(int $value) {
+            $this -> value = $value;
+        }
+
         private function setRGB($red, $green, $blue) {
             $this -> red = round($red * 255);
             $this -> green = round($green * 255);
