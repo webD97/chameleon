@@ -5,6 +5,8 @@
 
     use Primitives\IPrimitive;
 
+    use Colors\IColor;
+
     class Image {
         private $imageResource;
         private $colors = array();
@@ -43,7 +45,7 @@
             return $this -> imageResource;
         }
 
-        public function registerColor(string $name, Colors\IColor $color) : bool {
+        public function registerColor(string $name, IColor $color) : bool {
             if (!isset($this -> colors[$name])) {
                 return $this -> colors[$name] = imagecolorallocate($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue());
             }
