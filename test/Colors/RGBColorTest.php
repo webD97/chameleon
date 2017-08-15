@@ -38,14 +38,44 @@
             $this -> assertEquals(0, $this -> color -> getRed());
         }
 
+        public function testSetRedTooHigh() {
+            $this -> expectException(ValueOutOfBoundsException::class);
+            $this -> color -> setRed(256);
+        }
+
+        public function testSetRedTooLow() {
+            $this -> expectException(ValueOutOfBoundsException::class);
+            $this -> color -> setRed(-1);
+        }
+
         public function testSetGreen() {
             $this -> color -> setGreen(0);
             $this -> assertEquals(0, $this -> color -> getGreen());
         }
 
+        public function testSetGreenTooHigh() {
+            $this -> expectException(ValueOutOfBoundsException::class);
+            $this -> color -> setGreen(256);
+        }
+
+        public function testSetGreenTooLow() {
+            $this -> expectException(ValueOutOfBoundsException::class);
+            $this -> color -> setGreen(-1);
+        }
+
         public function testSetBlue() {
             $this -> color -> setBlue(0);
             $this -> assertEquals(0, $this -> color -> getBlue());
+        }
+
+        public function testSetBlueTooHigh() {
+            $this -> expectException(ValueOutOfBoundsException::class);
+            $this -> color -> setBlue(256);
+        }
+
+        public function testSetBlueTooLow() {
+            $this -> expectException(ValueOutOfBoundsException::class);
+            $this -> color -> setBlue(-1);
         }
     }
 ?>
