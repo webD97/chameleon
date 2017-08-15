@@ -1,6 +1,8 @@
 <?php
     namespace Chameleon\Colors;
 
+    use Chameleon\Exceptions\ValueOutOfBoundsException;
+
     /**
     * Color Class for HSV colors
     *
@@ -18,12 +20,12 @@
 
         /**
         * Class constructor
-        * @param int $hue Hue value [0, 360]
+        * @param int $hue Hue value [0, 359]
         */
         public function __construct(int $hue, float $saturation, float $value) {
-            $this -> hue = $hue;
-            $this -> saturation = $saturation;
-            $this -> value = $value;
+            $this -> setHue($hue);
+            $this -> setSaturation($saturation);
+            $this -> setValue($value);
 
             $this -> makeRGB();
         }
@@ -36,7 +38,7 @@
         * Get hue value
         *
         * Returns the hue value of this color
-        * @return int Hue value [0, 360]
+        * @return int Hue value [0, 359]
         */
         public function getHue() : int {
             return $this -> hue;
@@ -46,9 +48,13 @@
         * Set hue value
         *
         * Sets the hue value of this color
-        * @param int $hue The hue value [0, 360]
+        * @param int $hue The hue value [0, 359]
         */
         public function setHue(int $hue) {
+            if (!$this -> checkRange($hue, 0, 359)) {
+                throw new ValueOutOfBoundsException("hue", $hue, 0, 359);
+            }
+
             $this -> hue = $hue;
         }
 
@@ -58,7 +64,7 @@
         * Returns the saturation value of this color
         * @return int saturation value [0, 1]
         */
-        public function getSaturation() : int {
+        public function getSaturation() : float {
             return $this -> saturation;
         }
 
@@ -68,7 +74,11 @@
         * Sets the saturation value of this color
         * @param int $saturation The saturation value [0, 1]
         */
-        public function setSaturation(int $saturation) {
+        public function setSaturation(float $saturation) {
+            if (!$this -> checkRange($saturation, 0, 1)) {
+                throw new ValueOutOfBoundsException("saturation", $saturation, 0, 1);
+            }
+
             $this -> saturation = $saturation;
         }
 
@@ -78,7 +88,7 @@
         * Returns the value of this color
         * @return int value [0, 1]
         */
-        public function getValue() : int {
+        public function getValue() : float {
             return $this -> value;
         }
 
@@ -88,7 +98,11 @@
         * Sets the value of this color
         * @param int $value The value [0, 1]
         */
-        public function setValue(int $value) {
+        public function setValue(float $value) {
+            if (!$this -> checkRange($value, 0, 1)) {
+                throw new ValueOutOfBoundsException("value", $value, 0, 1);
+            }
+
             $this -> value = $value;
         }
 

@@ -23,7 +23,7 @@
         }
 
         public function setRed(int $red) {
-            if ($red < 0 || $red > 255) {
+            if (!$this -> checkRange($red, 0, 255)) {
                 throw new ValueOutOfBoundsException("red", $red, 0, 255);
             }
 
@@ -35,7 +35,7 @@
         }
 
         public function setGreen(int $green) {
-            if ($green < 0 || $green > 255) {
+            if (!$this -> checkRange($green, 0, 255)) {
                 throw new ValueOutOfBoundsException("red", $green, 0, 255);
             }
             
@@ -47,7 +47,7 @@
         }
 
         public function setBlue(int $blue) {
-            if ($blue < 0 || $blue > 255) {
+            if (!$this -> checkRange($blue, 0, 255)) {
                 throw new ValueOutOfBoundsException("red", $blue, 0, 255);
             }
 
