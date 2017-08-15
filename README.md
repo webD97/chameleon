@@ -1,5 +1,5 @@
-# chameleon
-A PHP image manipulation library built around GD
+# Chameleon
+Chameleo is a PHP image manipulation library built around GD
 
 ## Code example
 ```php
