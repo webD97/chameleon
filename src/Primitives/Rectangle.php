@@ -7,12 +7,25 @@
         private $width;
         private $height;
 
+        /**
+         * Class constructor
+         *
+         * @param Vector2 $point Top left start point
+         * @param int $width width in px
+         * @param int $height height in px
+         */
         public function __construct(Vector2 $point, int $width, int $height) {
             $this -> point = $point;
             $this -> width = $width;
             $this -> height = $height;
         }
 
+        /**
+         * Draw the rectangle onto the image resource
+         *
+         * @param $imageResource
+         * @return void
+         */
         public function draw($imageResource) {
             parent::draw($imageResource);
 
