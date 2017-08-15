@@ -9,7 +9,7 @@
         }
 
         public function getX() : int {
-            return $this -> y;
+            return $this -> x;
         }
 
         public function getY() : int {
