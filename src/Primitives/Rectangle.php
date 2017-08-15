@@ -1,7 +1,5 @@
 <?php
     namespace Chameleon\Primitives;
-    
-    require_once(__DIR__ . "/Primitive.php");
 
     use Chameleon\Vector2;
 

@@ -1,8 +1,6 @@
 <?php
     namespace Chameleon\Colors;
 
-    require_once("IColor.php");
-
     abstract class Color implements IColor {
         public abstract function getRed() : int;
         public abstract function getGreen() : int;

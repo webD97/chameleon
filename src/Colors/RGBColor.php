@@ -1,8 +1,6 @@
 <?php
     namespace Chameleon\Colors;
 
-    require_once("Color.php");
-
     class RGBColor extends Color {
         private $red;
         private $green;

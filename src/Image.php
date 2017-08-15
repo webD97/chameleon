@@ -1,10 +1,6 @@
 <?php
     namespace Chameleon;
 
-    require_once("Exceptions/ColorNotFoundException.php");
-    require_once("Vector2.php");
-    require_once("Primitives/IPrimitive.php");
-
     use Chameleon\Primitives\IPrimitive;
     use Chameleon\Colors\IColor;
 

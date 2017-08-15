@@ -1,8 +1,6 @@
 <?php
     namespace Chameleon\Colors;
 
-    require_once("Color.php");
-
     /**
     * Color Class for HSV colors
     *
