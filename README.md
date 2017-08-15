@@ -1,6 +1,7 @@
 # chameleon
 A PHP image manipulation library built around GD
 
+## Code example
 ```php
 require __DIR__ . "/vendor/autoload.php";
 
@@ -19,4 +20,6 @@ $image -> draw($elli);
 header("Content-type: image/png");
 $image -> as(IMG_PNG);
 ```
-![Output](http://chameleon.webd97.de/index.php)
+
+## Output
+![PHP Output](http://chameleon.webd97.de/index.php)
