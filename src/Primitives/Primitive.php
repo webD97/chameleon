@@ -20,10 +20,11 @@
          * Set primitve position
          *
          * @param Vector2 $point
-         * @return void
+         * @return self
          */
-        public function setPosition(Vector2 $point) {
+        public function setPosition(Vector2 $point) : self {
             $this -> point = $point;
+            return $this;
         }
 
         /**
@@ -39,10 +40,11 @@
          * Set the primitve's border
          *
          * @param Border $border
-         * @return void
+         * @return self
          */
-        public function setBorder(Border $border) {
+        public function setBorder(Border $border) : self {
             $this -> border = $border;
+            return $this;
         }
 
         /**
@@ -58,10 +60,11 @@
          * Set the primitve's background
          *
          * @param BSimpleackground $background
-         * @return void
+         * @return self
          */
-        public function setBackground(SimpleBackground $background) {
+        public function setBackground(SimpleBackground $background) : self {
             $this -> background = $background;
+            return $this;
         }
 
         /**
