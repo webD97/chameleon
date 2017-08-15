@@ -2,6 +2,8 @@
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Primitives\Primitive;
+    use Chameleon\Primitives\Decorators\Border;
+    use Chameleon\Primitives\Decorators\SimpleBackground;
     use Chameleon\Colors\RGBColor;
     use Chameleon\Vector2;
 
