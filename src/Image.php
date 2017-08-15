@@ -1,6 +1,10 @@
 <?php
     require_once("Color.php");
     require_once("ColorNotFoundException.php");
+    require_once("Vector2.php");
+    require_once("Primitives/IPrimitive.php");
+
+    use Primitives\IPrimitive;
 
     class Image {
         private $imageResource;
@@ -69,6 +73,10 @@
             else {
                 throw new ColorNotFoundException($color);
             }
+        }
+
+        public function draw(IPrimitive $primitive) {
+            $primitive -> draw($this -> imageResource);
         }
     }
 ?>
