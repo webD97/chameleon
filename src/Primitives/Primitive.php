@@ -11,5 +11,9 @@
         public function setPosition(Vector2 $point) {
             $this -> point = $point;
         }
+
+        public function getPosition() : Vector2 {
+            return $this -> point;
+        }
     }
 ?>
