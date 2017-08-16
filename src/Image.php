@@ -26,7 +26,7 @@
             imagedestroy($this -> imageResource);
 
             foreach ($this -> colors as $color) {
-                imagecolordeallocate($color);
+                imagecolordeallocate($this -> imageResource, $color);
             }
         }
 
