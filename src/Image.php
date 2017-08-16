@@ -153,6 +153,20 @@
             imagefilledrectangle($this -> imageResource, 0, 0, $this -> getWidth(), $this -> getHeight(), $this -> getRegisteredColor($color));
         }
 
+        public function getPixel(Vector2 $position) : IColor {
+            $rgb = imagecolorat($this -> imageResource, $position -> getX(), $position -> getY());
+            $r = ($rgb >> 16) & 0xFF;
+            $g = ($rgb >> 8) & 0xFF;
+            $b = $rgb & 0xFF;
+
+            return new RGBColor($r, $g, $b);
+        }
+
+        public function setPixel(Vector2 $position, IColor $color) {
+            $this -> registerColorIfUnknown($color);
+            imagesetpixel($this -> imageResource, $position -> getX(), $position -> getY(), $this -> getRegisteredColor($color));
+        }
+
         /**
          * Draw a primitive onto the image
          *
