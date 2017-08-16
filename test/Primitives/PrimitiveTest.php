@@ -3,8 +3,6 @@
 
     use Chameleon\Primitives\Primitive;
     use Chameleon\Primitives\Rectangle;
-    use Chameleon\Primitives\Decorators\Border;
-    use Chameleon\Primitives\Decorators\SimpleBackground;
     use Chameleon\Colors\RGBColor;
     use Chameleon\Vector2;
 
@@ -23,18 +21,23 @@
             $this -> assertEquals($pos, $this -> primitive -> getPosition());
         }
 
-        public function testSetGetBorder() {
-            $border = new Border(5, new RGBColor(255, 0, 0));
+        public function testSetGetBorderColor() {
+            $color = new RGBColor(255, 0, 0);
 
-            $this -> assertEquals($this -> primitive, $this -> primitive -> setBorder($border));
-            $this -> assertEquals($border, $this -> primitive -> getBorder());
+            $this -> assertEquals($this -> primitive, $this -> primitive -> setBorderColor($color));
+            $this -> assertEquals($color, $this -> primitive -> getBorderColor());
         }
 
-        public function testSetGetBackground() {
-            $background = new SimpleBackground(new RGBColor(128, 64, 32));
+        public function testSetGetBorderThickness() {
+            $this -> assertEquals($this -> primitive, $this -> primitive -> setBorderThickness(10));
+            $this -> assertEquals(10, $this -> primitive -> getBorderThickness());
+        }
 
-            $this -> assertEquals($this -> primitive, $this -> primitive -> setBackground($background));
-            $this -> assertEquals($background, $this -> primitive -> getBackground());
+        public function testSetGetBackgroundColor() {
+            $color = new RGBColor(255, 255, 255);
+
+            $this -> assertEquals($this -> primitive, $this -> primitive -> setBackgroundColor($color));
+            $this -> assertEquals($color, $this -> primitive -> getBackgroundColor());
         }
     }
 ?>
