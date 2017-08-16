@@ -30,6 +30,14 @@
             }
         }
 
+        public function getWidth() : int {
+            return imagesx($this -> imageResource);
+        }
+
+        public function getHeight() : int {
+            return imagesx($this -> imageResource);
+        }
+
         public function as($type) : bool{
             switch ($type) {
                 case IMG_PNG:
@@ -66,7 +74,7 @@
 
         public function setBackgroundColor(string $color) : bool {
             if ($this -> isColorRegistered($color)) {
-                return imagefill($this -> imageResource, 0, 0, $this -> getRegisteredColor($color));
+                return imagefilledrectangle($this -> imageResource, 0, 0, $this -> getWidth(), $this -> getHeight(), $this -> getRegisteredColor($color));
             }
             else {
                 throw new ColorNotFoundException($color);
