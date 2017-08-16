@@ -2,6 +2,8 @@
     namespace Chameleon\Primitives;
 
     use Chameleon\Vector2;
+    use Chameleon\Image;
+    use Chameleon\Colors\RGBColor;
 
     class Ellipse extends Primitive {
         private $width;
@@ -18,24 +20,84 @@
             $this -> point = $point;
             $this -> width = $width;
             $this -> height = $height;
+
+            $this -> setBorderColor(new RGBColor(0, 0, 0));
+            $this -> setBorderThickness(1);
+        }
+
+        /**
+         * Get width in px
+         *
+         * @return int
+         */
+        public function getWidth() : int {
+            return $this -> width;
+        }
+
+        /**
+         * Set width in px
+         *
+         * @param int $width
+         * @return void
+         */
+        public function setWidth(int $width) {
+            $this -> width = $width;
+        }
+
+        /**
+         * Get height in px
+         *
+         * @return int
+         */
+        public function getHeight() : int {
+            return $this -> height;
+        }
+
+        /**
+         * Set height in px
+         *
+         * @param int $height
+         * @return void
+         */
+        public function setHeight(int $height) {
+            $this -> height = $height;
         }
 
         /**
          * Draw the ellipse onto the image resource
+         * 
+         * Draws the ellipse with border and background (if set).
+         * By default, an ellipse has a 1px black border and no background
          *
-         * @param [type] $imageResource
+         * @param Image $image
          * @return void
          */
-        public function draw($imageResource) {
-            parent::draw($imageResource);
+        public function draw(Image $image) {
+            if ($this -> backgroundColor) {
+                $image -> registerColorIfUnknown($this -> backgroundColor);
 
-            imageellipse($imageResource, 
-                $this -> point -> getX(),
-                $this -> point -> getY() ,
-                $this -> width,
-                $this -> height,
-                imagecolorallocate($imageResource, 255, 255, 255)
-            );
+                imagefilledellipse(
+                    $image -> getImageResource(), 
+                    $this -> getPosition() -> getX(),
+                    $this -> getPosition() -> getY() ,
+                    $this -> width,
+                    $this -> height,
+                    $image -> getRegisteredColor($this -> backgroundColor)
+                );
+            }
+
+            if ($this -> borderColor) {
+                $image -> registerColorIfUnknown($this -> borderColor);
+
+                imageellipse(
+                    $image -> getImageResource(), 
+                    $this -> point -> getX(),
+                    $this -> point -> getY() ,
+                    $this -> width,
+                    $this -> height,
+                    $image -> getRegisteredColor($this -> borderColor)
+                );
+            }
         }
     }
 ?>

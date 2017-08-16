@@ -2,21 +2,16 @@
     namespace Chameleon\Primitives;
 
     use Chameleon\Vector2;
-    use Chameleon\Primitives\Decorators\Border;
-    use Chameleon\Primitives\Decorators\SimpleBackground;
+    use Chameleon\Image;
+    use Chameleon\Colors\IColor;
 
     abstract class Primitive implements IPrimitive {
         protected $point;
 
-        /**
-         * Draw the primitive onto the given image resource
-         *
-         * @param $imageResource The GD image resource
-         * @return void
-         */
-        public function draw($imageResource) {
-            // Draw decorators
-        }
+        protected $borderColor;
+        protected $borderThickness;
+        protected $backgroundColor;
+        abstract public function draw(Image $image);
 
         /**
          * Set primitve position
@@ -39,43 +34,63 @@
         }
 
         /**
-         * Set the primitve's border
+         * Set border color
          *
-         * @param Border $border
+         * @param IColor $color The color
          * @return self
          */
-        public function setBorder(Border $border) : self {
-            $this -> border = $border;
+        public function setBorderColor(IColor $color) : self {
+            $this -> borderColor = $color;
             return $this;
         }
 
         /**
-         * Get the primitive's border
+         * Get border color
          *
-         * @return Border
+         * @return IColor The color
          */
-        public function getBorder(): Border {
-            return $this -> border;
+        public function getBorderColor(): IColor {
+            return $this -> borderColor;
         }
 
         /**
-         * Set the primitve's background
+         * Set border thickness in px
          *
-         * @param BSimpleackground $background
+         * @param int $thickness the thickness in px
          * @return self
          */
-        public function setBackground(SimpleBackground $background) : self {
-            $this -> background = $background;
+        public function setBorderThickness(int $thickness) : self {
+            $this -> borderThickness = $thickness;
             return $this;
         }
 
         /**
-         * Get the primitive's background
+         * Get border thickness in px
          *
-         * @return SimpleBackground
+         * @return int the thickness in px
          */
-        public function getBackground(): SimpleBackground {
-            return $this -> background;
+        public function getBorderThickness(): int {
+            return $this -> borderThickness;
+        }
+
+        /**
+         * Set background color
+         *
+         * @param Icolor $color The color
+         * @return self
+         */
+        public function setBackgroundColor(Icolor $color) : self {
+            $this -> backgroundColor = $color;
+            return $this;
+        }
+
+        /**
+         * Get background color
+         *
+         * @return IColor The color
+         */
+        public function getBackground(): IColor {
+            return $this -> backgroundColor;
         }
     }
 ?>
