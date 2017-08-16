@@ -19,18 +19,32 @@ Chameleon is available on packagist.org as webd97/chameleon:
     use Chameleon\Colors\RGBColor;
     use Chameleon\Primitives\Rectangle;
     use Chameleon\Primitives\Ellipse;
+    use Chameleon\Primitives\Decorators\Border;
     
     $image = Image::create(512, 512);
+
+    $colorBackground        = new RGBColor(64, 191, 255);
+    $colorRectangle         = new RGBColor(32, 128, 64);
+    $colorRectangleBorder   = new RGBColor(255, 255, 255);
+    $colorEllipse           = new RGBColor(128, 128, 128);
+    $colorEllipseBorder     = new RGBColor(255, 0, 255);
+
+    $positionRectangle  = new Vector2(50, 50);
+    $positionEllipse    = new Vector2(256, 256);
     
-    $image -> registerColor("blue", new RGBColor(64, 191, 255));
+    $image -> setBackgroundColor($colorBackground);
     
-    $image -> setBackgroundColor("blue");
+    $rect = new Rectangle($positionRectangle, 200, 200);
+    $rect -> setBackgroundColor($colorRectangle)
+          -> setBorderThickness(5)
+          -> setBorderColor($colorRectangleBorder);
+        
+    $elli = new Ellipse($positionEllipse, 488, 488);
+    $elli -> setBackgroundColor($colorEllipse)
+          -> setBorderColor($colorEllipseBorder);
     
-    $rect = new Rectangle(new Vector2(12, 12), 488, 488);
-    $elli = new Ellipse(new Vector2(256, 256), 488, 488);
-    
-    $image -> draw($rect);
     $image -> draw($elli);
+    $image -> draw($rect);
     
     header("Content-type: image/png");
     $image -> as(IMG_PNG);
