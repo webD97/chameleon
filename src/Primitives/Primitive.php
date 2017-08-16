@@ -89,7 +89,7 @@
          *
          * @return IColor The color
          */
-        public function getBackground(): IColor {
+        public function getBackgroundColor(): IColor {
             return $this -> backgroundColor;
         }
     }
