@@ -1,7 +1,7 @@
 {
     "name": "webd97/chameleon",
     "description": "PHP image manipulation library built around GD",
-    "license": "GPLv3",
+    "license": "MIT",
     "keywords": ["image", "manipulation", "creation", "gd", "gd2", "png"],
     "require": {
         "php": "^7.0"
