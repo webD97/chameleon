@@ -1,5 +1,7 @@
 # Chameleon [![Build Status](https://travis-ci.org/webD97/chameleon.svg?branch=master)](https://travis-ci.org/webD97/chameleon)
-Chameleon is a PHP image manipulation library built around GD
+Chameleon is a PHP image manipulation library built around GD.
+
+Please note that it is still in development!
 
 ## Code example
 ```php
