@@ -30,6 +30,7 @@ Chameleon's image components are organized in the *Chameleon* namespace. Be sure
 
 ```php
 File: MyFirstChameleonImage.php
+
 <?php
     require __DIR__ . "/vendor/autoload.php";
 
@@ -44,6 +45,7 @@ Create the components you like to use and set their properties.
 
 ```php
 File: MyFirstChameleonImage.php
+
 <?php
     require __DIR__ . "/vendor/autoload.php";
 
@@ -88,7 +90,7 @@ File: MyFirstChameleonImage.php
 ---
 That's it. Navigate your browser to MyFirstChameleonImage.php and take at look at your creation!
 
-![Chameleon example image](./img/index/example.png)
+![Chameleon example image](./img/index/example2.png)
 
 ## Where to go next?
 Take a look at the documentation (coming soon).
