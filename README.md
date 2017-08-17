@@ -1,4 +1,4 @@
-# Chameleon [![Build Status](https://travis-ci.org/webD97/chameleon.svg?branch=master)](https://travis-ci.org/webD97/chameleon)
+# Chameleon [![Build Status](https://travis-ci.org/webD97/chameleon.svg?branch=master)](https://travis-ci.org/webD97/chameleon) [![Code Climate](https://codeclimate.com/github/webD97/chameleon/badges/gpa.svg)](https://codeclimate.com/github/webD97/chameleon) [![Test Coverage](https://codeclimate.com/github/webD97/chameleon/badges/coverage.svg)](https://codeclimate.com/github/webD97/chameleon/coverage)
 Chameleon is a PHP image manipulation library built around GD.
 
 Please note that it is still in development!
