@@ -8,17 +8,6 @@
         public abstract function getAlpha() : int;
 
         /**
-         * Get the hexadecimal representation of this color
-         * 
-         * Format: #rrggbb
-         *
-         * @return string
-         */
-        public function getHex() : string {
-            return "#" . dechex($this -> getRed()) . dechex($this -> getGreen()) . dechex($this -> getBlue()) . dechex($this -> getAlpha());
-        }
-
-        /**
          * Check if a value is in a legal range
          *
          * @param $value
