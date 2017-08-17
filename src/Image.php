@@ -98,7 +98,7 @@
          */
         public function registerColor(IColor $color) {
             if (!isset($this -> colors[$color -> getHex()])) {
-                return $this -> colors[$color -> getHex()] = imagecolorallocatealpha($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue(), $color -> getAlpha());
+                return $this -> colors[$color -> __toString()] = imagecolorallocatealpha($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue(), $color -> getAlpha());
             }
             else {
                 throw new Exception("Color '" . $color -> getHex() . "' is already registered!");
@@ -112,7 +112,7 @@
          * @return bool
          */
         public function isColorRegistered(IColor $color) : bool {
-            return isset($this -> colors[$color -> getHex()]);
+            return isset($this -> colors[$color -> __toString()]);
         }
 
         /**
@@ -123,7 +123,7 @@
          */
         public function getRegisteredColor(IColor $color) : int {
             if ($this -> isColorRegistered($color)) {
-                return $this -> colors[$color -> getHex()];
+                return $this -> colors[$color -> __toString()];
             }
             else {
                 throw new ColorNotFoundException($color);
