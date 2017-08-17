@@ -1,6 +1,4 @@
 language: php
-install:
-  - composer install
 php:
   - '7.0'
   - '7.1'
@@ -15,12 +13,5 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
 script:
-  - cd ./cc-test-reporter
   - bundle exec rspec
-  # Preferably you will run test-reporter on branch update events. But 
-  # if you setup travis to build PR updates only, you don't need to run 
-  # the line below
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
-  # In the case where travis is setup to build PR updates only, 
-  # uncomment the line below
-  # - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
