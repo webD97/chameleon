@@ -37,13 +37,19 @@
                     case "image/png":
                         $rawImage = imagecreatefrompng($path);
                         break;
-                    }
+                    case "image/jpeg":
+                        $rawImage = imagecreatefromjpeg($path);
+                        break;
+                    case "image/gif":
+                        $rawImage = imagecreatefromgif($path);
+                        break;
+                }
                     
-                    if (!imageistruecolor($rawImage)) {
-                        imagepalettetotruecolor($rawImage);
-                    }
+                if (!imageistruecolor($rawImage)) {
+                    imagepalettetotruecolor($rawImage);
+                }
                     
-                    return new Image($rawImage);
+                return new Image($rawImage);
             }
 
             // TODO: Do somthing useful if file not found
