@@ -24,6 +24,13 @@
         public function getBlue() : int;
 
         /**
+         * Return RGB alpha channel value
+         *
+         * @return int
+         */
+        public function getAlpha() : int;
+
+        /**
          * Return 8-digit hexadecimal representation as string
          *
          * @return string

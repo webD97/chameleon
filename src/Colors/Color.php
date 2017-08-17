@@ -5,6 +5,7 @@
         public abstract function getRed() : int;
         public abstract function getGreen() : int;
         public abstract function getBlue() : int;
+        public abstract function getAlpha() : int;
 
         /**
          * Get the hexadecimal representation of this color
@@ -14,7 +15,7 @@
          * @return string
          */
         public function getHex() : string {
-            return "#" . dechex($this -> getRed()) . dechex($this -> getGreen()) . dechex($this -> getBlue());
+            return "#" . dechex($this -> getRed()) . dechex($this -> getGreen()) . dechex($this -> getBlue()) . dechex($this -> getAlpha());
         }
 
         /**

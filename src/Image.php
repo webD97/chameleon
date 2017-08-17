@@ -98,7 +98,7 @@
          */
         public function registerColor(IColor $color) {
             if (!isset($this -> colors[$color -> getHex()])) {
-                return $this -> colors[$color -> getHex()] = imagecolorallocate($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue());
+                return $this -> colors[$color -> getHex()] = imagecolorallocatealpha($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue(), $color -> getAlpha());
             }
             else {
                 throw new Exception("Color '" . $color -> getHex() . "' is already registered!");

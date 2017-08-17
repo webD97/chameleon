@@ -163,5 +163,9 @@
         public function getBlue() : int {
             return $this -> blue;
         }
+
+        public function getAlpha() : int {
+            return 0;
+        }
     }
 ?>

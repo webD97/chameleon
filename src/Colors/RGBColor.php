@@ -53,5 +53,9 @@
 
             $this -> blue = $blue;
         }
+
+        public function getAlpha() : int {
+            return 0;
+        }
     }
 ?>
