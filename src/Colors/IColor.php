@@ -23,6 +23,11 @@
          */
         public function getBlue() : int;
 
+        /**
+         * Return 8-digit hexadecimal representation as string
+         *
+         * @return string
+         */
         public function getHex() : string;
     }
 ?>
