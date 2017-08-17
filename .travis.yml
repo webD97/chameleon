@@ -5,13 +5,10 @@ php:
   - nightly
 
 install:
-  - pwd
   - composer install
 
 script:
-  - pwd
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_success:
-  - pwd
   - CODECLIMATE_REPO_TOKEN=50ee382cc6cb6a7b46ad45f60db6142fd4899f44a8cf08d85eecca970b7aad05 vendor/bin/test-reporter
