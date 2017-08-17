@@ -80,6 +80,7 @@ You can output your image directly to the browser with just two lines of code.
 ```php
 File: MyFirstChameleonImage.php
 
+<?php
     (...)
 
     header("Content-type: image/png");
