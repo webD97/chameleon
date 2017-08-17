@@ -4,14 +4,14 @@ php:
   - '7.1'
   - nightly
 env:
-  global:
-    - CC_TEST_REPORTER_ID=50ee382cc6cb6a7b46ad45f60db6142fd4899f44a8cf08d85eecca970b7aad05
-    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
-rvm:
-  - 2.2.0
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
+  - CODECLIMATE_REPO_TOKEN=50ee382cc6cb6a7b46ad45f60db6142fd4899f44a8cf08d85eecca970b7aad05
+
+install:
+  - composer install
+
 script:
-  - bundle exec rspec
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+after_success:
+  - vendor/bin/test-reporter
+  
