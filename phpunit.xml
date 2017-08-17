@@ -8,7 +8,8 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="false">
+         syntaxCheck="false"
+         addUncoveredFilesFromWhitelist="true">
     <testsuites>
         <testsuite name="Chameleon Test Suite">
             <directory suffix=".php">./test/</directory>
