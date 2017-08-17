@@ -9,6 +9,11 @@ Chameleon is available on packagist.org as webd97/chameleon:
 
     composer require webd97/chameleon
 
+## Features
+- Multiple color systems: RGB, RGBA, HSV, Hex (planned), HSL (planned), HSLA (planned)
+- Object-oriented programming interface using different Vector, Primitive and Color classes
+- Different output options: PNG, JPG (planned), GIF (planned), each with base64 data-URI support (planned)
+
 ## Code example
 ```php
 <?php
