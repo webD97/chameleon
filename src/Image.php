@@ -5,6 +5,7 @@
 
     use Chameleon\Primitives\IPrimitive;
     use Chameleon\Colors\IColor;
+    use Chameleon\Colors\RGBColor;
 
     class Image {
         private $imageResource;
@@ -63,7 +64,7 @@
          * @return int The height
          */
         public function getHeight() : int {
-            return imagesx($this -> imageResource);
+            return imagesy($this -> imageResource);
         }
 
         /**
@@ -98,7 +99,12 @@
          */
         public function registerColor(IColor $color) {
             if (!isset($this -> colors[$color -> __toString()])) {
-                return $this -> colors[$color -> __toString()] = imagecolorallocatealpha($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue(), $color -> getAlpha());
+                $id = imagecolorallocatealpha($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue(), $color -> getAlpha());
+                if ($id !== false) {
+                    $this -> colors[$color -> __toString()] = $id;
+                    return $id;
+                }
+                return -1;
             }
             else {
                 throw new Exception("Color '" . $color -> __toString() . "' is already registered!");
@@ -134,12 +140,15 @@
          * Register a color only if it has not been registered yet
          *
          * @param IColor $color
-         * @return void
+         * @return bool was unknown?
          */
-        public function registerColorIfUnknown(IColor $color) {
+        public function registerColorIfUnknown(IColor $color) : bool {
             if (!$this -> isColorRegistered($color)) {
                 $this -> registerColor($color);
+                return true;
             }
+
+            return false;
         }
 
         /**
