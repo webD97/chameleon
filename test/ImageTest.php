@@ -18,7 +18,7 @@
         }
 
         public function testfromFile() {
-            $this -> image = Image::fromFile();
+            $this -> image = Image::fromFile(__DIR__ . "/../docs/img/index/example.png");
             $this -> assertObjectHasAttribute("imageResource", $this -> image);
         }
 

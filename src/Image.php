@@ -19,8 +19,7 @@
          * @return self
          */
         public static function create(int $width, int $height) : self {
-            $image = new Image();
-            $image -> imageResource = imagecreatetruecolor($width, $height);
+            $image = new Image(imagecreatetruecolor($width, $height));
             return $image;
         }
 
@@ -30,16 +29,33 @@
          * @todo Actually load a file
          * @return self
          */
-        public static function fromFile() : self {
-            $image = new Image();
-            $image -> imageResource = imagecreatetruecolor(1, 1);
-            return $image;
+        public static function fromFile(string $path) : self {
+            if (file_exists($path)) {
+                $rawImage;
+
+                switch (mime_content_type($path)) {
+                    case "image/png":
+                        $rawImage = imagecreatefrompng($path);
+                        break;
+                    }
+                    
+                    if (!imageistruecolor($rawImage)) {
+                        imagepalettetotruecolor($rawImage);
+                    }
+                    
+                    return new Image($rawImage);
+            }
+
+            // TODO: Do somthing useful if file not found
+            return Image::create(1, 1);
         }
 
         /**
          * @ignore Class must not be instantiated from outside
          */
-        private function __construct() {}
+        private function __construct($imageResource) {
+            $this -> imageResource = $imageResource;
+        }
 
         public function __destruct() {
             foreach ($this -> colors as $color) {
