@@ -153,7 +153,13 @@
             imagefilledrectangle($this -> imageResource, 0, 0, $this -> getWidth(), $this -> getHeight(), $this -> getRegisteredColor($color));
         }
 
-        public function getPixel(Vector2 $position) : IColor {
+        /**
+         * Get color of a specific pixel
+         *
+         * @param Vector2 $position
+         * @return RGBColor The color
+         */
+        public function getPixel(Vector2 $position) : RGBColor {
             $rgb = imagecolorat($this -> imageResource, $position -> getX(), $position -> getY());
             $r = ($rgb >> 16) & 0xFF;
             $g = ($rgb >> 8) & 0xFF;
@@ -162,6 +168,13 @@
             return new RGBColor($r, $g, $b);
         }
 
+        /**
+         * Set the color of a specific pixel
+         *
+         * @param Vector2 $position
+         * @param IColor $color
+         * @return void
+         */
         public function setPixel(Vector2 $position, IColor $color) {
             $this -> registerColorIfUnknown($color);
             imagesetpixel($this -> imageResource, $position -> getX(), $position -> getY(), $this -> getRegisteredColor($color));
