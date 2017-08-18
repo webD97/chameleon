@@ -1,0 +1,8 @@
+exclude_paths:
+  - docs
+  - LICENSE
+  - .travis.yml
+  - .gitignore
+  - README.md
+  - composer.json
+  - phpunit.xml
