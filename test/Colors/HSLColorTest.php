@@ -20,7 +20,7 @@
         /**
          * @covers \Chameleon\Colors\HSLColor::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("hue", $this -> color);
             $this -> assertObjectHasAttribute("saturation", $this -> color);
             $this -> assertObjectHasAttribute("lightness", $this -> color);
@@ -29,7 +29,7 @@
         /**
          * @covers \Chameleon\Colors\HSLColor::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("hsl(0, 1, 0.5)", $this -> color -> __toString());
         }
 

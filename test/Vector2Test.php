@@ -19,7 +19,7 @@
         /**
          * @covers \Chameleon\Vector2::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("x", $this -> vector);
             $this -> assertObjectHasAttribute("y", $this -> vector);
         }
@@ -27,7 +27,7 @@
         /**
          * @covers \Chameleon\Vector2::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("(20, 10)", $this -> vector -> __toString());
         }
 

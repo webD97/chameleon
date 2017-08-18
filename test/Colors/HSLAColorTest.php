@@ -20,14 +20,14 @@
         /**
          * @covers \Chameleon\Colors\HSLAColor::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("alpha", $this -> color);
         }
 
         /**
          * @covers \Chameleon\Colors\HSLAColor::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("hsla(200, 1, 0.63, 16)", $this -> color -> __toString());
         }
 

@@ -20,7 +20,7 @@
         /**
          * @covers \Chameleon\Colors\RGBColor::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("red", $this -> color);
             $this -> assertObjectHasAttribute("green", $this -> color);
             $this -> assertObjectHasAttribute("blue", $this -> color);
@@ -29,7 +29,7 @@
         /**
          * @covers \Chameleon\Colors\RGBColor::__tostring
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("rgb(255, 127, 63)", $this -> color -> __toString());
         }
 
