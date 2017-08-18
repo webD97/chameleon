@@ -133,7 +133,7 @@
 
             $this -> color = new HSLColor(300, 1, 0.75);
 
-            $this -> assertEquals("hsl(300, 1, 0.75", $this -> color -> __toString());
+            $this -> assertEquals("hsl(300, 1, 0.75)", $this -> color -> __toString());
         }
     }
 ?>
