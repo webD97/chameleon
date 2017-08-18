@@ -16,23 +16,38 @@
             $this -> image = Image::create(20, 10);
         }
 
+        /**
+         * @covers Image::create
+         */
         public function testCreate() {
             $this -> assertObjectHasAttribute("imageResource", $this -> image);
         }
 
+        /**
+         * @covers Image::fromFile
+         */
         public function testfromFile() {
             $this -> image = Image::fromFile(__DIR__ . "/../docs/img/index/example.png");
             $this -> assertObjectHasAttribute("imageResource", $this -> image);
         }
 
+        /**
+         * @covers Image::getWidth
+         */
         public function testGetWidth() {
             $this -> assertEquals(20, $this -> image -> getWidth());
         }
 
+        /**
+         * @covers Image::getHeight
+         */
         public function testGetHeight() {
             $this -> assertEquals(10, $this -> image -> getHeight());
         }
 
+        /**
+         * @covers Image::getRegisteredColor
+         */
         public function testGetRegisteredColor() {
             $color = new RGBColor(0, 0, 0);
             $id = $this -> image -> registerColor($color);
@@ -40,12 +55,18 @@
             $this -> assertEquals($id, $this -> image -> getRegisteredColor($color));
         }
 
+        /**
+         * @covers Image::registerColor
+         */
         public function testRegisterColor() {
             $color = new RGBColor(0, 0, 0);
 
             $this -> assertNotEquals(-1, $this -> image -> registerColor($color));
         }
         
+        /**
+         * @covers Image::isColorRegistered
+         */
         public function testIsColorRegisteredYes() {
             $color = new RGBColor(0, 0, 0);
             $this -> image -> registerColor($color);
@@ -53,12 +74,18 @@
             $this -> assertTrue($this -> image -> isColorRegistered($color));
         }
 
+        /**
+         * @covers Image::isColorRegistered
+         */
         public function testIsColorRegisteredNo() {
             $color = new RGBColor(0, 0, 0);
 
             $this -> assertFalse($this -> image -> isColorRegistered($color));
         }
 
+        /**
+         * @covers Image::registerColorIfUnknown
+         */
         public function testRegisterColorIfUnknownYes() {
             $color = new RGBColor(0, 0, 0);
 
@@ -66,6 +93,9 @@
             $this -> assertTrue($this -> image -> isColorRegistered($color));
         }
 
+        /**
+         * @covers Image::registerColorIfUnknown
+         */
         public function testRegisterColorIfUnknownNo() {
             $color = new RGBColor(0, 0, 0);
             $this -> image -> registerColor($color);
@@ -74,6 +104,9 @@
             $this -> assertTrue($this -> image -> isColorRegistered($color));
         }
 
+        /**
+         * @covers Image::getPixel
+         */
         public function testGetPixel() {
             // TODO: Use existing image as soon as implemented
             $pos = new Vector2(5, 5);
@@ -83,6 +116,9 @@
             $this -> assertEquals($color, $this -> image -> getPixel($pos));
         }
 
+        /**
+         * @covers Image::setPixel
+         */
         public function testSetPixel() {
             $pos = new Vector2(5, 5);
             $color = new RGBColor(63, 127, 255);
@@ -91,6 +127,9 @@
             $this -> assertEquals($color, $this -> image -> getPixel($pos));
         }
 
+        /**
+         * @covers Image::setBackgroundColor
+         */
         public function testSetBackgroundColor() {
             $color = new RGBColor(255, 255, 255);
             $topLeft = new Vector2(0, 0);

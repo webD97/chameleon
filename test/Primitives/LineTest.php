@@ -20,6 +20,9 @@
             $this -> line = new Line($this -> start, $this -> end);
         }
 
+        /**
+         * @covers Line::__construct
+         */
         public function test__construct() {
             $this -> assertObjectHasAttribute("start", $this -> line);
             $this -> assertObjectHasAttribute("end", $this -> line);
@@ -27,45 +30,72 @@
             $this -> assertObjectHasAttribute("color", $this -> line);
         }
 
+        /**
+         * @covers Line::getStart
+         */
         public function testGetStart() {
             $this -> assertEquals($this -> start, $this -> line -> getStart());
         }
 
+        /**
+         * @covers Line::setStart
+         */
         public function testSetStart() {
             $start = new Vector2(5, 5);
             $this -> line -> setStart($start);
             $this -> assertEquals($start, $this -> line -> getStart());
         }
 
+        /**
+         * @covers Line::getEnd
+         */
         public function testGetEnd() {
             $this -> assertEquals($this -> end, $this -> line -> getEnd());
         }
 
+        /**
+         * @covers Line::setEnd
+         */
         public function testSetEnd() {
             $end = new Vector2(15, 15);
             $this -> line -> setEnd($end);
             $this -> assertEquals($end, $this -> line -> getEnd());
         }
 
+        /**
+         * @covers Line::getThickness
+         */
         public function testGetThickness() {
             $this -> assertEquals(1, $this -> line -> getThickness());
         }
 
+        /**
+         * @covers Line::setThickness
+         */
         public function testSetThickness() {
             $this -> line -> setThickness(5);
             $this -> assertEquals(5, $this -> line -> getThickness());
         }
 
+        /**
+         * @covers Line::getColor
+         */
         public function testGetColor() {
             $this -> assertEquals(new RGBColor(0, 0, 0), $this -> line -> getColor());
         }
 
+        /**
+         * @covers Line::setColor
+         */
         public function testSetColor() {
             $color = new RGBColor(255, 255, 255);
             $this -> line -> setColor($color);
             $this -> assertEquals($color, $this -> line -> getColor());
         }
 
+        /**
+         * @covers Line::setPosition
+         */
         public function testSetPosition() {
             $this -> line -> setPosition(new Vector2(50, 50));
 
