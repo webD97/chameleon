@@ -108,9 +108,9 @@
         }
 
         private function makeRGB() {
-            $h = 200;
-            $s = 1;
-            $l = 0.63;
+            $h = $this -> hue;
+            $s = $this -> saturation;
+            $l = $this -> lightness;
             
             if($s == 0){
                 $this -> red = $this -> green = $this -> blue = $l;
