@@ -128,13 +128,13 @@
          * @covers \Chameleon\Colors\HSLColor::makeRGB
          */
         public function testRGBConversion() {
-            // HSL: (200, 1, 0.63)
-            // RGB: (66, 192, 254)
+            // HSL: (300, 1, 0.75)
+            // RGB: (255, 127, 255)
 
-            $this -> color = new HSLColor(200, 1, 0.63);
+            $this -> color = new HSLColor(300, 1, 0.75);
 
-            $this -> assertEquals(66, $this -> color -> getRed());
-            $this -> assertEquals(192, $this -> color -> getGreen());
+            $this -> assertEquals(255, $this -> color -> getRed());
+            $this -> assertEquals(127, $this -> color -> getGreen());
             $this -> assertEquals(255, $this -> color -> getBlue());
         }
     }
