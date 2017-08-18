@@ -129,12 +129,12 @@
          */
         public function testRGBConversion() {
             // HSL: (300, 1, 0.75)
-            // RGB: (255, 127, 255)
+            // RGB: (255, 128, 255)
 
             $this -> color = new HSLColor(300, 1, 0.75);
 
             $this -> assertEquals(255, $this -> color -> getRed());
-            $this -> assertEquals(127, $this -> color -> getGreen());
+            $this -> assertEquals(128, $this -> color -> getGreen());
             $this -> assertEquals(255, $this -> color -> getBlue());
         }
     }
