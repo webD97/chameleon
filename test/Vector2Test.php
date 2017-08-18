@@ -7,7 +7,10 @@
 
         private $vector;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> vector = new Vector2(20, 10);
         }
 

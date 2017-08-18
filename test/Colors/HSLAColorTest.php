@@ -8,7 +8,10 @@
 
         private $color;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> color = new HSLAColor(200, 1, 0.63, 16);
         }
 

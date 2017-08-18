@@ -8,7 +8,10 @@
 
         private $color;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> color = new Hex8Color("#40BFFF55");
         }
 

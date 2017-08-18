@@ -8,7 +8,10 @@
 
         private $color;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> color = new HSVColor(0, 1, 0.5);
         }
 

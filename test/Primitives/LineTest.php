@@ -11,7 +11,10 @@
         private $start;
         private $end;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> start = new Vector2(0, 0);
             $this -> end = new Vector2(10, 10);
             $this -> line = new Line($this -> start, $this -> end);

@@ -8,7 +8,10 @@
 
         private $color;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> color = new RGBColor(255, 127, 63);
         }
 

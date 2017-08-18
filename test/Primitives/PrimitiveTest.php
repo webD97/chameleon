@@ -10,7 +10,10 @@
 
         private $primitive;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> primitive = $this -> getMockForAbstractClass(Primitive::class);
         }
 

@@ -9,7 +9,10 @@
 
         private $rect;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> rect = new Rectangle(new Vector2(0, 0), 50, 100);
         }
 

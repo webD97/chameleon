@@ -9,7 +9,10 @@
 
         private $image;
 
-        protected function setUp() {
+        /**
+         * @before
+         */
+        public function setUp() {
             $this -> image = Image::create(20, 10);
         }
 
