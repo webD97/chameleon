@@ -57,13 +57,13 @@ File: MyFirstChameleonImage.php
 
     $image = Image::create(480, 360);
 
-    $imageBackground = new HSLColor(0, 0, 0.7);
+    $imageBackground = new HSLColor(135, 1, 0.3);
 
     $image -> setBackgroundColor($imageBackground);
 
     $rectanglePosition = new Vector2(50, 50);
-    $rectangleBackground = new HSLColor(45, 1, 1);
-    $rectangleBorder = new HSLColor(90, 1, 1);
+    $rectangleBackground = new HSLColor(45, 1, 0.5);
+    $rectangleBorder = new HSLColor(90, 1, 0.8);
 
     $rectangle = new Rectangle($rectanglePosition, 380, 260);
     $rectangle -> setBackgroundColor($rectangleBackground)
