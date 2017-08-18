@@ -17,7 +17,7 @@
         }
 
         /**
-         * @covers Rectangle::__construct
+         * @covers Chameleon\Primitives\Rectangle::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("width", $this -> rect);
@@ -25,14 +25,14 @@
         }
 
         /**
-         * @covers Rectangle::getWidth
+         * @covers Chameleon\Primitives\Rectangle::getWidth
          */
         public function testGetWidth() {
             $this -> assertEquals(50, $this -> rect -> getWidth());
         }
 
         /**
-         * @covers Rectangle::setWidth
+         * @covers Chameleon\Primitives\Rectangle::setWidth
          */
         public function testSetWidth() {
             $this -> rect -> setWidth(20);
@@ -40,14 +40,14 @@
         }
 
         /**
-         * @covers Rectangle::getHeight
+         * @covers Chameleon\Primitives\Rectangle::getHeight
          */
         public function testGetHeight() {
             $this -> assertEquals(100, $this -> rect -> getHeight());
         }
 
         /**
-         * @covers Rectangle::setHeight
+         * @covers Chameleon\Primitives\Rectangle::setHeight
          */
         public function testSetHeight() {
             $this -> rect -> setHeight(5);
@@ -55,7 +55,7 @@
         }
 
         /**
-         * @covers Rectangle::draw
+         * @covers Chameleon\Primitives\Rectangle::draw
          */
         public function testDraw() {
             // TODO
