@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Colors;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\RGBAColor;

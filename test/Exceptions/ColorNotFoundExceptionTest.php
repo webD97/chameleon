@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Exceptions;
+
     use PHPUnit\Framework\TestCase;
     
     use Chameleon\Exceptions\ColorNotFoundException;
