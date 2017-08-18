@@ -91,7 +91,7 @@ File: MyFirstChameleonImage.php
 ---
 That's it. Navigate your browser to MyFirstChameleonImage.php and take at look at your creation!
 
-![Chameleon example image](./img/index/example2.png)
+![Chameleon example image](./img/index/example.png)
 
 ## Where to go next?
 Take a look at the documentation (coming soon).
