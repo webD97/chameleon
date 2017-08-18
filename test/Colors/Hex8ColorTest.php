@@ -45,6 +45,13 @@
         }
 
         /**
+         * @covers Hex8Color::getAlpha
+         */
+        public function testGetAlpha() {
+            $this -> assertEquals(0x55, $this -> color -> getAlpha());
+        }
+
+        /**
          * @covers Hex8Color::setAlpha
          */
         public function testSetAlpha() {
