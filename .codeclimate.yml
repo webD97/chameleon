@@ -1,3 +1,7 @@
+ratings:
+  paths:
+  - src/**
+
 exclude_paths:
   - docs
   - LICENSE
