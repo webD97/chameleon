@@ -1,0 +1,24 @@
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+        php:
+  phpcodesniffer:
+    enabled: true
+    config:
+      file_extensions: "php"
+      standard: "PSR1"
+
+ratings:
+  paths:
+  - src/**.php
+
+exclude_paths:
+  - docs
+  - LICENSE
+  - .travis.yml
+  - .gitignore
+  - README.md
+  - composer.json
+  - phpunit.xml
