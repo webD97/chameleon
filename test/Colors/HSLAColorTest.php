@@ -16,28 +16,28 @@
         }
 
         /**
-         * @covers HSLAColor::__construct
+         * @covers \Chameleon\Colors\HSLAColor::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("alpha", $this -> color);
         }
 
         /**
-         * @covers HSLAColor::__toString
+         * @covers \Chameleon\Colors\HSLAColor::__toString
          */
         public function test__toString() {
             $this -> assertEquals("hsla(200, 1, 0.63, 16)", $this -> color -> __toString());
         }
 
         /**
-         * @covers HSLAColor::getAlpha
+         * @covers \Chameleon\Colors\HSLAColor::getAlpha
          */
         public function testGetAlpha() {
             $this -> assertEquals(16, $this -> color -> getAlpha());
         }
 
         /**
-         * @covers HSLAColor::setAlpha
+         * @covers \Chameleon\Colors\HSLAColor::setAlpha
          */
         public function testSetAlpha() {
             $this -> color -> setAlpha(0);
@@ -45,7 +45,7 @@
         }
 
         /**
-         * @covers HSLAColor::setAlpha
+         * @covers \Chameleon\Colors\HSLAColor::setAlpha
          */
         public function testSetAlphaTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -53,7 +53,7 @@
         }
 
         /**
-         * @covers HSLAColor::setAlpha
+         * @covers \Chameleon\Colors\HSLAColor::setAlpha
          */
         public function testSetAlphaTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);

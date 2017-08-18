@@ -16,7 +16,7 @@
         }
 
         /**
-         * @covers RGBColor::__construct
+         * @covers \Chameleon\Colors\RGBColor::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("red", $this -> color);
@@ -25,35 +25,35 @@
         }
 
         /**
-         * @covers RGBColor::__tostring
+         * @covers \Chameleon\Colors\RGBColor::__tostring
          */
         public function test__toString() {
             $this -> assertEquals("rgb(255, 127, 63)", $this -> color -> __toString());
         }
 
         /**
-         * @covers RGBColor::getRed
+         * @covers \Chameleon\Colors\RGBColor::getRed
          */
         public function testGetRed() {
             $this -> assertEquals(255, $this -> color -> getRed());
         }
 
         /**
-         * @covers RGBColor::getGreen
+         * @covers \Chameleon\Colors\RGBColor::getGreen
          */
         public function testGetGreen() {
             $this -> assertEquals(127, $this -> color -> getGreen());
         }
 
         /**
-         * @covers RGBColor::getBlue
+         * @covers \Chameleon\Colors\RGBColor::getBlue
          */
         public function testGetBlue() {
             $this -> assertEquals(63, $this -> color -> getBlue());
         }
 
         /**
-         * @covers RGBColor::setRed
+         * @covers \Chameleon\Colors\RGBColor::setRed
          */
         public function testSetRed() {
             $this -> color -> setRed(0);
@@ -61,7 +61,7 @@
         }
 
         /**
-         * @covers RGBColor::setRed
+         * @covers \Chameleon\Colors\RGBColor::setRed
          */
         public function testSetRedTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -69,7 +69,7 @@
         }
 
         /**
-         * @covers RGBColor::setRed
+         * @covers \Chameleon\Colors\RGBColor::setRed
          */
         public function testSetRedTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -77,7 +77,7 @@
         }
 
         /**
-         * @covers RGBColor::setGreen
+         * @covers \Chameleon\Colors\RGBColor::setGreen
          */
         public function testSetGreen() {
             $this -> color -> setGreen(0);
@@ -85,7 +85,7 @@
         }
 
         /**
-         * @covers RGBColor::setGreen
+         * @covers \Chameleon\Colors\RGBColor::setGreen
          */
         public function testSetGreenTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -93,7 +93,7 @@
         }
 
         /**
-         * @covers RGBColor::setGreen
+         * @covers \Chameleon\Colors\RGBColor::setGreen
          */
         public function testSetGreenTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -101,7 +101,7 @@
         }
 
         /**
-         * @covers RGBColor::setBlue
+         * @covers \Chameleon\Colors\RGBColor::setBlue
          */
         public function testSetBlue() {
             $this -> color -> setBlue(0);
@@ -109,7 +109,7 @@
         }
 
         /**
-         * @covers RGBColor::setBlue
+         * @covers \Chameleon\Colors\RGBColor::setBlue
          */
         public function testSetBlueTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -117,7 +117,7 @@
         }
 
         /**
-         * @covers RGBColor::setBlue
+         * @covers \Chameleon\Colors\RGBColor::setBlue
          */
         public function testSetBlueTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);

@@ -16,7 +16,7 @@
         }
 
         /**
-         * @covers HSLColor::__construct
+         * @covers \Chameleon\Colors\HSLColor::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("hue", $this -> color);
@@ -25,35 +25,35 @@
         }
 
         /**
-         * @covers HSLColor::__toString
+         * @covers \Chameleon\Colors\HSLColor::__toString
          */
         public function test__toString() {
             $this -> assertEquals("hsl(0, 1, 0.5)", $this -> color -> __toString());
         }
 
         /**
-         * @covers HSLColor::getHue
+         * @covers \Chameleon\Colors\HSLColor::getHue
          */
         public function testGetHue() {
             $this -> assertEquals(0, $this -> color -> getHue());
         }
 
         /**
-         * @covers HSLColor::getSaturation
+         * @covers \Chameleon\Colors\HSLColor::getSaturation
          */
         public function testGetSaturation() {
             $this -> assertEquals(1, $this -> color -> getSaturation());
         }
 
         /**
-         * @covers HSLColor::getLightness
+         * @covers \Chameleon\Colors\HSLColor::getLightness
          */
         public function testGetLightness() {
             $this -> assertEquals(0.5, $this -> color -> getLightness());
         }
 
         /**
-         * @covers HSLColor::setHue
+         * @covers \Chameleon\Colors\HSLColor::setHue
          */
         public function testSetHue() {
             $this -> color -> setHue(90);
@@ -61,7 +61,7 @@
         }
 
         /**
-         * @covers HSLColor::setHue
+         * @covers \Chameleon\Colors\HSLColor::setHue
          */
         public function testSetHueTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -69,7 +69,7 @@
         }
 
         /**
-         * @covers HSLColor::setHue
+         * @covers \Chameleon\Colors\HSLColor::setHue
          */
         public function testSetHueTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -77,7 +77,7 @@
         }
 
         /**
-         * @covers HSLColor::setSaturation
+         * @covers \Chameleon\Colors\HSLColor::setSaturation
          */
         public function testSetSaturation() {
             $this -> color -> setSaturation(0);
@@ -85,7 +85,7 @@
         }
 
         /**
-         * @covers HSLColor::setSaturation
+         * @covers \Chameleon\Colors\HSLColor::setSaturation
          */
         public function testSetSaturationTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -93,7 +93,7 @@
         }
 
         /**
-         * @covers HSLColor::setSaturation
+         * @covers \Chameleon\Colors\HSLColor::setSaturation
          */
         public function testSetSaturationTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -101,7 +101,7 @@
         }
 
         /**
-         * @covers HSLColor::setLightness
+         * @covers \Chameleon\Colors\HSLColor::setLightness
          */
         public function testSetLightness() {
             $this -> color -> setLightness(0.25);
@@ -109,7 +109,7 @@
         }
 
         /**
-         * @covers HSLColor::setLightness
+         * @covers \Chameleon\Colors\HSLColor::setLightness
          */
         public function testsetLightnessTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -117,7 +117,7 @@
         }
 
         /**
-         * @covers HSLColor::setLightness
+         * @covers \Chameleon\Colors\HSLColor::setLightness
          */
         public function testsetLightnessTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -125,7 +125,7 @@
         }
 
         /**
-         * @covers HSLColor::makeRGB
+         * @covers \Chameleon\Colors\HSLColor::makeRGB
          */
         public function testRGBConversion() {
             // HSL: (200, 1, 0.63)

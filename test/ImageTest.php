@@ -17,14 +17,14 @@
         }
 
         /**
-         * @covers Image::create
+         * @covers \Chameleon\Image::create
          */
         public function testCreate() {
             $this -> assertObjectHasAttribute("imageResource", $this -> image);
         }
 
         /**
-         * @covers Image::fromFile
+         * @covers \Chameleon\Image::fromFile
          */
         public function testfromFile() {
             $this -> image = Image::fromFile(__DIR__ . "/../docs/img/index/example.png");
@@ -32,21 +32,21 @@
         }
 
         /**
-         * @covers Image::getWidth
+         * @covers \Chameleon\Image::getWidth
          */
         public function testGetWidth() {
             $this -> assertEquals(20, $this -> image -> getWidth());
         }
 
         /**
-         * @covers Image::getHeight
+         * @covers \Chameleon\Image::getHeight
          */
         public function testGetHeight() {
             $this -> assertEquals(10, $this -> image -> getHeight());
         }
 
         /**
-         * @covers Image::getRegisteredColor
+         * @covers \Chameleon\Image::getRegisteredColor
          */
         public function testGetRegisteredColor() {
             $color = new RGBColor(0, 0, 0);
@@ -56,7 +56,7 @@
         }
 
         /**
-         * @covers Image::registerColor
+         * @covers \Chameleon\Image::registerColor
          */
         public function testRegisterColor() {
             $color = new RGBColor(0, 0, 0);
@@ -65,7 +65,7 @@
         }
         
         /**
-         * @covers Image::isColorRegistered
+         * @covers \Chameleon\Image::isColorRegistered
          */
         public function testIsColorRegisteredYes() {
             $color = new RGBColor(0, 0, 0);
@@ -75,7 +75,7 @@
         }
 
         /**
-         * @covers Image::isColorRegistered
+         * @covers \Chameleon\Image::isColorRegistered
          */
         public function testIsColorRegisteredNo() {
             $color = new RGBColor(0, 0, 0);
@@ -84,7 +84,7 @@
         }
 
         /**
-         * @covers Image::registerColorIfUnknown
+         * @covers \Chameleon\Image::registerColorIfUnknown
          */
         public function testRegisterColorIfUnknownYes() {
             $color = new RGBColor(0, 0, 0);
@@ -94,7 +94,7 @@
         }
 
         /**
-         * @covers Image::registerColorIfUnknown
+         * @covers \Chameleon\Image::registerColorIfUnknown
          */
         public function testRegisterColorIfUnknownNo() {
             $color = new RGBColor(0, 0, 0);
@@ -105,7 +105,7 @@
         }
 
         /**
-         * @covers Image::getPixel
+         * @covers \Chameleon\Image::getPixel
          */
         public function testGetPixel() {
             // TODO: Use existing image as soon as implemented
@@ -117,7 +117,7 @@
         }
 
         /**
-         * @covers Image::setPixel
+         * @covers \Chameleon\Image::setPixel
          */
         public function testSetPixel() {
             $pos = new Vector2(5, 5);
@@ -128,7 +128,7 @@
         }
 
         /**
-         * @covers Image::setBackgroundColor
+         * @covers \Chameleon\Image::setBackgroundColor
          */
         public function testSetBackgroundColor() {
             $color = new RGBColor(255, 255, 255);

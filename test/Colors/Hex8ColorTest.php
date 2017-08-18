@@ -16,28 +16,28 @@
         }
 
         /**
-         * @covers Hex8Color::__construct
+         * @covers \Chameleon\Colors\Hex8Color::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("alpha", $this -> color);
         }
 
         /**
-         * @covers Hex8Color::__toString
+         * @covers \Chameleon\Colors\Hex8Color::__toString
          */
         public function test__toString() {
             $this -> assertEquals("#40BFFF55", $this -> color -> __toString());
         }
 
         /**
-         * @covers Hex8Color::getHex
+         * @covers \Chameleon\Colors\Hex8Color::getHex
          */
         public function testGetHex() {
             $this -> assertEquals("#40BFFF55", $this -> color -> getHex());
         }
 
         /**
-         * @covers Hex8Color::setHex
+         * @covers \Chameleon\Colors\Hex8Color::setHex
          */
         public function testSetHex() {
             $this -> color -> setHex("#AABBCC44");
@@ -45,14 +45,14 @@
         }
 
         /**
-         * @covers Hex8Color::getAlpha
+         * @covers \Chameleon\Colors\Hex8Color::getAlpha
          */
         public function testGetAlpha() {
             $this -> assertEquals(0x55, $this -> color -> getAlpha());
         }
 
         /**
-         * @covers Hex8Color::setAlpha
+         * @covers \Chameleon\Colors\Hex8Color::setAlpha
          */
         public function testSetAlpha() {
             $this -> color -> setAlpha(0x22);
@@ -60,7 +60,7 @@
         }
 
         /**
-         * @covers Hex8Color::setAlpha
+         * @covers \Chameleon\Colors\Hex8Color::setAlpha
          */
         public function testSetAlphaTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -68,7 +68,7 @@
         }
 
         /**
-         * @covers Hex8Color::setAlpha
+         * @covers \Chameleon\Colors\Hex8Color::setAlpha
          */
         public function testSetAlphaTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);

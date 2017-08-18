@@ -16,28 +16,28 @@
         }
 
         /**
-         * @covers RGBAColor::__construct
+         * @covers \Chameleon\Colors\RGBAColor::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("alpha", $this -> color);
         }
 
         /**
-         * @covers RGBAColor::__toString
+         * @covers \Chameleon\Colors\RGBAColor::__toString
          */
         public function test__toString() {
             $this -> assertEquals("rgba(255, 127, 63, 16)", $this -> color -> __toString());
         }
 
         /**
-         * @covers RGBAColor::getAlpha
+         * @covers \Chameleon\Colors\RGBAColor::getAlpha
          */
         public function testGetAlpha() {
             $this -> assertEquals(16, $this -> color -> getAlpha());
         }
 
         /**
-         * @covers RGBAColor::setAlpha
+         * @covers \Chameleon\Colors\RGBAColor::setAlpha
          */
         public function testSetAlpha() {
             $this -> color -> setAlpha(0);
@@ -45,7 +45,7 @@
         }
 
         /**
-         * @covers RGBAColor::setAlpha
+         * @covers \Chameleon\Colors\RGBAColor::setAlpha
          */
         public function testSetAlphaTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
@@ -53,7 +53,7 @@
         }
 
         /**
-         * @covers RGBAColor::setAlpha
+         * @covers \Chameleon\Colors\RGBAColor::setAlpha
          */
         public function testSetAlphaTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);

@@ -21,7 +21,7 @@
         }
 
         /**
-         * @covers Line::__construct
+         * @covers \Chameleon\Primitives\Line::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("start", $this -> line);
@@ -31,14 +31,14 @@
         }
 
         /**
-         * @covers Line::getStart
+         * @covers \Chameleon\Primitives\Line::getStart
          */
         public function testGetStart() {
             $this -> assertEquals($this -> start, $this -> line -> getStart());
         }
 
         /**
-         * @covers Line::setStart
+         * @covers \Chameleon\Primitives\Line::setStart
          */
         public function testSetStart() {
             $start = new Vector2(5, 5);
@@ -47,14 +47,14 @@
         }
 
         /**
-         * @covers Line::getEnd
+         * @covers \Chameleon\Primitives\Line::getEnd
          */
         public function testGetEnd() {
             $this -> assertEquals($this -> end, $this -> line -> getEnd());
         }
 
         /**
-         * @covers Line::setEnd
+         * @covers \Chameleon\Primitives\Line::setEnd
          */
         public function testSetEnd() {
             $end = new Vector2(15, 15);
@@ -63,14 +63,14 @@
         }
 
         /**
-         * @covers Line::getThickness
+         * @covers \Chameleon\Primitives\Line::getThickness
          */
         public function testGetThickness() {
             $this -> assertEquals(1, $this -> line -> getThickness());
         }
 
         /**
-         * @covers Line::setThickness
+         * @covers \Chameleon\Primitives\Line::setThickness
          */
         public function testSetThickness() {
             $this -> line -> setThickness(5);
@@ -78,14 +78,14 @@
         }
 
         /**
-         * @covers Line::getColor
+         * @covers \Chameleon\Primitives\Line::getColor
          */
         public function testGetColor() {
             $this -> assertEquals(new RGBColor(0, 0, 0), $this -> line -> getColor());
         }
 
         /**
-         * @covers Line::setColor
+         * @covers \Chameleon\Primitives\Line::setColor
          */
         public function testSetColor() {
             $color = new RGBColor(255, 255, 255);
@@ -94,7 +94,7 @@
         }
 
         /**
-         * @covers Line::setPosition
+         * @covers \Chameleon\Primitives\Line::setPosition
          */
         public function testSetPosition() {
             $this -> line -> setPosition(new Vector2(50, 50));

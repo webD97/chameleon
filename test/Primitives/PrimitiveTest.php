@@ -18,7 +18,7 @@
         }
 
         /**
-         * @covers Primitive::setPosition
+         * @covers \Chameleon\Primitives\Primitive::setPosition
          */
         public function testSetPosition() {
             $pos = new Vector2(10, 20);
@@ -28,7 +28,7 @@
         }
 
         /**
-         * @covers Primitive::setBorderColor
+         * @covers \Chameleon\Primitives\Primitive::setBorderColor
          */
         public function testSetBorderColor() {
             $color = new RGBColor(255, 0, 0);
@@ -38,7 +38,7 @@
         }
 
         /**
-         * @covers Primitive::setBorderThickness
+         * @covers \Chameleon\Primitives\Primitive::setBorderThickness
          */
         public function testSetBorderThickness() {
             $this -> assertEquals($this -> primitive, $this -> primitive -> setBorderThickness(10));
@@ -46,7 +46,7 @@
         }
 
         /**
-         * @covers Primitive::setBackgroundColor
+         * @covers \Chameleon\Primitives\Primitive::setBackgroundColor
          */
         public function testSetBackgroundColor() {
             $color = new RGBColor(255, 255, 255);

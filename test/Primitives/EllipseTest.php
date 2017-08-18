@@ -17,7 +17,7 @@
         }
 
         /**
-         * @covers Ellipse::__construct
+         * @covers \Chameleon\Primitives\Ellipse::__construct
          */
         public function test__construct() {
             $this -> assertObjectHasAttribute("width", $this -> rect);
@@ -25,14 +25,14 @@
         }
 
         /**
-         * @covers Ellipse::getWidth
+         * @covers \Chameleon\Primitives\Ellipse::getWidth
          */
         public function testGetWidth() {
             $this -> assertEquals(50, $this -> rect -> getWidth());
         }
 
         /**
-         * @covers Ellipse::setWidth
+         * @covers \Chameleon\Primitives\Ellipse::setWidth
          */
         public function testSetWidth() {
             $this -> rect -> setWidth(20);
@@ -40,14 +40,14 @@
         }
 
         /**
-         * @covers Ellipse::getHeight
+         * @covers \Chameleon\Primitives\Ellipse::getHeight
          */
         public function testGetHeight() {
             $this -> assertEquals(100, $this -> rect -> getHeight());
         }
 
         /**
-         * @covers Ellipse::setHeight
+         * @covers \Chameleon\Primitives\Ellipse::setHeight
          */
         public function testSetHeight() {
             $this -> rect -> setHeight(5);
@@ -55,7 +55,7 @@
         }
 
         /**
-         * @covers Ellipse::draw
+         * @covers \Chameleon\Primitives\Ellipse::draw
          */
         public function testDraw() {
             // TODO
