@@ -21,28 +21,35 @@ The RGBColor class represents a color in the RGB space.
 
 ### __toString
     public string __toString();
+
 Returns a string representation of the color, formatted as "rgb(red, green, blue)"
 
 ### getRed
     public int getRed();
+
 Returns the red channel value
 
 ### getGreen
     public int getGreen();
+
 Returns the green channel value
 
 ### getBlue
     public int getBlue();
+
 Returns the blue channel value
 
 ### setRed
     public int setRed(int $red);
+
 Sets the red channel value to $red
 
 ### setGreen
     public int setGreen(int $green);
+
 Sets the green channel value to $green
 
 ### setBlue
     public int setBlue(int $blue);
+    
 Sets the blue channel value to $blue
