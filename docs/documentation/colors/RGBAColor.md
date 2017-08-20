@@ -1,4 +1,7 @@
 # RGBColor
+[&larr; Back to overview](../)
+
+## Description
 The RGBAColor class represents a color with alpha channel in the RGB space.
 
 ## Quickinfo

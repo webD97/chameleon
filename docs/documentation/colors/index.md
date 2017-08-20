@@ -1,5 +1,5 @@
 # Colors
-[Back to overview](../)
+[&larr; Back to overview](../)
 ## Table of contents
 - [RGBColor](./colors/RGBColor)
 - [RGBAColor](./colors/RGBAColor)
