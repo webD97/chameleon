@@ -27,29 +27,29 @@ Returns a string representation of the color, formatted as "rgb(red, green, blue
 ### getRed
     public int getRed();
 
-Returns the red channel value
+Returns the red channel value, somewhere between 0 and 255 inclusively.
 
 ### getGreen
     public int getGreen();
 
-Returns the green channel value
+Returns the green channel value, somewhere between 0 and 255 inclusively.
 
 ### getBlue
     public int getBlue();
 
-Returns the blue channel value
+Returns the blue channel value, somewhere between 0 and 255 inclusively.
 
 ### setRed
     public int setRed(int $red);
 
-Sets the red channel value to $red
+Sets the red channel value to $red. $red must be between 0 and 255 inclusively.
 
 ### setGreen
     public int setGreen(int $green);
 
-Sets the green channel value to $green
+Sets the green channel value to $green. $green must be between 0 and 255 inclusively.
 
 ### setBlue
     public int setBlue(int $blue);
-    
-Sets the blue channel value to $blue
+
+Sets the blue channel value to $blue. $blue must be between 0 and 255 inclusively.
