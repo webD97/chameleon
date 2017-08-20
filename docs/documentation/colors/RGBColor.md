@@ -1,7 +1,5 @@
-# RGBColor
 [&larr; Back to overview](../)
-
-## Description
+# RGBColor
 The RGBColor class represents a color in the RGB space.
 
 ## Quickinfo
