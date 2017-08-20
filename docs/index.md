@@ -94,4 +94,4 @@ That's it. Navigate your browser to MyFirstChameleonImage.php and take at look a
 ![Chameleon example image](./img/index/example.png)
 
 ## Where to go next?
-Take a look at the documentation (coming soon).
+Take a look at the [documentation](./documentation).
