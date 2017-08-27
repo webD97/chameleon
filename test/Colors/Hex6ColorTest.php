@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Colors;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\Hex6Color;
@@ -18,7 +20,7 @@
         /**
          * @covers \Chameleon\Colors\Hex6Color::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("red", $this -> color);
             $this -> assertObjectHasAttribute("green", $this -> color);
             $this -> assertObjectHasAttribute("blue", $this -> color);
@@ -27,7 +29,7 @@
         /**
          * @covers \Chameleon\Colors\Hex6Color::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("#40BFFF", $this -> color -> __toString());
         }
 

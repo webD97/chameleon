@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Colors;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\HSVColor;
@@ -18,7 +20,7 @@
         /**
          * @covers \Chameleon\Colors\HSVColor::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("hue", $this -> color);
             $this -> assertObjectHasAttribute("saturation", $this -> color);
             $this -> assertObjectHasAttribute("value", $this -> color);
@@ -27,7 +29,7 @@
         /**
          * @covers \Chameleon\Colors\HSVColor::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("hsv(0, 1, 0.5)", $this -> color -> __toString());
         }
 

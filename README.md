@@ -6,41 +6,33 @@ Please note that it is still in development!
 ## Code example
 ```php
 <?php
-    require_once __DIR__ . "/vendor/autoload.php";
+    require __DIR__ . "/vendor/autoload.php";
 
     use Chameleon\Image;
     use Chameleon\Vector2;
-    use Chameleon\Colors\RGBColor;
+
+    use Chameleon\Colors\HSLColor;
     use Chameleon\Primitives\Rectangle;
-    use Chameleon\Primitives\Ellipse;
-    use Chameleon\Primitives\Decorators\Border;
-    
-    $image = Image::create(512, 512);
 
-    $colorBackground        = new RGBColor(64, 191, 255);
-    $colorRectangle         = new RGBColor(32, 128, 64);
-    $colorRectangleBorder   = new RGBColor(255, 255, 255);
-    $colorEllipse           = new RGBColor(128, 128, 128);
-    $colorEllipseBorder     = new RGBColor(255, 0, 255);
+    $image = Image::create(480, 360);
 
-    $positionRectangle  = new Vector2(50, 50);
-    $positionEllipse    = new Vector2(256, 256);
-    
-    $image -> setBackgroundColor($colorBackground);
-    
-    $rect = new Rectangle($positionRectangle, 200, 200);
-    $rect -> setBackgroundColor($colorRectangle)
-          -> setBorderThickness(5)
-          -> setBorderColor($colorRectangleBorder);
-        
-    $elli = new Ellipse($positionEllipse, 488, 488);
-    $elli -> setBackgroundColor($colorEllipse)
-          -> setBorderColor($colorEllipseBorder);
-    
-    $image -> draw($elli);
-    $image -> draw($rect);
-    
+    $imageBackground = new HSLColor(135, 1, 0.3);
+
+    $image -> setBackgroundColor($imageBackground);
+
+    $rectanglePosition = new Vector2(50, 50);
+    $rectangleBackground = new HSLColor(45, 1, 0.5);
+    $rectangleBorder = new HSLColor(90, 1, 0.8);
+
+    $rectangle = new Rectangle($rectanglePosition, 380, 260);
+    $rectangle -> setBackgroundColor($rectangleBackground)
+               -> setBorderColor($rectangleBorder)
+               -> setBorderThickness(5);
+
+    $image -> draw($rectangle);
+
     header("Content-type: image/png");
+
     $image -> as(IMG_PNG);
 ?>
 ```

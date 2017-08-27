@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Colors;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\HSLColor;
@@ -18,7 +20,7 @@
         /**
          * @covers \Chameleon\Colors\HSLColor::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("hue", $this -> color);
             $this -> assertObjectHasAttribute("saturation", $this -> color);
             $this -> assertObjectHasAttribute("lightness", $this -> color);
@@ -27,7 +29,7 @@
         /**
          * @covers \Chameleon\Colors\HSLColor::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("hsl(0, 1, 0.5)", $this -> color -> __toString());
         }
 
@@ -128,8 +130,8 @@
          * @covers \Chameleon\Colors\HSLColor::makeRGB
          */
         public function testRGBConversion() {
-            // HSL: (200, 1, 0.63)
-            // RGB: (66, 192, 254)
+            // HSL: (300, 1, 0.75)
+            // RGB: (255, 128, 255)
 
             $color = new HSLColor(200, 1, 0.63);
             $converted = $color -> getRGBA();

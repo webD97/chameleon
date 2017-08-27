@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Colors;
+    
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\Hex8Color;
@@ -18,14 +20,14 @@
         /**
          * @covers \Chameleon\Colors\Hex8Color::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("alpha", $this -> color);
         }
 
         /**
          * @covers \Chameleon\Colors\Hex8Color::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("#40BFFF55", $this -> color -> __toString());
         }
 

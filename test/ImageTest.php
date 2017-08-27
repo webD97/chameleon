@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Image;

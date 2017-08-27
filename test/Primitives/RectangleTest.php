@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Primitives;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Primitives\Rectangle;
@@ -19,7 +21,7 @@
         /**
          * @covers Chameleon\Primitives\Rectangle::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("width", $this -> rect);
             $this -> assertObjectHasAttribute("height", $this -> rect);
         }

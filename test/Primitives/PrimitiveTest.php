@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Primitives;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Primitives\Primitive;

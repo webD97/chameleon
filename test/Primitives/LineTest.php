@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Primitives;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Primitives\Line;
@@ -23,7 +25,7 @@
         /**
          * @covers \Chameleon\Primitives\Line::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("start", $this -> line);
             $this -> assertObjectHasAttribute("end", $this -> line);
             $this -> assertObjectHasAttribute("thickness", $this -> line);

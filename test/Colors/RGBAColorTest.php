@@ -1,4 +1,6 @@
 <?php
+    namespace Chameleon\Colors;
+
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\RGBAColor;
@@ -18,14 +20,14 @@
         /**
          * @covers \Chameleon\Colors\RGBAColor::__construct
          */
-        public function test__construct() {
+        public function testConstruct() {
             $this -> assertObjectHasAttribute("alpha", $this -> color);
         }
 
         /**
          * @covers \Chameleon\Colors\RGBAColor::__toString
          */
-        public function test__toString() {
+        public function testToString() {
             $this -> assertEquals("rgba(255, 127, 63, 16)", $this -> color -> __toString());
         }
 
