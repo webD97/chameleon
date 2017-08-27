@@ -2,6 +2,7 @@
     namespace Chameleon\Colors;
 
     use \Chameleon\Exceptions\ValueOutOfBoundsException;
+    use \Chameleon\Colors\RGBAColor;
 
     class RGBColor extends Color {
         /**
@@ -9,21 +10,21 @@
          *
          * @var int
          */
-        private $red;
+        protected $red;
 
         /**
          * The green channel value [0, 255]
          *
          * @var int
          */
-        private $green;
+        protected $green;
 
         /**
          * The blue channel value [0, 255]
          *
          * @var int
          */
-        private $blue;
+        protected $blue;
 
         /**
          * Class constructor
@@ -85,8 +86,12 @@
             $this -> blue = $blue;
         }
 
-        public function getAlpha() : int {
-            return 0;
+        public function getRGBA() : RGBAColor {
+            return new RGBAColor($this -> red, $this -> green, $this -> blue, 0);
+        }
+
+        public static function fromRGBA(RGBAColor $rgba) {
+            return new RGBColor($rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue());
         }
     }
 ?>

@@ -3,6 +3,7 @@
 
     use Chameleon\Exceptions\ValueOutOfBoundsException;
     use Chameleon\Colors\HSLColor;
+    use \Chameleon\Colors\RGBAColor;
 
     class HSLAColor extends HSLColor {
         /**
@@ -46,7 +47,6 @@
         public function getAlpha() : int {
             return $this -> alpha;
         }
-
         /**
          * Set RGB alpha channel value
          *
@@ -57,8 +57,15 @@
             if (!$this -> checkRange($alpha, 0, 127)) {
                 throw new ValueOutOfBoundsException("alpha", $alpha, 0, 127);
             }
-
             $this -> alpha = $alpha;
+        }
+
+        public function getRGBA() : RGBAColor {
+            return new RGBAColor($this -> red, $this -> green, $this -> blue, $this -> alpha);
+        }
+
+        public static function fromRGBA(RGBAColor $rgba) {
+            // return new ...;
         }
     }
 ?>

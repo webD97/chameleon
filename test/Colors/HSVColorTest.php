@@ -131,11 +131,12 @@
             // HSV: (200, 0.75, 1)
             // RGB: (64, 191, 255)
 
-            $this -> color = new HSVColor(200, 0.75, 1);
+            $color = new HSVColor(200, 0.75, 1);
+            $converted = $color -> getRGBA();
 
-            $this -> assertEquals(64, $this -> color -> getRed());
-            $this -> assertEquals(191, $this -> color -> getGreen());
-            $this -> assertEquals(255, $this -> color -> getBlue());
+            $this -> assertEquals(64, $converted -> getRed());
+            $this -> assertEquals(191, $converted -> getGreen());
+            $this -> assertEquals(255, $converted -> getBlue());
         }
     }
 ?>

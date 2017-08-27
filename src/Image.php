@@ -121,7 +121,8 @@
          */
         public function registerColor(IColor $color) {
             if (!isset($this -> colors[$color -> __toString()])) {
-                $id = imagecolorallocatealpha($this -> imageResource, $color -> getRed(), $color -> getGreen(), $color -> getBlue(), $color -> getAlpha());
+                $rgba = $color -> getRGBA();
+                $id = imagecolorallocatealpha($this -> imageResource, $rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue(), $rgba -> getAlpha());
                 if ($id !== false) {
                     $this -> colors[$color -> __toString()] = $id;
                     return $id;

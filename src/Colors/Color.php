@@ -1,11 +1,11 @@
 <?php
     namespace Chameleon\Colors;
 
+    use Chameleon\Colors\RGBAColor;
+
     abstract class Color implements IColor {
-        public abstract function getRed() : int;
-        public abstract function getGreen() : int;
-        public abstract function getBlue() : int;
-        public abstract function getAlpha() : int;
+        public abstract function getRGBA() : RGBAColor;
+        public static abstract function fromRGBA(RGBAColor $rgba);
 
         /**
          * Check if a value is in a legal range

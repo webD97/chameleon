@@ -2,6 +2,7 @@
     namespace Chameleon\Colors;
 
     use \Chameleon\Exceptions\ValueOutOfBoundsException;
+    use \Chameleon\Colors\RGBAColor;
 
     class Hex6Color extends Color {
         /**
@@ -106,6 +107,14 @@
 
         public function getAlpha() : int {
             return 0x00;
+        }
+
+        public function getRGBA() : RGBAColor {
+            return new RGBAColor($this -> red, $this -> green, $this -> blue);
+        }
+
+        public static function fromRGBA(RGBAColor $rgba) {
+            // return new ...;
         }
     }
 ?>

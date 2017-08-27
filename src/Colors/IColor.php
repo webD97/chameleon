@@ -1,33 +1,21 @@
 <?php
     namespace Chameleon\Colors;
 
+    use Chameleon\Colors\RGBAColor;
+
     interface IColor {
         /**
-         * Get the RGB red channel value
+         * Get the RGBA representation of the color
          *
-         * @return int
+         * @return RGBAColor
          */
-        public function getRed() : int;
-        
-        /**
-         * Get the RGB green channel value
-         *
-         * @return int
-         */
-        public function getGreen() : int;
+        public function getRGBA() : RGBAColor;
 
         /**
-         * Get the RGB yellow channel value
+         * Set up color using RGBAColor
          *
-         * @return int
+         * @return void
          */
-        public function getBlue() : int;
-
-        /**
-         * Return RGB alpha channel value
-         *
-         * @return int
-         */
-        public function getAlpha() : int;
+        public static function fromRGBA(RGBAColor $color);
     }
 ?>

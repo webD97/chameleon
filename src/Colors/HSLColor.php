@@ -2,6 +2,7 @@
     namespace Chameleon\Colors;
 
     use Chameleon\Exceptions\ValueOutOfBoundsException;
+    use \Chameleon\Colors\RGBAColor;
 
     /**
     * Color Class for HSL colors
@@ -14,9 +15,9 @@
         private $saturation;
         private $lightness;
 
-        private $red;
-        private $green;
-        private $blue;
+        protected $red;
+        protected $green;
+        protected $blue;
 
         /**
         * Class constructor
@@ -145,20 +146,12 @@
             return $p * 255;
         }
 
-        public function getRed() : int {
-            return $this -> red;
+        public function getRGBA() : RGBAColor {
+            return new RGBAColor($this -> red, $this -> green, $this -> blue, 0);
         }
 
-        public function getGreen() : int {
-            return $this -> green;
-        }
-
-        public function getBlue() : int {
-            return $this -> blue;
-        }
-
-        public function getAlpha() : int {
-            return 0;
+        public static function fromRGBA(RGBAColor $rgba) {
+            // return new ...;
         }
     }
 ?>

@@ -60,5 +60,13 @@
 
             $this -> alpha = $alpha;
         }
+
+        public function getRGBA() : RGBAColor {
+            return $this;
+        }
+
+        public static function fromRGBA(RGBAColor $rgba) {
+            return new RGBAColor($rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue(), $rgba -> getAlpha());
+        }
     }
 ?>
