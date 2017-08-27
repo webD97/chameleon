@@ -110,7 +110,7 @@
         }
 
         public function getRGBA() : RGBAColor {
-            return new RGBAColor($this -> red, $this -> green, $this -> blue);
+            return new RGBAColor($this -> red, $this -> green, $this -> blue, 0);
         }
 
         public static function fromRGBA(RGBAColor $rgba) {
