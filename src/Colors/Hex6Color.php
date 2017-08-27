@@ -10,21 +10,21 @@
          *
          * @var int
          */
-        private $red;
+        protected $red;
 
         /**
          * The green channel value [0, 255]
          *
          * @var int
          */
-        private $green;
+        protected $green;
 
         /**
          * The blue channel value [0, 255]
          *
          * @var int
          */
-        private $blue;
+        protected $blue;
 
         /**
          * Class constructor
