@@ -83,7 +83,12 @@
         }
 
         public static function fromRGBA(RGBAColor $rgba) {
-            // return new ...;
+            return new Hex8Color("#" . 
+                dechex($rgba -> getRed()) .
+                dechex($rgba -> getGreen()) .
+                dechex($rgba -> getBlue()) .
+                dechex($rgba -> getAlpha())
+            );
         }
     }
 ?>

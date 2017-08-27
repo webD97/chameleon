@@ -114,7 +114,11 @@
         }
 
         public static function fromRGBA(RGBAColor $rgba) {
-            // return new ...;
+            return new Hex6Color("#" . 
+                dechex($rgba -> getRed()) .
+                dechex($rgba -> getGreen()) .
+                dechex($rgba -> getBlue())
+            );
         }
     }
 ?>

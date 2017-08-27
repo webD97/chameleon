@@ -4,6 +4,7 @@
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\Hex8Color;
+    use Chameleon\Colors\RGBAColor;
     use Chameleon\Exceptions\ValueOutOfBoundsException;
 
     final class Hex8ColorTest extends TestCase {
@@ -75,6 +76,16 @@
         public function testSetAlphaTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);
             $this -> color -> setAlpha(-0x01);
+        }
+
+        /**
+         * @covers \Chameleon\Colors\Hex8Color::fromRGBA
+         */
+        public function testFromRGBA() {
+            $expected = new Hex8Color("#aabbcc66");
+            $actual = Hex8Color::fromRGBA(new RGBAColor(170, 187, 204, 102));
+
+            $this -> assertEquals($expected, $actual);
         }
     }
 ?>
