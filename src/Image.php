@@ -213,13 +213,15 @@
         }
 
         /**
-         * Draw a primitive onto the image
+         * Draw one or more primitives onto the image
          *
-         * @param IPrimitive $primitive
+         * @param IPrimitive ...$primitives The primitives
          * @return void
          */
-        public function draw(IPrimitive $primitive) {
-            $primitive -> draw($this);
+        public function draw(IPrimitive ...$primitives) {
+            foreach ($primitives as $primitive) {
+                $primitive -> draw($this);
+            }
         }
     }
 ?>
