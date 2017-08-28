@@ -69,22 +69,46 @@
             $this -> setBlue(hexdec(substr($hexstring, 4, 2)));
         }
 
+        /**
+         * Get RGB red channel
+         *
+         * @return int The value [0x00, 0xFF]
+         */
         public function getRed() : int {
             return $this -> red;
         }
 
-        public function setRed(int $red) {
+        /**
+         * Set RGB red channel
+         *
+         * @param int $red The value [0x00, 0xFF]
+         * @return self
+         */
+        public function setRed(int $red) : self {
             if (!$this -> checkRange($red, 0, 255)) {
                 throw new ValueOutOfBoundsException("red", $red, 0x00, 0xFF);
             }
 
             $this -> red = $red;
+
+            return $this;
         }
 
+        /**
+         * Get RGB green channel
+         *
+         * @return int The value [0x00, 0xFF]
+         */
         public function getGreen() : int {
             return $this -> green;
         }
 
+        /**
+         * Set RGB green channel
+         *
+         * @param int $green The value [0x00, 0xFF]
+         * @return self
+         */
         public function setGreen(int $green) {
             if (!$this -> checkRange($green, 0, 255)) {
                 throw new ValueOutOfBoundsException("green", $green, 0x00, 0xFF);
@@ -93,20 +117,27 @@
             $this -> green = $green;
         }
 
+        /**
+         * Get RGB blue channel
+         *
+         * @return int The value [0x00, 0xFF]
+         */
         public function getBlue() : int {
             return $this -> blue;
         }
 
+        /**
+         * Set RGB blue channel
+         *
+         * @param int $blue The value [0x00, 0xFF]
+         * @return self
+         */
         public function setBlue(int $blue) {
             if (!$this -> checkRange($blue, 0, 255)) {
                 throw new ValueOutOfBoundsException("blue", $blue, 0x00, 0xFF);
             }
 
             $this -> blue = $blue;
-        }
-
-        public function getAlpha() : int {
-            return 0x00;
         }
 
         public function getRGBA() : RGBAColor {

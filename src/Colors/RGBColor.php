@@ -50,40 +50,79 @@
             return "rgb(" . $this -> red . ", " . $this -> green . ", " . $this -> blue . ")";
         }
 
+        /**
+         * Get red channel value
+         *
+         * @return int The value [0, 255]
+         */
         public function getRed() : int {
             return $this -> red;
         }
 
-        public function setRed(int $red) {
+        /**
+         * Set the red channel value
+         *
+         * @param int $red The value [0, 255]
+         * @return self
+         */
+        public function setRed(int $red) : self {
             if (!$this -> checkRange($red, 0, 255)) {
                 throw new ValueOutOfBoundsException("red", $red, 0, 255);
             }
 
             $this -> red = $red;
+
+            return $this;
         }
 
+        /**
+         * Get green channel value
+         *
+         * @return int The value [0, 255]
+         */
         public function getGreen() : int {
             return $this -> green;
         }
 
+        /**
+         * Set green channel value
+         *
+         * @param int $green The value [0, 255]
+         * @return self
+         */
         public function setGreen(int $green) {
             if (!$this -> checkRange($green, 0, 255)) {
                 throw new ValueOutOfBoundsException("red", $green, 0, 255);
             }
             
             $this -> green = $green;
+
+            return $this;
         }
 
+        /**
+         * Get blue channel value
+         *
+         * @return int The value [0, 255]
+         */
         public function getBlue() : int {
             return $this -> blue;
         }
 
+        /**
+         * Set blue channel value
+         *
+         * @param int $blue The value [0, 255]
+         * @return int self
+         */
         public function setBlue(int $blue) {
             if (!$this -> checkRange($blue, 0, 255)) {
                 throw new ValueOutOfBoundsException("red", $blue, 0, 255);
             }
 
             $this -> blue = $blue;
+
+            return $this;
         }
 
         public function getRGBA() : RGBAColor {

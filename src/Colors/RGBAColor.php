@@ -51,14 +51,16 @@
          * Set RGB alpha channel value
          *
          * @param int $alpha RGB alpha channel avalue [0, 127]
-         * @return void
+         * @return self
          */
-        public function setAlpha(int $alpha) {
+        public function setAlpha(int $alpha) : self {
             if (!$this -> checkRange($alpha, 0, 127)) {
                 throw new ValueOutOfBoundsException("alpha", $alpha, 0, 127);
             }
 
             $this -> alpha = $alpha;
+
+            return $this;
         }
 
         public function getRGBA() : RGBAColor {

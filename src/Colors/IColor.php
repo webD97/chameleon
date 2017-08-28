@@ -12,7 +12,7 @@
         public function getRGBA() : RGBAColor;
 
         /**
-         * Set up color using RGBAColor
+         * Construct from an RGBAColor
          *
          * @return void
          */

@@ -52,14 +52,16 @@
          * Set hexadecimal value for this color
          *
          * @param string $hexstring The hexadecimal color value, Fomat: #rrggbb
-         * @return void
+         * @return self
          */
-        public function setHex(string $hexstring) {
+        public function setHex(string $hexstring) : self{
             $hexstring = str_replace("#", "", $hexstring);
             $this -> setRed(hexdec(substr($hexstring, 0, 2)));
             $this -> setGreen(hexdec(substr($hexstring, 2, 2)));
             $this -> setBlue(hexdec(substr($hexstring, 4, 2)));
             $this -> setAlpha(hexdec(substr($hexstring, 6, 2)));
+
+            return $this;
         }
 
         /**
@@ -73,14 +75,17 @@
         /**
          * Set RGB alpha channel value
          *
-         * @param int $alpha RGB alpha channel avalue [0, 127]
-         * @return void
+         * @param int $alpha RGB alpha channel avalue [0x00, 0x7F]
+         * @return self
          */
-        public function setAlpha(int $alpha) {
+        public function setAlpha(int $alpha) : self {
             if (!$this -> checkRange($alpha, 0, 127)) {
                 throw new ValueOutOfBoundsException("alpha", $alpha, 0, 127);
             }
+
             $this -> alpha = $alpha;
+
+            return $this;
         }
 
         public function getRGBA() : RGBAColor {

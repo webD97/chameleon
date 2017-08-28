@@ -48,14 +48,17 @@
         *
         * Sets the hue value of this color
         * @param int $hue The hue value [0, 359]
+        * @return self
         */
-        public function setHue(int $hue) {
+        public function setHue(int $hue) : self {
             if (!$this -> checkRange($hue, 0, 359)) {
                 throw new ValueOutOfBoundsException("hue", $hue, 0, 359);
             }
 
             $this -> hue = $hue;
             $this -> makeRGB();
+
+            return $this;
         }
 
         /**
@@ -73,14 +76,17 @@
         *
         * Sets the saturation value of this color
         * @param int $saturation The saturation value [0, 1]
+        * @return self
         */
-        public function setSaturation(float $saturation) {
+        public function setSaturation(float $saturation) : self {
             if (!$this -> checkRange($saturation, 0, 1)) {
                 throw new ValueOutOfBoundsException("saturation", $saturation, 0, 1);
             }
 
             $this -> saturation = $saturation;
             $this -> makeRGB();
+
+            return $this;
         }
 
         /**
@@ -98,14 +104,17 @@
         *
         * Sets the value of this color
         * @param int $value The value [0, 1]
+        * @return self
         */
-        public function setValue(float $value) {
+        public function setValue(float $value) : self {
             if (!$this -> checkRange($value, 0, 1)) {
                 throw new ValueOutOfBoundsException("value", $value, 0, 1);
             }
 
             $this -> value = $value;
             $this -> makeRGB();
+
+            return $this;
         }
 
 
@@ -151,10 +160,6 @@
                     break;
                 
             }
-        }
-
-        public function getAlpha() : int {
-            return 0;
         }
 
         public function getRGBA() : RGBAColor {
