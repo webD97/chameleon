@@ -39,7 +39,7 @@
          * @param IColor $color The color
          * @return self
          */
-        public function setBorderColor(IColor $color) : self {
+        public function setBorderColor(IColor $color = null) : self {
             $this -> borderColor = $color;
             return $this;
         }
@@ -49,7 +49,7 @@
          *
          * @return IColor The color
          */
-        public function getBorderColor(): IColor {
+        public function getBorderColor(): ?IColor {
             return $this -> borderColor;
         }
 
@@ -79,7 +79,7 @@
          * @param Icolor $color The color
          * @return self
          */
-        public function setBackgroundColor(Icolor $color) : self {
+        public function setBackgroundColor(Icolor $color = null) : self {
             $this -> backgroundColor = $color;
             return $this;
         }
@@ -89,7 +89,7 @@
          *
          * @return IColor The color
          */
-        public function getBackgroundColor(): IColor {
+        public function getBackgroundColor(): ?IColor {
             return $this -> backgroundColor;
         }
     }

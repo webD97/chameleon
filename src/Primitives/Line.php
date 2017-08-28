@@ -24,7 +24,7 @@
             $this -> end = $end;
 
             $this -> thickness = 1;
-            $this -> color = new RGBColor(0, 0, 0);
+            $this -> color = null;
         }
 
         /**
@@ -95,7 +95,7 @@
          *
          * @return IColor the color
          */
-        public function getColor() : IColor {
+        public function getColor() : ?IColor {
             return $this -> color;
         }
 
@@ -105,7 +105,7 @@
          * @param IColor $color The color
          * @return self
          */
-        public function setColor(IColor $color) : self {
+        public function setColor(IColor $color = null) : self {
             $this -> color = $color;
             
             return $this;
@@ -146,20 +146,22 @@
          * @return self
          */
         public function draw(Image $image) : self {
-            $image -> registerColorIfUnknown($this -> color);
-            
-            imagesetthickness($image -> getImageResource(), $this -> getThickness());
-
-            imageline(
-                $image -> getImageResource(), 
-                $this -> getStart() -> getX(),
-                $this -> getStart() -> getY(),
-                $this -> getEnd() -> getX(),
-                $this -> getEnd() -> getY() ,
-                $image -> getRegisteredColor($this -> getColor())
-            );
-
-            imagesetthickness($image -> getImageResource(), 1);
+            if ($this -> color) {
+                $image -> registerColorIfUnknown($this -> color);
+                
+                imagesetthickness($image -> getImageResource(), $this -> getThickness());
+    
+                imageline(
+                    $image -> getImageResource(), 
+                    $this -> getStart() -> getX(),
+                    $this -> getStart() -> getY(),
+                    $this -> getEnd() -> getX(),
+                    $this -> getEnd() -> getY() ,
+                    $image -> getRegisteredColor($this -> getColor())
+                );
+    
+                imagesetthickness($image -> getImageResource(), 1);
+            }
 
             return $this;
         }

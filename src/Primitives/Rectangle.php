@@ -22,8 +22,9 @@
             $this -> width = $width;
             $this -> height = $height;
 
-            $this -> setBorderColor(new RGBColor(0, 0, 0));
+            $this -> setBorderColor(null);
             $this -> setBorderThickness(1);
+            $this -> setBackgroundColor(null);
         }
 
         /**

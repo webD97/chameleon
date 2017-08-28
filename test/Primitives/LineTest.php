@@ -83,6 +83,7 @@
          * @covers \Chameleon\Primitives\Line::getColor
          */
         public function testGetColor() {
+            $this -> line -> setColor(new RGBColor(0, 0, 0));
             $this -> assertEquals(new RGBColor(0, 0, 0), $this -> line -> getColor());
         }
 
