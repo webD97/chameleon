@@ -24,7 +24,7 @@
             $this -> end = $end;
 
             $this -> thickness = 1;
-            $this -> color = new RGBAColor(0, 0, 0, 127);
+            $this -> color = ColorFactory::transparent();
         }
 
         /**

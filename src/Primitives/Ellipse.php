@@ -21,9 +21,9 @@
             $this -> width = $width;
             $this -> height = $height;
 
-            $this -> setBorderColor(new RGBAColor(0, 0, 0, 127));
+            $this -> setBorderColor(ColorFactory::transparent());
             $this -> setBorderThickness(1);
-            $this -> setBackgroundColor(new RGBAColor(0, 0, 0, 127));
+            $this -> setBackgroundColor(ColorFactory::transparent());
         }
 
         /**
