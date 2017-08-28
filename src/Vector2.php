@@ -18,12 +18,14 @@
             return $this -> y;
         }
 
-        public function setX(int $x) {
+        public function setX(int $x) : self {
             $this -> x = $x;
+            return $this;
         }
 
-        public function setY(int $y) {
+        public function setY(int $y) : self {
             $this -> y = $y;
+            return $this;
         }
 
         public function __toString() : string {
