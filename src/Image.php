@@ -178,11 +178,12 @@
          * Set image background color
          *
          * @param IColor $color The color
-         * @return void
+         * @return self
          */
-        public function setBackgroundColor(IColor $color) {
+        public function setBackgroundColor(IColor $color) : self {
             $this -> registerColorIfUnknown($color);
             imagefilledrectangle($this -> imageResource, 0, 0, $this -> getWidth(), $this -> getHeight(), $this -> getRegisteredColor($color));
+            return $this;
         }
 
         /**
@@ -205,23 +206,26 @@
          *
          * @param Vector2 $position
          * @param IColor $color
-         * @return void
+         * @return self
          */
-        public function setPixel(Vector2 $position, IColor $color) {
+        public function setPixel(Vector2 $position, IColor $color) : self {
             $this -> registerColorIfUnknown($color);
             imagesetpixel($this -> imageResource, $position -> getX(), $position -> getY(), $this -> getRegisteredColor($color));
+            return $this;
         }
 
         /**
          * Draw one or more primitives onto the image
          *
          * @param IPrimitive ...$primitives The primitives
-         * @return void
+         * @return self
          */
-        public function draw(IPrimitive ...$primitives) {
+        public function draw(IPrimitive ...$primitives) : self {
             foreach ($primitives as $primitive) {
                 $primitive -> draw($this);
             }
+
+            return $this;
         }
     }
 ?>
