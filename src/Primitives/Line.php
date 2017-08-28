@@ -3,6 +3,7 @@
 
     use Chameleon\Image;
     use Chameleon\Vector2;
+    use Chameleon\ColorFactory;
     use Chameleon\Colors\IColor;
     use Chameleon\Colors\RGBAColor;
     use Chameleon\Primitives\IPrimitive;
