@@ -38,10 +38,11 @@
          * Set width in px
          *
          * @param int $width
-         * @return void
+         * @return self
          */
-        public function setWidth(int $width) {
+        public function setWidth(int $width) : self {
             $this -> width = $width;
+            return $this;
         }
 
         /**
@@ -57,10 +58,11 @@
          * Set height in px
          *
          * @param int $height
-         * @return void
+         * @return self
          */
-        public function setHeight(int $height) {
+        public function setHeight(int $height) : self {
             $this -> height = $height;
+            return $this;
         }
 
         /**
@@ -70,9 +72,9 @@
          * By default, an ellipse has a 1px black border and no background
          *
          * @param Image $image
-         * @return void
+         * @return self
          */
-        public function draw(Image $image) {
+        public function draw(Image $image) : self {
             if ($this -> backgroundColor) {
                 $image -> registerColorIfUnknown($this -> backgroundColor);
 
@@ -98,6 +100,8 @@
                     $image -> getRegisteredColor($this -> borderColor)
                 );
             }
+
+            return $this;
         }
     }
 ?>

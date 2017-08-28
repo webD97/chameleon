@@ -41,8 +41,9 @@
          * @param int $width
          * @return void
          */
-        public function setWidth(int $width) {
+        public function setWidth(int $width) : self {
             $this -> width = $width;
+            return $this;
         }
 
         /**
@@ -60,8 +61,9 @@
          * @param int $height
          * @return void
          */
-        public function setHeight(int $height) {
+        public function setHeight(int $height) : self {
             $this -> height = $height;
+            return $this;
         }
 
         /**
@@ -71,9 +73,9 @@
          * By default, a rectangle has a 1px black border and no background
          *
          * @param Image $imageResource
-         * @return void
+         * @return self
          */
-        public function draw(Image $image) {
+        public function draw(Image $image) : self {
             if ($this -> backgroundColor) {
                 $image -> registerColorIfUnknown($this -> backgroundColor);
 
@@ -103,6 +105,8 @@
 
                 imagesetthickness($image -> getImageResource(), 1);
             }
+
+            return $this;
         }
     }
 ?>

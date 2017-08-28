@@ -72,7 +72,7 @@
             return $this;
         }
 
-        public function draw(Image $image) {
+        public function draw(Image $image) : self {
             $image -> registerColorIfUnknown($this -> color);
             
             imagesetthickness($image -> getImageResource(), $this -> getThickness());
@@ -87,6 +87,8 @@
             );
 
             imagesetthickness($image -> getImageResource(), 1);
+
+            return $this;
         }
     }
 ?>
