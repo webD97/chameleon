@@ -3,7 +3,7 @@
 
     use Chameleon\Vector2;
     use Chameleon\Image;
-    use Chameleon\Colors\RGBColor;
+    use Chameleon\Colors\RGBAColor;
 
     class Ellipse extends Primitive {
         private $width;
@@ -21,9 +21,9 @@
             $this -> width = $width;
             $this -> height = $height;
 
-            $this -> setBorderColor(null);
+            $this -> setBorderColor(new RGBAColor(0, 0, 0, 127));
             $this -> setBorderThickness(1);
-            $this -> setBackgroundColor(null);
+            $this -> setBackgroundColor(new RGBAColor(0, 0, 0, 127));
         }
 
         /**

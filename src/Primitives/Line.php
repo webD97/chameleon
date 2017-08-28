@@ -4,7 +4,7 @@
     use Chameleon\Image;
     use Chameleon\Vector2;
     use Chameleon\Colors\IColor;
-    use Chameleon\Colors\RGBColor;
+    use Chameleon\Colors\RGBAColor;
     use Chameleon\Primitives\IPrimitive;
 
     class Line implements IPrimitive {
@@ -24,7 +24,7 @@
             $this -> end = $end;
 
             $this -> thickness = 1;
-            $this -> color = null;
+            $this -> color = new RGBAColor(0, 0, 0, 127);
         }
 
         /**
@@ -95,7 +95,7 @@
          *
          * @return IColor the color
          */
-        public function getColor() : ?IColor {
+        public function getColor() : IColor {
             return $this -> color;
         }
 
@@ -105,7 +105,7 @@
          * @param IColor $color The color
          * @return self
          */
-        public function setColor(?IColor $color) : self {
+        public function setColor(IColor $color) : self {
             $this -> color = $color;
             
             return $this;
