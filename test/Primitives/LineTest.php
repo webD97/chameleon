@@ -3,9 +3,11 @@
 
     use PHPUnit\Framework\TestCase;
 
+    use Chameleon\Image;
+    use Chameleon\Vector2;
+    use Chameleon\ColorFactory;
     use Chameleon\Primitives\Line;
     use Chameleon\Colors\RGBColor;
-    use Chameleon\Vector2;
 
     final class LineTest extends TestCase {
 
@@ -97,6 +99,13 @@
         }
 
         /**
+         * @covers Chameleon\Primitives\Line::getPosition
+         */
+        public function testGetPosition() {
+            $this -> assertEquals(new Vector2(0, 0), $this -> line -> getPosition());
+        }
+
+        /**
          * @covers \Chameleon\Primitives\Line::setPosition
          */
         public function testSetPosition() {
@@ -104,6 +113,28 @@
 
             $this -> assertEquals(new Vector2(50, 50), $this -> line -> getStart());
             $this -> assertEquals(new Vector2(60, 60), $this -> line -> getEnd());
+        }
+
+        /**
+         * @covers \Chameleon\Primitives\Line::draw
+         */
+        public function testDraw() {
+            $image = Image::create(2, 2);
+            $image -> setBackgroundColor(ColorFactory::black());
+
+            $line = new Line(new Vector2(0, 0), new Vector2(1, 1));
+            $line -> setColor(ColorFactory::white());
+
+            $image -> draw($line);
+            imagepng($image -> getImageResource(), "test.png");
+
+            $black = new RGBColor(0, 0, 0);
+            $white = new RGBColor(255, 255, 255);
+            $this -> assertEquals($white, $image -> getPixel(new Vector2(0, 0)));
+            $this -> assertEquals($black, $image -> getPixel(new Vector2(0, 1)));
+            $this -> assertEquals($black, $image -> getPixel(new Vector2(1, 0)));
+            $this -> assertEquals($white, $image -> getPixel(new Vector2(1, 1)));
+
         }
     }
 ?>
