@@ -3,6 +3,7 @@
 
     use Chameleon\Vector2;
     use Chameleon\Image;
+    use Chameleon\ColorFactory;
     use Chameleon\Colors\RGBAColor;
 
     class Ellipse extends Primitive {
