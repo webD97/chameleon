@@ -6,6 +6,13 @@
 
     interface IPrimitive {
         /**
+         * Get Primitive position
+         *
+         * @return Vector2 position vector
+         */
+        public function getPosition() : Vector2;
+
+        /**
          * Set the position of this primitive
          *
          * @param Vector2 $point The position vector

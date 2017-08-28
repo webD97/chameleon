@@ -27,7 +27,7 @@
         /**
          * Get primitive position
          *
-         * @return void
+         * @return Vector2
          */
         public function getPosition() : Vector2 {
             return $this -> point;

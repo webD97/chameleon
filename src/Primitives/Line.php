@@ -61,6 +61,10 @@
             return $this;
         }
 
+        public function getPosition() : Vector2 {
+            return $this -> getStart();
+        }
+
         public function setPosition(Vector2 $position) : self {
             $dx = $this -> start -> getX() - $this -> end -> getX();
             $dy = $this -> start -> getY() - $this -> end -> getY();
