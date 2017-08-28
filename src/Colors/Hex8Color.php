@@ -40,7 +40,12 @@
          * @return string
          */
         public function getHex() : string {
-            return strtoupper("#" . dechex($this -> getRed()) . dechex($this -> getGreen()) . dechex($this -> getBlue()) . dechex($this -> getAlpha()));
+            return strtoupper("#" .
+                (($this -> getRed() < 16) ? "0" . dechex($this -> getRed()) : dechex($this -> getRed())) .
+                (($this -> getGreen() < 16) ? "0" . dechex($this -> getGreen()) : dechex($this -> getGreen())) .
+                (($this -> getBlue() < 16) ? "0" . dechex($this -> getBlue()) : dechex($this -> getBlue())) .
+                (($this -> getAlpha() < 16) ? "0" . dechex($this -> getAlpha()) : dechex($this -> getAlpha()))
+            );
         }
 
         /**
