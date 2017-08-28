@@ -61,5 +61,25 @@
             $this -> expectException(ValueOutOfBoundsException::class);
             $this -> color -> setAlpha(-1);
         }
+
+        /**
+         * @covers \Chameleon\Colors\RGBAColor::getRGBA
+         */
+        public function testGetRGBA() {
+            $expected = new RGBAColor(255, 127, 63, 16);
+            $actual = $this -> color -> getRGBA();
+
+            $this -> assertEquals($expected, $actual);
+        }
+
+        /**
+         * @covers \Chameleon\Colors\RGBAColor::getRGBA
+         */
+        public function testFromRGBA() {
+            $expected = new RGBAColor(255, 127, 63, 16);
+            $actual = RGBAColor::fromRGBA(new RGBAColor(255, 127, 63, 16));
+
+            $this -> assertEquals($expected, $actual);
+        }
     }
 ?>
