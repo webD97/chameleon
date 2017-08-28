@@ -105,7 +105,7 @@
          * @param IColor $color The color
          * @return self
          */
-        public function setColor(IColor $color = null) : self {
+        public function setColor(?IColor $color) : self {
             $this -> color = $color;
             
             return $this;
