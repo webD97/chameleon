@@ -4,6 +4,7 @@
     use PHPUnit\Framework\TestCase;
 
     use Chameleon\Colors\RGBColor;
+    use Chameleon\Colors\RGBAColor;
     use Chameleon\Exceptions\ValueOutOfBoundsException;
 
     final class RGBColorTest extends TestCase {
@@ -124,6 +125,26 @@
         public function testSetBlueTooLow() {
             $this -> expectException(ValueOutOfBoundsException::class);
             $this -> color -> setBlue(-1);
+        }
+
+        /**
+         * @covers \Chameleon\Colors\RGBColor::getRGBA
+         */
+        public function testGetRGBA() {
+            $expected = new RGBAColor(255, 127, 63, 0);
+            $actual = $this -> color -> getRGBA();
+
+            $this -> assertEquals($expected, $actual);
+        }
+
+        /**
+         * @covers \Chameleon\Colors\RGBColor::fromRGBA
+         */
+        public function testFromRGBA() {
+            $expected = new RGBColor(10, 20, 30);
+            $actual = RGBColor::fromRGBA(new RGBAColor(10, 20, 30, 40));
+
+            $this -> assertEquals($expected, $actual);
         }
     }
 ?>
