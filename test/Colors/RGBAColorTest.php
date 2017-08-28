@@ -73,7 +73,7 @@
         }
 
         /**
-         * @covers \Chameleon\Colors\RGBAColor::getRGBA
+         * @covers \Chameleon\Colors\RGBAColor::fromRGBA
          */
         public function testFromRGBA() {
             $expected = new RGBAColor(255, 127, 63, 16);
