@@ -1,6 +1,8 @@
 engines:
   duplication:
     enabled: true
+    exclude_paths:
+      - examples/
     config:
       languages:
         php:
