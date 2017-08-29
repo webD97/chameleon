@@ -5,6 +5,9 @@
     use Chameleon\Image;
     use Chameleon\ColorFactory;
 
+    /**
+     * Rectangle, by default completely transparent
+     */
     class Rectangle extends Primitive {
         private $width;
         private $height;
@@ -21,9 +24,9 @@
             $this -> width = $width;
             $this -> height = $height;
 
-            $this -> setBorderColor(ColorFactory::transparent());
-            $this -> setBorderThickness(1);
-            $this -> setBackgroundColor(ColorFactory::transparent());
+            $this -> setBorderColor(ColorFactory::transparent())
+                  -> setBorderThickness(1)
+                  -> setBackgroundColor(ColorFactory::transparent());
         }
 
         /**
@@ -76,7 +79,7 @@
          * @return self
          */
         public function draw(Image $image) : self {
-            if ($this -> backgroundColor) {
+            if (!$this -> backgroundColor -> isTransparent()) {
                 $image -> registerColorIfUnknown($this -> backgroundColor);
 
                 imagefilledrectangle(
@@ -89,7 +92,7 @@
                 );
             }
 
-            if ($this -> borderColor) {
+            if (!$this -> borderColor -> isTransparent() && $this -> borderThickness > 0) {
                 $image -> registerColorIfUnknown($this -> borderColor);
 
                 imagesetthickness($image -> getImageResource(), $this -> getBorderThickness());

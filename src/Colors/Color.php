@@ -7,6 +7,10 @@
         public abstract function getRGBA() : RGBAColor;
         public static abstract function fromRGBA(RGBAColor $rgba);
 
+        public function isTransparent() : bool {
+            return $this -> getRGBA() -> getAlpha() == 127;
+        }
+
         /**
          * Check if a value is in a legal range
          *
