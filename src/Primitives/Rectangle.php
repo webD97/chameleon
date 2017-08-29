@@ -92,7 +92,7 @@
                 );
             }
 
-            if (!$this -> borderColor -> isTransparent() && $this -> borderThickness > 0) {
+            if (!$this -> borderColor -> isTransparent() && $this -> getBorderThickness() > 0) {
                 $image -> registerColorIfUnknown($this -> borderColor);
 
                 imagesetthickness($image -> getImageResource(), $this -> getBorderThickness());
