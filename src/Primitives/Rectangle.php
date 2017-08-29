@@ -83,8 +83,8 @@
                     $image -> getImageResource(), 
                     $this -> getPosition() -> getX(),
                     $this -> getPosition() -> getY(),
-                    $this -> getPosition() -> getX() + $this -> width,
-                    $this -> getPosition() -> getY() + $this -> height,
+                    $this -> getPosition() -> getX() + $this -> width - 1,
+                    $this -> getPosition() -> getY() + $this -> height - 1,
                     $image -> getRegisteredColor($this -> backgroundColor)
                 );
             }
