@@ -3,11 +3,17 @@
 
     use Chameleon\Vector2;
     use Chameleon\Image;
+    use Chameleon\Mask;
+    use Chameleon\Fragment;
     use Chameleon\ColorFactory;
+    use Chameleon\Patterns\BackgroundColor;
 
     class Rectangle extends Primitive {
         private $width;
         private $height;
+
+        private $backgroundFragment;
+        private $borderFragment;
 
         /**
          * Class constructor
@@ -21,9 +27,9 @@
             $this -> width = $width;
             $this -> height = $height;
 
-            $this -> setBorderColor(ColorFactory::transparent());
+            $this -> setBorderPattern(new BackgroundColor(ColorFactory::transparent()));
             $this -> setBorderThickness(1);
-            $this -> setBackgroundColor(ColorFactory::transparent());
+            $this -> setBackgroundPattern(new BackgroundColor(ColorFactory::transparent()));
         }
 
         /**
@@ -66,44 +72,34 @@
             return $this;
         }
 
+        private function renderFragments() {
+            $backgroundMask = new Mask($this -> width, $this -> height, 1);
+
+            $this -> backgroundFragment = new Fragment($this -> backgroundPattern, $backgroundMask);
+        }
+
         /**
          * Draw the rectangle onto the image resource
          * 
          * Draws the rectangle with border and background (if set).
          * By default, a rectangle has a 1px black border and no background
          *
-         * @param Image $imageResource
+         * @param Image $image
          * @return self
          */
         public function draw(Image $image) : self {
-            if ($this -> backgroundColor) {
-                $image -> registerColorIfUnknown($this -> backgroundColor);
+            $this -> renderFragments();
 
-                imagefilledrectangle(
-                    $image -> getImageResource(), 
-                    $this -> getPosition() -> getX(),
-                    $this -> getPosition() -> getY(),
-                    $this -> getPosition() -> getX() + $this -> width,
-                    $this -> getPosition() -> getY() + $this -> height,
-                    $image -> getRegisteredColor($this -> backgroundColor)
-                );
-            }
+            if ($this -> backgroundFragment) {
+                $width = $this -> backgroundFragment -> getWidth();
+                $height = $this -> backgroundFragment -> getHeight();
 
-            if ($this -> borderColor) {
-                $image -> registerColorIfUnknown($this -> borderColor);
-
-                imagesetthickness($image -> getImageResource(), $this -> getBorderThickness());
-
-                imagerectangle(
-                    $image -> getImageResource(), 
-                    $this -> getPosition() -> getX(),
-                    $this -> getPosition() -> getY(),
-                    $this -> getPosition() -> getX() + $this -> width,
-                    $this -> getPosition() -> getY() + $this -> height,
-                    $image -> getRegisteredColor($this -> borderColor)
-                );
-
-                imagesetthickness($image -> getImageResource(), 1);
+                for ($y = 0; $y < $height; $y++) {
+                    for ($x = 0; $x < $width; $x++) {
+                        $imagePos = new Vector2($this -> getPosition() -> getX() + $x, $this -> getPosition() -> getY() + $y);
+                        $image -> setPixel($imagePos, $this -> backgroundFragment -> getColorAt(new Vector2($x, $y)));
+                    }
+                }
             }
 
             return $this;
