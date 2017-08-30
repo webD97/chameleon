@@ -17,10 +17,16 @@
             $this -> pattern = $pattern;
             $this -> data = array();
 
-            for ($y = 0; $y < $mask -> getHeight(); $y++) {
+            $height = $mask -> getHeight();
+            $width = $mask -> getWidth();
+
+            $pos = new Vector2(0, 0);
+
+            for ($y = 0; $y < $height; $y++) {
                 $this -> data[$y] = array();
-                for ($x = 0; $x < $mask -> getWidth(); $x++) {
-                    $pos = new Vector2($x, $y);
+                $pos -> setY($y);
+                for ($x = 0; $x < $width; $x++) {
+                    $pos -> setX($x);
                     $this -> data[$y][$x] = ($mask -> getValueAt($pos) == true) ? $pattern -> getColorAt($pos) : ColorFactory::transparent();
                 }
             }
