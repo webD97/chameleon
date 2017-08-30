@@ -94,11 +94,17 @@
                 $width = $this -> backgroundFragment -> getWidth();
                 $height = $this -> backgroundFragment -> getHeight();
 
+                $imagePos = $this -> getPosition();
+                $startX = $imagePos -> getX();
+
                 for ($y = 0; $y < $height; $y++) {
+                    $imagePos -> setX($startX);
+
                     for ($x = 0; $x < $width; $x++) {
-                        $imagePos = new Vector2($this -> getPosition() -> getX() + $x, $this -> getPosition() -> getY() + $y);
-                        $image -> setPixel($imagePos, $this -> backgroundFragment -> getColorAt(new Vector2($x, $y)));
+                        $image -> setPixel($imagePos, $this -> backgroundFragment -> getColorAt($y * $this -> height + $x));
+                        $imagePos -> incX();
                     }
+                    $imagePos -> incY();
                 }
             }
 

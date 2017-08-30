@@ -9,13 +9,11 @@
         public function __construct(int $width, int $height, bool $initializeWith = false) {
             $this -> width = $width;
             $this -> height = $height;
-            $this -> data = array();
+            $size = $width * $height;
+            $this -> data = new \SplFixedArray($size);
 
-            for ($y = 0; $y < $this -> height; $y++) {
-                $this -> data[$y] = array();
-                for ($x = 0; $x < $this -> width; $x++) {
-                    $this -> data[$y][$x] = $initializeWith;
-                }
+            for ($i = 0; $i < $size; $i++) {
+                $this -> data -> offsetSet($i, $initializeWith);
             }
         }
 
@@ -27,12 +25,12 @@
             return $this -> height;
         }
 
-        public function getValueAt(Vector2 $position) : bool {
-            return $this -> data[$position -> getY()][$position -> getX()];
+        public function getValueAt(int $index) : bool {
+            return $this -> data -> offsetGet($index);
         }
 
-        public function setValueAt(Vector2 $position, bool $value) : self {
-            $this -> data[$position -> getY()][$position -> getX()] = $value;
+        public function setValueAt(int $index, bool $value) : self {
+            $this -> data -> offsetSet($index, $value);
         }
     }
 ?>
