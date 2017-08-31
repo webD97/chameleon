@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types = 1);
     namespace Chameleon;
 
     use Chameleon\Exceptions\ColorNotFoundException;
@@ -129,9 +130,6 @@
                 }
                 return -1;
             }
-            else {
-                throw new Exception("Color '" . $color -> __toString() . "' is already registered!");
-            }
         }
 
         /**
@@ -202,15 +200,15 @@
         }
 
         /**
-         * Set the color of a specific pixel
+         * Set the color of a specific pixel.
+         * Make sure that the color is registered on the image! No additional tests will be performed!
          *
          * @param Vector2 $position
          * @param IColor $color
          * @return self
          */
         public function setPixel(int $x, int $y, IColor $color) : self {
-            $this -> registerColorIfUnknown($color);
-            imagesetpixel($this -> imageResource, $x, $y, $this -> getRegisteredColor($color));
+            imagesetpixel($this -> imageResource, $x, $y, $this -> colors[$color -> __toString()]);
             return $this;
         }
 

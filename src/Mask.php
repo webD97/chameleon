@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types = 1);
     namespace Chameleon;
 
     use Chameleon\Vector2;

@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types = 1);
     namespace Chameleon\Primitives;
 
     use Chameleon\Vector2;
@@ -79,23 +80,36 @@
          */
         public function draw(Image $image) : self {
 
-            if ($this -> backgroundPattern -> getColor() != ColorFactory::transparent()) {
-                $backgroundMask = new Mask($this -> width, $this -> height, 1);
+            if ($this -> backgroundPattern) {
+                // Generate the mask for this pattern
+                $backgroundMask = new Mask($this -> width, $this -> height, true);
 
+                // Cache x and y coordinate of the rectangle
                 $startX = $this -> getPosition() -> getX();
                 $startY = $this -> getPosition() -> getY();
 
+                // Register all colors in the pattern
+                foreach ($this -> backgroundPattern -> getColors() as $color) {
+                    $image -> registerColor($color);
+                }
+
+                // Cache total amount of pixels
                 $size = $this -> width * $this -> height;
 
+                // Loop over all pixels
                 for ($i = 0; $i < $size; $i++) {
+                    // Map the index of the pixel to image coordinates
                     $x = $i % $this -> width;
                     $y = intdiv($i, $this -> width);
 
-                    $image -> setPixel($x + $startX, $y + $startY, 
-                        $backgroundMask -> getValueAt($i) == true ?
-                        $this -> backgroundPattern -> getColorAt($x, $y) :
-                        ColorFactory::transparent()
-                    );
+                    // If mask allows this pixel, draw it onto the image
+                    if ($backgroundMask -> getValueAt($i) === true) {
+                        $image -> setPixel(
+                            $x + $startX,
+                            $y + $startY,
+                            $this -> backgroundPattern -> getColorAt($x, $y)
+                        );
+                    }
                 }
             }
 
