@@ -52,6 +52,7 @@ File: MyFirstChameleonImage.php
     use Chameleon\Image;
     use Chameleon\Vector2;
 
+    use Chameleon\Patterns\BackgroundColor;
     use Chameleon\Colors\HSLColor;
     use Chameleon\Primitives\Rectangle;
 
@@ -59,15 +60,15 @@ File: MyFirstChameleonImage.php
 
     $imageBackground = new HSLColor(135, 1, 0.3);
 
-    $image -> setBackgroundColor($imageBackground);
+    $image -> setBackgroundPattern(new BackgroundColor($imageBackground));
 
     $rectanglePosition = new Vector2(50, 50);
     $rectangleBackground = new HSLColor(45, 1, 0.5);
     $rectangleBorder = new HSLColor(90, 1, 0.8);
 
     $rectangle = new Rectangle($rectanglePosition, 380, 260);
-    $rectangle -> setBackgroundColor($rectangleBackground)
-               -> setBorderColor($rectangleBorder)
+    $rectangle -> setBackgroundPattern(new BackgroundColor($rectangleBackground))
+               -> setBorderPattern(new BackgroundColor($rectangleBorder))
                -> setBorderThickness(5);
 
     $image -> draw($rectangle);
