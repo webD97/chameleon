@@ -32,6 +32,7 @@
 
         public function setValueAt(int $index, bool $value) : self {
             $this -> data -> offsetSet($index, $value);
+            return $this;
         }
     }
 ?>
