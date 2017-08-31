@@ -130,9 +130,9 @@
         }
 
         /**
-         * @covers \Chameleon\Image::setBackgroundColor
+         * @covers \Chameleon\Image::setBackgroundPattern
          */
-        public function testSetBackgroundColor() {
+        public function testSetBackgroundPattern() {
             $color = new RGBColor(255, 255, 255);
             $topLeft = new Vector2(0, 0);
             $topRight = new Vector2(19, 0);
