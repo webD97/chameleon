@@ -30,7 +30,7 @@
           
             $this -> setBorderPattern(null);
             $this -> setBorderThickness(1);
-            $this -> setBackgroundPattern(null)
+            $this -> setBackgroundPattern(null);
         }
 
         /**
@@ -121,8 +121,8 @@
                         $image -> getImageResource(),
                         $this -> getPosition() -> getX(),
                         $this -> getPosition() -> getY(),
-                        $this -> getPosition() -> getX() + $this -> getWidth(),
-                        $this -> getPosition() -> getY() + $this -> getHeight(),
+                        $this -> getPosition() -> getX() + $this -> getWidth() - 1,
+                        $this -> getPosition() -> getY() + $this -> getHeight() - 1,
                         $image -> getRegisteredColor($color)
                     );
                 }
@@ -150,8 +150,8 @@
                     // Top
                     imagefilledrectangle(
                         $image -> getImageResource(),
-                        $this -> getPosition() -> getX() - $this -> borderThickness -1,
-                        $this -> getPosition() -> getY() - $this -> borderThickness - 1,
+                        $this -> getPosition() -> getX() - $this -> borderThickness,
+                        $this -> getPosition() -> getY() - $this -> borderThickness,
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getY() - 1,
                         $image -> getRegisteredColor($color)
@@ -159,28 +159,28 @@
                     // Bottom
                     imagefilledrectangle(
                         $image -> getImageResource(),
-                        $this -> getPosition() -> getX() - $this -> borderThickness -1,
-                        $this -> getPosition() -> getY() + $this -> getHeight() + $this -> borderThickness + 1,
+                        $this -> getPosition() -> getX() - $this -> borderThickness,
+                        $this -> getPosition() -> getY() + $this -> getHeight() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
-                        $this -> getPosition() -> getY() + $this -> getHeight() + 1,
+                        $this -> getPosition() -> getY() + $this -> getHeight(),
                         $image -> getRegisteredColor($color)
                     );
                     // Left
                     imagefilledrectangle(
                         $image -> getImageResource(),
-                        $this -> getPosition() -> getX() - $this -> borderThickness - 1,
+                        $this -> getPosition() -> getX() - $this -> borderThickness,
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() - 1,
-                        $this -> getPosition() -> getY() + $this -> getHeight(),
+                        $this -> getPosition() -> getY() + $this -> getHeight() - 1,
                         $image -> getRegisteredColor($color)
                     );
                     // Right
                     imagefilledrectangle(
                         $image -> getImageResource(),
-                        $this -> getPosition() -> getX() + $this -> getWidth() + 1,
+                        $this -> getPosition() -> getX() + $this -> getWidth(),
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
-                        $this -> getPosition() -> getY() + $this -> getHeight(),
+                        $this -> getPosition() -> getY() + $this -> getHeight() - 1,
                         $image -> getRegisteredColor($color)
                     );
                 }
