@@ -127,7 +127,6 @@
             $line -> setColor(ColorFactory::white());
 
             $image -> draw($line);
-            imagepng($image -> getImageResource(), "test.png");
 
             $black = new RGBColor(0, 0, 0);
             $white = new RGBColor(255, 255, 255);

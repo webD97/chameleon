@@ -3,6 +3,12 @@
 
     use Chameleon\Colors\Hex8Color;
 
+    /**
+     * ColorFactory provides various helper functions for working with colors.
+     * 
+     * There are 141 named colors available, for a list, see https://www.w3schools.com/colors/colors_names.asp
+     * The 141st color is 'transparent'
+     */
     class ColorFactory {
         public static function transparent() : Hex8Color {
             return new Hex8Color("#0000007F");

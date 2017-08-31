@@ -9,6 +9,9 @@
     use Chameleon\Patterns\IPattern;
     use Chameleon\Patterns\BackgroundColor;
 
+    /**
+     * Rectangle, by default completely transparent
+     */
     class Rectangle extends Primitive {
         private $width;
         private $height;
@@ -24,10 +27,10 @@
             $this -> point = $point;
             $this -> width = $width;
             $this -> height = $height;
-
+          
             $this -> setBorderPattern(null);
             $this -> setBorderThickness(1);
-            $this -> setBackgroundPattern(null);
+            $this -> setBackgroundPattern(null)
         }
 
         /**
@@ -108,7 +111,6 @@
          * @return self
          */
         public function draw(Image $image) : self {
-
             if ($this -> backgroundPattern) {
                 if ($this -> backgroundPattern instanceof BackgroundColor) {
                     // Unicolor background can make use of imagefilledrectangle()

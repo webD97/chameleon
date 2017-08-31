@@ -6,6 +6,8 @@
     use Chameleon\Primitives\Rectangle;
     use Chameleon\Colors\RGBColor;
     use Chameleon\Vector2;
+    use Chameleon\Image;
+    use Chameleon\ColorFactory;
 
     final class RectangleTest extends TestCase {
 
@@ -59,9 +61,26 @@
         /**
          * @covers Chameleon\Primitives\Rectangle::draw
          */
-        public function testDraw() {
-            // TODO
-            $this -> assertTrue(true);
+        public function testDrawWithBackgroundColor() {
+            $image = Image::create(4, 4);
+            $image -> setBackgroundColor(ColorFactory::black());
+
+            $rectangle = new Rectangle(new Vector2(1, 1), 2, 2);
+            $rectangle -> setBackgroundColor(ColorFactory::white());
+
+            $image -> draw($rectangle);
+
+            $black = new RGBColor(0, 0, 0);
+            $white = new RGBColor(255, 255, 255);
+            $this -> assertEquals($black, $image -> getPixel(new Vector2(0, 0)));
+            $this -> assertEquals($black, $image -> getPixel(new Vector2(3, 0)));
+            $this -> assertEquals($black, $image -> getPixel(new Vector2(0, 3)));
+            $this -> assertEquals($black, $image -> getPixel(new Vector2(3, 3)));
+
+            $this -> assertEquals($white, $image -> getPixel(new Vector2(1, 1)));
+            $this -> assertEquals($white, $image -> getPixel(new Vector2(2, 1)));
+            $this -> assertEquals($white, $image -> getPixel(new Vector2(1, 2)));
+            $this -> assertEquals($white, $image -> getPixel(new Vector2(2, 2)));
         }
     }
 ?>
