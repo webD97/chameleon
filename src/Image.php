@@ -1,9 +1,12 @@
 <?php
+    declare(strict_types = 1);
     namespace Chameleon;
 
     use Chameleon\Exceptions\ColorNotFoundException;
 
     use Chameleon\Primitives\IPrimitive;
+    use Chameleon\Primitives\Rectangle;
+    use Chameleon\Patterns\IPattern;
     use Chameleon\Colors\IColor;
     use Chameleon\Colors\RGBColor;
 
@@ -129,9 +132,6 @@
                 }
                 return -1;
             }
-            else {
-                throw new Exception("Color '" . $color -> __toString() . "' is already registered!");
-            }
         }
 
         /**
@@ -174,26 +174,22 @@
             return false;
         }
 
-        /**
-         * Set image background color
-         *
-         * @param IColor $color The color
-         * @return self
-         */
-        public function setBackgroundColor(IColor $color) : self {
-            $this -> registerColorIfUnknown($color);
-            imagefilledrectangle($this -> imageResource, 0, 0, $this -> getWidth(), $this -> getHeight(), $this -> getRegisteredColor($color));
-            return $this;
+        public function setBackgroundPattern(IPattern $pattern) {
+
+            $rectangle = new Rectangle(new Vector2(0, 0), $this -> getWidth(), $this -> getHeight());
+            $rectangle -> setBackgroundPattern($pattern);
+            $rectangle -> draw($this);
         }
 
         /**
          * Get color of a specific pixel
          *
-         * @param Vector2 $position
+         * @param int $x X coordinate
+         * @param int $y Y coordinate
          * @return RGBColor The color
          */
-        public function getPixel(Vector2 $position) : RGBColor {
-            $rgb = imagecolorat($this -> imageResource, $position -> getX(), $position -> getY());
+        public function getPixel(int $x, int $y) : RGBColor {
+            $rgb = imagecolorat($this -> imageResource, $x, $y);
             $r = ($rgb >> 16) & 0xFF;
             $g = ($rgb >> 8) & 0xFF;
             $b = $rgb & 0xFF;
@@ -202,15 +198,15 @@
         }
 
         /**
-         * Set the color of a specific pixel
+         * Set the color of a specific pixel.
+         * Make sure that the color is registered on the image! No additional tests will be performed!
          *
          * @param Vector2 $position
          * @param IColor $color
          * @return self
          */
-        public function setPixel(Vector2 $position, IColor $color) : self {
-            $this -> registerColorIfUnknown($color);
-            imagesetpixel($this -> imageResource, $position -> getX(), $position -> getY(), $this -> getRegisteredColor($color));
+        public function setPixel(int $x, int $y, IColor $color) : self {
+            imagesetpixel($this -> imageResource, $x, $y, $this -> colors[$color -> __toString()]);
             return $this;
         }
 

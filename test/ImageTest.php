@@ -6,6 +6,7 @@
     use Chameleon\Image;
     use Chameleon\Vector2;
     use Chameleon\Colors\RGBColor;
+    use Chameleon\Patterns\BackgroundColor;
 
     final class ImageTest extends TestCase {
 
@@ -111,39 +112,38 @@
          */
         public function testGetPixel() {
             // TODO: Use existing image as soon as implemented
-            $pos = new Vector2(5, 5);
             $color = new RGBColor(255, 127, 63);
-            $this -> image -> setPixel($pos, $color);
+            $this -> image -> setBackgroundPattern(new BackgroundColor($color));
 
-            $this -> assertEquals($color, $this -> image -> getPixel($pos));
+            $this -> assertEquals($color, $this -> image -> getPixel(5, 5));
         }
 
         /**
          * @covers \Chameleon\Image::setPixel
          */
         public function testSetPixel() {
-            $pos = new Vector2(5, 5);
             $color = new RGBColor(63, 127, 255);
-            $this -> image -> setPixel($pos, $color);
+            $this -> image -> registerColor($color);
+            $this -> image -> setPixel(5, 5, $color);
 
-            $this -> assertEquals($color, $this -> image -> getPixel($pos));
+            $this -> assertEquals($color, $this -> image -> getPixel(5, 5));
         }
 
         /**
-         * @covers \Chameleon\Image::setBackgroundColor
+         * @covers \Chameleon\Image::setBackgroundPattern
          */
-        public function testSetBackgroundColor() {
+        public function testSetBackgroundPattern() {
             $color = new RGBColor(255, 255, 255);
             $topLeft = new Vector2(0, 0);
             $topRight = new Vector2(19, 0);
             $bottomRight = new Vector2(19, 9);
             $bottomLeft = new Vector2(0, 9);
-            $this -> image -> setBackgroundColor($color);
+            $this -> image -> setBackgroundPattern(new BackgroundColor($color));
 
-            $this -> assertEquals($color, $this -> image -> getPixel($topLeft));
-            $this -> assertEquals($color, $this -> image -> getPixel($topRight));
-            $this -> assertEquals($color, $this -> image -> getPixel($bottomRight));
-            $this -> assertEquals($color, $this -> image -> getPixel($bottomLeft));
+            $this -> assertEquals($color, $this -> image -> getPixel(0, 0));
+            $this -> assertEquals($color, $this -> image -> getPixel(19, 0));
+            $this -> assertEquals($color, $this -> image -> getPixel(19, 9));
+            $this -> assertEquals($color, $this -> image -> getPixel(0, 9));
         }
     }
 ?>

@@ -28,6 +28,26 @@
             return $this;
         }
 
+        public function incX(int $inc = 1) : self {
+            $this -> x += $inc;
+            return $this;
+        }
+
+        public function incY(int $inc = 1) : self {
+            $this -> y += $inc;
+            return $this;
+        }
+
+        public function decX(int $dec = 1) : self {
+            $this -> x -= $dec;
+            return $this;
+        }
+
+        public function decY(int $dec = 1) : self {
+            $this -> y -= $dec;
+            return $this;
+        }
+
         public function __toString() : string {
             return "(" . $this -> x . ", " . $this -> y . ")";
         }

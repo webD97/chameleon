@@ -4,13 +4,15 @@
     use Chameleon\Vector2;
     use Chameleon\Image;
     use Chameleon\Colors\IColor;
+    use Chameleon\Patterns\IPattern;
 
     abstract class Primitive implements IPrimitive {
         protected $point;
 
-        protected $borderColor;
+        protected $borderPattern;
         protected $borderThickness;
-        protected $backgroundColor;
+        protected $backgroundPattern;
+
         abstract public function draw(Image $image);
 
         /**
@@ -34,23 +36,23 @@
         }
 
         /**
-         * Set border color
+         * Set border pattern
          *
-         * @param IColor $color The color
+         * @param IPattern|null $pattern The pattern
          * @return self
          */
-        public function setBorderColor(IColor $color) : self {
-            $this -> borderColor = $color;
+        public function setBorderPattern(?IPattern $pattern) : self {
+            $this -> borderPattern = $pattern;
             return $this;
         }
 
         /**
-         * Get border color
+         * Get border pattern
          *
-         * @return IColor The color
+         * @return IPattern|null
          */
-        public function getBorderColor() : IColor {
-            return $this -> borderColor;
+        public function getBorderPattern() : ?IPattern {
+            return $this -> borderPattern;
         }
 
         /**
@@ -74,23 +76,23 @@
         }
 
         /**
-         * Set background color
+         * Set background pattern
          *
-         * @param Icolor $color The color
+         * @param IPattern|null $pattern The pattern
          * @return self
          */
-        public function setBackgroundColor(Icolor $color) : self {
-            $this -> backgroundColor = $color;
+        public function setBackgroundPattern(?IPattern $color) : self {
+            $this -> backgroundPattern = $color;
             return $this;
         }
 
         /**
-         * Get background color
+         * Get background pattern
          *
-         * @return IColor The color
+         * @return IPattern|null The pattern
          */
-        public function getBackgroundColor(): IColor {
-            return $this -> backgroundColor;
+        public function getBackgroundPattern(): ?IPattern {
+            return $this -> backgroundPattern;
         }
     }
 ?>
