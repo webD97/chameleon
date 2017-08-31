@@ -24,9 +24,9 @@
             $this -> width = $width;
             $this -> height = $height;
 
-            $this -> setBorderPattern(new BackgroundColor(ColorFactory::transparent()));
+            $this -> setBorderPattern(null);
             $this -> setBorderThickness(1);
-            $this -> setBackgroundPattern(new BackgroundColor(ColorFactory::transparent()));
+            $this -> setBackgroundPattern(null);
         }
 
         /**

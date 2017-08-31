@@ -38,10 +38,10 @@
         /**
          * Set border pattern
          *
-         * @param IPattern $pattern The pattern
+         * @param IPattern|null $pattern The pattern
          * @return self
          */
-        public function setBorderPattern(IPattern $pattern) : self {
+        public function setBorderPattern(?IPattern $pattern) : self {
             $this -> borderPattern = $pattern;
             return $this;
         }
@@ -49,9 +49,9 @@
         /**
          * Get border pattern
          *
-         * @return IPattern The pattern
+         * @return IPattern|null
          */
-        public function getBorderPattern() : IPattern {
+        public function getBorderPattern() : ?IPattern {
             return $this -> borderPattern;
         }
 
@@ -76,12 +76,12 @@
         }
 
         /**
-         * Set background color
+         * Set background pattern
          *
-         * @param IPattern $pattern The pattern
+         * @param IPattern|null $pattern The pattern
          * @return self
          */
-        public function setBackgroundPattern(IPattern $color) : self {
+        public function setBackgroundPattern(?IPattern $color) : self {
             $this -> backgroundPattern = $color;
             return $this;
         }
@@ -89,9 +89,9 @@
         /**
          * Get background pattern
          *
-         * @return IPattern The pattern
+         * @return IPattern|null The pattern
          */
-        public function getBackgroundPattern(): IPattern {
+        public function getBackgroundPattern(): ?IPattern {
             return $this -> backgroundPattern;
         }
     }
