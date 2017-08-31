@@ -13,6 +13,7 @@ Please note that it is still in development!
 
     use Chameleon\Colors\HSLColor;
     use Chameleon\Primitives\Rectangle;
+    use Chameleon\Patterns\BackgroundColor;
 
     $image = Image::create(480, 360);
 
@@ -25,14 +26,13 @@ Please note that it is still in development!
     $rectangleBorder = new HSLColor(90, 1, 0.8);
 
     $rectangle = new Rectangle($rectanglePosition, 380, 260);
-    $rectangle -> setBackgroundColor($rectangleBackground)
-               -> setBorderColor($rectangleBorder)
+    $rectangle -> setBackgroundColor(new BackgroundColor($rectangleBackground))
+               -> setBorderColor(new BackgroundColor($rectangleBorder))
                -> setBorderThickness(5);
 
     $image -> draw($rectangle);
 
     header("Content-type: image/png");
-
     $image -> as(IMG_PNG);
 ?>
 ```
