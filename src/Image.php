@@ -5,6 +5,8 @@
     use Chameleon\Exceptions\ColorNotFoundException;
 
     use Chameleon\Primitives\IPrimitive;
+    use Chameleon\Primitives\Rectangle;
+    use Chameleon\Patterns\IPattern;
     use Chameleon\Colors\IColor;
     use Chameleon\Colors\RGBColor;
 
@@ -172,9 +174,9 @@
             return false;
         }
 
-        public function setBackgroundPattern(\Chameleon\Patterns\IPattern $pattern) {
+        public function setBackgroundPattern(IPattern $pattern) {
 
-            $rectangle = new \Chameleon\Primitives\Rectangle(new Vector2(0, 0), $this -> getWidth(), $this -> getHeight());
+            $rectangle = new Rectangle(new Vector2(0, 0), $this -> getWidth(), $this -> getHeight());
             $rectangle -> setBackgroundPattern($pattern);
             $rectangle -> draw($this);
         }
