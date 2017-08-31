@@ -208,9 +208,9 @@
          * @param IColor $color
          * @return self
          */
-        public function setPixel(Vector2 $position, IColor $color) : self {
+        public function setPixel(int $x, int $y, IColor $color) : self {
             $this -> registerColorIfUnknown($color);
-            imagesetpixel($this -> imageResource, $position -> getX(), $position -> getY(), $this -> getRegisteredColor($color));
+            imagesetpixel($this -> imageResource, $x, $y, $this -> getRegisteredColor($color));
             return $this;
         }
 

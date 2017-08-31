@@ -5,6 +5,6 @@
     use Chameleon\Colors\IColor;
 
     interface IPattern {
-        public function getColorAt(Vector2 $position) : IColor;
+        public function getColorAt(int $x, int $y) : IColor;
     }
 ?>

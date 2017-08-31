@@ -1,6 +1,7 @@
 <?php
     namespace Chameleon;
 
+    use \SplFixedArray;
     use Chameleon\Vector2;
     use Chameleon\Mask;
     use Chameleon\Patterns\IPattern;
@@ -21,11 +22,13 @@
 
             $size = $width * $height;
 
-            $this -> data = new \SplFixedArray($size);
-            $patternPos = new Vector2(0, 0);
+            $this -> data = new SplFixedArray($size);
             for ($i = 0; $i < $size; $i++) {
-                $patternPos -> setX($i % $height) -> setY(($i - $width) / $height);
-                $this -> data -> offsetSet($i, ($mask -> getValueAt($i) == true) ? $pattern -> getColorAt($patternPos) : ColorFactory::transparent());
+                $this -> data -> offsetSet($i, 
+                    $mask -> getValueAt($i == true) ?
+                    $pattern -> getColorAt($i % $height, ($i - $width) / $height) :
+                    ColorFactory::transparent()
+                );
             }
         }
 

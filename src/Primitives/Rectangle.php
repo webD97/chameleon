@@ -4,16 +4,12 @@
     use Chameleon\Vector2;
     use Chameleon\Image;
     use Chameleon\Mask;
-    use Chameleon\Fragment;
     use Chameleon\ColorFactory;
     use Chameleon\Patterns\BackgroundColor;
 
     class Rectangle extends Primitive {
         private $width;
         private $height;
-
-        private $backgroundFragment;
-        private $borderFragment;
 
         /**
          * Class constructor
@@ -72,12 +68,6 @@
             return $this;
         }
 
-        private function renderFragments() {
-            $backgroundMask = new Mask($this -> width, $this -> height, 1);
-
-            $this -> backgroundFragment = new Fragment($this -> backgroundPattern, $backgroundMask);
-        }
-
         /**
          * Draw the rectangle onto the image resource
          * 
@@ -88,23 +78,24 @@
          * @return self
          */
         public function draw(Image $image) : self {
-            $this -> renderFragments();
 
-            if ($this -> backgroundFragment) {
-                $width = $this -> backgroundFragment -> getWidth();
-                $height = $this -> backgroundFragment -> getHeight();
+            if ($this -> backgroundPattern -> getColor() != ColorFactory::transparent()) {
+                $backgroundMask = new Mask($this -> width, $this -> height, 1);
 
-                $imagePos = $this -> getPosition();
-                $startX = $imagePos -> getX();
+                $startX = $this -> getPosition() -> getX();
+                $startY = $this -> getPosition() -> getY();
 
-                for ($y = 0; $y < $height; $y++) {
-                    $imagePos -> setX($startX);
+                $size = $this -> width * $this -> height;
 
-                    for ($x = 0; $x < $width; $x++) {
-                        $image -> setPixel($imagePos, $this -> backgroundFragment -> getColorAt($y * $this -> height + $x));
-                        $imagePos -> incX();
-                    }
-                    $imagePos -> incY();
+                for ($i = 0; $i < $size; $i++) {
+                    $x = $i % $this -> width;
+                    $y = intdiv($i, $this -> width);
+
+                    $image -> setPixel($x + $startX, $y + $startY, 
+                        $backgroundMask -> getValueAt($i) == true ?
+                        $this -> backgroundPattern -> getColorAt($x, $y) :
+                        ColorFactory::transparent()
+                    );
                 }
             }
 

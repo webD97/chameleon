@@ -22,7 +22,7 @@
             return $this;
         }
 
-        public function getColorAt(Vector2 $position) : IColor {
+        public function getColorAt(int $x, int $y) : IColor {
             return $this -> color;
         }
     }
