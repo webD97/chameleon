@@ -172,16 +172,11 @@
             return false;
         }
 
-        /**
-         * Set image background color
-         *
-         * @param IColor $color The color
-         * @return self
-         */
-        public function setBackgroundColor(IColor $color) : self {
-            $this -> registerColorIfUnknown($color);
-            imagefilledrectangle($this -> imageResource, 0, 0, $this -> getWidth(), $this -> getHeight(), $this -> getRegisteredColor($color));
-            return $this;
+        public function setBackgroundPattern(\Chameleon\Patterns\IPattern $pattern) {
+
+            $rectangle = new \Chameleon\Primitives\Rectangle(new Vector2(0, 0), $this -> getWidth(), $this -> getHeight());
+            $rectangle -> setBackgroundPattern($pattern);
+            $rectangle -> draw($this);
         }
 
         /**
