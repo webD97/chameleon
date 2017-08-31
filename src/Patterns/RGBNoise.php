@@ -9,9 +9,7 @@
     use \Chameleon\Colors\RGBAColor;
     use Chameleon\Patterns\IPattern;
 
-    class RGBNoise implements IPattern {
-        private $colors;
-
+    class RGBNoise extends Pattern {
         /**
          * Class constructor
          *
@@ -19,10 +17,10 @@
          * @param int $alpha Optional alpha channel value for the colors
          */
         public function __construct(int $colors, int $alpha = 0) {
-            $this -> colors = new SplFixedArray($colors);
+            parent::__construct($colors);
 
             for ($i = 0; $i < $colors; $i++) {
-                $this -> colors -> offsetSet($i, new RGBAColor(mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255), $alpha));
+                parent::setColor($i, new RGBAColor(mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255), $alpha));
             }
         }
 
@@ -34,16 +32,7 @@
          * @return IColor The color for the given position
          */
         public function getColorAt(int $x, int $y) : IColor {
-            return $this -> colors -> offsetGet(mt_rand(0, $this -> colors -> getSize() - 1));
-        }
-
-        /**
-         * Get all colors used by this pattern
-         *
-         * @return SplFixedArray Fixed array of RGBAColor
-         */
-        public function getColors() : SplFixedArray {
-            return $this -> colors;
+            return parent::getColor(mt_rand(0, parent::getSize() - 1));
         }
     }
 ?>

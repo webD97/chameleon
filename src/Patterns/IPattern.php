@@ -8,6 +8,5 @@
 
     interface IPattern {
         public function getColorAt(int $x, int $y) : IColor;
-        public function getColors() : SplFixedArray;
     }
 ?>

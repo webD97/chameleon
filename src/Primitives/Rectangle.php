@@ -89,7 +89,7 @@
                 $startY = $this -> getPosition() -> getY();
 
                 // Register all colors in the pattern
-                foreach ($this -> backgroundPattern -> getColors() as $color) {
+                foreach ($this -> backgroundPattern as $color) {
                     $image -> registerColor($color);
                 }
 

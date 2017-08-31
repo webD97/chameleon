@@ -8,20 +8,17 @@
     use Chameleon\Colors\IColor;
     use Chameleon\Patterns\IPattern;
 
-    class BackgroundColor implements IPattern {
-        private $colors;
-
+    /**
+     * BackgroundColor represents a plain unicolor background, equivalent to background-color in CSS
+     */
+    class BackgroundColor extends Pattern {
         public function __construct(IColor $color) {
-            $this -> colors = new SplFixedArray(1);
-            $this -> colors -> offsetSet(0, $color);
+            parent::__construct(1);
+            parent::setColor(0, $color);
         }
 
         public function getColorAt(int $x, int $y) : IColor {
-            return $this -> colors -> offsetGet(0);
-        }
-
-        public function getColors() : SplFixedArray {
-            return $this -> colors;
+            return parent::getColor(0);
         }
     }
 ?>
