@@ -5,7 +5,8 @@
 
     use Chameleon\Primitives\Primitive;
     use Chameleon\Primitives\Rectangle;
-    use Chameleon\Colors\RGBColor;
+    use Chameleon\ColorFactory;
+    use Chameleon\Patterns\BackgroundColor;
     use Chameleon\Vector2;
 
     final class PrimitiveTest extends TestCase {
@@ -30,13 +31,13 @@
         }
 
         /**
-         * @covers \Chameleon\Primitives\Primitive::setBorderColor
+         * @covers \Chameleon\Primitives\Primitive::setBorderPattern
          */
-        public function testSetBorderColor() {
-            $color = new RGBColor(255, 0, 0);
+        public function testSetBorderPattern() {
+            $pattern = new BackgroundColor(ColorFactory::blue());
 
-            $this -> assertEquals($this -> primitive, $this -> primitive -> setBorderColor($color));
-            $this -> assertEquals($color, $this -> primitive -> getBorderColor());
+            $this -> assertEquals($this -> primitive, $this -> primitive -> setBorderPattern($pattern));
+            $this -> assertEquals($pattern, $this -> primitive -> getBorderPattern());
         }
 
         /**
@@ -48,13 +49,13 @@
         }
 
         /**
-         * @covers \Chameleon\Primitives\Primitive::setBackgroundColor
+         * @covers \Chameleon\Primitives\Primitive::setBackgroundPattern
          */
-        public function testSetBackgroundColor() {
-            $color = new RGBColor(255, 255, 255);
+        public function testSetBackgroundPattern() {
+            $pattern = new BackgroundColor(ColorFactory::white());
 
-            $this -> assertEquals($this -> primitive, $this -> primitive -> setBackgroundColor($color));
-            $this -> assertEquals($color, $this -> primitive -> getBackgroundColor());
+            $this -> assertEquals($this -> primitive, $this -> primitive -> setBackgroundPattern($pattern));
+            $this -> assertEquals($pattern, $this -> primitive -> getBackgroundPattern());
         }
     }
 ?>

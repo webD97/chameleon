@@ -6,6 +6,7 @@
     use Chameleon\Image;
     use Chameleon\Vector2;
     use Chameleon\ColorFactory;
+    use Chameleon\Patterns\BackgroundColor;
     use Chameleon\Primitives\Line;
     use Chameleon\Colors\RGBColor;
 
@@ -120,7 +121,7 @@
          */
         public function testDraw() {
             $image = Image::create(2, 2);
-            $image -> setBackgroundColor(ColorFactory::black());
+            $image -> setBackgroundPattern(new BackgroundColor(ColorFactory::black()));
 
             $line = new Line(new Vector2(0, 0), new Vector2(1, 1));
             $line -> setColor(ColorFactory::white());
@@ -130,10 +131,10 @@
 
             $black = new RGBColor(0, 0, 0);
             $white = new RGBColor(255, 255, 255);
-            $this -> assertEquals($white, $image -> getPixel(new Vector2(0, 0)));
-            $this -> assertEquals($black, $image -> getPixel(new Vector2(0, 1)));
-            $this -> assertEquals($black, $image -> getPixel(new Vector2(1, 0)));
-            $this -> assertEquals($white, $image -> getPixel(new Vector2(1, 1)));
+            $this -> assertEquals($white, $image -> getPixel(0, 0));
+            $this -> assertEquals($black, $image -> getPixel(0, 1));
+            $this -> assertEquals($black, $image -> getPixel(1, 0));
+            $this -> assertEquals($white, $image -> getPixel(1, 1));
 
         }
     }

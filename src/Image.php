@@ -184,11 +184,12 @@
         /**
          * Get color of a specific pixel
          *
-         * @param Vector2 $position
+         * @param int $x X coordinate
+         * @param int $y Y coordinate
          * @return RGBColor The color
          */
-        public function getPixel(Vector2 $position) : RGBColor {
-            $rgb = imagecolorat($this -> imageResource, $position -> getX(), $position -> getY());
+        public function getPixel(int $x, int $y) : RGBColor {
+            $rgb = imagecolorat($this -> imageResource, $x, $y);
             $r = ($rgb >> 16) & 0xFF;
             $g = ($rgb >> 8) & 0xFF;
             $b = $rgb & 0xFF;
