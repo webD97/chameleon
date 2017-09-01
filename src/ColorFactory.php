@@ -139,11 +139,11 @@
         }
         
         public static function darkOrchid() : Hex8Color {
-            return new Hex8Color("#9932CC0000");
+            return new Hex8Color("#9932CC00");
         }
         
         public static function darkRed() : Hex8Color {
-            return new Hex8Color("#8B00000000");
+            return new Hex8Color("#8B000000");
         }
         
         public static function darkSalmon() : Hex8Color {
