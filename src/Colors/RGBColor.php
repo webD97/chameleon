@@ -1,8 +1,8 @@
 <?php
     namespace Chameleon\Colors;
 
-    use \Chameleon\Exceptions\ValueOutOfBoundsException;
-    use \Chameleon\Colors\RGBAColor;
+    use Chameleon\Exceptions\ValueOutOfBoundsException;
+    use Chameleon\Colors\RGBAColor;
 
     class RGBColor extends Color {
         /**

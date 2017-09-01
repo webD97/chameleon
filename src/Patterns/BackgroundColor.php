@@ -2,11 +2,8 @@
     declare(strict_types = 1);
     namespace Chameleon\Patterns;
 
-    use \SplFixedArray;
-    use Chameleon\ColorFactory;
-    use Chameleon\Vector2;
+    use SplFixedArray;
     use Chameleon\Colors\IColor;
-    use Chameleon\Patterns\IPattern;
 
     /**
      * BackgroundColor represents a plain unicolor background, equivalent to background-color in CSS

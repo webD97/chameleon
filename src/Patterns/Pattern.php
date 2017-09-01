@@ -2,7 +2,7 @@
     declare(strict_types = 1);
     namespace Chameleon\Patterns;
 
-    use \SplFixedArray;
+    use SplFixedArray;
     use Chameleon\Colors\IColor;
     use Chameleon\Patterns\IPattern;
 
