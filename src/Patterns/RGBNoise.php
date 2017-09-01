@@ -2,11 +2,11 @@
     declare(strict_types = 1);
     namespace Chameleon\Patterns;
 
-    use \SplFixedArray;
+    use SplFixedArray;
     use Chameleon\ColorFactory;
     use Chameleon\Vector2;
     use Chameleon\Colors\IColor;
-    use \Chameleon\Colors\RGBAColor;
+    use Chameleon\Colors\RGBAColor;
     use Chameleon\Patterns\IPattern;
 
     class RGBNoise extends Pattern {

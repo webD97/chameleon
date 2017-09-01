@@ -3,7 +3,7 @@
 
     use Chameleon\Exceptions\ValueOutOfBoundsException;
     use Chameleon\Colors\Hex6Color;
-    use \Chameleon\Colors\RGBAColor;
+    use Chameleon\Colors\RGBAColor;
 
     class Hex8Color extends Hex6Color {
         /**

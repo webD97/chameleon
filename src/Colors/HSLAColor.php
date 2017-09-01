@@ -3,7 +3,7 @@
 
     use Chameleon\Exceptions\ValueOutOfBoundsException;
     use Chameleon\Colors\HSLColor;
-    use \Chameleon\Colors\RGBAColor;
+    use Chameleon\Colors\RGBAColor;
 
     class HSLAColor extends HSLColor {
         /**

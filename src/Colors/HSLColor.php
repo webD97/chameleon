@@ -2,7 +2,7 @@
     namespace Chameleon\Colors;
 
     use Chameleon\Exceptions\ValueOutOfBoundsException;
-    use \Chameleon\Colors\RGBAColor;
+    use Chameleon\Colors\RGBAColor;
 
     /**
     * Color Class for HSL colors
