@@ -8,3 +8,6 @@ vendor/bin/phpdoc
 
 # Run phpdoc-md to create Markdown files
 vendor/bin/phpdocmd docs/documentation/structure.xml docs/documentation
+
+# Rename index file
+mv docs/documentation/ApiIndex.md docs/documentation/index.md
