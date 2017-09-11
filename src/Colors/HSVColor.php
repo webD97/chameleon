@@ -170,7 +170,7 @@
             // return new ...;
         }
 
-        public function lighten(float $percentage) : self {
+        public function lighten(float $percentage) : IColor {
             $this -> value += $percentage;
 
             if ($this -> value > 1) {
@@ -180,7 +180,7 @@
             return $this;
         }
 
-        public function darken(float $percentage) : self {
+        public function darken(float $percentage) : IColor {
             $this -> value -= $percentage;
 
             if ($this -> value < 0) {
