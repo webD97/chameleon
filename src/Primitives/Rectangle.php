@@ -91,7 +91,7 @@
                 $y = intdiv($i, $width);
 
                 // If mask allows this pixel, draw it onto the image
-                if ($mask -> getValueAt($i) === true) {
+                if ($mask -> offsetGet($i) === true) {
                     $image -> setPixel(
                         $x + $startX,
                         $y + $startY,
@@ -128,7 +128,12 @@
                 }
                 else {
                     // Generate the mask for this pattern
-                    $backgroundMask = new Mask($this -> width, $this -> height, true);
+                    $backgroundMask = new Mask($this -> width, $this -> height);
+                    $size = $this -> width * $this -> height;
+
+                    for ($i = 0; $i < $size; $i++) {
+                        $backgroundMask -> offsetSet($i, true);
+                    }
     
                     // Draw pattern using mask
                     $this -> drawPattern(
@@ -186,7 +191,7 @@
                 }
                 else {
                     // Generate the mask for this pattern
-                    $borderMask = new Mask($this -> width + 2 * $this -> borderThickness, $this -> height + 2 * $this -> borderThickness, false);
+                    $borderMask = new Mask($this -> width + 2 * $this -> borderThickness, $this -> height + 2 * $this -> borderThickness);
     
                     $width = $borderMask -> getWidth();
                     $height = $borderMask -> getHeight();
@@ -199,7 +204,7 @@
                                 $y < $this -> borderThickness ||                // top
                                 $y > $height - $this -> borderThickness - 1     // bottom
                             ) {
-                                $borderMask -> setValueAt($y * $width + $x, true);
+                                $borderMask -> setValueAt($x, $y, true);
                             }
                         }
                     }
