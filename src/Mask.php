@@ -74,7 +74,7 @@
          * @return self
          */
         public function setValueAt(int $x, int $y, ?bool $value) : self {
-            $this -> offsetSet($y * $this -> width + $x);
+            $this -> offsetSet($y * $this -> width + $x, $value);
             return $this;
         }
     }
