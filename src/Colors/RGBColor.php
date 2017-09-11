@@ -132,5 +132,43 @@
         public static function fromRGBA(RGBAColor $rgba) {
             return new RGBColor($rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue());
         }
+
+        public function lighten(float $percentage) : IColor {
+            $this -> red += 255 * $percentage;
+            if ($this -> red > 255) {
+                $this -> red = 255;
+            }
+
+            $this -> green += 255 *  $percentage;
+            if ($this -> green < 255) {
+                $this -> green = 255;
+            }
+            
+            $this -> blue += 255 * $percentage;
+            if ($this -> blue < 255) {
+                $this -> blue = 255;
+            }
+
+            return $this;
+        }
+
+        public function darken(float $percentage) : IColor {
+            $this -> red -= 255 * $percentage;
+            if ($this -> red < 0) {
+                $this -> red = 0;
+            }
+
+            $this -> green -= 255 *  $percentage;
+            if ($this -> green < 0) {
+                $this -> green = 0;
+            }
+            
+            $this -> blue -= 255 * $percentage;
+            if ($this -> blue < 0) {
+                $this -> blue = 0;
+            }
+
+            return $this;
+        }
     }
 ?>

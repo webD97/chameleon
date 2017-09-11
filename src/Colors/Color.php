@@ -4,8 +4,10 @@
     use Chameleon\Colors\RGBAColor;
 
     abstract class Color implements IColor {
-        public abstract function getRGBA() : RGBAColor;
         public static abstract function fromRGBA(RGBAColor $rgba);
+        public abstract function getRGBA() : RGBAColor;
+        public abstract function lighten(float $percentange) : IColor;
+        public abstract function darken(float $percentange) : IColor;
 
         public function isTransparent() : bool {
             return $this -> getRGBA() -> getAlpha() == 127;

@@ -5,6 +5,13 @@
 
     interface IColor {
         /**
+         * Construct from an RGBAColor
+         *
+         * @return void
+         */
+        public static function fromRGBA(RGBAColor $color);
+
+        /**
          * Get the RGBA representation of the color
          *
          * @return RGBAColor
@@ -17,13 +24,21 @@
          * @return bool
          */
         public function isTransparent() : bool;
-        
-        /**
-         * Construct from an RGBAColor
-         *
-         * @return void
-         */
-        public static function fromRGBA(RGBAColor $color);
 
+        /**
+         * Make the color lighter
+         *
+         * @param float $percentage
+         * @return self
+         */
+        public function lighten(float $percentage) : IColor;
+
+        /**
+         * Make the color darker
+         *
+         * @param float $percentage
+         * @return self
+         */
+        public function darken(float $percentage) : IColor;
     }
 ?>

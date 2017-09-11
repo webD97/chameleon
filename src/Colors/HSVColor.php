@@ -169,5 +169,25 @@
         public static function fromRGBA(RGBAColor $rgba) {
             // return new ...;
         }
+
+        public function lighten(float $percentage) : self {
+            $this -> value += $percentage;
+
+            if ($this -> value > 1) {
+                $this -> value = 1;
+            }
+
+            return $this;
+        }
+
+        public function darken(float $percentage) : self {
+            $this -> value -= $percentage;
+
+            if ($this -> value < 0) {
+                $this -> value = 0;
+            }
+
+            return $this;
+        }
     }
 ?>
