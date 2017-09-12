@@ -29,11 +29,11 @@
                 flex-direction: row;
             }
 
-            @include large {
+            @include medium {
                 flex-direction: row;
             }
 
-            @include large {
+            @include small {
                 flex-direction: column;
             }
     
