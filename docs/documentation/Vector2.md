@@ -1,6 +1,7 @@
 # Chameleon\Vector2
-* Class name: Vector2
-* Namespace: Chameleon
+* Class name: `Vector2`
+* Namespace: `Chameleon`
+* Fully qualified class name: `Chameleon\Vector2`
 
 The Vector2 class represents a vector in a two-dimensional cartesian coordinate system.
 It contains multiple methods to set and manipulate its coordinates.
