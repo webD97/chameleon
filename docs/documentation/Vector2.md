@@ -2,6 +2,8 @@
 * Class name: Vector2
 * Namespace: Chameleon
 
+The Vector2 class represents a vector in a two-dimensional cartesian coordinate system.
+It contains multiple methods to set and manipulate its coordinates.
 
 ## Methods
 * [__construct()](#__construct)
