@@ -4,6 +4,17 @@
 
 
 ## Methods
+* [__construct()](#__construct)
+* [getX()](#getx)
+* [getY()](#gety)
+* [setX()](#setx)
+* [setY()](#sety)
+* [incX()](#incx)
+* [incY()](#incy)
+* [decX()](#decx)
+* [decY()](#decy)
+* [__tostring()](#__tostring)
+
 ### __construct()
 #### Summary
     Vector2::__construct(int $x, int $y)
