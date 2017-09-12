@@ -3,6 +3,14 @@
 
 @import "{{ site.theme }}";
 
+.page-header {
+    h1 {
+        a {
+            color: $header-heading-color;
+        }
+    }
+}
+
 .page-nav {
     background-color: #157878;
     font-size: 1.1rem;
