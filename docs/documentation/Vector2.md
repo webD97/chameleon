@@ -7,6 +7,7 @@
 ### __construct()
 #### Summary
     Vector2::__construct(int $x, int $y)
+
 Instantiate a new 2D Vector.
 
 #### Arguments
@@ -21,6 +22,7 @@ None.
 ### getX()
 #### Summary
     int Vector2::getX()
+
 Get the X coordinate of the vector.
 
 #### Arguments
@@ -34,6 +36,7 @@ None.
 ### getY()
 #### Summary
     int Vector2::getY()
+
 Get the Y coordinate of the vector.
 
 #### Arguments
@@ -47,6 +50,7 @@ None.
 ### setX()
 #### Summary
     Vector2 Vector2::setX(int $x)
+
 Set the vector's X coordinate
 
 #### Arguments
@@ -60,6 +64,7 @@ Set the vector's X coordinate
 ### setY()
 #### Summary
     Vector2 Vector2::setY(int $y)
+
 Set the vector's Y coordinate
 
 #### Arguments
@@ -71,6 +76,7 @@ Set the vector's Y coordinate
 ### incX()
 #### Summary
     Vector2 Vector2::incX([int $inc = 1])
+
 Increment the vector's x coordinate by $inc.
 
 #### Arguments
@@ -84,6 +90,7 @@ Increment the vector's x coordinate by $inc.
 ### incY()
 #### Summary
     Vector2 Vector2::incY([int $inc = 1])
+
 Increment the vector's y coordinate by $inc.
 
 #### Arguments
@@ -96,6 +103,7 @@ Increment the vector's y coordinate by $inc.
 
 ### decX()
     Vector2 Vector2::decX(int $dec)
+
 Decrement the vector's x coordinate by $dec.
 
 #### Arguments
@@ -108,6 +116,7 @@ Decrement the vector's x coordinate by $dec.
 
 ### decY()
     Vector2 Vector2::decY(int $dec)
+
 Decrement the vector's y coordinate by $dec.
 
 #### Arguments
@@ -120,6 +129,7 @@ Decrement the vector's y coordinate by $dec.
 
 ### __toString()
     string Chameleon\Vector2::__toString()
+
 Returns a string representation of the vector.
 
 #### Arguments
