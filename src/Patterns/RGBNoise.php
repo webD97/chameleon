@@ -20,7 +20,7 @@
             parent::__construct($colors);
 
             for ($i = 0; $i < $colors; $i++) {
-                parent::setColor($i, new RGBAColor(mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255), $alpha));
+                $this -> setColor($i, new RGBAColor(mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255), $alpha));
             }
         }
 
@@ -32,7 +32,7 @@
          * @return IColor The color for the given position
          */
         public function getColorAt(int $x, int $y) : IColor {
-            return parent::getColor(mt_rand(0, parent::getSize() - 1));
+            return $this -> getColor(mt_rand(0, $this -> getSize() - 1));
         }
     }
 ?>

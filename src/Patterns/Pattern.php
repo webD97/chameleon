@@ -13,11 +13,11 @@
         }
 
         protected function setColor(int $index, IColor $color) {
-            parent::offsetSet($index, $color);
+            $this -> offsetSet($index, $color);
         }
 
         protected function getColor(int $index) : IColor {
-            return parent::offsetGet($index);
+            return $this -> offsetGet($index);
         }
     }
 ?>
