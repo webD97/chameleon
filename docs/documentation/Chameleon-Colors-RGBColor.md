@@ -8,7 +8,7 @@ Chameleon\Colors\RGBColor
 
 * Class name: RGBColor
 * Namespace: Chameleon\Colors
-* Parent class: [Chameleon\Colors\Color](Chameleon-Colors-Color.md)
+* Parent class: Chameleon\Colors\Color
 
 
 
@@ -175,65 +175,62 @@ Set blue channel value
 
 ### getRGBA
 
-    \Chameleon\Colors\RGBAColor Chameleon\Colors\IColor::getRGBA()
+    mixed Chameleon\Colors\RGBColor::getRGBA()
 
-Get the RGBA representation of the color
+
 
 
 
 * Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
 
 
 
 
 ### fromRGBA
 
-    void Chameleon\Colors\IColor::fromRGBA(\Chameleon\Colors\RGBAColor $color)
+    mixed Chameleon\Colors\RGBColor::fromRGBA(\Chameleon\Colors\RGBAColor $rgba)
 
-Construct from an RGBAColor
+
 
 
 
 * Visibility: **public**
 * This method is **static**.
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
 
 
 #### Arguments
-* $color **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
+* $rgba **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
 
 
 
-### isTransparent
+### lighten
 
-    boolean Chameleon\Colors\IColor::isTransparent()
+    mixed Chameleon\Colors\RGBColor::lighten(\Chameleon\Colors\float $percentage)
 
-Find out if the color is transparent
+
 
 
 
 * Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
-
-
-
-
-### checkRange
-
-    void Chameleon\Colors\Color::checkRange($value, $min, $max)
-
-Check if a value is in a legal range
-
-
-
-* Visibility: **protected**
-* This method is defined by [Chameleon\Colors\Color](Chameleon-Colors-Color.md)
 
 
 #### Arguments
-* $value **mixed**
-* $min **mixed**
-* $max **mixed**
+* $percentage **Chameleon\Colors\float**
+
+
+
+### darken
+
+    mixed Chameleon\Colors\RGBColor::darken(\Chameleon\Colors\float $percentage)
+
+
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $percentage **Chameleon\Colors\float**
 
 

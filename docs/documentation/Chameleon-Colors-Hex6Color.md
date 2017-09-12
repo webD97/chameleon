@@ -8,7 +8,7 @@ Chameleon\Colors\Hex6Color
 
 * Class name: Hex6Color
 * Namespace: Chameleon\Colors
-* Parent class: [Chameleon\Colors\Color](Chameleon-Colors-Color.md)
+* Parent class: [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 
@@ -57,29 +57,33 @@ Methods
 
 ### __construct
 
-    mixed Chameleon\Colors\Hex6Color::__construct(string $hexstring)
+    mixed Chameleon\Colors\RGBColor::__construct(integer $red, integer $green, integer $blue)
 
 Class constructor
 
 
 
 * Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 #### Arguments
-* $hexstring **string** - &lt;p&gt;The 6-digit hexstring, e.g. #fe0da7&lt;/p&gt;
+* $red **integer** - &lt;p&gt;The red channel value [0, 255]&lt;/p&gt;
+* $green **integer** - &lt;p&gt;The green channel value [0, 255]&lt;/p&gt;
+* $blue **integer** - &lt;p&gt;The blue channel value [0, 255]&lt;/p&gt;
 
 
 
 ### __toString
 
-    string Chameleon\Colors\Hex6Color::__toString()
+    string Chameleon\Colors\RGBColor::__toString()
 
 Get string representation of this color
 
-Format: #rrggbb
+Format: rgb(red, green, blue)
 
 * Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 
@@ -114,154 +118,161 @@ Set hexadecimal value for this color
 
 
 
-### getRed
+### fromRGBA
 
-    integer Chameleon\Colors\Hex6Color::getRed()
+    mixed Chameleon\Colors\RGBColor::fromRGBA(\Chameleon\Colors\RGBAColor $rgba)
 
-Get RGB red channel
+
 
 
 
 * Visibility: **public**
+* This method is **static**.
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
+
+
+#### Arguments
+* $rgba **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
+
+
+
+### getRed
+
+    integer Chameleon\Colors\RGBColor::getRed()
+
+Get red channel value
+
+
+
+* Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 
 
 ### setRed
 
-    \Chameleon\Colors\Hex6Color Chameleon\Colors\Hex6Color::setRed(integer $red)
+    \Chameleon\Colors\RGBColor Chameleon\Colors\RGBColor::setRed(integer $red)
 
-Set RGB red channel
+Set the red channel value
 
 
 
 * Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 #### Arguments
-* $red **integer** - &lt;p&gt;The value [0x00, 0xFF]&lt;/p&gt;
+* $red **integer** - &lt;p&gt;The value [0, 255]&lt;/p&gt;
 
 
 
 ### getGreen
 
-    integer Chameleon\Colors\Hex6Color::getGreen()
+    integer Chameleon\Colors\RGBColor::getGreen()
 
-Get RGB green channel
+Get green channel value
 
 
 
 * Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 
 
 ### setGreen
 
-    \Chameleon\Colors\Hex6Color Chameleon\Colors\Hex6Color::setGreen(integer $green)
+    \Chameleon\Colors\RGBColor Chameleon\Colors\RGBColor::setGreen(integer $green)
 
-Set RGB green channel
+Set green channel value
 
 
 
 * Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 #### Arguments
-* $green **integer** - &lt;p&gt;The value [0x00, 0xFF]&lt;/p&gt;
+* $green **integer** - &lt;p&gt;The value [0, 255]&lt;/p&gt;
 
 
 
 ### getBlue
 
-    integer Chameleon\Colors\Hex6Color::getBlue()
+    integer Chameleon\Colors\RGBColor::getBlue()
 
-Get RGB blue channel
+Get blue channel value
 
 
 
 * Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 
 
 ### setBlue
 
-    \Chameleon\Colors\Hex6Color Chameleon\Colors\Hex6Color::setBlue(integer $blue)
+    integer Chameleon\Colors\RGBColor::setBlue(integer $blue)
 
-Set RGB blue channel
+Set blue channel value
 
 
 
 * Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 #### Arguments
-* $blue **integer** - &lt;p&gt;The value [0x00, 0xFF]&lt;/p&gt;
+* $blue **integer** - &lt;p&gt;The value [0, 255]&lt;/p&gt;
 
 
 
 ### getRGBA
 
-    \Chameleon\Colors\RGBAColor Chameleon\Colors\IColor::getRGBA()
-
-Get the RGBA representation of the color
+    mixed Chameleon\Colors\RGBColor::getRGBA()
 
 
-
-* Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
-
-
-
-
-### fromRGBA
-
-    void Chameleon\Colors\IColor::fromRGBA(\Chameleon\Colors\RGBAColor $color)
-
-Construct from an RGBAColor
 
 
 
 * Visibility: **public**
-* This method is **static**.
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
+
+
+
+
+### lighten
+
+    mixed Chameleon\Colors\RGBColor::lighten(\Chameleon\Colors\float $percentage)
+
+
+
+
+
+* Visibility: **public**
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 #### Arguments
-* $color **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
+* $percentage **Chameleon\Colors\float**
 
 
 
-### isTransparent
+### darken
 
-    boolean Chameleon\Colors\IColor::isTransparent()
+    mixed Chameleon\Colors\RGBColor::darken(\Chameleon\Colors\float $percentage)
 
-Find out if the color is transparent
+
 
 
 
 * Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
-
-
-
-
-### checkRange
-
-    void Chameleon\Colors\Color::checkRange($value, $min, $max)
-
-Check if a value is in a legal range
-
-
-
-* Visibility: **protected**
-* This method is defined by [Chameleon\Colors\Color](Chameleon-Colors-Color.md)
+* This method is defined by [Chameleon\Colors\RGBColor](Chameleon-Colors-RGBColor.md)
 
 
 #### Arguments
-* $value **mixed**
-* $min **mixed**
-* $max **mixed**
+* $percentage **Chameleon\Colors\float**
 
 

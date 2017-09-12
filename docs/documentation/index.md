@@ -11,14 +11,13 @@ API Index
         * [IColor](Chameleon-Colors-IColor.md)
         * [HSVColor](Chameleon-Colors-HSVColor.md)
         * [HSLAColor](Chameleon-Colors-HSLAColor.md)
-        * [Color](Chameleon-Colors-Color.md)
     * Chameleon\Patterns
         * [IPattern](Chameleon-Patterns-IPattern.md)
         * [Pattern](Chameleon-Patterns-Pattern.md)
         * [BackgroundColor](Chameleon-Patterns-BackgroundColor.md)
         * [RGBNoise](Chameleon-Patterns-RGBNoise.md)
+        * [Grid](Chameleon-Patterns-Grid.md)
     * [Vector2](Chameleon-Vector2.md)
-    * [Mask](Chameleon-Mask.md)
     * Chameleon\Exceptions
         * [ColorNotFoundException](Chameleon-Exceptions-ColorNotFoundException.md)
         * [ValueOutOfBoundsException](Chameleon-Exceptions-ValueOutOfBoundsException.md)

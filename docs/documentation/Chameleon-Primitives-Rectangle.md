@@ -134,7 +134,7 @@ Set height in px
 #### Arguments
 * $image **Chameleon\Image**
 * $pattern **[Chameleon\Patterns\IPattern](Chameleon-Patterns-IPattern.md)**
-* $mask **[Chameleon\Mask](Chameleon-Mask.md)**
+* $mask **Chameleon\Mask**
 * $startX **Chameleon\Primitives\int**
 * $startY **Chameleon\Primitives\int**
 

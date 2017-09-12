@@ -19,6 +19,23 @@ Methods
 -------
 
 
+### fromRGBA
+
+    void Chameleon\Colors\IColor::fromRGBA(\Chameleon\Colors\RGBAColor $color)
+
+Construct from an RGBAColor
+
+
+
+* Visibility: **public**
+* This method is **static**.
+
+
+#### Arguments
+* $color **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
+
+
+
 ### getRGBA
 
     \Chameleon\Colors\RGBAColor Chameleon\Colors\IColor::getRGBA()
@@ -45,19 +62,34 @@ Find out if the color is transparent
 
 
 
-### fromRGBA
+### lighten
 
-    void Chameleon\Colors\IColor::fromRGBA(\Chameleon\Colors\RGBAColor $color)
+    \Chameleon\Colors\IColor Chameleon\Colors\IColor::lighten(float $percentage)
 
-Construct from an RGBAColor
+Make the color lighter
 
 
 
 * Visibility: **public**
-* This method is **static**.
 
 
 #### Arguments
-* $color **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
+* $percentage **float**
+
+
+
+### darken
+
+    \Chameleon\Colors\IColor Chameleon\Colors\IColor::darken(float $percentage)
+
+Make the color darker
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $percentage **float**
 
 

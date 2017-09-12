@@ -8,7 +8,7 @@ Represents a color based on the HSL (hue, saturation, value) system
 
 * Class name: HSLColor
 * Namespace: Chameleon\Colors
-* Parent class: [Chameleon\Colors\Color](Chameleon-Colors-Color.md)
+* Parent class: Chameleon\Colors\Color
 
 
 
@@ -103,6 +103,23 @@ Class constructor
 * $hue **integer** - &lt;p&gt;Hue value [0, 359]&lt;/p&gt;
 * $saturation **Chameleon\Colors\float**
 * $lightness **Chameleon\Colors\float**
+
+
+
+### fromRGBA
+
+    mixed Chameleon\Colors\HSLColor::fromRGBA(\Chameleon\Colors\RGBAColor $rgba)
+
+
+
+
+
+* Visibility: **public**
+* This method is **static**.
+
+
+#### Arguments
+* $rgba **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
 
 
 
@@ -239,65 +256,45 @@ Sets the lightness of this color
 
 ### getRGBA
 
-    \Chameleon\Colors\RGBAColor Chameleon\Colors\IColor::getRGBA()
-
-Get the RGBA representation of the color
+    mixed Chameleon\Colors\HSLColor::getRGBA()
 
 
-
-* Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
-
-
-
-
-### fromRGBA
-
-    void Chameleon\Colors\IColor::fromRGBA(\Chameleon\Colors\RGBAColor $color)
-
-Construct from an RGBAColor
 
 
 
 * Visibility: **public**
-* This method is **static**.
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
+
+
+
+
+### lighten
+
+    mixed Chameleon\Colors\HSLColor::lighten(\Chameleon\Colors\float $percentage)
+
+
+
+
+
+* Visibility: **public**
 
 
 #### Arguments
-* $color **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
+* $percentage **Chameleon\Colors\float**
 
 
 
-### isTransparent
+### darken
 
-    boolean Chameleon\Colors\IColor::isTransparent()
+    mixed Chameleon\Colors\HSLColor::darken(\Chameleon\Colors\float $percentage)
 
-Find out if the color is transparent
+
 
 
 
 * Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
-
-
-
-
-### checkRange
-
-    void Chameleon\Colors\Color::checkRange($value, $min, $max)
-
-Check if a value is in a legal range
-
-
-
-* Visibility: **protected**
-* This method is defined by [Chameleon\Colors\Color](Chameleon-Colors-Color.md)
 
 
 #### Arguments
-* $value **mixed**
-* $min **mixed**
-* $max **mixed**
+* $percentage **Chameleon\Colors\float**
 
 

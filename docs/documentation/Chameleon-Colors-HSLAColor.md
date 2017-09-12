@@ -118,6 +118,24 @@ Class constructor
 
 
 
+### fromRGBA
+
+    mixed Chameleon\Colors\HSLColor::fromRGBA(\Chameleon\Colors\RGBAColor $rgba)
+
+
+
+
+
+* Visibility: **public**
+* This method is **static**.
+* This method is defined by [Chameleon\Colors\HSLColor](Chameleon-Colors-HSLColor.md)
+
+
+#### Arguments
+* $rgba **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
+
+
+
 ### __toString
 
     mixed Chameleon\Colors\HSLColor::__toString()
@@ -163,33 +181,15 @@ Set RGB alpha channel value
 
 ### getRGBA
 
-    \Chameleon\Colors\RGBAColor Chameleon\Colors\IColor::getRGBA()
-
-Get the RGBA representation of the color
+    mixed Chameleon\Colors\HSLColor::getRGBA()
 
 
-
-* Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
-
-
-
-
-### fromRGBA
-
-    void Chameleon\Colors\IColor::fromRGBA(\Chameleon\Colors\RGBAColor $color)
-
-Construct from an RGBAColor
 
 
 
 * Visibility: **public**
-* This method is **static**.
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
+* This method is defined by [Chameleon\Colors\HSLColor](Chameleon-Colors-HSLColor.md)
 
-
-#### Arguments
-* $color **[Chameleon\Colors\RGBAColor](Chameleon-Colors-RGBAColor.md)**
 
 
 
@@ -319,35 +319,36 @@ Sets the lightness of this color
 
 
 
-### isTransparent
+### lighten
 
-    boolean Chameleon\Colors\IColor::isTransparent()
+    mixed Chameleon\Colors\HSLColor::lighten(\Chameleon\Colors\float $percentage)
 
-Find out if the color is transparent
+
 
 
 
 * Visibility: **public**
-* This method is defined by [Chameleon\Colors\IColor](Chameleon-Colors-IColor.md)
-
-
-
-
-### checkRange
-
-    void Chameleon\Colors\Color::checkRange($value, $min, $max)
-
-Check if a value is in a legal range
-
-
-
-* Visibility: **protected**
-* This method is defined by [Chameleon\Colors\Color](Chameleon-Colors-Color.md)
+* This method is defined by [Chameleon\Colors\HSLColor](Chameleon-Colors-HSLColor.md)
 
 
 #### Arguments
-* $value **mixed**
-* $min **mixed**
-* $max **mixed**
+* $percentage **Chameleon\Colors\float**
+
+
+
+### darken
+
+    mixed Chameleon\Colors\HSLColor::darken(\Chameleon\Colors\float $percentage)
+
+
+
+
+
+* Visibility: **public**
+* This method is defined by [Chameleon\Colors\HSLColor](Chameleon-Colors-HSLColor.md)
+
+
+#### Arguments
+* $percentage **Chameleon\Colors\float**
 
 
