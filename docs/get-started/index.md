@@ -1,6 +1,4 @@
 # Get started
-Please note: Do not use Chameleon in production environments. It's still in development!
-
 ## 1. Install using Composer
     composer require webd97/chameleon
 
