@@ -28,6 +28,12 @@
             $this -> setAlpha($alpha);
         }
 
+        public static function fromRGBA(RGBAColor $rgba) {
+            $hsl = parent::fromRGBA($rgba);
+
+            return new HSLAColor($hsl -> getHue(), $hsl -> getSaturation(), $hsl -> getLightness(), $rgba -> getAlpha());
+        }
+
         /**
          * Get string representation of this color
          * 
@@ -65,10 +71,6 @@
 
         public function getRGBA() : RGBAColor {
             return new RGBAColor($this -> red, $this -> green, $this -> blue, $this -> alpha);
-        }
-
-        public static function fromRGBA(RGBAColor $rgba) {
-            // return new ...;
         }
     }
 ?>

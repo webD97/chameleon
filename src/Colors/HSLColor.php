@@ -29,6 +29,55 @@
             $this -> setLightness($lightness);
         }
 
+        public static function fromRGBA(RGBAColor $rgba) {
+            // http://www.geekymonkey.com/Programming/CSharp/RGB2HSL_HSL2RGB.htm
+            $red = $rgba -> getRed() / 255;
+            $green = $rgba -> getGreen() / 255;
+            $blue = $rgba -> getBlue() / 255;
+    
+            $hue = 0;
+            $saturation = 0;
+            $lightness = 0;
+            
+            $max = max($red, $green, $blue);
+            $min = min($red, $green, $blue);
+            $delta = $max - $min;
+            
+            $lightness = round(($min + $max) / 2, 2);
+
+            if ($lightness <= 0) {
+                  return new HSLColor($hue, $saturation, $lightness);
+            }
+
+
+            $saturation = $delta;
+            if ($saturation > 0) {
+                $saturation /= ($lightness <= 0.5) ? ($max + $min) : (2 - $delta);
+                $saturation = round($saturation, 2);
+            }
+            else {
+                  return new HSLColor($hue, $saturation, $lightness);
+            }
+            
+            $r2 = ($max - $red) / $delta;
+            $g2 = ($max - $green) / $delta;
+            $b2 = ($max - $blue) / $delta;
+            
+            if ($red == $max) {
+                $hue = ($green == $min) ? 5 + $b2 : 1 - $g2;
+            }
+            elseif ($green == $max) {
+                $hue = ($blue == $min) ? 1 + $r2 : 3 - $b2;
+            }
+            else {
+                $hue = ($red == $min) ? 3 + $g2 : 5 - $r2;
+            }
+            
+            $hue *= 60;
+
+            return new HSLColor($hue, $saturation, $lightness);
+        }
+
         public function __toString() : string {
             return "hsl(" . $this -> hue . ", " . $this -> saturation . ", " . $this -> lightness . ")";
         }
@@ -157,10 +206,6 @@
 
         public function getRGBA() : RGBAColor {
             return new RGBAColor($this -> red, $this -> green, $this -> blue, 0);
-        }
-
-        public static function fromRGBA(RGBAColor $rgba) {
-            // return new ...;
         }
 
         public function lighten(float $percentage) : IColor {
