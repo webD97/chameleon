@@ -4,12 +4,12 @@
 @import "{{ site.theme }}";
 
 .page-nav {
+    background-color: cornflowerblue;
     font-size: 1.1rem;
     
     nav {
-        background-color: cornflowerblue;
         margin: 0 auto;
-        padding: 0;
+        padding: 0 6rem;
         max-width: 64rem;
         
         ul {
