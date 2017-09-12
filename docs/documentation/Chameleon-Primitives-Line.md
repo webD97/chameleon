@@ -77,8 +77,8 @@ Class constructor
 
 
 #### Arguments
-* $start **[Chameleon\Vector2](Chameleon-Vector2.md)** - &lt;p&gt;Start vector&lt;/p&gt;
-* $end **[Chameleon\Vector2](Chameleon-Vector2.md)** - &lt;p&gt;End vector&lt;/p&gt;
+* $start **[Chameleon\Vector2](Vector2.md)** - &lt;p&gt;Start vector&lt;/p&gt;
+* $end **[Chameleon\Vector2](Vector2.md)** - &lt;p&gt;End vector&lt;/p&gt;
 
 
 
@@ -107,7 +107,7 @@ Set start vector
 
 
 #### Arguments
-* $start **[Chameleon\Vector2](Chameleon-Vector2.md)** - &lt;p&gt;The start vector&lt;/p&gt;
+* $start **[Chameleon\Vector2](Vector2.md)** - &lt;p&gt;The start vector&lt;/p&gt;
 
 
 
@@ -136,7 +136,7 @@ Set end vector
 
 
 #### Arguments
-* $end **[Chameleon\Vector2](Chameleon-Vector2.md)** - &lt;p&gt;The end vector&lt;/p&gt;
+* $end **[Chameleon\Vector2](Vector2.md)** - &lt;p&gt;The end vector&lt;/p&gt;
 
 
 
@@ -225,7 +225,7 @@ Set the position of this primitive
 
 
 #### Arguments
-* $point **[Chameleon\Vector2](Chameleon-Vector2.md)** - &lt;p&gt;The position vector&lt;/p&gt;
+* $point **[Chameleon\Vector2](Vector2.md)** - &lt;p&gt;The position vector&lt;/p&gt;
 
 
 

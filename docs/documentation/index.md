@@ -19,7 +19,7 @@ you work with them:
 * Chameleon
     * [Image](./Image)
     * [Mask](./Mask)
-    * [Vector2](Chameleon-Vector2.md)
+    * [Vector2](Vector2)
     * [ColorFactory](Chameleon-ColorFactory.md)
     * Colors
         * [HSLColor](Chameleon-Colors-HSLColor.md)

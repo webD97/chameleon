@@ -56,7 +56,7 @@ Class constructor
 
 
 #### Arguments
-* $point **[Chameleon\Vector2](Chameleon-Vector2.md)** - &lt;p&gt;Top left start point&lt;/p&gt;
+* $point **[Chameleon\Vector2](Vector2.md)** - &lt;p&gt;Top left start point&lt;/p&gt;
 * $width **integer** - &lt;p&gt;width in px&lt;/p&gt;
 * $height **integer** - &lt;p&gt;height in px&lt;/p&gt;
 

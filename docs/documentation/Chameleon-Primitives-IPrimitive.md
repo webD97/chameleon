@@ -44,7 +44,7 @@ Set the position of this primitive
 
 
 #### Arguments
-* $point **[Chameleon\Vector2](Chameleon-Vector2.md)** - &lt;p&gt;The position vector&lt;/p&gt;
+* $point **[Chameleon\Vector2](Vector2.md)** - &lt;p&gt;The position vector&lt;/p&gt;
 
 
 
