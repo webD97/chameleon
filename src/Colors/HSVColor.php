@@ -29,6 +29,52 @@
             $this -> setValue($value);
         }
 
+        public static function fromRGBA(RGBAColor $rgba) : HSVColor {
+            // https://stackoverflow.com/a/6930407
+            $red = $rgba -> getRed() / 255;
+            $green = $rgba -> getGreen() / 255;
+            $blue = $rgba -> getBlue() / 255;
+            
+            $min = min($red, $green, $blue);
+            $max = max($red, $green, $blue);
+    
+            $value = round($max, 2);
+            $delta = $max - $min;
+            
+            if ($delta == 0) {
+                $saturation = 0;
+                $hue = 0;
+                return new HSVColor($hue, $saturation, $value);
+            }
+            
+            if ($max > 0) {
+                $saturation = $delta / $max;
+            }
+            else {
+                $saturation = 0;
+                $hue = 0;
+                return new HSVColor($hue, $saturation, $value);
+            }
+            
+            if($red == $max) {
+                $hue = ($green - $blue) / $delta;
+            }
+            elseif ($green == $max) {
+                $hue = 2 + ($blue - $red) / $delta;
+            }
+            else {
+                $hue = 4 + ($red - $green) / $delta;
+            }
+    
+            $hue *= 60;
+    
+            if($hue < 0) {
+                $hue += 360;
+            }
+    
+            return new HSVColor($hue, $saturation, $value);         
+        }
+
         public function __toString() : string {
             return "hsv(" . $this -> hue . ", " . $this -> saturation . ", " . $this -> value . ")";
         }
@@ -164,10 +210,6 @@
 
         public function getRGBA() : RGBAColor {
             return new RGBAColor($this -> red, $this -> green, $this -> blue, 0);
-        }
-
-        public static function fromRGBA(RGBAColor $rgba) {
-            // return new ...;
         }
 
         public function lighten(float $percentage) : IColor {
