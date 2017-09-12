@@ -11,7 +11,7 @@
          *
          * @var int
          */
-        private $alpha;
+        protected $alpha;
 
         /**
          * Class constructor
@@ -20,6 +20,15 @@
          */
         public function __construct(string $hexstring) {
             $this -> setHex($hexstring);
+        }
+
+        public static function fromRGBA(RGBAColor $rgba) {
+            return new Hex8Color("#" . 
+                dechex($rgba -> getRed()) .
+                dechex($rgba -> getGreen()) .
+                dechex($rgba -> getBlue()) .
+                dechex($rgba -> getAlpha())
+            );
         }
 
         /**
@@ -40,12 +49,9 @@
          * @return string
          */
         public function getHex() : string {
-            return strtoupper("#" .
-                (($this -> getRed() < 16) ? "0" . dechex($this -> getRed()) : dechex($this -> getRed())) .
-                (($this -> getGreen() < 16) ? "0" . dechex($this -> getGreen()) : dechex($this -> getGreen())) .
-                (($this -> getBlue() < 16) ? "0" . dechex($this -> getBlue()) : dechex($this -> getBlue())) .
-                (($this -> getAlpha() < 16) ? "0" . dechex($this -> getAlpha()) : dechex($this -> getAlpha()))
-            );
+            $hex = parent::getHex();
+            $hex .= strtoupper(($this -> alpha < 0x10) ? "0" . dechex($this -> alpha) : dechex($this -> alpha));
+            return $hex;
         }
 
         /**
@@ -55,10 +61,9 @@
          * @return self
          */
         public function setHex(string $hexstring) : self{
+            parent::setHex($hexstring);
+
             $hexstring = str_replace("#", "", $hexstring);
-            $this -> setRed(hexdec(substr($hexstring, 0, 2)));
-            $this -> setGreen(hexdec(substr($hexstring, 2, 2)));
-            $this -> setBlue(hexdec(substr($hexstring, 4, 2)));
             $this -> setAlpha(hexdec(substr($hexstring, 6, 2)));
 
             return $this;
@@ -89,16 +94,9 @@
         }
 
         public function getRGBA() : RGBAColor {
-            return new RGBAColor($this -> red, $this -> green, $this -> blue, $this -> alpha);
-        }
-
-        public static function fromRGBA(RGBAColor $rgba) {
-            return new Hex8Color("#" . 
-                dechex($rgba -> getRed()) .
-                dechex($rgba -> getGreen()) .
-                dechex($rgba -> getBlue()) .
-                dechex($rgba -> getAlpha())
-            );
+            $rgba = parent::getRGBA();
+            $rgba -> setAlpha($this -> alpha);
+            return $rgba;
         }
     }
 ?>
