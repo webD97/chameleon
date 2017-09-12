@@ -104,6 +104,14 @@
                 case IMG_PNG:
                     return imagepng($this -> imageResource);
                     break;
+
+                case IMG_JPG:
+                case IMG_JPEG:
+                    return imagejpeg($this -> imageResource);
+                    break;
+                case IMG_GIF:
+                    return imagegif($this -> imageResource);
+                    break;
             }
         }
 
