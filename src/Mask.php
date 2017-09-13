@@ -5,8 +5,10 @@
     use SplFixedArray;
 
     /**
-     * Mask is a two-dimensional array based on SplFixedArray with helpher functions
-     * to map (x, y) coordinates to the one-dimensional internal SplFixedArray
+     * Mask is a two-dimensional array based on SplFixedArray with helper functions
+     * to map (x, y) coordinates to the one-dimensional internal SplFixedArray.
+     * It stores boolean values (and `null`) to store the shapes of a Primitive.
+     * `true` means permeable, `false`/`null` means impermeable.
      */
     class Mask extends SplFixedArray {
 
