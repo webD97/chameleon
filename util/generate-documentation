@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Clear output directory
-echo "Cleaning docs/documentation"
-rm -rf ../docs/documentation/*
-
 # Run phpdoc to create structure.xml
 echo "Running phpdocumentor"
 vendor/bin/phpdoc
