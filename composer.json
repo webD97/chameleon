@@ -6,9 +6,17 @@
     "require": {
         "php": "^7.1"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/tivie/phpdoc-md"
+        }
+    ],
     "require-dev": {
         "phpunit/phpunit": "^6.3",
-        "codeclimate/php-test-reporter": "dev-master"
+        "codeclimate/php-test-reporter": "dev-master",
+        "phpdocumentor/phpdocumentor": "^2.9",
+        "evert/phpdoc-md": "dev-master"
     },
     "autoload": {
         "psr-4": {
