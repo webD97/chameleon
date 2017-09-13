@@ -1,210 +1,165 @@
 # Chameleon\Image
+Image class
+
 * Class name: `Image`
 * Namespace: `Chameleon`
 * Fully qualified class name: `Chameleon\Image`
 
-The image class represents an image. It encapsulates a GD image resource and provides many helper funtions to create, read, manipulate and output the image.
-
 ## Methods
-* [create()](#create)
-* [fromFile()](#fromfile)
-* [getWidth()](#getwidth)
-* [getHeight()](#getheight)
-* [getImageResource()](#getimageresource)
-* [as()](#as)
-* [registerColor()](#registercolor)
-* [isColorRegistered()](#iscolorregistered)
-* [getRegisteredColor()](#getregisteredcolor)
-* [setBackgroundPattern()](#setbackgroundpattern)
-* [getPixel()](#getpixel)
-* [setPixel()](#setpixel)
-* [draw()](#draw)
-
 ### create()
-#### Summary
-    Image Image::create(int $width, int $height)
+    Image Image::create(integer $width, integer $height)
 
-This method is **static**. It instantiates a new image with the given dimensions.
+Create an image from scratch
 
+
+* **static**
 #### Arguments
-* $width **int** The image width in px
-* $height **int** The image height in px
-
-#### Return value
-* **Image** instance
+* $width **integer** - &lt;p&gt;width in px&lt;/p&gt;
+* $height **integer** - &lt;p&gt;height in px&lt;/p&gt;
 
 ---
-
 ### fromFile()
-#### Summary
     Image Image::fromFile(string $path)
 
-This method is **static**. It loads an existing image file from the given path. By now, it supports PNG, GIF and JPEG files. If the file does not exist, an [Exception](http://php.net/manual/en/class.exception.php) is thrown.
+Load an image from a file
 
+
+* **static**
 #### Arguments
-* $path **string** Path to an existing image file (PNG, GIF or JPEG)
-
-#### Return value
-* **Image** instance
+* $path **string** - &lt;p&gt;Path to the file&lt;/p&gt;
 
 ---
+### __destruct()
+    void Image::__destruct()
 
+
+
+
+#### Arguments
+None.
+
+---
 ### getWidth()
-#### Summary
-    int Image::getWidth()
+    integer Image::getWidth()
 
-Get the image width.
+Get image width in px
+
 
 #### Arguments
 None.
 
-#### Return value
-* **int** Image width in px
-
 ---
-
 ### getHeight()
-#### Summary
-    int Image::getHeight()
+    integer Image::getHeight()
 
-Get the image height.
+Get image height in px
+
 
 #### Arguments
 None.
 
-#### Return value
-* **int** Image height in px
+---
+### outputAs()
+    boolean Image::outputAs($type)
+
+Output image
+
+
+#### Arguments
+* $type **mixed** - &lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;
 
 ---
-
 ### getImageResource()
-#### Summary
     resource Image::getImageResource()
 
-Get the underlying GD image resource. Useful when using GD features that are not yet implemented in Chameleon.
+Get the underlying GD image resource
+
 
 #### Arguments
 None.
 
-#### Return value
-* **resource** A GD image resource
-
 ---
-
-### as()
-#### Summary
-    bool Image::as(int $type)
-
-Output the raw image stream.
-
-#### Arguments
-* $type **int** `IMG_PNG`, `IMG_GIF` or `IMG_JPG`
-
-#### Return value
-* **bool** Returns `true` on success or `false` on failure.
-
----
-
 ### registerColor()
-#### Summary
-    int Image::registerColor(IColor $color)
+    integer Image::registerColor(IColor $color)
 
-Register a color with this image. All colors are registered with an alpha channel, regardless whether they need it or not.
+Register a color with this image
+
 
 #### Arguments
-* $color **[IColor](./Colors/Icolor)** A color
-
-#### Return value
-* **int** Returns the internal color id or `-1` on failure
+* $color **IColor** - &lt;p&gt;The color&lt;/p&gt;
 
 ---
-
 ### isColorRegistered()
-#### Summary
-    bool Image::isColorRegistered(IColor $color)
+    boolean Image::isColorRegistered(IColor $color)
 
-Find out if the given color is registered with this image.
+Check if a color is registered with this image
+
 
 #### Arguments
-* $color **[IColor](./Colors/Icolor)** A color
-
-#### Return value
-* **bool** `true` if the color is registered with this image
+* $color **IColor** - &lt;p&gt;The color&lt;/p&gt;
 
 ---
-
 ### getRegisteredColor()
-#### Summary
-    int Image::getRegisteredColor(IColor $color)
+    integer Image::getRegisteredColor(IColor $color)
 
-Get the internal id of the color for use with PHP's imge*() functions.
+Get the underlying GD color
+
 
 #### Arguments
-* $color **[IColor](./Colors/Icolor)** A color
-
-#### Return value
-* **int** Returns the internal color id
-
-#### Throws
-* **[ColorNotFoundException](./Exceptions/ColorNotFoundException)** If color is not registered with this image
+* $color **IColor** - &lt;p&gt;The high level color&lt;/p&gt;
 
 ---
+### registerColorIfUnknown()
+    boolean Image::registerColorIfUnknown(IColor $color)
 
+Register a color only if it has not been registered yet
+
+
+#### Arguments
+* $color **IColor** - *No description available*.
+
+---
 ### setBackgroundPattern()
-#### Summary
-    Image Image::setBackgroundPattern(IPattern $pattern)
+    void Image::setBackgroundPattern(IPattern $pattern)
 
-Fill the whole image with the given pattern. Only call this before drawing other elements onto the image unless you want them to be affected by the pattern.
+Fill the whole image with the given pattern.
 
+Only call this before drawing other elements onto the image unless you want them to be affected
+by the pattern.
 #### Arguments
-* $pattern **[IPattern](./Pattern/IPattern)** A pattern
-
-#### Return value
-* **Image** self
+* $pattern **IPattern** - &lt;p&gt;The pattern&lt;/p&gt;
 
 ---
-
 ### getPixel()
-#### Summary
-    RGBColor Image::getPixel(int $x, int $y)
+    RGBColor Image::getPixel(integer $x, integer $y)
 
-Get the color at the given (x, y) position.
+Get color of a specific pixel
+
 
 #### Arguments
-* $x **int** The x coordinate
-* $y **int** The y coordinate
-
-#### Return value
-* **[RGBColor](./Colors/RGBColor)** The color at this position
+* $x **integer** - &lt;p&gt;X coordinate&lt;/p&gt;
+* $y **integer** - &lt;p&gt;Y coordinate&lt;/p&gt;
 
 ---
-
 ### setPixel()
-#### Summary
-    Image Image::setPixel(int $x, int $y, IColor $color)
+    Image Image::setPixel(integer $x, integer $y, IColor $color)
 
-Draw the color onto the given (x, y) position. Make sure that the color is registered on the image! No additional tests will be performed!
+Set the color of a specific pixel.
 
+Make sure that the color is registered on the image! No additional tests will be performed!
 #### Arguments
-* $x **int** The x coordinate
-* $y **int** The y coordinate
-* $color **[IColor](./Colors/Icolor)** A color
-
-#### Return value
-* **Image** self
+* $x **integer** - &lt;p&gt;The x coordinate&lt;/p&gt;
+* $y **integer** - &lt;p&gt;The y coordinate&lt;/p&gt;
+* $color **IColor** - &lt;p&gt;The color&lt;/p&gt;
 
 ---
-
 ### draw()
-#### Summary
-    Image Image::draw(IPrimitive ...$primitives)
+    Image Image::draw(IPrimitive&gt; $primitives)
 
-Draw the primitives onto the image.
+Draw one or more primitives onto the image
+
 
 #### Arguments
-* $primitives **[IPrimitive](./Primitives/IPrimitive)** Any number of Primitives
-
-#### Return value
-* **Image** self
+* $primitives **IPrimitive&gt;** - &lt;p&gt;Any number of primitives&lt;/p&gt;
 
 ---

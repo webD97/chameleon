@@ -11,6 +11,9 @@
     use Chameleon\Colors\RGBColor;
     use Exception;
 
+    /**
+     * Image class
+     */
     class Image {
         private $imageResource;
         private $colors = array();
@@ -117,7 +120,7 @@
          * @return bool
          * @throws Exception If using an unsupported image file format
          */
-        public function as(int $type) : bool {
+        public function outputAs(int $type) : bool {
             switch ($type) {
                 case IMG_PNG:
                     return imagepng($this -> imageResource);

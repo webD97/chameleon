@@ -17,30 +17,33 @@ you work with them:
 
 ## Namespace Hierarchy
 * Chameleon
-    * [Image](./Image)
-    * [Mask](./Mask)
+    * Chameleon\Colors
+        * [HSLColor](Colors/HSLColor)
+        * [RGBColor](Colors/RGBColor)
+        * [Hex6Color](Colors/Hex6Color)
+        * [Hex8Color](Colors/Hex8Color)
+        * [RGBAColor](Colors/RGBAColor)
+        * [IColor](Colors/IColor)
+        * [HSVColor](Colors/HSVColor)
+        * [HSLAColor](Colors/HSLAColor)
+    * Chameleon\Patterns
+        * [IPattern](Patterns/IPattern)
+        * [Pattern](Patterns/Pattern)
+        * [BackgroundColor](Patterns/BackgroundColor)
+        * [RGBNoise](Patterns/RGBNoise)
+        * [Grid](Patterns/Grid)
     * [Vector2](Vector2)
-    * [ColorFactory](Chameleon-ColorFactory.md)
-    * Colors
-        * [HSLColor](Chameleon-Colors-HSLColor.md)
-        * [RGBColor](Chameleon-Colors-RGBColor.md)
-        * [Hex6Color](Chameleon-Colors-Hex6Color.md)
-        * [Hex8Color](Chameleon-Colors-Hex8Color.md)
-        * [RGBAColor](Chameleon-Colors-RGBAColor.md)
-        * [HSVColor](Chameleon-Colors-HSVColor.md)
-        * [HSLAColor](Chameleon-Colors-HSLAColor.md)
-    * Primitives
-        * [Ellipse](Chameleon-Primitives-Ellipse.md)
-        * [Line](Chameleon-Primitives-Line.md)
-        * [Rectangle](Chameleon-Primitives-Rectangle.md)
-    * Patterns
-        * [Pattern](Chameleon-Patterns-Pattern.md)
-        * [BackgroundColor](Chameleon-Patterns-BackgroundColor.md)
-        * [RGBNoise](Chameleon-Patterns-RGBNoise.md)
-        * [Grid](Chameleon-Patterns-Grid.md)
-    * Exceptions
-        * [ColorNotFoundException](Chameleon-Exceptions-ColorNotFoundException.md)
-        * [ValueOutOfBoundsException](Chameleon-Exceptions-ValueOutOfBoundsException.md)
+    * Chameleon\Exceptions
+        * [ColorNotFoundException](Exceptions/ColorNotFoundException)
+        * [ValueOutOfBoundsException](Exceptions/ValueOutOfBoundsException)
+    * Chameleon\Primitives
+        * [Ellipse](Primitives/Ellipse)
+        * [Line](Primitives/Line)
+        * [Rectangle](Primitives/Rectangle)
+        * [IPrimitive](Primitives/IPrimitive)
+    * [ColorFactory](ColorFactory)
+    * [Image](Image)
+
 
 ## Class hierarchy diagram
 ![Class hierarchy diagram](../img/documentation/src.png)

@@ -1,155 +1,111 @@
 # Chameleon\Vector2
+The Vector2 class represents a vector in a two-dimensional cartesian coordinate system.
+
+It contains multiple methods to set and manipulate its coordinates.
+
 * Class name: `Vector2`
 * Namespace: `Chameleon`
 * Fully qualified class name: `Chameleon\Vector2`
 
-The Vector2 class represents a vector in a two-dimensional cartesian coordinate system.
-It contains multiple methods to set and manipulate its coordinates.
-
 ## Methods
-* [__construct()](#__construct)
-* [getX()](#getx)
-* [getY()](#gety)
-* [setX()](#setx)
-* [setY()](#sety)
-* [incX()](#incx)
-* [incY()](#incy)
-* [decX()](#decx)
-* [decY()](#decy)
-* [__tostring()](#__tostring)
-
 ### __construct()
-#### Summary
-    Vector2::__construct(int $x, int $y)
+    void Vector2::__construct(integer $x, integer $y)
 
-Instantiate a new 2D Vector.
+Vector2 constructor.
+
 
 #### Arguments
-* $x **int** The X coordinate
-* $y **int** The Y coordinate
-
-#### Return value
-None.
+* $x **integer** - &lt;p&gt;The x coordinate&lt;/p&gt;
+* $y **integer** - &lt;p&gt;The y coordinate&lt;/p&gt;
 
 ---
-
 ### getX()
-#### Summary
-    int Vector2::getX()
+    integer Vector2::getX()
 
 Get the X coordinate of the vector.
 
+
 #### Arguments
 None.
 
-#### Return Value
-* **int** The X coordinate
-
 ---
-
 ### getY()
-#### Summary
-    int Vector2::getY()
+    integer Vector2::getY()
 
 Get the Y coordinate of the vector.
 
+
 #### Arguments
 None.
 
-#### Return Value
-* **int** The Y coordinate
-
 ---
-
 ### setX()
-#### Summary
-    Vector2 Vector2::setX(int $x)
+    Vector2 Vector2::setX(integer $x)
 
-Set the vector's X coordinate
+Set the vector&#039;s X coordinate.
+
 
 #### Arguments
-* $x **int** The X coordinate
-
-#### Return value
-* **Vector2** self
+* $x **integer** - &lt;p&gt;The x coordinate&lt;/p&gt;
 
 ---
-
 ### setY()
-#### Summary
-    Vector2 Vector2::setY(int $y)
+    Vector2 Vector2::setY(integer $y)
 
-Set the vector's Y coordinate
+Set the vector&#039;s Y coordinate.
+
 
 #### Arguments
-* $y **int** The Y coordinate
+* $y **integer** - &lt;p&gt;The y coordinate&lt;/p&gt;
 
-#### Return value
-* **Vector2** self
-
+---
 ### incX()
-#### Summary
-    Vector2 Vector2::incX([int $inc = 1])
+    Vector2 Vector2::incX(integer $inc)
 
-Increment the vector's x coordinate by $inc.
+Increment the vector&#039;s x coordinate by $inc.
+
 
 #### Arguments
-* $inc **int** Defaults to 1
-
-#### Return value
-* **Vector2** self
+* $inc **integer** - &lt;p&gt;Defaults to 1&lt;/p&gt;
 
 ---
-
 ### incY()
-#### Summary
-    Vector2 Vector2::incY([int $inc = 1])
+    Vector2 Vector2::incY(integer $inc)
 
-Increment the vector's y coordinate by $inc.
+Increment the vector&#039;s y coordinate by $inc.
+
 
 #### Arguments
-* $inc **int** Defaults to 1
-
-#### Return value
-* **Vector2** self
+* $inc **integer** - &lt;p&gt;Defaults to 1&lt;/p&gt;
 
 ---
-
 ### decX()
-    Vector2 Vector2::decX(int $dec)
+    Vector2 Vector2::decX(integer $dec)
 
-Decrement the vector's x coordinate by $dec.
+Decrement the vector&#039;s x coordinate by $dec.
+
 
 #### Arguments
-* $dec **int** Defaults to 1
-
-#### Return value
-* **Vector2** self
+* $dec **integer** - &lt;p&gt;Defaults to 1&lt;/p&gt;
 
 ---
-
 ### decY()
-    Vector2 Vector2::decY(int $dec)
+    Vector2 Vector2::decY(integer $dec)
 
-Decrement the vector's y coordinate by $dec.
+Decrement the vector&#039;s y coordinate by $dec.
+
 
 #### Arguments
-* $dec **int** Defaults to 1
-
-#### Return value
-* **Vector2** self
+* $dec **integer** - &lt;p&gt;Defaults to 1&lt;/p&gt;
 
 ---
-
 ### __toString()
-    string Chameleon\Vector2::__toString()
+    string Vector2::__toString()
 
-Returns a string representation of the vector.
+Returns a string representation of the vector
+
 
 #### Arguments
 None.
 
-#### Return value
-* A string formatted as `(x, y)`
-
-
+---
