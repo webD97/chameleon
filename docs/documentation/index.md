@@ -27,16 +27,13 @@ you work with them:
         * [Hex6Color](Chameleon-Colors-Hex6Color.md)
         * [Hex8Color](Chameleon-Colors-Hex8Color.md)
         * [RGBAColor](Chameleon-Colors-RGBAColor.md)
-        * [IColor](Chameleon-Colors-IColor.md)
         * [HSVColor](Chameleon-Colors-HSVColor.md)
         * [HSLAColor](Chameleon-Colors-HSLAColor.md)
     * Primitives
         * [Ellipse](Chameleon-Primitives-Ellipse.md)
         * [Line](Chameleon-Primitives-Line.md)
         * [Rectangle](Chameleon-Primitives-Rectangle.md)
-        * [IPrimitive](Chameleon-Primitives-IPrimitive.md)
     * Patterns
-        * [IPattern](Chameleon-Patterns-IPattern.md)
         * [Pattern](Chameleon-Patterns-Pattern.md)
         * [BackgroundColor](Chameleon-Patterns-BackgroundColor.md)
         * [RGBNoise](Chameleon-Patterns-RGBNoise.md)
