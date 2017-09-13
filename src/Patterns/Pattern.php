@@ -4,7 +4,6 @@
 
     use SplFixedArray;
     use Chameleon\Colors\IColor;
-    use Chameleon\Patterns\IPattern;
 
     abstract class Pattern extends SplFixedArray implements IPattern {
         

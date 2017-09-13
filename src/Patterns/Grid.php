@@ -2,13 +2,10 @@
     declare(strict_types = 1);
     namespace Chameleon\Patterns;
 
-    use SplFixedArray;
     use Chameleon\Colors\IColor;
-    use Chameleon\Colors\RGBAColor;
-    use Chameleon\Patterns\IPattern;
 
     /**
-     * Grid pattern. Can be customized in width, height, x ofset and y offset.
+     * Grid pattern. Can be customized in width, height, x offset and y offset.
      */
     class Grid extends Pattern {
         private $width;
@@ -19,8 +16,14 @@
         /**
          * Class constructor
          *
-         * @param int $colors Number of colors to be generated
-         * @param int $alpha Optional alpha channel value for the colors
+         * @api
+         *
+         * @param IColor $background Color for the background
+         * @param IColor $line Color for the lines
+         * @param int $width Horizontal line spacing
+         * @param int $height Vertical line spacing
+         * @param int $offsetX Move grid on x axis
+         * @param int $offsetY Move grid on y axis
          */
         public function __construct(IColor $background, IColor $line, int $width = 2, int $height = 2, int $offsetX = 0, int $offsetY = 0) {
             parent::__construct(2);
@@ -67,10 +70,12 @@
         }
 
         /**
-         * Set veritcal spacing of lines
+         * Set vertical spacing of lines
          *
-         * @param int $width Vertical spacing in px
-         * @return self
+         * @param int $height
+         *
+         * @return Grid
+         * @internal param int $width Vertical spacing in px
          */
         public function setHeight(int $height) : self {
             if ($height > 0) {
@@ -90,10 +95,12 @@
 
         /**
          * Set x-axis offset
-         * 
+         *
          * x-axis offset moves the whole grid to the left/right
          *
-         * @return self
+         * @param int $offset x offset in px
+         *
+         * @return Grid
          */
         public function setOffsetX(int $offset) : self {
             $this -> offsetX = $offset;
@@ -111,10 +118,12 @@
 
         /**
          * Set y-axis offset
-         * 
+         *
          * y-axis offset moves the whole grid up/down
          *
-         * @return self
+         * @param int $offset y offset in px
+         *
+         * @return Grid
          */
         public function setOffsetY(int $offset) : self {
             $this -> offsetY = $offset;
