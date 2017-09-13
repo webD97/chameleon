@@ -1,4 +1,4 @@
-#Chameleon\Mask
+# Chameleon\Mask
 * Class name: `Mask`
 * Namespace: `Chameleon`
 * Fully qualified class name: `Chameleon\Mask`
