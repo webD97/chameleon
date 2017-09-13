@@ -1,5 +1,7 @@
-index.php
+.idea/
+.vscode/
 vendor/
+temp/
+
+index.php
 composer.lock
-temp
-.vscode
