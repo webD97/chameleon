@@ -6,6 +6,11 @@
     use Chameleon\ColorFactory;
     use Chameleon\Colors\RGBAColor;
 
+    /**
+     * Class Ellipse
+     * @deprecated
+     * @package Chameleon\Primitives
+     */
     class Ellipse extends Primitive {
         private $width;
         private $height;

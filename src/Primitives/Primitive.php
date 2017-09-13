@@ -3,7 +3,6 @@
 
     use Chameleon\Vector2;
     use Chameleon\Image;
-    use Chameleon\Colors\IColor;
     use Chameleon\Patterns\IPattern;
 
     abstract class Primitive implements IPrimitive {
@@ -78,11 +77,12 @@
         /**
          * Set background pattern
          *
-         * @param IPattern|null $pattern The pattern
-         * @return self
+         * @param IPattern|null $pattern
+         *
+         * @return Primitive
          */
-        public function setBackgroundPattern(?IPattern $color) : self {
-            $this -> backgroundPattern = $color;
+        public function setBackgroundPattern(?IPattern $pattern) : self {
+            $this -> backgroundPattern = $pattern;
             return $this;
         }
 

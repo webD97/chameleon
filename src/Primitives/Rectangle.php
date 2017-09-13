@@ -5,7 +5,6 @@
     use Chameleon\Vector2;
     use Chameleon\Image;
     use Chameleon\Mask;
-    use Chameleon\ColorFactory;
     use Chameleon\Patterns\IPattern;
     use Chameleon\Patterns\BackgroundColor;
 
@@ -46,7 +45,7 @@
          * Set width in px
          *
          * @param int $width
-         * @return void
+         * @return self
          */
         public function setWidth(int $width) : self {
             $this -> width = $width;
@@ -66,7 +65,7 @@
          * Set height in px
          *
          * @param int $height
-         * @return void
+         * @return self
          */
         public function setHeight(int $height) : self {
             $this -> height = $height;
