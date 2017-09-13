@@ -168,7 +168,7 @@ Get the color at the given (x, y) position.
 #### Summary
     Image Image::setPixel(int $x, int $y, IColor $color)
 
-Draw the color onto the given (x, y) position.
+Draw the color onto the given (x, y) position. Make sure that the color is registered on the image! No additional tests will be performed!
 
 #### Arguments
 * $x **int** The x coordinate
