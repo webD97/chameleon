@@ -9,6 +9,7 @@
     use Chameleon\Patterns\IPattern;
     use Chameleon\Colors\IColor;
     use Chameleon\Colors\RGBColor;
+    use Exception;
 
     class Image {
         private $imageResource;
@@ -16,6 +17,8 @@
 
         /**
          * Create an image from scratch
+         *
+         * @api
          *
          * @param int $width width in px
          * @param int $height height in px
@@ -26,16 +29,19 @@
             return $image;
         }
 
+
         /**
          * Load an image from a file
          *
-         * @todo Actually load a file
-         * @return self
+         * @api
+         *
+         * @param string $path Path to the file
+         *
+         * @return Image
+         * @throws Exception If file not found
          */
         public static function fromFile(string $path) : self {
             if (file_exists($path)) {
-                $rawImage;
-
                 switch (mime_content_type($path)) {
                     case "image/png":
                         $rawImage = imagecreatefrompng($path);
@@ -55,12 +61,16 @@
                 return new Image($rawImage);
             }
 
-            // TODO: Do somthing useful if file not found
-            return Image::create(1, 1);
+            throw(new Exception("File $path not found."));
         }
 
+
         /**
-         * @ignore Class must not be instantiated from outside
+         * Image constructor. Must not be instantiated from outside.
+         *
+         * @internal
+         *
+         * @param $imageResource The GD image resource
          */
         private function __construct($imageResource) {
             $this -> imageResource = $imageResource;
@@ -77,6 +87,8 @@
         /**
          * Get image width in px
          *
+         * @api
+         *
          * @return int The width
          */
         public function getWidth() : int {
@@ -86,6 +98,8 @@
         /**
          * Get image height in px
          *
+         * @api
+         *
          * @return int The height
          */
         public function getHeight() : int {
@@ -94,12 +108,13 @@
 
         /**
          * Output image
-         * 
          *
-         * @param  $type One of the supported IMG_* constants, for now only IMG_PNG
+         * @api
+         *
+         * @param  $type One of the supported IMG_* constants
          * @return bool
          */
-        public function as($type) : bool{
+        public function as($type) : bool {
             switch ($type) {
                 case IMG_PNG:
                     return imagepng($this -> imageResource);
@@ -118,7 +133,9 @@
         /**
          * Get the underlying GD image resource
          *
-         * @return void
+         * @api
+         *
+         * @return resource
          */
         public function getImageResource() {
             return $this -> imageResource;
@@ -127,10 +144,12 @@
         /**
          * Register a color with this image
          *
+         * @api
+         *
          * @param IColor $color The color
-         * @return void
+         * @return int The internal GD color id
          */
-        public function registerColor(IColor $color) {
+        public function registerColor(IColor $color) : int {
             if (!isset($this -> colors[$color -> __toString()])) {
                 $rgba = $color -> getRGBA();
                 $id = imagecolorallocatealpha($this -> imageResource, $rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue(), $rgba -> getAlpha());
@@ -140,10 +159,13 @@
                 }
                 return -1;
             }
+            return -1;
         }
 
         /**
          * Check if a color is registered with this image
+         *
+         * @api
          *
          * @param IColor $color The color
          * @return bool
@@ -155,8 +177,12 @@
         /**
          * Get the underlying GD color
          *
+         * @api
+         *
          * @param IColor $color The high level color
+         *
          * @return int The low level color
+         * @throws ColorNotFoundException If color is not registered with this image
          */
         public function getRegisteredColor(IColor $color) : int {
             if ($this -> isColorRegistered($color)) {
@@ -172,6 +198,8 @@
          *
          * @param IColor $color
          * @return bool was unknown?
+         *
+         * @deprecated
          */
         public function registerColorIfUnknown(IColor $color) : bool {
             if (!$this -> isColorRegistered($color)) {
@@ -182,8 +210,18 @@
             return false;
         }
 
-        public function setBackgroundPattern(IPattern $pattern) {
-
+        /**
+         * Fill the whole image with the given pattern.
+         *
+         * Only call this before drawing other elements onto the image unless you want them to be affected
+         * by the pattern.
+         *
+         * @api
+         *
+         * @param IPattern $pattern The pattern
+         * @return void
+         */
+        public function setBackgroundPattern(IPattern $pattern) : void {
             $rectangle = new Rectangle(new Vector2(0, 0), $this -> getWidth(), $this -> getHeight());
             $rectangle -> setBackgroundPattern($pattern);
             $rectangle -> draw($this);
@@ -191,6 +229,8 @@
 
         /**
          * Get color of a specific pixel
+         *
+         * @api
          *
          * @param int $x X coordinate
          * @param int $y Y coordinate
@@ -209,9 +249,13 @@
          * Set the color of a specific pixel.
          * Make sure that the color is registered on the image! No additional tests will be performed!
          *
-         * @param Vector2 $position
-         * @param IColor $color
-         * @return self
+         * @api
+         *
+         * @param int $x The x coordinate
+         * @param int $y The y coordinate
+         * @param IColor $color The color
+         *
+         * @return Image
          */
         public function setPixel(int $x, int $y, IColor $color) : self {
             imagesetpixel($this -> imageResource, $x, $y, $this -> colors[$color -> __toString()]);
@@ -221,8 +265,11 @@
         /**
          * Draw one or more primitives onto the image
          *
-         * @param IPrimitive ...$primitives The primitives
-         * @return self
+         * @api
+         *
+         * @param IPrimitive|IPrimitive[] ...$primitives Any number of primitives
+         *
+         * @return Image
          */
         public function draw(IPrimitive ...$primitives) : self {
             foreach ($primitives as $primitive) {

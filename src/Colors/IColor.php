@@ -40,5 +40,12 @@
          * @return self
          */
         public function darken(float $percentage) : IColor;
+
+        /**
+         * Return a string representation of the color.
+         *
+         * @return string
+         */
+        public function __toString() : string;
     }
 ?>

@@ -8,6 +8,7 @@
         public abstract function getRGBA() : RGBAColor;
         public abstract function lighten(float $percentange) : IColor;
         public abstract function darken(float $percentange) : IColor;
+        public abstract function __toString(): string;
 
         public function isTransparent() : bool {
             return $this -> getRGBA() -> getAlpha() == 127;
@@ -16,12 +17,13 @@
         /**
          * Check if a value is in a legal range
          *
-         * @param $value
-         * @param $min
-         * @param $max
-         * @return void
+         * @param int $value
+         * @param int $min
+         * @param int $max
+         *
+         * @return bool
          */
-        protected function checkRange($value, $min, $max) {
+        protected function checkRange(int $value, int $min, int $max) : bool {
             return $value >= $min && $value <= $max;
         }
 
