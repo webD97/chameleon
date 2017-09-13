@@ -10,7 +10,6 @@ It stores boolean values (and `null`) to store the shapes of a Primitive.
 `true` means permeable, `false`/`null` means impermeable.
 
 ## Methods
-
 * [__construct()](#__construct)
 * [getWidth()](#getwidth)
 * [getHeight()](#getheight)
