@@ -14,22 +14,11 @@
 
         abstract public function draw(Image $image);
 
-        /**
-         * Set primitve position
-         *
-         * @param Vector2 $point
-         * @return self
-         */
         public function setPosition(Vector2 $point) : self {
             $this -> point = $point;
             return $this;
         }
 
-        /**
-         * Get primitive position
-         *
-         * @return Vector2
-         */
         public function getPosition() : Vector2 {
             return $this -> point;
         }

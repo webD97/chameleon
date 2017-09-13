@@ -7,7 +7,7 @@
 
     class RGBNoise extends Pattern {
         /**
-         * Class constructor
+         * Pattern constructor
          *
          * @param int $colors Number of colors to be generated
          * @param int $alpha Optional alpha channel value for the colors
