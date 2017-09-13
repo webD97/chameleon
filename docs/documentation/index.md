@@ -42,3 +42,5 @@ you work with them:
         * [ColorNotFoundException](Chameleon-Exceptions-ColorNotFoundException.md)
         * [ValueOutOfBoundsException](Chameleon-Exceptions-ValueOutOfBoundsException.md)
 
+## Class hierarchy diagram
+![Class hierarchy diagram](../img/documentation/src.png)
