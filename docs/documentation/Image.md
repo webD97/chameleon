@@ -13,6 +13,7 @@ The image class represents an image. It encapsulates a GD image resource and pro
 * [getImageResource()](#getimageresource)
 * [as()](#as)
 * [registerColor()](#registercolor)
+* [isColorRegistered()](#iscolorregistered)
 * [getRegisteredColor()](#getregisteredcolor)
 * [setBackgroundPattern()](#setbackgroundpattern)
 * [getPixel()](#getpixel)
@@ -115,6 +116,20 @@ Register a color with this image. All colors are registered with an alpha channe
 
 #### Return value
 * **int** Returns the internal color id or `-1` on failure
+
+---
+
+### isColorRegistered()
+#### Summary
+    bool Image::isColorRegistered(IColor $color)
+
+Find out if the given color is registered with this image.
+
+#### Arguments
+* $color **[IColor](./Colors/Icolor)** A color
+
+#### Return value
+* **bool** `true` if the color is registered with this image
 
 ---
 
