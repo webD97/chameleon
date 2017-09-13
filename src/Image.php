@@ -42,6 +42,7 @@
          */
         public static function fromFile(string $path) : self {
             if (file_exists($path)) {
+                $rawImage = null;
                 switch (mime_content_type($path)) {
                     case "image/png":
                         $rawImage = imagecreatefrompng($path);
@@ -70,7 +71,7 @@
          *
          * @internal
          *
-         * @param $imageResource The GD image resource
+         * @param $imageResource resource The GD image resource
          */
         private function __construct($imageResource) {
             $this -> imageResource = $imageResource;
@@ -111,10 +112,12 @@
          *
          * @api
          *
-         * @param  $type One of the supported IMG_* constants
+         * @param  $type int One of the supported IMG_* constants
+         *
          * @return bool
+         * @throws Exception If using an unsupported image file format
          */
-        public function as($type) : bool {
+        public function as(int $type) : bool {
             switch ($type) {
                 case IMG_PNG:
                     return imagepng($this -> imageResource);
@@ -128,6 +131,8 @@
                     return imagegif($this -> imageResource);
                     break;
             }
+
+            throw(new Exception("Unsupported image file format."));
         }
 
         /**
