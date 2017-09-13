@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
     namespace Chameleon\Colors;
 
     use PHPUnit\Framework\TestCase;
@@ -14,7 +15,7 @@
          * @before
          */
         public function setUp() {
-            $this -> color = new HSLAColor(200, 1, 0.63, 16);
+            $this -> color = new HSLAColor(200, 1, 0.63, 0.5);
         }
 
         /**
@@ -28,14 +29,14 @@
          * @covers \Chameleon\Colors\HSLAColor::__toString
          */
         public function testToString() {
-            $this -> assertEquals("hsla(200, 1, 0.63, 16)", $this -> color -> __toString());
+            $this -> assertEquals("hsla(200, 1, 0.63, 0.5)", $this -> color -> __toString());
         }
 
         /**
          * @covers \Chameleon\Colors\HSLAColor::getAlpha
          */
         public function testGetAlpha() {
-            $this -> assertEquals(16, $this -> color -> getAlpha());
+            $this -> assertEquals(0.5, $this -> color -> getAlpha());
         }
 
         /**
@@ -51,7 +52,7 @@
          */
         public function testSetAlphaTooHigh() {
             $this -> expectException(ValueOutOfBoundsException::class);
-            $this -> color -> setAlpha(128);
+            $this -> color -> setAlpha(2);
         }
 
         /**
