@@ -9,7 +9,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/tivie/phpdoc-md"
+            "url": "https://github.com/webd97/phpdoc-md"
         }
     ],
     "require-dev": {

@@ -1,0 +1,62 @@
+# {{ className }}
+{{ description | striptags | trim }}
+
+{% if longDescription %}
+{{ longDescription | striptags | trim }}
+
+{% endif %}
+{% if isClass %}
+* Class name: {{ shortClass }}
+* Namespace: {{ namespace }}
+* Fully qualified class name: {{ className }}
+{% if abstract %}* This class is **abstract**
+{% endif %}
+{% if extends[0] %}* Extends: {{ extends.0|classLink }}
+{% endif %}
+{% if implements %}* Implements: {% for interface in implements %}{{ interface|classLink }}{%if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+{% if deprecated %}* **Warning:** this class is **deprecated**. The class will likely be removed in a future version.
+{% endif %}
+{% endif %}
+{% if isInterface %}
+* This is an **interface**
+* Interface name: {{ shortClass }}
+* Namespace: {{ namespace }}
+* Fully qualified class name: {{ className }}
+{% if extends %}* Extends: {% for interface in extends %}{{ interface|classLink }}{%if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+{% if deprecated %}* **Warning:** this interface is **deprecated**. This interface will likely be removed in a future version.
+{% endif %}
+{% endif %}
+
+{% if methods %}
+## Methods
+{% endif %}
+{% for method in methods %}
+{% if method.visibility == "public"  %}
+### {{ method.name }}()
+    {{ method.signature }}
+
+{% if method.description %}
+{{ method.description | striptags }}
+{% endif %}
+{% if method.abstract %}* **abstract**
+{% endif %}
+{% if method.static %}* **static**
+{% endif %}
+{% if method.deprecated %}* **deprecated**, this method will likely be removed in a future version.
+{% endif %}
+{% if method.definedBy != className %}* Defined by {{ method.definedBy|classLink }}
+{% endif %}
+{% if method.arguments %}
+#### Arguments
+{% for argument in method.arguments %}
+* {{ argument.name }} **{% if argument.type %}{{ argument.type|classLink }}{% else %}mixed{% endif %}**{% if argument.description %} - {{ argument.description }}{% else %} - *No description available*.{% endif %}
+
+{% endfor %}
+{% endif %}
+
+---
+{% endif %}
+
+{% endfor %}

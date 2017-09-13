@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Clear output directory
+echo "Cleaning docs/documentation"
 rm -rf ../docs/documentation/*
 
 # Run phpdoc to create structure.xml
+echo "Running phpdocumentor"
 vendor/bin/phpdoc
 
 # Run phpdoc-md to create Markdown files
-vendor/bin/phpdocmd docs/documentation/structure.xml docs/documentation
-
-# Rename index file
-mv docs/documentation/ApiIndex.md docs/documentation/index.md
+echo "Running phpdoc-md"
+vendor/bin/phpdocmd -i docs/documentation/structure.xml -o docs/documentation -t docs/assets/twig/
