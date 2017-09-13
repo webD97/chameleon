@@ -1,6 +1,6 @@
 # Get started
-## 1. Install using Composer
-    composer require webd97/chameleon
+## 1. Install 
+Choose one of the [installation methods](../install). We recommend using *Composer*.
 
 ## 2. Set up your script
 Create a new PHP file and require composer's autoloader:
@@ -28,7 +28,7 @@ File: MyFirstChameleonImage.php
 ```
 
 ## 4. Compose your image
-Create the components you like to use and set their properties.
+Create the components you like to use and set their properties. We will set a [BackgroundColor](./documentation/Patterns/BackgroundColor) of hsl(135, 1, 0.3) for the image and create a 380x260px [Rectangle](./documentation/Primitives/Rectangle) with [HSL(45, 1, 0.5)](./documentation/Colors/HSLColor) as `BackgroundColor` and a 5px border with `HSL(90, 1, 0.8)` as `BackgroundColor`. This `Rectangle` will then be drawn onto the image.
 
 ```php
 File: MyFirstChameleonImage.php
