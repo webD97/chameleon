@@ -29,6 +29,11 @@
             $this -> setLightness($lightness);
         }
 
+        /**
+         * @param \Chameleon\Colors\RGBAColor $rgba
+         *
+         * @return HSLColor
+         */
         public static function fromRGBA(RGBAColor $rgba) {
             // http://www.geekymonkey.com/Programming/CSharp/RGB2HSL_HSL2RGB.htm
             $red = $rgba -> getRed() / 255;
@@ -93,12 +98,15 @@
         }
 
         /**
-        * Set hue value
-        *
-        * Sets the hue value of this color
-        * @param int $hue The hue value [0, 359]
-        * @return self
-        */
+         * Set hue value
+         *
+         * Sets the hue value of this color
+         *
+         * @param int $hue The hue value [0, 359]
+         *
+         * @return HSLColor
+         * @throws ValueOutOfBoundsException
+         */
         public function setHue(int $hue) : self {
             if (!$this -> checkRange($hue, 0, 359)) {
                 throw new ValueOutOfBoundsException("hue", $hue, 0, 359);
@@ -111,22 +119,25 @@
         }
 
         /**
-        * Get saturation value
-        *
-        * Returns the saturation value of this color
-        * @return int saturation value [0, 1]
-        */
+         * Get saturation value
+         *
+         * Returns the saturation value of this color
+         * @return float saturation value [0, 1]
+         */
         public function getSaturation() : float {
             return $this -> saturation;
         }
 
         /**
-        * Set saturation value
-        *
-        * Sets the saturation value of this color
-        * @param int $saturation The saturation value [0, 1]
-        * @return self
-        */
+         * Set saturation value
+         *
+         * Sets the saturation value of this color
+         *
+         * @param float|int $saturation The saturation value [0, 1]
+         *
+         * @return HSLColor
+         * @throws ValueOutOfBoundsException
+         */
         public function setSaturation(float $saturation) : self{
             if (!$this -> checkRange($saturation, 0, 1)) {
                 throw new ValueOutOfBoundsException("saturation", $saturation, 0, 1);
@@ -149,12 +160,15 @@
         }
 
         /**
-        * Set lightness
-        *
-        * Sets the lightness of this color
-        * @param int $lightness The lightness [0, 1]
-        * @return self
-        */
+         * Set lightness
+         *
+         * Sets the lightness of this color
+         *
+         * @param float|int $lightness The lightness [0, 1]
+         *
+         * @return HSLColor
+         * @throws ValueOutOfBoundsException
+         */
         public function setLightness(float $lightness) : self {
             if (!$this -> checkRange($lightness, 0, 1)) {
                 throw new ValueOutOfBoundsException("lightness", $lightness, 0, 1);

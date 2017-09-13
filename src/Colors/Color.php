@@ -17,13 +17,13 @@
         /**
          * Check if a value is in a legal range
          *
-         * @param int $value
-         * @param int $min
-         * @param int $max
+         * @param float $value
+         * @param float $min
+         * @param float $max
          *
          * @return bool
          */
-        protected function checkRange(int $value, int $min, int $max) : bool {
+        protected function checkRange(float $value, float $min, float $max) : bool {
             return $value >= $min && $value <= $max;
         }
 
