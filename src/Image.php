@@ -241,17 +241,18 @@
          *
          * @api
          *
-         * @param int $x X coordinate
-         * @param int $y Y coordinate
+         * @param int $xCoordinate X coordinate
+         * @param int $yCoordinate Y coordinate
+         *
          * @return RGBColor The color
          */
-        public function getPixel(int $x, int $y) : RGBColor {
-            $rgb = imagecolorat($this -> imageResource, $x, $y);
-            $r = ($rgb >> 16) & 0xFF;
-            $g = ($rgb >> 8) & 0xFF;
-            $b = $rgb & 0xFF;
+        public function getPixel(int $xCoordinate, int $yCoordinate) : RGBColor {
+            $rgb = imagecolorat($this -> imageResource, $xCoordinate, $yCoordinate);
+            $red = ($rgb >> 16) & 0x0000FF;
+            $green = ($rgb >> 8) & 0x0000FF;
+            $blue = $rgb & 0x0000FF;
 
-            return new RGBColor($r, $g, $b);
+            return new RGBColor($red, $green, $blue);
         }
 
         /**
@@ -260,14 +261,14 @@
          *
          * @api
          *
-         * @param int $x The x coordinate
-         * @param int $y The y coordinate
+         * @param int $xCoordinate The x coordinate
+         * @param int $yCoordinate The y coordinate
          * @param IColor $color The color
          *
          * @return Image
          */
-        public function setPixel(int $x, int $y, IColor $color) : self {
-            imagesetpixel($this -> imageResource, $x, $y, $this -> colors[$color -> __toString()]);
+        public function setPixel(int $xCoordinate, int $yCoordinate, IColor $color) : self {
+            imagesetpixel($this -> imageResource, $xCoordinate, $yCoordinate, $this -> colors[$color -> __toString()]);
             return $this;
         }
 
