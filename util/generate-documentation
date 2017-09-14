@@ -6,4 +6,5 @@ vendor/bin/phpdoc --force -n
 
 # Run phpdoc-md to create Markdown files
 echo "Running phpdoc-md"
-vendor/bin/phpdocmd -i docs/documentation/structure.xml -o docs/documentation -t docs/assets/twig/
+#vendor/bin/phpdocmd -i docs/documentation/structure.xml -o docs/documentation -t docs/assets/twig/
+vendor/bin/phpdocmd generator:run docs/documentation/structure.xml docs/documentation docs/assets/twig/
