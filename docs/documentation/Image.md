@@ -131,25 +131,25 @@ by the pattern.
 
 ---
 ### getPixel()
-    RGBColor Image::getPixel(integer $x, integer $y)
+    RGBColor Image::getPixel(integer $xCoordinate, integer $yCoordinate)
 
 Get color of a specific pixel
 
 
 #### Arguments
-* $x **integer** - &lt;p&gt;X coordinate&lt;/p&gt;
-* $y **integer** - &lt;p&gt;Y coordinate&lt;/p&gt;
+* $xCoordinate **integer** - &lt;p&gt;X coordinate&lt;/p&gt;
+* $yCoordinate **integer** - &lt;p&gt;Y coordinate&lt;/p&gt;
 
 ---
 ### setPixel()
-    Image Image::setPixel(integer $x, integer $y, IColor $color)
+    Image Image::setPixel(integer $xCoordinate, integer $yCoordinate, IColor $color)
 
 Set the color of a specific pixel.
 
 Make sure that the color is registered on the image! No additional tests will be performed!
 #### Arguments
-* $x **integer** - &lt;p&gt;The x coordinate&lt;/p&gt;
-* $y **integer** - &lt;p&gt;The y coordinate&lt;/p&gt;
+* $xCoordinate **integer** - &lt;p&gt;The x coordinate&lt;/p&gt;
+* $yCoordinate **integer** - &lt;p&gt;The y coordinate&lt;/p&gt;
 * $color **IColor** - &lt;p&gt;The color&lt;/p&gt;
 
 ---

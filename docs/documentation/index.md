@@ -28,6 +28,21 @@ you work with them:
         * [IColor](Colors/IColor)
         * [HSVColor](Colors/HSVColor)
         * [HSLAColor](Colors/HSLAColor)
+    * Chameleon\Filters
+        * [SelectiveBlurFilter](Filters/SelectiveBlurFilter)
+        * [MeanRemovalFilter](Filters/MeanRemovalFilter)
+        * [BrightnessFilter](Filters/BrightnessFilter)
+        * [EdgedetectFilter](Filters/EdgedetectFilter)
+        * [EmbossFilter](Filters/EmbossFilter)
+        * [IFilter](Filters/IFilter)
+        * [SmoothFilter](Filters/SmoothFilter)
+        * [GrayscaleFilter](Filters/GrayscaleFilter)
+        * [GaussianBlurFilter](Filters/GaussianBlurFilter)
+        * [ColorizeFilter](Filters/ColorizeFilter)
+        * [InvertFilter](Filters/InvertFilter)
+        * [ContrastFilter](Filters/ContrastFilter)
+        * [BuiltinFilter](Filters/BuiltinFilter)
+        * [PixelateFilter](Filters/PixelateFilter)
     * Chameleon\Patterns
         * [IPattern](Patterns/IPattern)
         * [Pattern](Patterns/Pattern)
@@ -45,21 +60,9 @@ you work with them:
         * [IPrimitive](Primitives/IPrimitive)
     * [ColorFactory](ColorFactory)
     * [Image](Image)
-    * Chameleon\Filters
-        * [EmbossFilter](Filters/EmbossFilter)
-        * [InvertFilter](Filters/InvertFilter)
-        * [GrayscaleFilter](Filters/GrayscaleFilter)
-        * [MeanRemovalFilter](Filters/MeanRemovalFilter)
-        * [BrightnessFilter](Filters/BrightnessFilter)
-        * [ColorizeFilter](Filters/ColorizeFilter)
-        * [SelectiveBlurFilter](Filters/SelectiveBlurFilter)
-        * [SmoothFilter](Filters/SmoothFilter)
-        * [GaussianBlurFilter](Filters/GaussianBlurFilter)
-        * [IFilter](Filters/IFilter)
-        * [EdgedetectFilter](Filters/EdgedetectFilter)
-        * [ContrastFilter](Filters/ContrastFilter)
-        * [BuiltinFilter](Filters/BuiltinFilter)
-        * [PixelateFilter](Filters/PixelateFilter)
+    * Chameleon\Transformations
+        * [ScaleMode](Transformations/ScaleMode)
+        * [FlipMode](Transformations/FlipMode)
 
 
 ## Class hierarchy diagram

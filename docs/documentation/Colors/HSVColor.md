@@ -10,15 +10,15 @@ Represents a color based on the HSV (hue, saturation, value) system
 
 ## Methods
 ### __construct()
-    void HSVColor::__construct(integer $hue, \Chameleon\Colors\float $saturation, \Chameleon\Colors\float $value)
+    void HSVColor::__construct(integer $hue, float $saturation, float $value)
 
 Class constructor
 
 
 #### Arguments
 * $hue **integer** - &lt;p&gt;Hue value [0, 359]&lt;/p&gt;
-* $saturation **Chameleon\Colors\float** - *No description available*.
-* $value **Chameleon\Colors\float** - *No description available*.
+* $saturation **float** - &lt;p&gt;Saturation [0, 1]&lt;/p&gt;
+* $value **float** - &lt;p&gt;Value [0, 1]&lt;/p&gt;
 
 ---
 ### fromRGBA()
@@ -63,7 +63,7 @@ Sets the hue value of this color
 
 ---
 ### getSaturation()
-    integer HSVColor::getSaturation()
+    float HSVColor::getSaturation()
 
 Get saturation value
 
@@ -73,17 +73,17 @@ None.
 
 ---
 ### setSaturation()
-    HSVColor HSVColor::setSaturation(integer $saturation)
+    HSVColor HSVColor::setSaturation(float|integer $saturation)
 
 Set saturation value
 
 Sets the saturation value of this color
 #### Arguments
-* $saturation **integer** - &lt;p&gt;The saturation value [0, 1]&lt;/p&gt;
+* $saturation **float|integer** - &lt;p&gt;The saturation value [0, 1]&lt;/p&gt;
 
 ---
 ### getValue()
-    integer HSVColor::getValue()
+    float HSVColor::getValue()
 
 Get value
 
@@ -93,13 +93,13 @@ None.
 
 ---
 ### setValue()
-    HSVColor HSVColor::setValue(integer $value)
+    HSVColor HSVColor::setValue(float|integer $value)
 
 Set value
 
 Sets the value of this color
 #### Arguments
-* $value **integer** - &lt;p&gt;The value [0, 1]&lt;/p&gt;
+* $value **float|integer** - &lt;p&gt;The value [0, 1]&lt;/p&gt;
 
 ---
 ### getRGBA()
