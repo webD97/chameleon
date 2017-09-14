@@ -64,18 +64,18 @@
                   return new HSLColor($hue, $saturation, $lightness);
             }
             
-            $r2 = ($max - $red) / $delta;
-            $g2 = ($max - $green) / $delta;
-            $b2 = ($max - $blue) / $delta;
+            $red2 = ($max - $red) / $delta;
+            $green2 = ($max - $green) / $delta;
+            $blue2 = ($max - $blue) / $delta;
             
             if ($red == $max) {
-                $hue = ($green == $min) ? 5 + $b2 : 1 - $g2;
+                $hue = ($green == $min) ? 5 + $blue2 : 1 - $green2;
             }
             elseif ($green == $max) {
-                $hue = ($blue == $min) ? 1 + $r2 : 3 - $b2;
+                $hue = ($blue == $min) ? 1 + $red2 : 3 - $blue2;
             }
             else {
-                $hue = ($red == $min) ? 3 + $g2 : 5 - $r2;
+                $hue = ($red == $min) ? 3 + $green2 : 5 - $red2;
             }
             
             $hue *= 60;
@@ -181,20 +181,20 @@
         }
 
         private function makeRGB() {
-            $h = $this -> hue;
-            $s = $this -> saturation;
-            $l = $this -> lightness;
+            $hue = $this -> hue;
+            $saturation = $this -> saturation;
+            $lightness = $this -> lightness;
             
-            if($s == 0){
-                $this -> red = $this -> green = $this -> blue = $l;
+            if($saturation == 0){
+                $this -> red = $this -> green = $this -> blue = $lightness;
             }
             else {
-                $q = ($l < 0.5) ? $l * (1 + $s) : $l + $s - $l * $s;
-                $p = 2 * $l - $q;
+                $q = ($lightness < 0.5) ? $lightness * (1 + $saturation) : $lightness + $saturation - $lightness * $saturation;
+                $p = 2 * $lightness - $q;
                 
-                $this -> red = round($this -> hue2rgb($p, $q, ($h + 120) / 360));
-                $this -> green = round($this -> hue2rgb($p, $q, ($h) / 360));
-                $this -> blue = round($this -> hue2rgb($p, $q, ($h - 120) / 360));
+                $this -> red = round($this -> hue2rgb($p, $q, ($hue + 120) / 360));
+                $this -> green = round($this -> hue2rgb($p, $q, ($hue) / 360));
+                $this -> blue = round($this -> hue2rgb($p, $q, ($hue - 120) / 360));
             }
         }
         

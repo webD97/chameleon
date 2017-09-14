@@ -1,16 +1,16 @@
 language: php
 php:
-- '7.1'
-- nightly
+  - '7.1'
+  - nightly
 before_install:
-- composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+  - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
 install:
-- composer install
+  - composer install --dev
 script:
-- vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 after_success:
-- CODECLIMATE_REPO_TOKEN=50ee382cc6cb6a7b46ad45f60db6142fd4899f44a8cf08d85eecca970b7aad05
-  vendor/bin/test-reporter
+  - CODECLIMATE_REPO_TOKEN=50ee382cc6cb6a7b46ad45f60db6142fd4899f44a8cf08d85eecca970b7aad05
+    vendor/bin/test-reporter
 env:
   global:
     secure: HnxvNihsH9Ws0DyDBDuigWCSgY6cmDIMR57JsXnWsTCRl4gBrVazihWHZe0I2LVcsM4m8u5ZwxCks/4NrCs6MVLwESfSlZhAnHoDMqIHtGYuMQPr4Q29xQLPY7+7kCfUqki1YTLnwBX5K8k9JsMAdKobdh38WIIHp94aRxt2db4y9/G+c8AFv9A9oYix44d8p8i0xSdIJaMyui2KG2CE2TR3wxlteXXthrwYFdjE36GzBMhasoCQQ39v9u5lHptkiXmLq2VKTI+/EFYa39GflN8K8FHH750rhYHvV3BGLks8zr0pt6Xg8Lgqu9ZyMMf3Bf8asdr/VOWzQ7yuYhABG1325jRm78qeHM+ivLQHDmw7Zak5i2iCict6mVXuv2x37y6PY69gLLDoU0LtLfTUHJv989r3hwYlCLsRbHZKSbKQ4ZZdQ2ZvmJsD6XsXVYUdQZl8e3Yt6E0ZBAApEtC/GgEoPCAKJslz37raFItVhkvoSKkK3G31Fal9AL+WpHrUw/P6/g6n+nC8f4T5H3YI4O2bmF8YzMxGN4i9HqFP62MCTZlfqt/X8XYoPa+EWpjjw1mqnENy+lV7Reu+UUXuPZgYa6H1B6a8Hw8r41PfCiB8gX/Sn/fITSH0DbJ/pujVvYI1dzNAwqUYYfUbYv2Ua7CQKwF3nARS0nMLPBGqRj4=
