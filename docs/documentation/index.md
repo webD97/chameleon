@@ -16,6 +16,8 @@ you work with them:
 ```
 
 ## Namespace Hierarchy
+**Warning**: Due to a bug in phpdocumentor, the documentation is incomplete (missing classes)
+
 * Chameleon
     * Chameleon\Colors
         * [HSLColor](Colors/HSLColor)
@@ -46,4 +48,5 @@ you work with them:
 
 
 ## Class hierarchy diagram
-![Class hierarchy diagram](../docs/documentation/classes.svg)
+![Class hierarchy diagram](./classes.svg)
+*generated using phpdocumentor*
