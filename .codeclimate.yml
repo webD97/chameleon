@@ -16,6 +16,8 @@ engines:
     config:
       file_extensions:
         - php
+  git-legal:
+    enabled: true
 
 ratings:
   paths:
