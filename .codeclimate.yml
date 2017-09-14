@@ -11,6 +11,11 @@ engines:
     config:
       file_extensions: "php"
       standard: "PSR1"
+  phpmd:
+    enabled: true
+    config:
+      file_extensions:
+        - php
 
 ratings:
   paths:
