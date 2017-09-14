@@ -4,6 +4,7 @@
 
     use Chameleon\Exceptions\ColorNotFoundException;
 
+    use Chameleon\Filters\IFilter;
     use Chameleon\Primitives\IPrimitive;
     use Chameleon\Primitives\Rectangle;
     use Chameleon\Patterns\IPattern;
@@ -267,6 +268,20 @@
          */
         public function setPixel(int $x, int $y, IColor $color) : self {
             imagesetpixel($this -> imageResource, $x, $y, $this -> colors[$color -> __toString()]);
+            return $this;
+        }
+
+        /**
+         * Apply a filter to the image.
+         *
+         * @api
+         *
+         * @param IFilter $filter The filter to be applied
+         *
+         * @return Image self
+         */
+        public function filter(IFilter $filter) : Image {
+            $filter -> apply($this);
             return $this;
         }
 
