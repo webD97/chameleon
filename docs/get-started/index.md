@@ -72,7 +72,7 @@ File: MyFirstChameleonImage.php
     (...)
 
     header("Content-type: image/png");
-    $image -> as(IMG_PNG);
+    $image -> outputAs(IMG_PNG);
 ?>
 
 ```

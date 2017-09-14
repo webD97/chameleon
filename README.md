@@ -33,7 +33,7 @@ Please note that it is still in development!
     $image -> draw($rectangle);
 
     header("Content-type: image/png");
-    $image -> as(IMG_PNG);
+    $image -> outputAs(IMG_PNG);
 ?>
 ```
 
