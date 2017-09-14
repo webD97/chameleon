@@ -58,11 +58,11 @@ you work with them:
         * [Line](Primitives/Line)
         * [Rectangle](Primitives/Rectangle)
         * [IPrimitive](Primitives/IPrimitive)
-    * [ColorFactory](ColorFactory)
-    * [Image](Image)
     * Chameleon\Transformations
         * [ScaleMode](Transformations/ScaleMode)
         * [FlipMode](Transformations/FlipMode)
+    * [ColorFactory](ColorFactory)
+    * [Image](Image)
 
 
 ## Class hierarchy diagram

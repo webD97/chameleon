@@ -5020,6 +5020,62 @@ By default, a rectangle has a 1px black border and no background</long-descripti
       <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
     </parse_markers>
   </file>
+  <file path="Transformations/ScaleMode.php" generated-path="Transformations.ScaleMode.html" hash="19eaadb94e9461bab0852e7e2ac1f7f9" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="Chameleon\Transformations" line="9" package="Chameleon\Transformations">
+      <extends/>
+      <name>ScaleMode</name>
+      <full_name>\Chameleon\Transformations\ScaleMode</full_name>
+      <docblock line="9">
+        <description>Class ScaleMode</description>
+        <long-description></long-description>
+        <tag name="package" line="9" description="Chameleon\Transformations"/>
+      </docblock>
+      <constant namespace="Chameleon\Transformations" line="10" package="Chameleon\Transformations">
+        <name>NEAREST_NEIGHBOUR</name>
+        <full_name>\Chameleon\Transformations\ScaleMode::NEAREST_NEIGHBOUR</full_name>
+        <value>1</value>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Chameleon\Transformations" line="11" package="Chameleon\Transformations">
+        <name>BILINEAR_FIXED</name>
+        <full_name>\Chameleon\Transformations\ScaleMode::BILINEAR_FIXED</full_name>
+        <value>2</value>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Chameleon\Transformations" line="12" package="Chameleon\Transformations">
+        <name>BICUBIC</name>
+        <full_name>\Chameleon\Transformations\ScaleMode::BICUBIC</full_name>
+        <value>4</value>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Chameleon\Transformations" line="13" package="Chameleon\Transformations">
+        <name>BICUBIC_FIXED</name>
+        <full_name>\Chameleon\Transformations\ScaleMode::BICUBIC_FIXED</full_name>
+        <value>8</value>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+  </file>
   <file path="Patterns/RGBNoise.php" generated-path="Patterns.RGBNoise.html" hash="68dc28c05a149cdc56d5f0636683e2f7" package="Default">
     <docblock line="0">
       <description></description>
@@ -5177,6 +5233,53 @@ By default, a rectangle has a 1px black border and no background</long-descripti
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
       <error line="8" code="PPC:ERR-50005">No summary for class \Chameleon\Patterns\RGBNoise</error>
+    </parse_markers>
+  </file>
+  <file path="Transformations/FlipMode.php" generated-path="Transformations.FlipMode.html" hash="fe8ef36bc65703d2452f298e985c80fe" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="Chameleon\Transformations" line="9" package="Chameleon\Transformations">
+      <extends/>
+      <name>FlipMode</name>
+      <full_name>\Chameleon\Transformations\FlipMode</full_name>
+      <docblock line="9">
+        <description>Class FlipMode</description>
+        <long-description></long-description>
+        <tag name="package" line="9" description="Chameleon\Transformations"/>
+      </docblock>
+      <constant namespace="Chameleon\Transformations" line="10" package="Chameleon\Transformations">
+        <name>HORIZONTAL</name>
+        <full_name>\Chameleon\Transformations\FlipMode::HORIZONTAL</full_name>
+        <value>1</value>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Chameleon\Transformations" line="11" package="Chameleon\Transformations">
+        <name>VERTICAL</name>
+        <full_name>\Chameleon\Transformations\FlipMode::VERTICAL</full_name>
+        <value>2</value>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Chameleon\Transformations" line="12" package="Chameleon\Transformations">
+        <name>BOTH</name>
+        <full_name>\Chameleon\Transformations\FlipMode::BOTH</full_name>
+        <value>4</value>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
     </parse_markers>
   </file>
   <file path="Primitives/Primitive.php" generated-path="Primitives.Primitive.html" hash="6f4cebfb1b85751e637db654e21e9272" package="Default">
@@ -8743,109 +8846,6 @@ by the pattern.</long-description>
       <error line="84" code="PPC:ERR-50008">No summary for method __destruct()</error>
       <error line="19" code="PPC:ERR-50007">No summary for property $imageResource</error>
       <error line="20" code="PPC:ERR-50007">No summary for property $colors</error>
-    </parse_markers>
-  </file>
-  <file path="Transformations/ScaleMode.php" generated-path="Transformations.ScaleMode.html" hash="19eaadb94e9461bab0852e7e2ac1f7f9" package="Default">
-    <docblock line="0">
-      <description></description>
-      <long-description></long-description>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="true" namespace="Chameleon\Transformations" line="9" package="Chameleon\Transformations">
-      <extends/>
-      <name>ScaleMode</name>
-      <full_name>\Chameleon\Transformations\ScaleMode</full_name>
-      <docblock line="9">
-        <description>Class ScaleMode</description>
-        <long-description></long-description>
-        <tag name="package" line="9" description="Chameleon\Transformations"/>
-      </docblock>
-      <constant namespace="Chameleon\Transformations" line="10" package="Chameleon\Transformations">
-        <name>NEAREST_NEIGHBOUR</name>
-        <full_name>\Chameleon\Transformations\ScaleMode::NEAREST_NEIGHBOUR</full_name>
-        <value>1</value>
-        <docblock line="10">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-      <constant namespace="Chameleon\Transformations" line="11" package="Chameleon\Transformations">
-        <name>BILINEAR_FIXED</name>
-        <full_name>\Chameleon\Transformations\ScaleMode::BILINEAR_FIXED</full_name>
-        <value>2</value>
-        <docblock line="11">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-      <constant namespace="Chameleon\Transformations" line="12" package="Chameleon\Transformations">
-        <name>BICUBIC</name>
-        <full_name>\Chameleon\Transformations\ScaleMode::BICUBIC</full_name>
-        <value>4</value>
-        <docblock line="12">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-      <constant namespace="Chameleon\Transformations" line="13" package="Chameleon\Transformations">
-        <name>BICUBIC_FIXED</name>
-        <full_name>\Chameleon\Transformations\ScaleMode::BICUBIC_FIXED</full_name>
-        <value>8</value>
-        <docblock line="13">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-    </class>
-    <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-    </parse_markers>
-  </file>
-  <file path="Transformations/FlipMode.php" generated-path="Transformations.FlipMode.html" hash="fe8ef36bc65703d2452f298e985c80fe" package="Default">
-    <docblock line="0">
-      <description></description>
-      <long-description></long-description>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="true" namespace="Chameleon\Transformations" line="9" package="Chameleon\Transformations">
-      <extends/>
-      <name>FlipMode</name>
-      <full_name>\Chameleon\Transformations\FlipMode</full_name>
-      <docblock line="9">
-        <description>Class FlipMode</description>
-        <long-description></long-description>
-        <tag name="package" line="9" description="Chameleon\Transformations"/>
-      </docblock>
-      <constant namespace="Chameleon\Transformations" line="10" package="Chameleon\Transformations">
-        <name>HORIZONTAL</name>
-        <full_name>\Chameleon\Transformations\FlipMode::HORIZONTAL</full_name>
-        <value>1</value>
-        <docblock line="10">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-      <constant namespace="Chameleon\Transformations" line="11" package="Chameleon\Transformations">
-        <name>VERTICAL</name>
-        <full_name>\Chameleon\Transformations\FlipMode::VERTICAL</full_name>
-        <value>2</value>
-        <docblock line="11">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-      <constant namespace="Chameleon\Transformations" line="12" package="Chameleon\Transformations">
-        <name>BOTH</name>
-        <full_name>\Chameleon\Transformations\FlipMode::BOTH</full_name>
-        <value>4</value>
-        <docblock line="12">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-    </class>
-    <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
     </parse_markers>
   </file>
   <package name="Chameleon" full_name="Chameleon">
