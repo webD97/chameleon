@@ -90,12 +90,15 @@
         }
 
         /**
-        * Set hue value
-        *
-        * Sets the hue value of this color
-        * @param int $hue The hue value [0, 359]
-        * @return self
-        */
+         * Set hue value
+         *
+         * Sets the hue value of this color
+         *
+         * @param int $hue The hue value [0, 359]
+         *
+         * @return HSVColor
+         * @throws ValueOutOfBoundsException
+         */
         public function setHue(int $hue) : self {
             if (!$this -> checkRange($hue, 0, 359)) {
                 throw new ValueOutOfBoundsException("hue", $hue, 0, 359);
@@ -111,19 +114,22 @@
         * Get saturation value
         *
         * Returns the saturation value of this color
-        * @return int saturation value [0, 1]
+        * @return float saturation value [0, 1]
         */
         public function getSaturation() : float {
             return $this -> saturation;
         }
 
         /**
-        * Set saturation value
-        *
-        * Sets the saturation value of this color
-        * @param int $saturation The saturation value [0, 1]
-        * @return self
-        */
+         * Set saturation value
+         *
+         * Sets the saturation value of this color
+         *
+         * @param float|int $saturation The saturation value [0, 1]
+         *
+         * @return HSVColor
+         * @throws ValueOutOfBoundsException
+         */
         public function setSaturation(float $saturation) : self {
             if (!$this -> checkRange($saturation, 0, 1)) {
                 throw new ValueOutOfBoundsException("saturation", $saturation, 0, 1);
@@ -139,19 +145,22 @@
         * Get value
         *
         * Returns the value of this color
-        * @return int value [0, 1]
+        * @return float value [0, 1]
         */
         public function getValue() : float {
             return $this -> value;
         }
 
         /**
-        * Set value
-        *
-        * Sets the value of this color
-        * @param int $value The value [0, 1]
-        * @return self
-        */
+         * Set value
+         *
+         * Sets the value of this color
+         *
+         * @param float|int $value The value [0, 1]
+         *
+         * @return HSVColor
+         * @throws ValueOutOfBoundsException
+         */
         public function setValue(float $value) : self {
             if (!$this -> checkRange($value, 0, 1)) {
                 throw new ValueOutOfBoundsException("value", $value, 0, 1);
@@ -163,9 +172,11 @@
             return $this;
         }
 
-
         /**
         * Set RGB equivalent
+         *
+         * @internal
+         *
         * @param int $red Red value [0, 255]
         * @param int $red Red value [0, 255]
         * @param int $red Red value [0, 255]
@@ -176,7 +187,12 @@
             $this -> blue = round($blue * 255);
         }
 
-        private function makeRGB() {
+        /**
+         * Calculate RGB equivalent
+         *
+         * @internal
+         */
+        private function makeRGB() : void {
             $hi = floor($this -> hue / 60);
             $f = ($this -> hue / 60) - $hi;
 
