@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<template>
+  <author>webD97</author>
+  <description>Generates an XML representation of the project's structure and a class hierarchy diagram</description>
+  <version>0.0.1</version>
+  <transformations>
+    <transformation writer="xml" artifact="structure.xml"/>
+    <transformation writer="Graph" source="Class" artifact="classes.svg" />
+  </transformations>
+</template>

@@ -46,4 +46,4 @@ you work with them:
 
 
 ## Class hierarchy diagram
-![Class hierarchy diagram](../img/documentation/src.png)
+![Class hierarchy diagram](../docs/documentation/classes.svg)
