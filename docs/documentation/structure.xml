@@ -6129,60 +6129,61 @@ By default, a rectangle has a 1px black border and no background</long-descripti
       <error line="14" code="PPC:ERR-50007">No summary for property $offsetY</error>
     </parse_markers>
   </file>
-  <file path="Image.php" generated-path="Image.html" hash="94774c44fbe6e8156bde500dd730e855" package="Default">
+  <file path="Image.php" generated-path="Image.html" hash="4331c8dda72e266b544d1bff62bba0bf" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
     <namespace-alias name="ColorNotFoundException">\Chameleon\Exceptions\ColorNotFoundException</namespace-alias>
+    <namespace-alias name="IFilter">\Chameleon\Filters\IFilter</namespace-alias>
     <namespace-alias name="IPrimitive">\Chameleon\Primitives\IPrimitive</namespace-alias>
     <namespace-alias name="Rectangle">\Chameleon\Primitives\Rectangle</namespace-alias>
     <namespace-alias name="IPattern">\Chameleon\Patterns\IPattern</namespace-alias>
     <namespace-alias name="IColor">\Chameleon\Colors\IColor</namespace-alias>
     <namespace-alias name="RGBColor">\Chameleon\Colors\RGBColor</namespace-alias>
     <namespace-alias name="Exception">\Exception</namespace-alias>
-    <class final="false" abstract="false" namespace="Chameleon" line="17" package="Default">
+    <class final="false" abstract="false" namespace="Chameleon" line="18" package="Default">
       <extends/>
       <name>Image</name>
       <full_name>\Chameleon\Image</full_name>
-      <docblock line="17">
+      <docblock line="18">
         <description>Image class</description>
         <long-description></long-description>
-        <tag name="package" line="17" description="Default"/>
+        <tag name="package" line="18" description="Default"/>
       </docblock>
-      <property static="false" visibility="private" namespace="Chameleon" line="18" package="Default">
+      <property static="false" visibility="private" namespace="Chameleon" line="19" package="Default">
         <name>$imageResource</name>
         <full_name>\Chameleon\Image::$imageResource</full_name>
         <default></default>
-        <docblock line="18">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </property>
-      <property static="false" visibility="private" namespace="Chameleon" line="19" package="Default">
-        <name>$colors</name>
-        <full_name>\Chameleon\Image::$colors</full_name>
-        <default>array()</default>
         <docblock line="19">
           <description></description>
           <long-description></long-description>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="30" package="Default">
+      <property static="false" visibility="private" namespace="Chameleon" line="20" package="Default">
+        <name>$colors</name>
+        <full_name>\Chameleon\Image::$colors</full_name>
+        <default>array()</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="31" package="Default">
         <name>create</name>
         <full_name>\Chameleon\Image::create()</full_name>
-        <docblock line="30">
+        <docblock line="31">
           <description>Create an image from scratch</description>
           <long-description></long-description>
-          <tag name="api" line="30" description=""/>
-          <tag name="param" line="30" description="&lt;p&gt;width in px&lt;/p&gt;" type="integer" variable="$width">
+          <tag name="api" line="31" description=""/>
+          <tag name="param" line="31" description="&lt;p&gt;width in px&lt;/p&gt;" type="integer" variable="$width">
             <type>integer</type>
           </tag>
-          <tag name="param" line="30" description="&lt;p&gt;height in px&lt;/p&gt;" type="integer" variable="$height">
+          <tag name="param" line="31" description="&lt;p&gt;height in px&lt;/p&gt;" type="integer" variable="$height">
             <type>integer</type>
           </tag>
-          <tag name="return" line="30" description="" type="\Chameleon\Image">
+          <tag name="return" line="31" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -6198,20 +6199,20 @@ By default, a rectangle has a 1px black border and no background</long-descripti
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="46" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="47" package="Default">
         <name>fromFile</name>
         <full_name>\Chameleon\Image::fromFile()</full_name>
-        <docblock line="46">
+        <docblock line="47">
           <description>Load an image from a file</description>
           <long-description></long-description>
-          <tag name="api" line="46" description=""/>
-          <tag name="param" line="46" description="&lt;p&gt;Path to the file&lt;/p&gt;" type="string" variable="$path">
+          <tag name="api" line="47" description=""/>
+          <tag name="param" line="47" description="&lt;p&gt;Path to the file&lt;/p&gt;" type="string" variable="$path">
             <type>string</type>
           </tag>
-          <tag name="return" line="46" description="" type="\Chameleon\Image">
+          <tag name="return" line="47" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
-          <tag name="throws" line="46" description="If file not found" type="\Exception">
+          <tag name="throws" line="47" description="If file not found" type="\Exception">
             <type>\Exception</type>
           </tag>
         </docblock>
@@ -6221,50 +6222,50 @@ By default, a rectangle has a 1px black border and no background</long-descripti
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="83" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="84" package="Default">
         <name>__destruct</name>
         <full_name>\Chameleon\Image::__destruct()</full_name>
-        <docblock line="83">
+        <docblock line="84">
           <description></description>
           <long-description></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="98" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="99" package="Default">
         <name>getWidth</name>
         <full_name>\Chameleon\Image::getWidth()</full_name>
-        <docblock line="98">
+        <docblock line="99">
           <description>Get image width in px</description>
           <long-description></long-description>
-          <tag name="api" line="98" description=""/>
-          <tag name="return" line="98" description="The width" type="integer">
+          <tag name="api" line="99" description=""/>
+          <tag name="return" line="99" description="The width" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="109" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="110" package="Default">
         <name>getHeight</name>
         <full_name>\Chameleon\Image::getHeight()</full_name>
-        <docblock line="109">
+        <docblock line="110">
           <description>Get image height in px</description>
           <long-description></long-description>
-          <tag name="api" line="109" description=""/>
-          <tag name="return" line="109" description="The height" type="integer">
+          <tag name="api" line="110" description=""/>
+          <tag name="return" line="110" description="The height" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="123" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="124" package="Default">
         <name>outputAs</name>
         <full_name>\Chameleon\Image::outputAs()</full_name>
-        <docblock line="123">
+        <docblock line="124">
           <description>Output image</description>
           <long-description></long-description>
-          <tag name="api" line="123" description=""/>
-          <tag name="param" line="123" description="&lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;" type="" variable="$type"/>
-          <tag name="return" line="123" description="" type="boolean">
+          <tag name="api" line="124" description=""/>
+          <tag name="param" line="124" description="&lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;" type="" variable="$type"/>
+          <tag name="return" line="124" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="123" description="If using an unsupported image file format" type="\Exception">
+          <tag name="throws" line="124" description="If using an unsupported image file format" type="\Exception">
             <type>\Exception</type>
           </tag>
         </docblock>
@@ -6274,29 +6275,29 @@ By default, a rectangle has a 1px black border and no background</long-descripti
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="148" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="149" package="Default">
         <name>getImageResource</name>
         <full_name>\Chameleon\Image::getImageResource()</full_name>
-        <docblock line="148">
+        <docblock line="149">
           <description>Get the underlying GD image resource</description>
           <long-description></long-description>
-          <tag name="api" line="148" description=""/>
-          <tag name="return" line="148" description="" type="resource">
+          <tag name="api" line="149" description=""/>
+          <tag name="return" line="149" description="" type="resource">
             <type>resource</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="160" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="161" package="Default">
         <name>registerColor</name>
         <full_name>\Chameleon\Image::registerColor()</full_name>
-        <docblock line="160">
+        <docblock line="161">
           <description>Register a color with this image</description>
           <long-description></long-description>
-          <tag name="api" line="160" description=""/>
-          <tag name="param" line="160" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="api" line="161" description=""/>
+          <tag name="param" line="161" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="160" description="The internal GD color id" type="integer">
+          <tag name="return" line="161" description="The internal GD color id" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
@@ -6306,17 +6307,17 @@ By default, a rectangle has a 1px black border and no background</long-descripti
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="181" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="182" package="Default">
         <name>isColorRegistered</name>
         <full_name>\Chameleon\Image::isColorRegistered()</full_name>
-        <docblock line="181">
+        <docblock line="182">
           <description>Check if a color is registered with this image</description>
           <long-description></long-description>
-          <tag name="api" line="181" description=""/>
-          <tag name="param" line="181" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="api" line="182" description=""/>
+          <tag name="param" line="182" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="181" description="" type="boolean">
+          <tag name="return" line="182" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -6326,20 +6327,20 @@ By default, a rectangle has a 1px black border and no background</long-descripti
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="195" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="196" package="Default">
         <name>getRegisteredColor</name>
         <full_name>\Chameleon\Image::getRegisteredColor()</full_name>
-        <docblock line="195">
+        <docblock line="196">
           <description>Get the underlying GD color</description>
           <long-description></long-description>
-          <tag name="api" line="195" description=""/>
-          <tag name="param" line="195" description="&lt;p&gt;The high level color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="api" line="196" description=""/>
+          <tag name="param" line="196" description="&lt;p&gt;The high level color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="195" description="The low level color" type="integer">
+          <tag name="return" line="196" description="The low level color" type="integer">
             <type>integer</type>
           </tag>
-          <tag name="throws" line="195" description="If color is not registered with this image" type="\Chameleon\Exceptions\ColorNotFoundException">
+          <tag name="throws" line="196" description="If color is not registered with this image" type="\Chameleon\Exceptions\ColorNotFoundException">
             <type>\Chameleon\Exceptions\ColorNotFoundException</type>
           </tag>
         </docblock>
@@ -6349,19 +6350,19 @@ By default, a rectangle has a 1px black border and no background</long-descripti
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="212" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="213" package="Default">
         <name>registerColorIfUnknown</name>
         <full_name>\Chameleon\Image::registerColorIfUnknown()</full_name>
-        <docblock line="212">
+        <docblock line="213">
           <description>Register a color only if it has not been registered yet</description>
           <long-description></long-description>
-          <tag name="param" line="212" description="" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="param" line="213" description="" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="212" description="was unknown?" type="boolean">
+          <tag name="return" line="213" description="was unknown?" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="deprecated" line="212" description=""/>
+          <tag name="deprecated" line="213" description=""/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$color</name>
@@ -6369,18 +6370,18 @@ By default, a rectangle has a 1px black border and no background</long-descripti
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="232" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="233" package="Default">
         <name>setBackgroundPattern</name>
         <full_name>\Chameleon\Image::setBackgroundPattern()</full_name>
-        <docblock line="232">
+        <docblock line="233">
           <description>Fill the whole image with the given pattern.</description>
           <long-description>Only call this before drawing other elements onto the image unless you want them to be affected
 by the pattern.</long-description>
-          <tag name="api" line="232" description=""/>
-          <tag name="param" line="232" description="&lt;p&gt;The pattern&lt;/p&gt;" type="\Chameleon\Patterns\IPattern" variable="$pattern">
+          <tag name="api" line="233" description=""/>
+          <tag name="param" line="233" description="&lt;p&gt;The pattern&lt;/p&gt;" type="\Chameleon\Patterns\IPattern" variable="$pattern">
             <type>\Chameleon\Patterns\IPattern</type>
           </tag>
-          <tag name="return" line="232" description="" type="void">
+          <tag name="return" line="233" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -6390,20 +6391,20 @@ by the pattern.</long-description>
           <type>\Chameleon\Patterns\IPattern</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="247" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="248" package="Default">
         <name>getPixel</name>
         <full_name>\Chameleon\Image::getPixel()</full_name>
-        <docblock line="247">
+        <docblock line="248">
           <description>Get color of a specific pixel</description>
           <long-description></long-description>
-          <tag name="api" line="247" description=""/>
-          <tag name="param" line="247" description="&lt;p&gt;X coordinate&lt;/p&gt;" type="integer" variable="$x">
+          <tag name="api" line="248" description=""/>
+          <tag name="param" line="248" description="&lt;p&gt;X coordinate&lt;/p&gt;" type="integer" variable="$x">
             <type>integer</type>
           </tag>
-          <tag name="param" line="247" description="&lt;p&gt;Y coordinate&lt;/p&gt;" type="integer" variable="$y">
+          <tag name="param" line="248" description="&lt;p&gt;Y coordinate&lt;/p&gt;" type="integer" variable="$y">
             <type>integer</type>
           </tag>
-          <tag name="return" line="247" description="The color" type="\Chameleon\Colors\RGBColor">
+          <tag name="return" line="248" description="The color" type="\Chameleon\Colors\RGBColor">
             <type>\Chameleon\Colors\RGBColor</type>
           </tag>
         </docblock>
@@ -6418,23 +6419,23 @@ by the pattern.</long-description>
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="268" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="269" package="Default">
         <name>setPixel</name>
         <full_name>\Chameleon\Image::setPixel()</full_name>
-        <docblock line="268">
+        <docblock line="269">
           <description>Set the color of a specific pixel.</description>
           <long-description>Make sure that the color is registered on the image! No additional tests will be performed!</long-description>
-          <tag name="api" line="268" description=""/>
-          <tag name="param" line="268" description="&lt;p&gt;The x coordinate&lt;/p&gt;" type="integer" variable="$x">
+          <tag name="api" line="269" description=""/>
+          <tag name="param" line="269" description="&lt;p&gt;The x coordinate&lt;/p&gt;" type="integer" variable="$x">
             <type>integer</type>
           </tag>
-          <tag name="param" line="268" description="&lt;p&gt;The y coordinate&lt;/p&gt;" type="integer" variable="$y">
+          <tag name="param" line="269" description="&lt;p&gt;The y coordinate&lt;/p&gt;" type="integer" variable="$y">
             <type>integer</type>
           </tag>
-          <tag name="param" line="268" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="param" line="269" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="268" description="" type="\Chameleon\Image">
+          <tag name="return" line="269" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
@@ -6454,22 +6455,42 @@ by the pattern.</long-description>
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="282" package="Default">
-        <name>draw</name>
-        <full_name>\Chameleon\Image::draw()</full_name>
-        <docblock line="282">
-          <description>Draw one or more primitives onto the image</description>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="283" package="Default">
+        <name>filter</name>
+        <full_name>\Chameleon\Image::filter()</full_name>
+        <docblock line="283">
+          <description>Apply a filter to the image.</description>
           <long-description></long-description>
-          <tag name="api" line="282" description=""/>
-          <tag name="param" line="282" description="&lt;p&gt;Any number of primitives&lt;/p&gt;" type="\Chameleon\Primitives\IPrimitive|array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;" variable="$primitives">
-            <type>\Chameleon\Primitives\IPrimitive</type>
-            <type>array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;</type>
+          <tag name="api" line="283" description=""/>
+          <tag name="param" line="283" description="&lt;p&gt;The filter to be applied&lt;/p&gt;" type="\Chameleon\Filters\IFilter" variable="$filter">
+            <type>\Chameleon\Filters\IFilter</type>
           </tag>
-          <tag name="return" line="282" description="" type="\Chameleon\Image">
+          <tag name="return" line="283" description="self" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
-        <argument line="282" by_reference="false">
+        <argument line="0" by_reference="false">
+          <name>$filter</name>
+          <default></default>
+          <type>\Chameleon\Filters\IFilter</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="297" package="Default">
+        <name>draw</name>
+        <full_name>\Chameleon\Image::draw()</full_name>
+        <docblock line="297">
+          <description>Draw one or more primitives onto the image</description>
+          <long-description></long-description>
+          <tag name="api" line="297" description=""/>
+          <tag name="param" line="297" description="&lt;p&gt;Any number of primitives&lt;/p&gt;" type="\Chameleon\Primitives\IPrimitive|array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;" variable="$primitives">
+            <type>\Chameleon\Primitives\IPrimitive</type>
+            <type>array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;</type>
+          </tag>
+          <tag name="return" line="297" description="" type="\Chameleon\Image">
+            <type>\Chameleon\Image</type>
+          </tag>
+        </docblock>
+        <argument line="297" by_reference="false">
           <name>$primitives</name>
           <default></default>
           <type>\Chameleon\Primitives\IPrimitive|array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;</type>
@@ -6478,12 +6499,2289 @@ by the pattern.</long-description>
     </class>
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="83" code="PPC:ERR-50008">No summary for method __destruct()</error>
-      <error line="18" code="PPC:ERR-50007">No summary for property $imageResource</error>
-      <error line="19" code="PPC:ERR-50007">No summary for property $colors</error>
+      <error line="84" code="PPC:ERR-50008">No summary for method __destruct()</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $imageResource</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $colors</error>
+    </parse_markers>
+  </file>
+  <file path="Options.php" generated-path="Options.html" hash="05276b19848013a68de4ab9aa58e2aab" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/EmbossFilter.php" generated-path="Filters.EmbossFilter.html" hash="cc5d42b2193c3145f25349448f8737c5" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="7" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>EmbossFilter</name>
+      <full_name>\Chameleon\Filters\EmbossFilter</full_name>
+      <docblock line="7">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="8" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\EmbossFilter::__construct()</full_name>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="17" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\EmbossFilter::getFilterID()</full_name>
+        <docblock line="17">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="17" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\EmbossFilter</error>
+      <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/InvertFilter.php" generated-path="Filters.InvertFilter.html" hash="17e1056cdba167577c264f19ad32bb18" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="7" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>InvertFilter</name>
+      <full_name>\Chameleon\Filters\InvertFilter</full_name>
+      <docblock line="7">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="8" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\InvertFilter::__construct()</full_name>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="17" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\InvertFilter::getFilterID()</full_name>
+        <docblock line="17">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="17" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\InvertFilter</error>
+      <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/GrayscaleFilter.php" generated-path="Filters.GrayscaleFilter.html" hash="3c928c1e250d7654426cda314593e199" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="7" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>GrayscaleFilter</name>
+      <full_name>\Chameleon\Filters\GrayscaleFilter</full_name>
+      <docblock line="7">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="8" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\GrayscaleFilter::__construct()</full_name>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="17" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\GrayscaleFilter::getFilterID()</full_name>
+        <docblock line="17">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="17" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\GrayscaleFilter</error>
+      <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/MeanRemovalFilter.php" generated-path="Filters.MeanRemovalFilter.html" hash="97a67f60d61b9a68b6f5c4db88e28715" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ValueOutOfBoundsException">\Chameleon\Exceptions\ValueOutOfBoundsException</namespace-alias>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="8" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>MeanRemovalFilter</name>
+      <full_name>\Chameleon\Filters\MeanRemovalFilter</full_name>
+      <docblock line="8">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="9" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\MeanRemovalFilter::__construct()</full_name>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="18" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\MeanRemovalFilter::getFilterID()</full_name>
+        <docblock line="18">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="18" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\MeanRemovalFilter</error>
+      <error line="9" code="PPC:ERR-50008">No summary for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/BrightnessFilter.php" generated-path="Filters.BrightnessFilter.html" hash="f7cf904a557f69d3592d5f53f470f04d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ValueOutOfBoundsException">\Chameleon\Exceptions\ValueOutOfBoundsException</namespace-alias>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="8" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>BrightnessFilter</name>
+      <full_name>\Chameleon\Filters\BrightnessFilter</full_name>
+      <docblock line="8">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="16" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BrightnessFilter::__construct()</full_name>
+        <docblock line="16">
+          <description>BrightnessFilter constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="16" description="&lt;p&gt;[-1, 1]&lt;/p&gt;" type="float" variable="$brightness">
+            <type>float</type>
+          </tag>
+          <tag name="throws" line="16" description="If $brightness not e[-1, 1]" type="\Chameleon\Exceptions\ValueOutOfBoundsException">
+            <type>\Chameleon\Exceptions\ValueOutOfBoundsException</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$brightness</name>
+          <default>0</default>
+          <type>float</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="26" package="Default">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BrightnessFilter::getArg1()</full_name>
+        <docblock line="26">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg1()" refers="\Chameleon\Filters\BuiltinFilter::getArg1()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg1"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="35" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BrightnessFilter::getFilterID()</full_name>
+        <docblock line="35">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="35" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\BrightnessFilter</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method getArg1()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/ColorizeFilter.php" generated-path="Filters.ColorizeFilter.html" hash="63a4cb8592cbd47ca96bcebf5e883253" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ValueOutOfBoundsException">\Chameleon\Exceptions\ValueOutOfBoundsException</namespace-alias>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="8" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>ColorizeFilter</name>
+      <full_name>\Chameleon\Filters\ColorizeFilter</full_name>
+      <docblock line="8">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="9" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\ColorizeFilter::__construct()</full_name>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$red</name>
+          <default>0</default>
+          <type>\Chameleon\Filters\int</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$green</name>
+          <default>0</default>
+          <type>\Chameleon\Filters\int</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$blue</name>
+          <default>0</default>
+          <type>\Chameleon\Filters\int</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$alpha</name>
+          <default>0</default>
+          <type>\Chameleon\Filters\int</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="31" package="Default">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\ColorizeFilter::getArg1()</full_name>
+        <docblock line="31">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg1()" refers="\Chameleon\Filters\BuiltinFilter::getArg1()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg1"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="35" package="Default">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\ColorizeFilter::getArg2()</full_name>
+        <docblock line="35">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg2()" refers="\Chameleon\Filters\BuiltinFilter::getArg2()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg2"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="39" package="Default">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\ColorizeFilter::getArg3()</full_name>
+        <docblock line="39">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg3()" refers="\Chameleon\Filters\BuiltinFilter::getArg3()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg3"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="43" package="Default">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\ColorizeFilter::getArg4()</full_name>
+        <docblock line="43">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg4()" refers="\Chameleon\Filters\BuiltinFilter::getArg4()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg4"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="52" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\ColorizeFilter::getFilterID()</full_name>
+        <docblock line="52">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="52" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\ColorizeFilter</error>
+      <error line="9" code="PPC:ERR-50015">Argument $red is missing from the Docblock of __construct</error>
+      <error line="9" code="PPC:ERR-50015">Argument $green is missing from the Docblock of __construct</error>
+      <error line="9" code="PPC:ERR-50015">Argument $blue is missing from the Docblock of __construct</error>
+      <error line="9" code="PPC:ERR-50015">Argument $alpha is missing from the Docblock of __construct</error>
+      <error line="9" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="31" code="PPC:ERR-50008">No summary for method getArg1()</error>
+      <error line="35" code="PPC:ERR-50008">No summary for method getArg2()</error>
+      <error line="39" code="PPC:ERR-50008">No summary for method getArg3()</error>
+      <error line="43" code="PPC:ERR-50008">No summary for method getArg4()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/SelectiveBlurFilter.php" generated-path="Filters.SelectiveBlurFilter.html" hash="e12b395d523fb71738131fc6d72a06ca" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="7" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>SelectiveBlurFilter</name>
+      <full_name>\Chameleon\Filters\SelectiveBlurFilter</full_name>
+      <docblock line="7">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="8" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\SelectiveBlurFilter::__construct()</full_name>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="17" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\SelectiveBlurFilter::getFilterID()</full_name>
+        <docblock line="17">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="17" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\SelectiveBlurFilter</error>
+      <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/SmoothFilter.php" generated-path="Filters.SmoothFilter.html" hash="b9862619576821cc47952a305744b2ec" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ValueOutOfBoundsException">\Chameleon\Exceptions\ValueOutOfBoundsException</namespace-alias>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="8" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>SmoothFilter</name>
+      <full_name>\Chameleon\Filters\SmoothFilter</full_name>
+      <docblock line="8">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="9" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\SmoothFilter::__construct()</full_name>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$smoothness</name>
+          <default>0</default>
+          <type>\Chameleon\Filters\int</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Default">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\SmoothFilter::getArg1()</full_name>
+        <docblock line="19">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg1()" refers="\Chameleon\Filters\BuiltinFilter::getArg1()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg1"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\SmoothFilter::getFilterID()</full_name>
+        <docblock line="28">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\SmoothFilter</error>
+      <error line="9" code="PPC:ERR-50015">Argument $smoothness is missing from the Docblock of __construct</error>
+      <error line="9" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="19" code="PPC:ERR-50008">No summary for method getArg1()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/GaussianBlurFilter.php" generated-path="Filters.GaussianBlurFilter.html" hash="e7d9666529f85bd8111dd0ffe22bb58b" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="7" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>GaussianBlurFilter</name>
+      <full_name>\Chameleon\Filters\GaussianBlurFilter</full_name>
+      <docblock line="7">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="8" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\GaussianBlurFilter::__construct()</full_name>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="17" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\GaussianBlurFilter::getFilterID()</full_name>
+        <docblock line="17">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="17" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\GaussianBlurFilter</error>
+      <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/IFilter.php" generated-path="Filters.IFilter.html" hash="1b63dcbd681c255d4bf65c6a9fdd312a" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Image">\Chameleon\Image</namespace-alias>
+    <interface namespace="Chameleon\Filters" line="11" package="Chameleon\Filters">
+      <name>IFilter</name>
+      <full_name>\Chameleon\Filters\IFilter</full_name>
+      <docblock line="11">
+        <description>Interface IFilter</description>
+        <long-description></long-description>
+        <tag name="package" line="11" description="Chameleon\Filters"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\IFilter::apply()</full_name>
+        <docblock line="19">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="param" line="19" description="&lt;p&gt;The image to be applied to&lt;/p&gt;" type="\Chameleon\Image" variable="$image">
+            <type>\Chameleon\Image</type>
+          </tag>
+          <tag name="return" line="19" description="Returns TRUE on success or FALSE on failure." type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/EdgedetectFilter.php" generated-path="Filters.EdgedetectFilter.html" hash="62d8c1dc48efe9c23ef9614ff04d3fb4" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="7" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>EdgedetectFilter</name>
+      <full_name>\Chameleon\Filters\EdgedetectFilter</full_name>
+      <docblock line="7">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="8" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\EdgedetectFilter::__construct()</full_name>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="17" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\EdgedetectFilter::getFilterID()</full_name>
+        <docblock line="17">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="17" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\EdgedetectFilter</error>
+      <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/ContrastFilter.php" generated-path="Filters.ContrastFilter.html" hash="9cdca9374507b773808aa7f7fb4bb677" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ValueOutOfBoundsException">\Chameleon\Exceptions\ValueOutOfBoundsException</namespace-alias>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="8" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>ContrastFilter</name>
+      <full_name>\Chameleon\Filters\ContrastFilter</full_name>
+      <docblock line="8">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="9" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\ContrastFilter::__construct()</full_name>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$contrast</name>
+          <default>0</default>
+          <type>\Chameleon\Filters\int</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Default">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\ContrastFilter::getArg1()</full_name>
+        <docblock line="19">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg1()" refers="\Chameleon\Filters\BuiltinFilter::getArg1()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg1"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\ContrastFilter::getFilterID()</full_name>
+        <docblock line="28">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\ContrastFilter</error>
+      <error line="9" code="PPC:ERR-50015">Argument $contrast is missing from the Docblock of __construct</error>
+      <error line="9" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="19" code="PPC:ERR-50008">No summary for method getArg1()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/BuiltinFilter.php" generated-path="Filters.BuiltinFilter.html" hash="eb36e589b2e1ef97688051e842661414" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Image">\Chameleon\Image</namespace-alias>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="false" abstract="true" namespace="Chameleon\Filters" line="13" package="Chameleon\Filters">
+      <extends/>
+      <implements>\Chameleon\Filters\IFilter</implements>
+      <name>BuiltinFilter</name>
+      <full_name>\Chameleon\Filters\BuiltinFilter</full_name>
+      <docblock line="13">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="13" description="Chameleon\Filters"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="19" code="PPC:ERR-50015">Argument $options is missing from the Docblock of __construct</error>
+      <error line="19" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="66" code="PPC:ERR-50015">Argument $image is missing from the Docblock of apply</error>
+      <error line="66" code="PPC:ERR-50008">No summary for method apply()</error>
+    </parse_markers>
+  </file>
+  <file path="Filters/PixelateFilter.php" generated-path="Filters.PixelateFilter.html" hash="713e327d89a75f1adb7512ca47dedb0f" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Options">\Chameleon\Options</namespace-alias>
+    <class final="true" abstract="false" namespace="Chameleon\Filters" line="7" package="Default">
+      <extends>\Chameleon\Filters\BuiltinFilter</extends>
+      <name>PixelateFilter</name>
+      <full_name>\Chameleon\Filters\PixelateFilter</full_name>
+      <docblock line="7">
+        <description>Class BuiltinFilter enables wrapping of PHP's builtin image filter functions</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+        <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter" refers="\Chameleon\Filters\BuiltinFilter" link="/classes/Chameleon.Filters.BuiltinFilter.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Chameleon\Filters" line="17" package="Chameleon\Filters">
+        <name>$options</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::$options</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="&lt;p&gt;The filter's options&lt;/p&gt;" type="\Chameleon\Options" variable="">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="8" package="Default">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\PixelateFilter::__construct()</full_name>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::__construct()" refers="\Chameleon\Filters\BuiltinFilter::__construct()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$pixelate</name>
+          <default>0</default>
+          <type>\Chameleon\Filters\int</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="15" package="Default">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\PixelateFilter::getArg1()</full_name>
+        <docblock line="15">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg1()" refers="\Chameleon\Filters\BuiltinFilter::getArg1()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg1"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Default">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\PixelateFilter::getArg2()</full_name>
+        <docblock line="19">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getArg2()" refers="\Chameleon\Filters\BuiltinFilter::getArg2()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getArg2"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Default">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\PixelateFilter::getFilterID()</full_name>
+        <docblock line="28">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer">
+            <type>integer</type>
+          </tag>
+          <tag name="inherited_from" description="\Chameleon\Filters\BuiltinFilter::getFilterID()" refers="\Chameleon\Filters\BuiltinFilter::getFilterID()" link="/classes/Chameleon.Filters.BuiltinFilter.html#method_getFilterID"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="19" package="Chameleon\Filters">
+        <name>__construct</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::__construct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>\Chameleon\Options</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="28" package="Chameleon\Filters">
+        <name>getArg1</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg1()</full_name>
+        <docblock line="28">
+          <description>Get $arg1 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="28" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="37" package="Chameleon\Filters">
+        <name>getArg2</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg2()</full_name>
+        <docblock line="37">
+          <description>Get $arg2 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="46" package="Chameleon\Filters">
+        <name>getArg3</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg3()</full_name>
+        <docblock line="46">
+          <description>Get $arg3 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="55" package="Chameleon\Filters">
+        <name>getArg4</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getArg4()</full_name>
+        <docblock line="55">
+          <description>Get $arg4 for imagefilter()</description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Chameleon\Filters" line="64" package="Chameleon\Filters">
+        <name>getFilterID</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getFilterID()</full_name>
+        <docblock line="64">
+          <description>Get filter ID (IMG_FILTER_*)</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="66" package="Chameleon\Filters">
+        <name>apply</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::apply()</full_name>
+        <docblock line="66">
+          <description>Apply the filter to an image.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\Chameleon\Filters\IFilter::apply()" refers="\Chameleon\Filters\IFilter::apply()" link="/classes/Chameleon.Filters.IFilter.html#method_apply"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type>\Chameleon\Image</type>
+        </argument>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon\Filters" line="114" package="Chameleon\Filters">
+        <name>getOptions</name>
+        <full_name>\Chameleon\Filters\BuiltinFilter::getOptions()</full_name>
+        <docblock line="114">
+          <description>Get Options</description>
+          <long-description></long-description>
+          <tag name="return" line="114" description="" type="\Chameleon\Options">
+            <type>\Chameleon\Options</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Chameleon\Filters\BuiltinFilter</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class \Chameleon\Filters\PixelateFilter</error>
+      <error line="8" code="PPC:ERR-50015">Argument $pixelate is missing from the Docblock of __construct</error>
+      <error line="8" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="15" code="PPC:ERR-50008">No summary for method getArg1()</error>
+      <error line="19" code="PPC:ERR-50008">No summary for method getArg2()</error>
     </parse_markers>
   </file>
   <package name="Chameleon" full_name="Chameleon">
+    <package name="Filters" full_name="Chameleon\Filters"/>
     <package name="Primitives" full_name="Chameleon\Primitives"/>
   </package>
   <package name="Default" full_name="Default"/>
@@ -6491,6 +8789,7 @@ by the pattern.</long-description>
   <namespace name="Chameleon" full_name="Chameleon">
     <namespace name="Colors" full_name="Chameleon\Colors"/>
     <namespace name="Exceptions" full_name="Chameleon\Exceptions"/>
+    <namespace name="Filters" full_name="Chameleon\Filters"/>
     <namespace name="Patterns" full_name="Chameleon\Patterns"/>
     <namespace name="Primitives" full_name="Chameleon\Primitives"/>
   </namespace>

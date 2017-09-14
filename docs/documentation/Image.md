@@ -153,6 +153,16 @@ Make sure that the color is registered on the image! No additional tests will be
 * $color **IColor** - &lt;p&gt;The color&lt;/p&gt;
 
 ---
+### filter()
+    Image Image::filter(IFilter $filter)
+
+Apply a filter to the image.
+
+
+#### Arguments
+* $filter **IFilter** - &lt;p&gt;The filter to be applied&lt;/p&gt;
+
+---
 ### draw()
     Image Image::draw(IPrimitive&gt; $primitives)
 

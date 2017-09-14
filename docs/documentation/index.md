@@ -45,6 +45,21 @@ you work with them:
         * [IPrimitive](Primitives/IPrimitive)
     * [ColorFactory](ColorFactory)
     * [Image](Image)
+    * Chameleon\Filters
+        * [EmbossFilter](Filters/EmbossFilter)
+        * [InvertFilter](Filters/InvertFilter)
+        * [GrayscaleFilter](Filters/GrayscaleFilter)
+        * [MeanRemovalFilter](Filters/MeanRemovalFilter)
+        * [BrightnessFilter](Filters/BrightnessFilter)
+        * [ColorizeFilter](Filters/ColorizeFilter)
+        * [SelectiveBlurFilter](Filters/SelectiveBlurFilter)
+        * [SmoothFilter](Filters/SmoothFilter)
+        * [GaussianBlurFilter](Filters/GaussianBlurFilter)
+        * [IFilter](Filters/IFilter)
+        * [EdgedetectFilter](Filters/EdgedetectFilter)
+        * [ContrastFilter](Filters/ContrastFilter)
+        * [BuiltinFilter](Filters/BuiltinFilter)
+        * [PixelateFilter](Filters/PixelateFilter)
 
 
 ## Class hierarchy diagram
