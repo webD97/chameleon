@@ -48,5 +48,6 @@ you work with them:
 
 
 ## Class hierarchy diagram
+**Warning**: Due to a bug in phpdocumentor, the diagram is incorrect!
 ![Class hierarchy diagram](./classes.svg)
 *generated using [phpdocumentor](http://phpdoc.org/)*
