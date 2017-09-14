@@ -20,9 +20,12 @@
         protected $blue;
 
         /**
-        * Class constructor
-        * @param int $hue Hue value [0, 359]
-        */
+         * Class constructor
+         *
+         * @param int $hue Hue value [0, 359]
+         * @param float $saturation Saturation [0, 1]
+         * @param float $value Value [0, 1]
+         */
         public function __construct(int $hue, float $saturation, float $value) {
             $this -> setHue($hue);
             $this -> setSaturation($saturation);
