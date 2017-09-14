@@ -6,6 +6,7 @@ engines:
     config:
       languages:
         php:
+          mass_threshold: 40
   phpcodesniffer:
     enabled: true
     config:
