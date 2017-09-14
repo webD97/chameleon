@@ -16,6 +16,7 @@ engines:
     config:
       file_extensions:
         - php
+      rulesets: "unusedcode,naming,design,cleancode,controversial"
   git-legal:
     enabled: true
 
