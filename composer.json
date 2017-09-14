@@ -16,7 +16,7 @@
         "phpunit/phpunit": "^6.3",
         "codeclimate/php-test-reporter": "dev-master",
         "phpdocumentor/phpdocumentor": "dev-master",
-        "evert/phpdoc-md": "dev-master"
+        "webd97/phpdoc-md": "dev-master"
     },
     "autoload": {
         "psr-4": {
