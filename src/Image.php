@@ -161,6 +161,32 @@
         }
 
         /**
+         * Enable alpha blending.
+         *
+         * @api
+         *
+         * @return Image
+         */
+        public function enableAlphaBlending() : self {
+            imagealphablending($this -> imageResource, true);
+
+            return $this;
+        }
+
+        /**
+         * Disable alpha blending.
+         *
+         * @api
+         *
+         * @return Image
+         */
+        public function disableAlphaBlending() : self {
+            imagealphablending($this -> imageResource, false);
+
+            return $this;
+        }
+
+        /**
          * Output image
          *
          * @api
