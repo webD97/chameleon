@@ -18,9 +18,9 @@
             for ($i = 0; $i < $colors; $i++) {
                 $randomInt = mt_rand(0, pow(2, 24) - 1);
 
-                $red = $randomInt >> 16 & 0b000000000000000011111111;
-                $green = $randomInt >> 8 & 0b000000000000000011111111;
-                $blue = $randomInt >> 0 & 0b000000000000000011111111;
+                $red = $randomInt >> 16 & 255;
+                $green = $randomInt >> 8 & 255;
+                $blue = $randomInt >> 0 & 255;
 
                 $this -> setColor($i, new RGBAColor($red, $green, $blue, $alpha));
             }
