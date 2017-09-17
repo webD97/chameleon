@@ -24,8 +24,6 @@
 
                 $this -> setColor($i, new RGBAColor($red, $green, $blue, $alpha));
             }
-
-            $this -> rewind();
         }
 
         /**
