@@ -11,6 +11,7 @@
     use Chameleon\Colors\IColor;
     use Chameleon\Colors\RGBColor;
     use Chameleon\Transformations\FlipMode;
+    use Chameleon\Transformations\RotateMode;
     use Chameleon\Transformations\ScaleMode;
     use Exception;
 
@@ -335,6 +336,10 @@
         }
 
         /**
+         * Crop the image to a given box
+         *
+         * @api
+         *
          * @param Vector2 $start The top left start position.
          * @param Vector2 $end The bottom right end position.
          * @param bool $override (optional) If true, the existing image will be overridden, otherwise a new Image will be returned.
@@ -351,6 +356,47 @@
             ];
 
             $newImage = imagecrop($this -> imageResource, $crop);
+
+            if ($newImage !== false) {
+                if ($override == true) {
+                    $this -> imageResource = $newImage;
+                    return $this;
+                }
+
+                return new Image($newImage);
+            }
+
+            throw new Exception("Image crop failed.");
+        }
+
+        /**
+         * Rotate the image.
+         *
+         * @param int $degrees Degrees [0, 360]
+         * @param RotateMode|null $rotateMode (optional) Rotation orientation, defaults to RotateMode::CLOCKWISE()
+         * @param IColor|null $backgroundColor (optional) The background color for areas that are not covered by the image, defaults to ColorFactory::black()
+         * @param bool $override (optional) If true, the existing image will be overridden, otherwise a new Image will be returned.
+         *
+         * @return Image
+         * @throws Exception If call to imagerotate() fails
+         */
+        public function rotate(int $degrees, RotateMode $rotateMode = null, IColor $backgroundColor = null, bool $override = true) : self {
+            $rotateMode = $rotateMode ?? RotateMode::CLOCKWISE();
+            $backgroundColor = $backgroundColor ?? ColorFactory::black();
+            
+            // imagerotate() interprets the degrees as counter clockwise, so we need to invert the value for clockwise.
+            $degrees %= 360;
+            if ($rotateMode === RotateMode::CLOCKWISE()) {
+                $degrees = 360 - $degrees;
+            }
+
+            $this -> registerColor($backgroundColor);
+            $newImage = imagerotate(
+                    $this -> imageResource,
+                    $degrees,
+                    $this -> getRegisteredColor($backgroundColor),
+                    1
+            );
 
             if ($newImage !== false) {
                 if ($override == true) {
