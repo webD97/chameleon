@@ -11,6 +11,7 @@
     use Chameleon\Colors\IColor;
     use Chameleon\Colors\RGBColor;
     use Chameleon\Transformations\FlipMode;
+    use Chameleon\Transformations\ScaleMode;
     use Exception;
 
     /**
@@ -290,6 +291,8 @@
         /**
          * Flip the image
          *
+         * @api
+         *
          * @param FlipMode $flipMode FlipMode::HORIZONTAL, FlipMode::VERTICAL or FlipMode::BOTH
          *
          * @return Image
@@ -298,6 +301,67 @@
             imageflip($this-> imageResource, $flipMode -> value());
 
             return $this;
+        }
+
+
+        /**
+         * Scale the image
+         *
+         * @api
+         *
+         * @param int $width New width
+         * @param int $height (optional) New height. If omitted or negative, the aspect ratio will be preserved.
+         * @param bool $override (optional) If true, the existing image will be overridden, otherwise a new Image will be returned.
+         * @param ScaleMode|null $mode (optional) The desired interpolation algorithm, default: ScaleMode::BICUBIC_FIXED().
+         *
+         * @return Image
+         * @throws Exception If the call to imagescale() fails
+         */
+        public function scale(int $width, int $height = -1, bool $override = true, ScaleMode $mode = null) : self {
+            $mode = $mode ?? ScaleMode::BICUBIC_FIXED();
+
+            $newImage = imagescale($this -> imageResource, $width, $height, $mode -> value());
+
+            if ($newImage !== false) {
+                if ($override == true) {
+                    $this -> imageResource = $newImage;
+                    return $this;
+                }
+
+                return new Image($newImage);
+            }
+
+            throw new Exception("Image scale failed.");
+        }
+
+        /**
+         * @param Vector2 $start The top left start position.
+         * @param Vector2 $end The bottom right end position.
+         * @param bool $override (optional) If true, the existing image will be overridden, otherwise a new Image will be returned.
+         *
+         * @return Image
+         * @throws Exception If call to imagecrop() fails
+         */
+        public function crop(Vector2 $start, Vector2 $end, bool $override = true) : self {
+            $crop = [
+              "x" => $start -> getX(),
+              "y" => $start -> getY(),
+              "width" => $end -> getX() - $start -> getX(),
+              "height" => $end -> getY() - $start -> getY()
+            ];
+
+            $newImage = imagecrop($this -> imageResource, $crop);
+
+            if ($newImage !== false) {
+                if ($override == true) {
+                    $this -> imageResource = $newImage;
+                    return $this;
+                }
+
+                return new Image($newImage);
+            }
+
+            throw new Exception("Image crop failed.");
         }
 
         /**
