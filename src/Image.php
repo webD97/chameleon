@@ -383,7 +383,7 @@
         public function rotate(int $degrees, RotateMode $rotateMode = null, IColor $backgroundColor = null, bool $override = true) : self {
             $rotateMode = $rotateMode ?? RotateMode::CLOCKWISE();
             $backgroundColor = $backgroundColor ?? ColorFactory::black();
-            
+
             // imagerotate() interprets the degrees as counter clockwise, so we need to invert the value for clockwise.
             $degrees %= 360;
             if ($rotateMode === RotateMode::CLOCKWISE()) {
@@ -407,7 +407,7 @@
                 return new Image($newImage);
             }
 
-            throw new Exception("Image crop failed.");
+            throw new Exception("Image rotation failed.");
         }
 
         /**
