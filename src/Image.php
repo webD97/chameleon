@@ -167,25 +167,32 @@
          *
          * @param  $type int One of the supported IMG_* constants
          *
+         * @param array $options An array of options specific for the desired file format.
+         *
          * @return bool
          * @throws Exception If using an unsupported image file format
          */
-        public function outputAs(int $type) : bool {
+        public function outputAs(int $type, array $options = []) : bool {
             switch ($type) {
                 case IMG_PNG:
-                    return imagepng($this -> imageResource);
+                    $quality = $options["compression"] ?? 0;
+                    $filters = $options["filters"] ?? PNG_NO_FILTER;
+
+                    return imagepng($this -> imageResource, null, $quality, $filters);
                     break;
 
                 case IMG_JPG:
                 case IMG_JPEG:
-                    return imagejpeg($this -> imageResource);
+                    $quality = $options["quality"] ?? 75;
+
+                    return imagejpeg($this -> imageResource, null, $quality);
                     break;
                 case IMG_GIF:
                     return imagegif($this -> imageResource);
                     break;
             }
 
-            throw(new Exception("Unsupported image file format."));
+            throw new Exception("Unsupported image file format.");
         }
 
         /**
