@@ -13,11 +13,10 @@
             "url": "https://github.com/webd97/phpdoc-md"
         }
     ],
-    "minimum-stability": "dev",
     "require-dev": {
         "phpunit/phpunit": "^6.3",
         "codeclimate/php-test-reporter": "dev-master",
-        "phpdocumentor/phpdocumentor": "dev-develop",
+        "phpdocumentor/phpdocumentor": "~2.9",
         "webd97/phpdoc-md": "dev-master"
     },
     "autoload": {

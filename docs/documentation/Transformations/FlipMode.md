@@ -4,5 +4,5 @@ Class FlipMode
 * Class name: `FlipMode`
 * Namespace: `Chameleon\Transformations`
 * Fully qualified class name: `Chameleon\Transformations\FlipMode`
-* This class is **abstract**
+* Extends: Eloquent\Enumeration\AbstractEnumeration
 

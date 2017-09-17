@@ -163,6 +163,54 @@ Apply a filter to the image.
 * $filter **IFilter** - &lt;p&gt;The filter to be applied&lt;/p&gt;
 
 ---
+### flip()
+    Image Image::flip(FlipMode $flipMode)
+
+Flip the image
+
+
+#### Arguments
+* $flipMode **FlipMode** - &lt;p&gt;FlipMode::HORIZONTAL, FlipMode::VERTICAL or FlipMode::BOTH&lt;/p&gt;
+
+---
+### scale()
+    Image Image::scale(integer $width, integer $height, boolean $override, ScaleMode|null $mode)
+
+Scale the image
+
+
+#### Arguments
+* $width **integer** - &lt;p&gt;New width&lt;/p&gt;
+* $height **integer** - &lt;p&gt;(optional) New height. If omitted or negative, the aspect ratio will be preserved.&lt;/p&gt;
+* $override **boolean** - &lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;
+* $mode **ScaleMode|null** - &lt;p&gt;(optional) The desired interpolation algorithm, default: ScaleMode::BICUBIC_FIXED().&lt;/p&gt;
+
+---
+### crop()
+    Image Image::crop(Vector2 $start, Vector2 $end, boolean $override)
+
+Crop the image to a given box
+
+
+#### Arguments
+* $start **Vector2** - &lt;p&gt;The top left start position.&lt;/p&gt;
+* $end **Vector2** - &lt;p&gt;The bottom right end position.&lt;/p&gt;
+* $override **boolean** - &lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;
+
+---
+### rotate()
+    Image Image::rotate(integer $degrees, RotateMode|null $rotateMode, IColor|null $backgroundColor, boolean $override)
+
+Rotate the image.
+
+
+#### Arguments
+* $degrees **integer** - &lt;p&gt;Degrees [0, 360]&lt;/p&gt;
+* $rotateMode **RotateMode|null** - &lt;p&gt;(optional) Rotation orientation, defaults to RotateMode::CLOCKWISE()&lt;/p&gt;
+* $backgroundColor **IColor|null** - &lt;p&gt;(optional) The background color for areas that are not covered by the image, defaults to ColorFactory::black()&lt;/p&gt;
+* $override **boolean** - &lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;
+
+---
 ### draw()
     Image Image::draw(IPrimitive&gt; $primitives)
 
