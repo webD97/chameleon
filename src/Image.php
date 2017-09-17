@@ -20,6 +20,11 @@
      */
     class Image {
         private $imageResource;
+        /**
+         * @var IColor This color is used as initial background color when creating an image, or if a certain method
+         * needs a background color as parameter.
+         */
+        private $backgroundColor;
         private $colors = array();
 
         /**
@@ -38,12 +43,15 @@
             $backgroundColor = $backgroundColor ?? ColorFactory::black();
 
             $image = new Image(imagecreatetruecolor($width, $height));
+            $image -> backgroundColor = $backgroundColor;
+
+            unset($backgroundColor);
 
             imagealphablending($image -> imageResource, false);
             imagesavealpha($image -> imageResource, true);
 
-            $image -> registerColor($backgroundColor);
-            imagefill($image -> imageResource, 0, 0, $image -> getRegisteredColor($backgroundColor));
+            $image -> registerColor($image -> backgroundColor);
+            imagefill($image -> imageResource, 0, 0, $image -> getRegisteredColor($image -> backgroundColor));
 
             imagealphablending($image -> imageResource, true);
 
@@ -79,8 +87,11 @@
                 if (!imageistruecolor($rawImage)) {
                     imagepalettetotruecolor($rawImage);
                 }
-                    
-                return new Image($rawImage);
+
+                $image = new Image($rawImage);
+                $image -> backgroundColor = ColorFactory::black();
+
+                return $image;
             }
 
             throw(new Exception("File $path not found."));
@@ -396,7 +407,7 @@
          */
         public function rotate(int $degrees, RotateMode $rotateMode = null, IColor $backgroundColor = null, bool $override = true) : self {
             $rotateMode = $rotateMode ?? RotateMode::CLOCKWISE();
-            $backgroundColor = $backgroundColor ?? ColorFactory::black();
+            $backgroundColor = $backgroundColor ?? $this -> backgroundColor;
 
             // imagerotate() interprets the degrees as counter clockwise, so we need to invert the value for clockwise.
             $degrees %= 360;
