@@ -29,10 +29,24 @@
          *
          * @param int $width width in px
          * @param int $height height in px
-         * @return self
+         * @param IColor|null $backgroundColor
+         *
+         * @return Image
+         *
          */
-        public static function create(int $width, int $height) : self {
+        public static function create(int $width, int $height, IColor $backgroundColor = null) : self {
+            $backgroundColor = $backgroundColor ?? ColorFactory::black();
+
             $image = new Image(imagecreatetruecolor($width, $height));
+
+            imagealphablending($image -> imageResource, false);
+            imagesavealpha($image -> imageResource, true);
+
+            $image -> registerColor($backgroundColor);
+            imagefill($image -> imageResource, 0, 0, $image -> getRegisteredColor($backgroundColor));
+
+            imagealphablending($image -> imageResource, true);
+
             return $image;
         }
 
