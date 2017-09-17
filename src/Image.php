@@ -10,6 +10,7 @@
     use Chameleon\Patterns\IPattern;
     use Chameleon\Colors\IColor;
     use Chameleon\Colors\RGBColor;
+    use Chameleon\Transformations\FlipMode;
     use Exception;
 
     /**
@@ -283,6 +284,19 @@
          */
         public function filter(IFilter $filter) : Image {
             $filter -> apply($this);
+            return $this;
+        }
+
+        /**
+         * Flip the image
+         *
+         * @param FlipMode $flipMode FlipMode::HORIZONTAL, FlipMode::VERTICAL or FlipMode::BOTH
+         *
+         * @return Image
+         */
+        public function flip(FlipMode $flipMode) : self {
+            imageflip($this-> imageResource, $flipMode -> value());
+
             return $this;
         }
 
