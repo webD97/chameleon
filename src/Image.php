@@ -25,7 +25,11 @@
          * needs a background color as parameter.
          */
         private $backgroundColor;
-        private $colors = array();
+
+        /**
+         * @var array This array stores all color used in this image.
+         */
+        private $colors = [];
 
         /**
          * Create an image from scratch
@@ -109,12 +113,29 @@
             $this -> imageResource = $imageResource;
         }
 
+        /**
+         * Destructor.
+         *
+         * @internal
+         */
         public function __destruct() {
             foreach ($this -> colors as $color) {
                 imagecolordeallocate($this -> imageResource, $color);
             }
             
             imagedestroy($this -> imageResource);
+        }
+
+
+        /**
+         * Get the background color.
+         *
+         * @api
+         *
+         * @return IColor
+         */
+        public function getBackgroundColor() : IColor {
+            return $this -> backgroundColor;
         }
 
         /**
@@ -250,8 +271,8 @@
         /**
          * Fill the whole image with the given pattern.
          *
-         * Only call this before drawing other elements onto the image unless you want them to be affected
-         * by the pattern.
+         * The pattern is drawn on top of everything else. Only call this before drawing other elements onto the image
+         * unless you want them to be affected by the pattern.
          *
          * @api
          *
@@ -396,6 +417,8 @@
 
         /**
          * Rotate the image.
+         *
+         * @api
          *
          * @param int $degrees Degrees [0, 360]
          * @param RotateMode|null $rotateMode (optional) Rotation orientation, defaults to RotateMode::CLOCKWISE()
