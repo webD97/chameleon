@@ -29,7 +29,7 @@
         /**
          * @var array This array stores all color used in this image.
          */
-        private $colors = [];
+        private $colorPalette = [];
 
         /**
          * Create an image from scratch
@@ -119,7 +119,7 @@
          * @internal
          */
         public function __destruct() {
-            foreach ($this -> colors as $color) {
+            foreach ($this -> colorPalette as $color) {
                 imagecolordeallocate($this -> imageResource, $color);
             }
             
@@ -208,11 +208,11 @@
          * @return int The internal GD color id
          */
         public function registerColor(IColor $color) : int {
-            if (!isset($this -> colors[$color -> __toString()])) {
+            if (!isset($this -> colorPalette[$color -> __toString()])) {
                 $rgba = $color -> getRGBA();
                 $ColorId = imagecolorallocatealpha($this -> imageResource, $rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue(), $rgba -> getAlpha());
                 if ($ColorId !== false) {
-                    $this -> colors[$color -> __toString()] = $ColorId;
+                    $this -> colorPalette[$color -> __toString()] = $ColorId;
                     return $ColorId;
                 }
                 return -1;
@@ -229,7 +229,7 @@
          * @return bool
          */
         public function isColorRegistered(IColor $color) : bool {
-            return isset($this -> colors[$color -> __toString()]);
+            return isset($this -> colorPalette[$color -> __toString()]);
         }
 
         /**
@@ -244,7 +244,7 @@
          */
         public function getRegisteredColor(IColor $color) : int {
             if ($this -> isColorRegistered($color)) {
-                return $this -> colors[$color -> __toString()];
+                return $this -> colorPalette[$color -> __toString()];
             }
             else {
                 throw new ColorNotFoundException($color);
@@ -317,7 +317,7 @@
          * @return Image
          */
         public function setPixel(int $xCoordinate, int $yCoordinate, IColor $color) : self {
-            imagesetpixel($this -> imageResource, $xCoordinate, $yCoordinate, $this -> colors[$color -> __toString()]);
+            imagesetpixel($this -> imageResource, $xCoordinate, $yCoordinate, $this -> colorPalette[$color -> __toString()]);
             return $this;
         }
 
