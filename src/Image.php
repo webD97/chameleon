@@ -177,14 +177,18 @@
                 case IMG_PNG:
                     $quality = $options["compression"] ?? 0;
                     $filters = $options["filters"] ?? PNG_NO_FILTER;
+                    $interlace = $options["interlace"] ?? false;
 
+                    imageinterlace($this -> imageResource, (int) $interlace);
                     return imagepng($this -> imageResource, null, $quality, $filters);
                     break;
 
                 case IMG_JPG:
                 case IMG_JPEG:
                     $quality = $options["quality"] ?? 75;
+                    $interlace = $options["interlace"] ?? false;
 
+                    imageinterlace($this -> imageResource, (int) $interlace);
                     return imagejpeg($this -> imageResource, null, $quality);
                     break;
                 case IMG_GIF:
