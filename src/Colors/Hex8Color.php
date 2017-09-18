@@ -57,7 +57,7 @@
         /**
          * Set hexadecimal value for this color
          *
-         * @param string $hexstring The hexadecimal color value, Fomat: #rrggbb
+         * @param string $hexstring The hexadecimal color value, Format: #rrggbb
          * @return self
          */
         public function setHex(string $hexstring) : self{
@@ -72,16 +72,19 @@
         /**
          * Get RGB alpha channel value
          *
-         * @return int RGB alpha channel avalue [0, 127]
+         * @return int RGB alpha channel value [0, 127]
          */
         public function getAlpha() : int {
             return $this -> alpha;
         }
+
         /**
          * Set RGB alpha channel value
          *
-         * @param int $alpha RGB alpha channel avalue [0x00, 0x7F]
-         * @return self
+         * @param int $alpha RGB alpha channel value [0x00, 0x7F]
+         *
+         * @return Hex8Color
+         * @throws ValueOutOfBoundsException
          */
         public function setAlpha(int $alpha) : self {
             if (!$this -> checkRange($alpha, 0, 127)) {
@@ -95,7 +98,7 @@
 
         public function getRGBA() : RGBAColor {
             $rgba = parent::getRGBA();
-            $rgba -> setAlpha($this -> alpha);
+            $rgba -> setAlpha($this -> alpha / RGBAColor::ALPHA_MAX);
             return $rgba;
         }
     }
