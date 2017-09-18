@@ -122,7 +122,7 @@
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() + $this -> getWidth() - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
-                        $image -> getRegisteredColor($color)
+                        $image -> getRegisteredColorId($color)
                     );
                 }
                 else {
@@ -158,7 +158,7 @@
                         $this -> getPosition() -> getY() - $this -> borderThickness,
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getY() - 1,
-                        $image -> getRegisteredColor($color)
+                        $image -> getRegisteredColorId($color)
                     );
                     // Bottom
                     imagefilledrectangle(
@@ -167,7 +167,7 @@
                         $this -> getPosition() -> getY() + $this -> getHeight() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight(),
-                        $image -> getRegisteredColor($color)
+                        $image -> getRegisteredColorId($color)
                     );
                     // Left
                     imagefilledrectangle(
@@ -176,7 +176,7 @@
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
-                        $image -> getRegisteredColor($color)
+                        $image -> getRegisteredColorId($color)
                     );
                     // Right
                     imagefilledrectangle(
@@ -185,7 +185,7 @@
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
-                        $image -> getRegisteredColor($color)
+                        $image -> getRegisteredColorId($color)
                     );
                 }
                 else {

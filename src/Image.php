@@ -64,7 +64,7 @@
             imagesavealpha($image -> imageResource, true);
 
             $image -> registerColor($image -> backgroundColor);
-            imagefill($image -> imageResource, 0, 0, $image -> getRegisteredColor($image -> backgroundColor));
+            imagefill($image -> imageResource, 0, 0, $image -> getRegisteredColorId($image -> backgroundColor));
 
             imagealphablending($image -> imageResource, true);
 
@@ -301,7 +301,7 @@
          * @return int The low level color
          * @throws ColorNotFoundException If color is not registered with this image
          */
-        public function getRegisteredColor(IColor $color) : int {
+        public function getRegisteredColorId(IColor $color) : int {
             if ($this -> isColorRegistered($color)) {
                 return $this -> colorPalette[$color -> __toString()];
             }
@@ -485,7 +485,7 @@
             $newImage = imagerotate(
                     $this -> imageResource,
                     $degrees,
-                    $this -> getRegisteredColor($backgroundColor),
+                    $this -> getRegisteredColorId($backgroundColor),
                     1
             );
 

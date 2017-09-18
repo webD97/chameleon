@@ -49,7 +49,7 @@
         }
 
         /**
-         * @covers \Chameleon\Image::getRegisteredColor
+         * @covers \Chameleon\Image::getRegisteredColorId
          */
         public function testGetRegisteredColor() {
             $color = new RGBColor(0, 0, 0);
