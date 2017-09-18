@@ -14,9 +14,10 @@ filtering is possible using the filter() method. Primitives can be drawn onto th
 ### create()
     Image Image::create(integer $width, integer $height, IColor|null $backgroundColor)
 
-Create an image from scratch.
+Create an empty True Color image.
 
-The image is initialized with a given size and an optional background color.
+The image is initialized with a given size and an optional background color. Only True color images (color
+depth: 24b) are supported.
 * **static**
 #### Arguments
 * $width **integer** - &lt;p&gt;Image width in px&lt;/p&gt;
@@ -27,9 +28,9 @@ The image is initialized with a given size and an optional background color.
 ### fromFile()
     Image Image::fromFile(string $path)
 
-Load an image from a file.
+Load an existing image from a file.
 
-
+If the given image is a palette image, it is converted to a True Color (color depth: 24b) image.
 * **static**
 #### Arguments
 * $path **string** - &lt;p&gt;Path to the file&lt;/p&gt;
@@ -93,23 +94,30 @@ None.
 
 ---
 ### outputFile()
-    boolean Image::outputFile($type, array $options, string $file)
+    integer Image::outputFile($type, array $options, resource $fileResource)
 
 Output the image to a file.
 
+By default, the image will be outputted directly to php://output. You can specify a custom location by
+passing a stream resource as parameter 3. The image will then be written to the stream. Please note: The file
+pointer will not be rewound. If you need to access the data written to the stream, you have to manually call
+rewind().
 
+Also, the stream will not be closed to allow working with temporary files (php://temp). Please remember to
+close the stream on your own.
 #### Arguments
 * $type **mixed** - &lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;
 * $options **array** - &lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;
-* $file **string** - &lt;p&gt;(optional) Write to a file, defaults to &quot;php://output&quot;.&lt;/p&gt;
+* $fileResource **resource** - &lt;p&gt;(optional) Write to a file, defaults to fopen(&quot;php://output&quot;, &quot;w+&quot;).&lt;/p&gt;
 
 ---
 ### getBase64()
     string Image::getBase64($type, array $options)
 
+Get the image data base64 encoded. Useful for data URIs.
 
-
-
+Please remember to pass compression/quality options to this method to compress the image. Base64 encoded
+images are larger than dedicated image formats, but compression will at least reduce the overhead.
 #### Arguments
 * $type **mixed** - &lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;
 * $options **array** - &lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;

@@ -8407,7 +8407,7 @@ By default, a rectangle has a 1px black border and no background</long-descripti
     </parse_markers>
     <source>eJyVUU1rAjEQvfsrBvGwu1CsPWrX1tYPFiwV8VBoy7LGUQNpNiSz1CL9703WtWbBCp1DSDLvvXkzc3untqoBNlbIRKYxMKQ5o5S+FJq4E/bKpMw+0KiMITxu7VVgLt/GXBBq02uUiML4uWdFPJfH3JrLTICVNwZmfIciIzywAXeEcmXgobBvLqvffUlzoYql4AzWhWROEdKUWV3SBaOAS4KWqvQghuvQEn+ZJds2ZEHdrk+T+AmVv6CGdvHaPAo2Ie6f5N9ryLAai4vvxp9mN0gDvekEYRec131NQyMVWkKLttzAVd+Bj67C2js4WfpP2RtXdpnn4nxdOws8q9aOohM+ggmS3V+5lWQIQfI0ScfJdDGap1Ho4XzKfVXC9ux9ty/5Pew9GV4clVd7lryMpoPFyO+gPH8A69fG7Q==</source>
   </file>
-  <file path="Image.php" generated-path="Image.html" hash="4571aa971a5b58f80b8ecc597496d624" package="Default">
+  <file path="Image.php" generated-path="Image.html" hash="7670a6e9b53f2a55590ea40a3e1bd000" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
@@ -8470,24 +8470,25 @@ filtering is possible using the filter() method. Primitives can be drawn onto th
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="56" package="Chameleon">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="57" package="Chameleon">
         <name>create</name>
         <full_name>\Chameleon\Image::create()</full_name>
-        <docblock line="56">
-          <description>Create an image from scratch.</description>
-          <long-description>The image is initialized with a given size and an optional background color.</long-description>
-          <tag name="api" line="56" description=""/>
-          <tag name="param" line="56" description="&lt;p&gt;Image width in px&lt;/p&gt;" type="integer" variable="$width">
+        <docblock line="57">
+          <description>Create an empty True Color image.</description>
+          <long-description>The image is initialized with a given size and an optional background color. Only True color images (color
+depth: 24b) are supported.</long-description>
+          <tag name="api" line="57" description=""/>
+          <tag name="param" line="57" description="&lt;p&gt;Image width in px&lt;/p&gt;" type="integer" variable="$width">
             <type>integer</type>
           </tag>
-          <tag name="param" line="56" description="&lt;p&gt;Image height in px&lt;/p&gt;" type="integer" variable="$height">
+          <tag name="param" line="57" description="&lt;p&gt;Image height in px&lt;/p&gt;" type="integer" variable="$height">
             <type>integer</type>
           </tag>
-          <tag name="param" line="56" description="&lt;p&gt;(optional) Background color, defaults to ColorFactory::black()&lt;/p&gt;" type="\Chameleon\Colors\IColor|null" variable="$backgroundColor">
+          <tag name="param" line="57" description="&lt;p&gt;(optional) Background color, defaults to ColorFactory::black()&lt;/p&gt;" type="\Chameleon\Colors\IColor|null" variable="$backgroundColor">
             <type>\Chameleon\Colors\IColor</type>
             <type>null</type>
           </tag>
-          <tag name="return" line="56" description="" type="\Chameleon\Image">
+          <tag name="return" line="57" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
@@ -8507,20 +8508,20 @@ filtering is possible using the filter() method. Primitives can be drawn onto th
           <type>\Chameleon\Colors\IColor|null</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="86" package="Chameleon">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Chameleon" line="89" package="Chameleon">
         <name>fromFile</name>
         <full_name>\Chameleon\Image::fromFile()</full_name>
-        <docblock line="86">
-          <description>Load an image from a file.</description>
-          <long-description></long-description>
-          <tag name="api" line="86" description=""/>
-          <tag name="param" line="86" description="&lt;p&gt;Path to the file&lt;/p&gt;" type="string" variable="$path">
+        <docblock line="89">
+          <description>Load an existing image from a file.</description>
+          <long-description>If the given image is a palette image, it is converted to a True Color (color depth: 24b) image.</long-description>
+          <tag name="api" line="89" description=""/>
+          <tag name="param" line="89" description="&lt;p&gt;Path to the file&lt;/p&gt;" type="string" variable="$path">
             <type>string</type>
           </tag>
-          <tag name="return" line="86" description="" type="\Chameleon\Image">
+          <tag name="return" line="89" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
-          <tag name="throws" line="86" description="If file not found" type="\Exception">
+          <tag name="throws" line="89" description="If file not found" type="\Exception">
             <type>\Exception</type>
           </tag>
         </docblock>
@@ -8530,91 +8531,97 @@ filtering is possible using the filter() method. Primitives can be drawn onto th
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="150" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="153" package="Chameleon">
         <name>getBackgroundColor</name>
         <full_name>\Chameleon\Image::getBackgroundColor()</full_name>
-        <docblock line="150">
+        <docblock line="153">
           <description>Get the background color.</description>
           <long-description>The background color can be set when creating new images. For images read from a file, it is
 ColorFactory::black().</long-description>
-          <tag name="api" line="150" description=""/>
-          <tag name="return" line="150" description="" type="\Chameleon\Colors\IColor">
+          <tag name="api" line="153" description=""/>
+          <tag name="return" line="153" description="" type="\Chameleon\Colors\IColor">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="161" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="164" package="Chameleon">
         <name>getWidth</name>
         <full_name>\Chameleon\Image::getWidth()</full_name>
-        <docblock line="161">
+        <docblock line="164">
           <description>Get image width in px.</description>
           <long-description></long-description>
-          <tag name="api" line="161" description=""/>
-          <tag name="return" line="161" description="The width" type="integer">
+          <tag name="api" line="164" description=""/>
+          <tag name="return" line="164" description="The width" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="172" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="175" package="Chameleon">
         <name>getHeight</name>
         <full_name>\Chameleon\Image::getHeight()</full_name>
-        <docblock line="172">
+        <docblock line="175">
           <description>Get image height in px.</description>
           <long-description></long-description>
-          <tag name="api" line="172" description=""/>
-          <tag name="return" line="172" description="The height" type="integer">
+          <tag name="api" line="175" description=""/>
+          <tag name="return" line="175" description="The height" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="188" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="191" package="Chameleon">
         <name>enableAlphaBlending</name>
         <full_name>\Chameleon\Image::enableAlphaBlending()</full_name>
-        <docblock line="188">
+        <docblock line="191">
           <description>Enable alpha blending for this image.</description>
           <long-description>If alpha blending is turned on, colors are drawn "on top" of existing ones in this pixel. If the new color
 has transparency, the old color and the new color will blend.
 If alpha blending is turned off, colors will replace existing ones in this pixel, regardless of any
 transparency.</long-description>
-          <tag name="api" line="188" description=""/>
-          <tag name="return" line="188" description="" type="\Chameleon\Image">
+          <tag name="api" line="191" description=""/>
+          <tag name="return" line="191" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="206" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="209" package="Chameleon">
         <name>disableAlphaBlending</name>
         <full_name>\Chameleon\Image::disableAlphaBlending()</full_name>
-        <docblock line="206">
+        <docblock line="209">
           <description>Disable alpha blending for this image.</description>
           <long-description>If alpha blending is turned on, colors are drawn "on top" of existing ones in this pixel. If the new color
 has transparency, the old color and the new color will blend.
 If alpha blending is turned off, colors will replace existing ones in this pixel, regardless of any
 transparency.</long-description>
-          <tag name="api" line="206" description=""/>
-          <tag name="return" line="206" description="" type="\Chameleon\Image">
+          <tag name="api" line="209" description=""/>
+          <tag name="return" line="209" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="224" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="235" package="Chameleon">
         <name>outputFile</name>
         <full_name>\Chameleon\Image::outputFile()</full_name>
-        <docblock line="224">
+        <docblock line="235">
           <description>Output the image to a file.</description>
-          <long-description></long-description>
-          <tag name="api" line="224" description=""/>
-          <tag name="param" line="224" description="&lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;" type="" variable="$type"/>
-          <tag name="param" line="224" description="&lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;" type="array" variable="$options">
+          <long-description>By default, the image will be outputted directly to php://output. You can specify a custom location by
+passing a stream resource as parameter 3. The image will then be written to the stream. Please note: The file
+pointer will not be rewound. If you need to access the data written to the stream, you have to manually call
+rewind().
+
+Also, the stream will not be closed to allow working with temporary files (php://temp). Please remember to
+close the stream on your own.</long-description>
+          <tag name="api" line="235" description=""/>
+          <tag name="param" line="235" description="&lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;" type="" variable="$type"/>
+          <tag name="param" line="235" description="&lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;" type="array" variable="$options">
             <type>array</type>
           </tag>
-          <tag name="param" line="224" description="&lt;p&gt;(optional) Write to a file, defaults to &quot;php://output&quot;.&lt;/p&gt;" type="string" variable="$file">
-            <type>string</type>
+          <tag name="param" line="235" description="&lt;p&gt;(optional) Write to a file, defaults to fopen(&quot;php://output&quot;, &quot;w+&quot;).&lt;/p&gt;" type="resource" variable="$fileResource">
+            <type>resource</type>
           </tag>
-          <tag name="return" line="224" description="" type="boolean">
-            <type>boolean</type>
+          <tag name="return" line="235" description="Bytes written to $fileResource" type="integer">
+            <type>integer</type>
           </tag>
-          <tag name="throws" line="224" description="If using an unsupported image file format" type="\Exception">
+          <tag name="throws" line="235" description="If using an unsupported image file format" type="\Exception">
             <type>\Exception</type>
           </tag>
         </docblock>
@@ -8629,22 +8636,23 @@ transparency.</long-description>
           <type>array</type>
         </argument>
         <argument line="0" by_reference="false">
-          <name>$file</name>
-          <default>"php://output"</default>
-          <type>string</type>
+          <name>$fileResource</name>
+          <default>null</default>
+          <type>resource</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="257" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="283" package="Chameleon">
         <name>getBase64</name>
         <full_name>\Chameleon\Image::getBase64()</full_name>
-        <docblock line="257">
-          <description></description>
-          <long-description></long-description>
-          <tag name="param" line="257" description="&lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;" type="" variable="$type"/>
-          <tag name="param" line="257" description="&lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;" type="array" variable="$options">
+        <docblock line="283">
+          <description>Get the image data base64 encoded. Useful for data URIs.</description>
+          <long-description>Please remember to pass compression/quality options to this method to compress the image. Base64 encoded
+images are larger than dedicated image formats, but compression will at least reduce the overhead.</long-description>
+          <tag name="param" line="283" description="&lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;" type="" variable="$type"/>
+          <tag name="param" line="283" description="&lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;" type="array" variable="$options">
             <type>array</type>
           </tag>
-          <tag name="return" line="257" description="" type="string">
+          <tag name="return" line="283" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -8659,29 +8667,29 @@ transparency.</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="273" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="303" package="Chameleon">
         <name>getImageResource</name>
         <full_name>\Chameleon\Image::getImageResource()</full_name>
-        <docblock line="273">
+        <docblock line="303">
           <description>Get the underlying GD image resource.</description>
           <long-description></long-description>
-          <tag name="api" line="273" description=""/>
-          <tag name="return" line="273" description="" type="resource">
+          <tag name="api" line="303" description=""/>
+          <tag name="return" line="303" description="" type="resource">
             <type>resource</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="285" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="315" package="Chameleon">
         <name>registerColor</name>
         <full_name>\Chameleon\Image::registerColor()</full_name>
-        <docblock line="285">
+        <docblock line="315">
           <description>Register a color with this image.</description>
           <long-description></long-description>
-          <tag name="api" line="285" description=""/>
-          <tag name="param" line="285" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="api" line="315" description=""/>
+          <tag name="param" line="315" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="285" description="The internal GD color id" type="integer">
+          <tag name="return" line="315" description="The internal GD color id" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
@@ -8691,17 +8699,17 @@ transparency.</long-description>
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="305" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="335" package="Chameleon">
         <name>isColorRegistered</name>
         <full_name>\Chameleon\Image::isColorRegistered()</full_name>
-        <docblock line="305">
+        <docblock line="335">
           <description>Check if a color is registered with this image.</description>
           <long-description></long-description>
-          <tag name="api" line="305" description=""/>
-          <tag name="param" line="305" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="api" line="335" description=""/>
+          <tag name="param" line="335" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="305" description="" type="boolean">
+          <tag name="return" line="335" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -8711,18 +8719,18 @@ transparency.</long-description>
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="320" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="350" package="Chameleon">
         <name>setBackgroundPattern</name>
         <full_name>\Chameleon\Image::setBackgroundPattern()</full_name>
-        <docblock line="320">
+        <docblock line="350">
           <description>Fill the whole image with the given pattern.</description>
           <long-description>The pattern is drawn on top of everything else. Only call this before drawing other elements onto the image
 unless you want them to be affected by the pattern.</long-description>
-          <tag name="api" line="320" description=""/>
-          <tag name="param" line="320" description="&lt;p&gt;The pattern&lt;/p&gt;" type="\Chameleon\Patterns\IPattern" variable="$pattern">
+          <tag name="api" line="350" description=""/>
+          <tag name="param" line="350" description="&lt;p&gt;The pattern&lt;/p&gt;" type="\Chameleon\Patterns\IPattern" variable="$pattern">
             <type>\Chameleon\Patterns\IPattern</type>
           </tag>
-          <tag name="return" line="320" description="" type="void">
+          <tag name="return" line="350" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -8732,20 +8740,20 @@ unless you want them to be affected by the pattern.</long-description>
           <type>\Chameleon\Patterns\IPattern</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="336" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="366" package="Chameleon">
         <name>getPixel</name>
         <full_name>\Chameleon\Image::getPixel()</full_name>
-        <docblock line="336">
+        <docblock line="366">
           <description>Get color of a specific pixel.</description>
           <long-description></long-description>
-          <tag name="api" line="336" description=""/>
-          <tag name="param" line="336" description="&lt;p&gt;X coordinate&lt;/p&gt;" type="integer" variable="$xCoordinate">
+          <tag name="api" line="366" description=""/>
+          <tag name="param" line="366" description="&lt;p&gt;X coordinate&lt;/p&gt;" type="integer" variable="$xCoordinate">
             <type>integer</type>
           </tag>
-          <tag name="param" line="336" description="&lt;p&gt;Y coordinate&lt;/p&gt;" type="integer" variable="$yCoordinate">
+          <tag name="param" line="366" description="&lt;p&gt;Y coordinate&lt;/p&gt;" type="integer" variable="$yCoordinate">
             <type>integer</type>
           </tag>
-          <tag name="return" line="336" description="The color" type="\Chameleon\Colors\RGBColor">
+          <tag name="return" line="366" description="The color" type="\Chameleon\Colors\RGBColor">
             <type>\Chameleon\Colors\RGBColor</type>
           </tag>
         </docblock>
@@ -8760,23 +8768,23 @@ unless you want them to be affected by the pattern.</long-description>
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="358" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="388" package="Chameleon">
         <name>setPixel</name>
         <full_name>\Chameleon\Image::setPixel()</full_name>
-        <docblock line="358">
+        <docblock line="388">
           <description>Set the color of a specific pixel.</description>
           <long-description>Make sure that the color is registered on the image! No additional tests will be performed!</long-description>
-          <tag name="api" line="358" description=""/>
-          <tag name="param" line="358" description="&lt;p&gt;The x coordinate&lt;/p&gt;" type="integer" variable="$xCoordinate">
+          <tag name="api" line="388" description=""/>
+          <tag name="param" line="388" description="&lt;p&gt;The x coordinate&lt;/p&gt;" type="integer" variable="$xCoordinate">
             <type>integer</type>
           </tag>
-          <tag name="param" line="358" description="&lt;p&gt;The y coordinate&lt;/p&gt;" type="integer" variable="$yCoordinate">
+          <tag name="param" line="388" description="&lt;p&gt;The y coordinate&lt;/p&gt;" type="integer" variable="$yCoordinate">
             <type>integer</type>
           </tag>
-          <tag name="param" line="358" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
+          <tag name="param" line="388" description="&lt;p&gt;The color&lt;/p&gt;" type="\Chameleon\Colors\IColor" variable="$color">
             <type>\Chameleon\Colors\IColor</type>
           </tag>
-          <tag name="return" line="358" description="" type="\Chameleon\Image">
+          <tag name="return" line="388" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
@@ -8796,17 +8804,17 @@ unless you want them to be affected by the pattern.</long-description>
           <type>\Chameleon\Colors\IColor</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="372" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="402" package="Chameleon">
         <name>filter</name>
         <full_name>\Chameleon\Image::filter()</full_name>
-        <docblock line="372">
+        <docblock line="402">
           <description>Apply a filter to the image.</description>
           <long-description></long-description>
-          <tag name="api" line="372" description=""/>
-          <tag name="param" line="372" description="&lt;p&gt;The filter to be applied&lt;/p&gt;" type="\Chameleon\Filters\IFilter" variable="$filter">
+          <tag name="api" line="402" description=""/>
+          <tag name="param" line="402" description="&lt;p&gt;The filter to be applied&lt;/p&gt;" type="\Chameleon\Filters\IFilter" variable="$filter">
             <type>\Chameleon\Filters\IFilter</type>
           </tag>
-          <tag name="return" line="372" description="self" type="\Chameleon\Image">
+          <tag name="return" line="402" description="self" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
@@ -8816,17 +8824,17 @@ unless you want them to be affected by the pattern.</long-description>
           <type>\Chameleon\Filters\IFilter</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="386" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="416" package="Chameleon">
         <name>flip</name>
         <full_name>\Chameleon\Image::flip()</full_name>
-        <docblock line="386">
+        <docblock line="416">
           <description>Flip the image.</description>
           <long-description></long-description>
-          <tag name="api" line="386" description=""/>
-          <tag name="param" line="386" description="&lt;p&gt;FlipMode::HORIZONTAL, FlipMode::VERTICAL or FlipMode::BOTH&lt;/p&gt;" type="\Chameleon\Transformations\FlipMode" variable="$flipMode">
+          <tag name="api" line="416" description=""/>
+          <tag name="param" line="416" description="&lt;p&gt;FlipMode::HORIZONTAL, FlipMode::VERTICAL or FlipMode::BOTH&lt;/p&gt;" type="\Chameleon\Transformations\FlipMode" variable="$flipMode">
             <type>\Chameleon\Transformations\FlipMode</type>
           </tag>
-          <tag name="return" line="386" description="" type="\Chameleon\Image">
+          <tag name="return" line="416" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
@@ -8836,30 +8844,30 @@ unless you want them to be affected by the pattern.</long-description>
           <type>\Chameleon\Transformations\FlipMode</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="406" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="436" package="Chameleon">
         <name>scale</name>
         <full_name>\Chameleon\Image::scale()</full_name>
-        <docblock line="406">
+        <docblock line="436">
           <description>Scale the image.</description>
           <long-description></long-description>
-          <tag name="api" line="406" description=""/>
-          <tag name="param" line="406" description="&lt;p&gt;New width&lt;/p&gt;" type="integer" variable="$width">
+          <tag name="api" line="436" description=""/>
+          <tag name="param" line="436" description="&lt;p&gt;New width&lt;/p&gt;" type="integer" variable="$width">
             <type>integer</type>
           </tag>
-          <tag name="param" line="406" description="&lt;p&gt;(optional) New height. If omitted or negative, the aspect ratio will be preserved.&lt;/p&gt;" type="integer" variable="$height">
+          <tag name="param" line="436" description="&lt;p&gt;(optional) New height. If omitted or negative, the aspect ratio will be preserved.&lt;/p&gt;" type="integer" variable="$height">
             <type>integer</type>
           </tag>
-          <tag name="param" line="406" description="&lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;" type="boolean" variable="$override">
+          <tag name="param" line="436" description="&lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;" type="boolean" variable="$override">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="406" description="&lt;p&gt;(optional) The desired interpolation algorithm, default: ScaleMode::BICUBIC_FIXED().&lt;/p&gt;" type="\Chameleon\Transformations\ScaleMode|null" variable="$mode">
+          <tag name="param" line="436" description="&lt;p&gt;(optional) The desired interpolation algorithm, default: ScaleMode::BICUBIC_FIXED().&lt;/p&gt;" type="\Chameleon\Transformations\ScaleMode|null" variable="$mode">
             <type>\Chameleon\Transformations\ScaleMode</type>
             <type>null</type>
           </tag>
-          <tag name="return" line="406" description="" type="\Chameleon\Image">
+          <tag name="return" line="436" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
-          <tag name="throws" line="406" description="If the call to imagescale() fails" type="\Exception">
+          <tag name="throws" line="436" description="If the call to imagescale() fails" type="\Exception">
             <type>\Exception</type>
           </tag>
         </docblock>
@@ -8884,26 +8892,26 @@ unless you want them to be affected by the pattern.</long-description>
           <type>\Chameleon\Transformations\ScaleMode|null</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="435" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="465" package="Chameleon">
         <name>crop</name>
         <full_name>\Chameleon\Image::crop()</full_name>
-        <docblock line="435">
+        <docblock line="465">
           <description>Crop the image to a given box.</description>
           <long-description></long-description>
-          <tag name="api" line="435" description=""/>
-          <tag name="param" line="435" description="&lt;p&gt;The top left start position.&lt;/p&gt;" type="\Chameleon\Vector2" variable="$start">
+          <tag name="api" line="465" description=""/>
+          <tag name="param" line="465" description="&lt;p&gt;The top left start position.&lt;/p&gt;" type="\Chameleon\Vector2" variable="$start">
             <type>\Chameleon\Vector2</type>
           </tag>
-          <tag name="param" line="435" description="&lt;p&gt;The bottom right end position.&lt;/p&gt;" type="\Chameleon\Vector2" variable="$end">
+          <tag name="param" line="465" description="&lt;p&gt;The bottom right end position.&lt;/p&gt;" type="\Chameleon\Vector2" variable="$end">
             <type>\Chameleon\Vector2</type>
           </tag>
-          <tag name="param" line="435" description="&lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;" type="boolean" variable="$override">
+          <tag name="param" line="465" description="&lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;" type="boolean" variable="$override">
             <type>boolean</type>
           </tag>
-          <tag name="return" line="435" description="" type="\Chameleon\Image">
+          <tag name="return" line="465" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
-          <tag name="throws" line="435" description="If call to imagecrop() fails" type="\Exception">
+          <tag name="throws" line="465" description="If call to imagecrop() fails" type="\Exception">
             <type>\Exception</type>
           </tag>
         </docblock>
@@ -8923,31 +8931,31 @@ unless you want them to be affected by the pattern.</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="470" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="500" package="Chameleon">
         <name>rotate</name>
         <full_name>\Chameleon\Image::rotate()</full_name>
-        <docblock line="470">
+        <docblock line="500">
           <description>Rotate the image.</description>
           <long-description></long-description>
-          <tag name="api" line="470" description=""/>
-          <tag name="param" line="470" description="&lt;p&gt;Degrees [0, 360]&lt;/p&gt;" type="integer" variable="$degrees">
+          <tag name="api" line="500" description=""/>
+          <tag name="param" line="500" description="&lt;p&gt;Degrees [0, 360]&lt;/p&gt;" type="integer" variable="$degrees">
             <type>integer</type>
           </tag>
-          <tag name="param" line="470" description="&lt;p&gt;(optional) Rotation orientation, defaults to RotateMode::CLOCKWISE()&lt;/p&gt;" type="\Chameleon\Transformations\RotateMode|null" variable="$rotateMode">
+          <tag name="param" line="500" description="&lt;p&gt;(optional) Rotation orientation, defaults to RotateMode::CLOCKWISE()&lt;/p&gt;" type="\Chameleon\Transformations\RotateMode|null" variable="$rotateMode">
             <type>\Chameleon\Transformations\RotateMode</type>
             <type>null</type>
           </tag>
-          <tag name="param" line="470" description="&lt;p&gt;(optional) The background color for areas that are not covered by the image, defaults to ColorFactory::black()&lt;/p&gt;" type="\Chameleon\Colors\IColor|null" variable="$backgroundColor">
+          <tag name="param" line="500" description="&lt;p&gt;(optional) The background color for areas that are not covered by the image, defaults to ColorFactory::black()&lt;/p&gt;" type="\Chameleon\Colors\IColor|null" variable="$backgroundColor">
             <type>\Chameleon\Colors\IColor</type>
             <type>null</type>
           </tag>
-          <tag name="param" line="470" description="&lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;" type="boolean" variable="$override">
+          <tag name="param" line="500" description="&lt;p&gt;(optional) If true, the existing image will be overridden, otherwise a new Image will be returned.&lt;/p&gt;" type="boolean" variable="$override">
             <type>boolean</type>
           </tag>
-          <tag name="return" line="470" description="" type="\Chameleon\Image">
+          <tag name="return" line="500" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
-          <tag name="throws" line="470" description="If call to imagerotate() fails" type="\Exception">
+          <tag name="throws" line="500" description="If call to imagerotate() fails" type="\Exception">
             <type>\Exception</type>
           </tag>
         </docblock>
@@ -8972,18 +8980,18 @@ unless you want them to be affected by the pattern.</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="509" package="Chameleon">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Chameleon" line="539" package="Chameleon">
         <name>draw</name>
         <full_name>\Chameleon\Image::draw()</full_name>
-        <docblock line="509">
+        <docblock line="539">
           <description>Draw one or more primitives onto the image.</description>
           <long-description></long-description>
-          <tag name="api" line="509" description=""/>
-          <tag name="param" line="509" description="&lt;p&gt;Any number of primitives&lt;/p&gt;" type="\Chameleon\Primitives\IPrimitive|array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;" variable="$primitives">
+          <tag name="api" line="539" description=""/>
+          <tag name="param" line="539" description="&lt;p&gt;Any number of primitives&lt;/p&gt;" type="\Chameleon\Primitives\IPrimitive|array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;" variable="$primitives">
             <type>\Chameleon\Primitives\IPrimitive</type>
             <type>array&lt;mixed,\Chameleon\Primitives\IPrimitive&gt;</type>
           </tag>
-          <tag name="return" line="509" description="" type="\Chameleon\Image">
+          <tag name="return" line="539" description="" type="\Chameleon\Image">
             <type>\Chameleon\Image</type>
           </tag>
         </docblock>
@@ -8996,10 +9004,9 @@ unless you want them to be affected by the pattern.</long-description>
     </class>
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="257" code="PPC:ERR-50008">No summary for method getBase64()</error>
       <error line="30" code="PPC:ERR-50007">No summary for property $imageResource</error>
     </parse_markers>
-    <source>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</source>
+    <source>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</source>
   </file>
   <package name="Chameleon" full_name="Chameleon">
     <package name="Filters" full_name="Chameleon\Filters"/>
