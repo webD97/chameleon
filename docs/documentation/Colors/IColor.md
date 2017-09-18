@@ -28,6 +28,16 @@ Get the RGBA representation of the color
 None.
 
 ---
+### getInt()
+    integer IColor::getInt()
+
+Return the integer value of this color.
+
+
+#### Arguments
+None.
+
+---
 ### isTransparent()
     boolean IColor::isTransparent()
 

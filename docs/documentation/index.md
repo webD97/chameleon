@@ -20,50 +20,49 @@ you work with them:
 
 * Chameleon
     * Chameleon\Colors
-        * [HSLAColor](Colors/HSLAColor)
-        * [RGBColor](Colors/RGBColor)
-        * [RGBAColor](Colors/RGBAColor)
         * [HSLColor](Colors/HSLColor)
-        * [Hex8Color](Colors/Hex8Color)
+        * [RGBColor](Colors/RGBColor)
         * [Hex6Color](Colors/Hex6Color)
+        * [Hex8Color](Colors/Hex8Color)
+        * [RGBAColor](Colors/RGBAColor)
         * [IColor](Colors/IColor)
         * [HSVColor](Colors/HSVColor)
-    * [Image](Image)
-    * Chameleon\Exceptions
-        * [ColorNotFoundException](Exceptions/ColorNotFoundException)
-        * [ValueOutOfBoundsException](Exceptions/ValueOutOfBoundsException)
-    * [Vector2](Vector2)
-    * [ColorFactory](ColorFactory)
-    * Chameleon\Transformations
-        * [ScaleMode](Transformations/ScaleMode)
-        * [FlipMode](Transformations/FlipMode)
-        * [RotateMode](Transformations/RotateMode)
-    * Chameleon\Primitives
-        * [Line](Primitives/Line)
-        * [IPrimitive](Primitives/IPrimitive)
-        * [Rectangle](Primitives/Rectangle)
-        * [Ellipse](Primitives/Ellipse)
+        * [HSLAColor](Colors/HSLAColor)
     * Chameleon\Filters
-        * [EmbossFilter](Filters/EmbossFilter)
-        * [InvertFilter](Filters/InvertFilter)
-        * [GrayscaleFilter](Filters/GrayscaleFilter)
+        * [SelectiveBlurFilter](Filters/SelectiveBlurFilter)
         * [MeanRemovalFilter](Filters/MeanRemovalFilter)
         * [BrightnessFilter](Filters/BrightnessFilter)
-        * [ColorizeFilter](Filters/ColorizeFilter)
-        * [SelectiveBlurFilter](Filters/SelectiveBlurFilter)
-        * [SmoothFilter](Filters/SmoothFilter)
-        * [GaussianBlurFilter](Filters/GaussianBlurFilter)
-        * [IFilter](Filters/IFilter)
         * [EdgedetectFilter](Filters/EdgedetectFilter)
+        * [EmbossFilter](Filters/EmbossFilter)
+        * [IFilter](Filters/IFilter)
+        * [SmoothFilter](Filters/SmoothFilter)
+        * [GrayscaleFilter](Filters/GrayscaleFilter)
+        * [GaussianBlurFilter](Filters/GaussianBlurFilter)
+        * [ColorizeFilter](Filters/ColorizeFilter)
+        * [InvertFilter](Filters/InvertFilter)
         * [ContrastFilter](Filters/ContrastFilter)
         * [BuiltinFilter](Filters/BuiltinFilter)
         * [PixelateFilter](Filters/PixelateFilter)
     * Chameleon\Patterns
         * [IPattern](Patterns/IPattern)
-        * [Grid](Patterns/Grid)
         * [Pattern](Patterns/Pattern)
-        * [RGBNoise](Patterns/RGBNoise)
         * [BackgroundColor](Patterns/BackgroundColor)
+        * [RGBNoise](Patterns/RGBNoise)
+        * [Grid](Patterns/Grid)
+    * [Vector2](Vector2)
+    * Chameleon\Exceptions
+        * [ColorNotFoundException](Exceptions/ColorNotFoundException)
+        * [ValueOutOfBoundsException](Exceptions/ValueOutOfBoundsException)
+    * Chameleon\Primitives
+        * [Line](Primitives/Line)
+        * [Rectangle](Primitives/Rectangle)
+        * [IPrimitive](Primitives/IPrimitive)
+    * Chameleon\Transformations
+        * [ScaleMode](Transformations/ScaleMode)
+        * [FlipMode](Transformations/FlipMode)
+        * [RotateMode](Transformations/RotateMode)
+    * [ColorFactory](ColorFactory)
+    * [Image](Image)
 
 
 ## Class hierarchy diagram

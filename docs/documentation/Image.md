@@ -1,5 +1,10 @@
 # Chameleon\Image
-Image class
+The Image class encapsulates a GD image resource and provides methods for manipulating images.
+
+Images can be created from scratch or read from a file. New images can be initialised with a background color,
+which can also be transparent. There are methods for basic image manipulation, like scaling, cropping, merging,
+flipping and rotating. Direct pixel manipulation is possible using the getPixel() and setPixel() methods. Image
+filtering is possible using the filter() method. Primitives can be drawn onto the image with the draw() method.
 
 * Class name: `Image`
 * Namespace: `Chameleon`
@@ -7,21 +12,22 @@ Image class
 
 ## Methods
 ### create()
-    Image Image::create(integer $width, integer $height)
+    Image Image::create(integer $width, integer $height, IColor|null $backgroundColor)
 
-Create an image from scratch
+Create an image from scratch.
 
-
+The image is initialized with a given size and an optional background color.
 * **static**
 #### Arguments
-* $width **integer** - &lt;p&gt;width in px&lt;/p&gt;
-* $height **integer** - &lt;p&gt;height in px&lt;/p&gt;
+* $width **integer** - &lt;p&gt;Image width in px&lt;/p&gt;
+* $height **integer** - &lt;p&gt;Image height in px&lt;/p&gt;
+* $backgroundColor **IColor|null** - &lt;p&gt;(optional) Background color, defaults to ColorFactory::black()&lt;/p&gt;
 
 ---
 ### fromFile()
     Image Image::fromFile(string $path)
 
-Load an image from a file
+Load an image from a file.
 
 
 * **static**
@@ -29,12 +35,13 @@ Load an image from a file
 * $path **string** - &lt;p&gt;Path to the file&lt;/p&gt;
 
 ---
-### __destruct()
-    void Image::__destruct()
+### getBackgroundColor()
+    IColor Image::getBackgroundColor()
 
+Get the background color.
 
-
-
+The background color can be set when creating new images. For images read from a file, it is
+ColorFactory::black().
 #### Arguments
 None.
 
@@ -42,7 +49,7 @@ None.
 ### getWidth()
     integer Image::getWidth()
 
-Get image width in px
+Get image width in px.
 
 
 #### Arguments
@@ -52,27 +59,66 @@ None.
 ### getHeight()
     integer Image::getHeight()
 
-Get image height in px
+Get image height in px.
 
 
 #### Arguments
 None.
 
 ---
-### outputAs()
-    boolean Image::outputAs($type)
+### enableAlphaBlending()
+    Image Image::enableAlphaBlending()
 
-Output image
+Enable alpha blending for this image.
+
+If alpha blending is turned on, colors are drawn &quot;on top&quot; of existing ones in this pixel. If the new color
+has transparency, the old color and the new color will blend.
+If alpha blending is turned off, colors will replace existing ones in this pixel, regardless of any
+transparency.
+#### Arguments
+None.
+
+---
+### disableAlphaBlending()
+    Image Image::disableAlphaBlending()
+
+Disable alpha blending for this image.
+
+If alpha blending is turned on, colors are drawn &quot;on top&quot; of existing ones in this pixel. If the new color
+has transparency, the old color and the new color will blend.
+If alpha blending is turned off, colors will replace existing ones in this pixel, regardless of any
+transparency.
+#### Arguments
+None.
+
+---
+### outputFile()
+    boolean Image::outputFile($type, array $options, string $file)
+
+Output the image to a file.
 
 
 #### Arguments
 * $type **mixed** - &lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;
+* $options **array** - &lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;
+* $file **string** - &lt;p&gt;(optional) Write to a file, defaults to &quot;php://output&quot;.&lt;/p&gt;
+
+---
+### getBase64()
+    string Image::getBase64($type, array $options)
+
+
+
+
+#### Arguments
+* $type **mixed** - &lt;p&gt;int One of the supported IMG_* constants&lt;/p&gt;
+* $options **array** - &lt;p&gt;An array of options specific for the desired file format.&lt;/p&gt;
 
 ---
 ### getImageResource()
     resource Image::getImageResource()
 
-Get the underlying GD image resource
+Get the underlying GD image resource.
 
 
 #### Arguments
@@ -82,7 +128,7 @@ None.
 ### registerColor()
     integer Image::registerColor(IColor $color)
 
-Register a color with this image
+Register a color with this image.
 
 
 #### Arguments
@@ -92,31 +138,11 @@ Register a color with this image
 ### isColorRegistered()
     boolean Image::isColorRegistered(IColor $color)
 
-Check if a color is registered with this image
+Check if a color is registered with this image.
 
 
 #### Arguments
 * $color **IColor** - &lt;p&gt;The color&lt;/p&gt;
-
----
-### getRegisteredColor()
-    integer Image::getRegisteredColor(IColor $color)
-
-Get the underlying GD color
-
-
-#### Arguments
-* $color **IColor** - &lt;p&gt;The high level color&lt;/p&gt;
-
----
-### registerColorIfUnknown()
-    boolean Image::registerColorIfUnknown(IColor $color)
-
-Register a color only if it has not been registered yet
-
-
-#### Arguments
-* $color **IColor** - *No description available*.
 
 ---
 ### setBackgroundPattern()
@@ -124,8 +150,8 @@ Register a color only if it has not been registered yet
 
 Fill the whole image with the given pattern.
 
-Only call this before drawing other elements onto the image unless you want them to be affected
-by the pattern.
+The pattern is drawn on top of everything else. Only call this before drawing other elements onto the image
+unless you want them to be affected by the pattern.
 #### Arguments
 * $pattern **IPattern** - &lt;p&gt;The pattern&lt;/p&gt;
 
@@ -133,7 +159,7 @@ by the pattern.
 ### getPixel()
     RGBColor Image::getPixel(integer $xCoordinate, integer $yCoordinate)
 
-Get color of a specific pixel
+Get color of a specific pixel.
 
 
 #### Arguments
@@ -166,7 +192,7 @@ Apply a filter to the image.
 ### flip()
     Image Image::flip(FlipMode $flipMode)
 
-Flip the image
+Flip the image.
 
 
 #### Arguments
@@ -176,7 +202,7 @@ Flip the image
 ### scale()
     Image Image::scale(integer $width, integer $height, boolean $override, ScaleMode|null $mode)
 
-Scale the image
+Scale the image.
 
 
 #### Arguments
@@ -189,7 +215,7 @@ Scale the image
 ### crop()
     Image Image::crop(Vector2 $start, Vector2 $end, boolean $override)
 
-Crop the image to a given box
+Crop the image to a given box.
 
 
 #### Arguments
@@ -214,7 +240,7 @@ Rotate the image.
 ### draw()
     Image Image::draw(IPrimitive&gt; $primitives)
 
-Draw one or more primitives onto the image
+Draw one or more primitives onto the image.
 
 
 #### Arguments
