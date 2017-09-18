@@ -82,11 +82,14 @@
          * @api
          *
          * @param string $path Path to the file
+         * @param IColor|null $backgroundColor (optional) Background color, defaults to ColorFactory::black()
          *
          * @return Image
          * @throws Exception If file not found
          */
-        public static function fromFile(string $path) : self {
+        public static function fromFile(string $path, IColor $backgroundColor = null) : self {
+            $backgroundColor = $backgroundColor ?? ColorFactory::black();
+
             if (file_exists($path)) {
                 $rawImage = null;
                 switch (mime_content_type($path)) {
@@ -108,7 +111,7 @@
                 imagesavealpha($rawImage, true);
 
                 $image = new Image($rawImage);
-                $image -> backgroundColor = ColorFactory::black();
+                $image -> backgroundColor = $backgroundColor;
 
                 return $image;
             }
