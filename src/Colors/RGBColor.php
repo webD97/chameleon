@@ -83,7 +83,7 @@
          */
         public function setRed(int $red) : self {
             if (!$this -> checkRange($red, 0, self::RED_MAX)) {
-                throw new ValueOutOfBoundsException("red", $red, 0, pow(2, self::RED_MAX) - 1);
+                throw new ValueOutOfBoundsException("red", $red, 0, self::RED_MAX);
             }
 
             $this -> red = $red;
@@ -110,7 +110,7 @@
          */
         public function setGreen(int $green) {
             if (!$this -> checkRange($green, 0, self::GREEN_MAX)) {
-                throw new ValueOutOfBoundsException("red", $green, 0, pow(2, self::GREEN_MAX) - 1);
+                throw new ValueOutOfBoundsException("red", $green, 0, self::GREEN_MAX);
             }
             
             $this -> green = $green;
@@ -136,7 +136,7 @@
          * @throws ValueOutOfBoundsException
          */
         public function setBlue(int $blue) {
-            if (!$this -> checkRange($blue, 0, pow(2, self::BLUE_MAX) - 1)) {
+            if (!$this -> checkRange($blue, 0, self::BLUE_MAX)) {
                 throw new ValueOutOfBoundsException("red", $blue, 0, self::BLUE_MAX);
             }
 
