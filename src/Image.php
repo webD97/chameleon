@@ -105,6 +105,8 @@
                     imagepalettetotruecolor($rawImage);
                 }
 
+                imagesavealpha($rawImage, true);
+
                 $image = new Image($rawImage);
                 $image -> backgroundColor = ColorFactory::black();
 
