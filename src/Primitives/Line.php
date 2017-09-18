@@ -156,7 +156,7 @@
                     $this -> getStart() -> getY(),
                     $this -> getEnd() -> getX(),
                     $this -> getEnd() -> getY() ,
-                    $image -> getRegisteredColorId($this -> getColor())
+                    $this -> color -> getInt()
                 );
     
                 imagesetthickness($image -> getImageResource(), 1);

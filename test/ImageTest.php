@@ -49,16 +49,6 @@
         }
 
         /**
-         * @covers \Chameleon\Image::getRegisteredColorId
-         */
-        public function testGetRegisteredColor() {
-            $color = new RGBColor(0, 0, 0);
-            $id = $this -> image -> registerColor($color);
-
-            $this -> assertEquals($id, $this -> image -> getRegisteredColor($color));
-        }
-
-        /**
          * @covers \Chameleon\Image::registerColor
          */
         public function testRegisterColor() {

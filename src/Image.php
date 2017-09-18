@@ -64,7 +64,7 @@
             imagesavealpha($image -> imageResource, true);
 
             $image -> registerColor($image -> backgroundColor);
-            imagefill($image -> imageResource, 0, 0, $image -> getRegisteredColorId($image -> backgroundColor));
+            imagefill($image -> imageResource, 0, 0, $image -> backgroundColor -> getInt());
 
             imagealphablending($image -> imageResource, true);
 
@@ -267,15 +267,14 @@
          * @return int The internal GD color id
          */
         public function registerColor(IColor $color) : int {
-            if (!isset($this -> colorPalette[$color -> __toString()])) {
-                $rgba = $color -> getRGBA();
-                $ColorId = imagecolorallocatealpha($this -> imageResource, $rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue(), $rgba -> getAlpha());
-                if ($ColorId !== false) {
-                    $this -> colorPalette[$color -> __toString()] = $ColorId;
-                    return $ColorId;
-                }
-                return -1;
+            $rgba = $color -> getRGBA();
+            $colorId = $color -> getInt();
+
+            if (imagecolorallocatealpha($this -> imageResource, $rgba -> getRed(), $rgba -> getGreen(), $rgba -> getBlue(), $rgba -> getAlpha()) !== false) {
+                array_push($this -> colorPalette, $colorId);
+                return $colorId;
             }
+
             return -1;
         }
 
@@ -288,26 +287,7 @@
          * @return bool
          */
         public function isColorRegistered(IColor $color) : bool {
-            return isset($this -> colorPalette[$color -> __toString()]);
-        }
-
-        /**
-         * Get the underlying GD color id.
-         *
-         * @api
-         *
-         * @param IColor $color The high level color
-         *
-         * @return int The low level color
-         * @throws ColorNotFoundException If color is not registered with this image
-         */
-        public function getRegisteredColorId(IColor $color) : int {
-            if ($this -> isColorRegistered($color)) {
-                return $this -> colorPalette[$color -> __toString()];
-            }
-            else {
-                throw new ColorNotFoundException($color);
-            }
+            return in_array($color -> getInt(), $this -> colorPalette);
         }
 
         /**
@@ -360,7 +340,7 @@
          * @return Image
          */
         public function setPixel(int $xCoordinate, int $yCoordinate, IColor $color) : self {
-            imagesetpixel($this -> imageResource, $xCoordinate, $yCoordinate, $this -> colorPalette[$color -> __toString()]);
+            imagesetpixel($this -> imageResource, $xCoordinate, $yCoordinate, $color -> getInt());
             return $this;
         }
 
@@ -485,7 +465,7 @@
             $newImage = imagerotate(
                     $this -> imageResource,
                     $degrees,
-                    $this -> getRegisteredColorId($backgroundColor),
+                    $backgroundColor -> getInt(),
                     1
             );
 

@@ -19,6 +19,13 @@
         public function getRGBA() : RGBAColor;
 
         /**
+         * Return the integer value of this color.
+         *
+         * @return int
+         */
+        public function getInt() : int;
+
+        /**
          * Find out if the color is transparent
          *
          * @return bool
