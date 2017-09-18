@@ -214,7 +214,7 @@
          *
          * @api
          *
-         * @param  $type int One of the supported IMG_* constants
+         * @param $type int One of the supported IMG_* constants
          * @param array $options An array of options specific for the desired file format.
          * @param string $file (optional) Write to a file, defaults to "php://output".
          *
@@ -248,6 +248,12 @@
             throw new Exception("Unsupported image file format.");
         }
 
+        /**
+         * @param $type int One of the supported IMG_* constants
+         * @param array $options An array of options specific for the desired file format.
+         *
+         * @return string
+         */
         public function getBase64(int $type, array $options = []) : string {
             ob_start();
             $this -> outputFile($type, $options);
