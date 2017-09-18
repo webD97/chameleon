@@ -164,19 +164,31 @@
          */
         public function lighten(float $percentage) : IColor {
             $this -> red += 255 * $percentage;
-            if ($this -> red > 255) {
-                $this -> red = 255;
+            $this -> green +=  255 *  $percentage;
+            $this -> blue += 255 * $percentage;
+
+            $threshold = 255;
+            $max = max($this -> red, $this -> green, $this -> blue);
+
+            if ($max <= $threshold) {
+                return $this;
             }
 
-            $this -> green += 255 *  $percentage;
-            if ($this -> green < 255) {
-                $this -> green = 255;
+            $total = $this -> red + $this -> green + $this -> blue;
+
+            if ($total >= 3 * $threshold) {
+                $this -> red = $threshold;
+                $this -> green = $threshold;
+                $this -> blue = $threshold;
+                return $this;
             }
-            
-            $this -> blue += 255 * $percentage;
-            if ($this -> blue < 255) {
-                $this -> blue = 255;
-            }
+
+            $x = (3 * $threshold - $total) / (3 * $max - $total);
+            $gray = $threshold - $x * $max;
+
+            $this -> red = $gray + $x * $this -> red;
+            $this -> green = $gray + $x * $this -> green;
+            $this -> blue = $gray + $x * $this -> blue;
 
             return $this;
         }
@@ -186,19 +198,31 @@
          */
         public function darken(float $percentage) : IColor {
             $this -> red -= 255 * $percentage;
-            if ($this -> red < 0) {
-                $this -> red = 0;
+            $this -> green -=  255 *  $percentage;
+            $this -> blue -= 255 * $percentage;
+
+            $threshold = 0;
+            $min = min($this -> red, $this -> green, $this -> blue);
+
+            if ($min >= $threshold) {
+                return $this;
             }
 
-            $this -> green -= 255 *  $percentage;
-            if ($this -> green < 0) {
-                $this -> green = 0;
+            $total = $this -> red + $this -> green + $this -> blue;
+
+            if ($total <= 3 * $threshold) {
+                $this -> red = $threshold;
+                $this -> green = $threshold;
+                $this -> blue = $threshold;
+                return $this;
             }
-            
-            $this -> blue -= 255 * $percentage;
-            if ($this -> blue < 0) {
-                $this -> blue = 0;
-            }
+
+            $x = (3 * $threshold - $total) / (3 * $min - $total);
+            $gray = $threshold - $x * $min;
+
+            $this -> red = $gray + $x * $this -> red;
+            $this -> green = $gray + $x * $this -> green;
+            $this -> blue = $gray + $x * $this -> blue;
 
             return $this;
         }
