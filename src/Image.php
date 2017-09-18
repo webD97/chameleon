@@ -14,6 +14,7 @@
     use Chameleon\Transformations\RotateMode;
     use Chameleon\Transformations\ScaleMode;
     use Exception;
+    use phpDocumentor\Console\Output\Output;
 
     /**
      * The Image class encapsulates a GD image resource and provides methods for manipulating images.
@@ -209,18 +210,18 @@
         }
 
         /**
-         * Output the image.
+         * Output the image to a file.
          *
          * @api
          *
          * @param  $type int One of the supported IMG_* constants
-         *
          * @param array $options An array of options specific for the desired file format.
+         * @param string $file (optional) Write to a file, defaults to "php://output".
          *
          * @return bool
          * @throws Exception If using an unsupported image file format
          */
-        public function outputAs(int $type, array $options = []) : bool {
+        public function outputFile(int $type, array $options = [], string $file = "php://output") : bool {
             switch ($type) {
                 case IMG_PNG:
                     $quality = $options["compression"] ?? 0;
@@ -228,7 +229,7 @@
                     $interlace = $options["interlace"] ?? false;
 
                     imageinterlace($this -> imageResource, (int) $interlace);
-                    return imagepng($this -> imageResource, null, $quality, $filters);
+                    return imagepng($this -> imageResource, $file, $quality, $filters);
                     break;
 
                 case IMG_JPG:
@@ -237,7 +238,7 @@
                     $interlace = $options["interlace"] ?? false;
 
                     imageinterlace($this -> imageResource, (int) $interlace);
-                    return imagejpeg($this -> imageResource, null, $quality);
+                    return imagejpeg($this -> imageResource, $file, $quality);
                     break;
                 case IMG_GIF:
                     return imagegif($this -> imageResource);
@@ -245,6 +246,15 @@
             }
 
             throw new Exception("Unsupported image file format.");
+        }
+
+        public function getBase64(int $type, array $options = []) : string {
+            ob_start();
+            $this -> outputFile($type, $options);
+            $imageData = ob_get_contents();
+            ob_end_clean();
+
+            return base64_encode($imageData);
         }
 
         /**
