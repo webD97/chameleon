@@ -40,9 +40,10 @@
         private $colorPalette = [];
 
         /**
-         * Create an image from scratch.
+         * Create an empty True Color image.
          *
-         * The image is initialized with a given size and an optional background color.
+         * The image is initialized with a given size and an optional background color. Only True color images (color
+         * depth: 24b) are supported.
          *
          * @api
          *
@@ -74,7 +75,9 @@
 
 
         /**
-         * Load an image from a file.
+         * Load an existing image from a file.
+         *
+         * If the given image is a palette image, it is converted to a True Color (color depth: 24b) image.
          *
          * @api
          *
@@ -97,7 +100,7 @@
                         $rawImage = imagecreatefromgif($path);
                         break;
                 }
-                    
+
                 if (!imageistruecolor($rawImage)) {
                     imagepalettetotruecolor($rawImage);
                 }
@@ -132,7 +135,7 @@
             foreach ($this -> colorPalette as $color) {
                 imagecolordeallocate($this -> imageResource, $color);
             }
-            
+
             imagedestroy($this -> imageResource);
         }
 
@@ -212,16 +215,27 @@
         /**
          * Output the image to a file.
          *
+         * By default, the image will be outputted directly to php://output. You can specify a custom location by
+         * passing a stream resource as parameter 3. The image will then be written to the stream. Please note: The file
+         * pointer will not be rewound. If you need to access the data written to the stream, you have to manually call
+         * rewind().
+         *
+         * Also, the stream will not be closed to allow working with temporary files (php://temp). Please remember to
+         * close the stream on your own.
+         *
          * @api
          *
          * @param $type int One of the supported IMG_* constants
          * @param array $options An array of options specific for the desired file format.
-         * @param string $file (optional) Write to a file, defaults to "php://output".
+         * @param resource $fileResource (optional) Write to a file, defaults to fopen("php://output", "w+").
          *
-         * @return bool
+         * @return int Bytes written to $fileResource
          * @throws Exception If using an unsupported image file format
          */
-        public function outputFile(int $type, array $options = [], string $file = "php://output") : bool {
+        public function outputFile(int $type, array $options = [], $fileResource = null) : int {
+            $fileHandler = (is_resource($fileResource)) ? $fileResource : fopen("php://output", "w+");
+
+            ob_start();
             switch ($type) {
                 case IMG_PNG:
                     $quality = $options["compression"] ?? 0;
@@ -229,7 +243,7 @@
                     $interlace = $options["interlace"] ?? false;
 
                     imageinterlace($this -> imageResource, (int) $interlace);
-                    return imagepng($this -> imageResource, $file, $quality, $filters);
+                    imagepng($this -> imageResource, null, $quality, $filters);
                     break;
 
                 case IMG_JPG:
@@ -238,29 +252,45 @@
                     $interlace = $options["interlace"] ?? false;
 
                     imageinterlace($this -> imageResource, (int) $interlace);
-                    return imagejpeg($this -> imageResource, $file, $quality);
+                    imagejpeg($this -> imageResource, null, $quality);
                     break;
                 case IMG_GIF:
-                    return imagegif($this -> imageResource);
+                    imagegif($this -> imageResource, null);
+                    break;
+                default:
+                    throw new Exception("Unsupported image file format.");
                     break;
             }
 
-            throw new Exception("Unsupported image file format.");
+            $imageData = ob_get_contents();
+            ob_end_clean();
+
+            $size = fwrite($fileHandler, $imageData);
+            return $size;
         }
 
         /**
+         * Get the image data base64 encoded. Useful for data URIs.
+         *
+         * Please remember to pass compression/quality options to this method to compress the image. Base64 encoded
+         * images are larger than dedicated image formats, but compression will at least reduce the overhead.
+         *
          * @param $type int One of the supported IMG_* constants
          * @param array $options An array of options specific for the desired file format.
          *
          * @return string
          */
         public function getBase64(int $type, array $options = []) : string {
-            ob_start();
-            $this -> outputFile($type, $options);
-            $imageData = ob_get_contents();
-            ob_end_clean();
+            $tempFile = fopen("php://temp", "w+");
 
-            return base64_encode($imageData);
+            $size = $this -> outputFile($type, $options, $tempFile);
+            rewind($tempFile);
+
+            $data = base64_encode(fread($tempFile, $size));
+
+            fclose($tempFile);
+
+            return $data;
         }
 
         /**
@@ -434,10 +464,10 @@
          */
         public function crop(Vector2 $start, Vector2 $end, bool $override = true) : self {
             $crop = [
-              "x" => $start -> getX(),
-              "y" => $start -> getY(),
-              "width" => $end -> getX() - $start -> getX(),
-              "height" => $end -> getY() - $start -> getY()
+                "x" => $start -> getX(),
+                "y" => $start -> getY(),
+                "width" => $end -> getX() - $start -> getX(),
+                "height" => $end -> getY() - $start -> getY()
             ];
 
             $newImage = imagecrop($this -> imageResource, $crop);
@@ -479,10 +509,10 @@
 
             $this -> registerColor($backgroundColor);
             $newImage = imagerotate(
-                    $this -> imageResource,
-                    $degrees,
-                    $backgroundColor -> getInt(),
-                    1
+                $this -> imageResource,
+                $degrees,
+                $backgroundColor -> getInt(),
+                1
             );
 
             if ($newImage !== false) {
@@ -514,4 +544,4 @@
             return $this;
         }
     }
-?>
+    ?>
