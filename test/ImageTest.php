@@ -87,27 +87,6 @@
         }
 
         /**
-         * @covers \Chameleon\Image::registerColorIfUnknown
-         */
-        public function testRegisterColorIfUnknownYes() {
-            $color = new RGBColor(0, 0, 0);
-
-            $this -> assertTrue($this -> image -> registerColorIfUnknown($color));
-            $this -> assertTrue($this -> image -> isColorRegistered($color));
-        }
-
-        /**
-         * @covers \Chameleon\Image::registerColorIfUnknown
-         */
-        public function testRegisterColorIfUnknownNo() {
-            $color = new RGBColor(0, 0, 0);
-            $this -> image -> registerColor($color);
-
-            $this -> assertFalse($this -> image -> registerColorIfUnknown($color));
-            $this -> assertTrue($this -> image -> isColorRegistered($color));
-        }
-
-        /**
          * @covers \Chameleon\Image::getPixel
          */
         public function testGetPixel() {

@@ -146,7 +146,7 @@
          */
         public function draw(Image $image) : self {
             if ($this -> color) {
-                $image -> registerColorIfUnknown($this -> color);
+                $image -> registerColor($this -> color);
                 
                 imagesetthickness($image -> getImageResource(), $this -> getThickness());
     

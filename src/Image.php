@@ -311,23 +311,6 @@
         }
 
         /**
-         * Register a color only if it has not been registered yet
-         *
-         * @param IColor $color
-         * @return bool was unknown?
-         *
-         * @deprecated
-         */
-        public function registerColorIfUnknown(IColor $color) : bool {
-            if (!$this -> isColorRegistered($color)) {
-                $this -> registerColor($color);
-                return true;
-            }
-
-            return false;
-        }
-
-        /**
          * Fill the whole image with the given pattern.
          *
          * The pattern is drawn on top of everything else. Only call this before drawing other elements onto the image
