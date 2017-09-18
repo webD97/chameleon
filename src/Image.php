@@ -16,7 +16,14 @@
     use Exception;
 
     /**
-     * Image class
+     * The Image class encapsulates a GD image resource and provides methods for manipulating images.
+     *
+     * Images can be created from scratch or read from a file. New images can be initialised with a background color,
+     * which can also be transparent. There are methods for basic image manipulation, like scaling, cropping, merging,
+     * flipping and rotating. Direct pixel manipulation is possible using the getPixel() and setPixel() methods. Image
+     * filtering is possible using the filter() method. Primitives can be drawn onto the image with the draw() method.
+     *
+     * @package Chameleon
      */
     class Image {
         private $imageResource;
@@ -27,18 +34,20 @@
         private $backgroundColor;
 
         /**
-         * @var array This array stores all color used in this image.
+         * @var array This array stores all colors used in this image.
          */
         private $colorPalette = [];
 
         /**
-         * Create an image from scratch
+         * Create an image from scratch.
+         *
+         * The image is initialized with a given size and an optional background color.
          *
          * @api
          *
-         * @param int $width width in px
-         * @param int $height height in px
-         * @param IColor|null $backgroundColor
+         * @param int $width Image width in px
+         * @param int $height Image height in px
+         * @param IColor|null $backgroundColor (optional) Background color, defaults to ColorFactory::black()
          *
          * @return Image
          *
@@ -64,7 +73,7 @@
 
 
         /**
-         * Load an image from a file
+         * Load an image from a file.
          *
          * @api
          *
@@ -130,6 +139,9 @@
         /**
          * Get the background color.
          *
+         * The background color can be set when creating new images. For images read from a file, it is
+         * ColorFactory::black().
+         *
          * @api
          *
          * @return IColor
@@ -139,7 +151,7 @@
         }
 
         /**
-         * Get image width in px
+         * Get image width in px.
          *
          * @api
          *
@@ -150,7 +162,7 @@
         }
 
         /**
-         * Get image height in px
+         * Get image height in px.
          *
          * @api
          *
@@ -161,7 +173,12 @@
         }
 
         /**
-         * Enable alpha blending.
+         * Enable alpha blending for this image.
+         *
+         * If alpha blending is turned on, colors are drawn "on top" of existing ones in this pixel. If the new color
+         * has transparency, the old color and the new color will blend.
+         * If alpha blending is turned off, colors will replace existing ones in this pixel, regardless of any
+         * transparency.
          *
          * @api
          *
@@ -174,7 +191,12 @@
         }
 
         /**
-         * Disable alpha blending.
+         * Disable alpha blending for this image.
+         *
+         * If alpha blending is turned on, colors are drawn "on top" of existing ones in this pixel. If the new color
+         * has transparency, the old color and the new color will blend.
+         * If alpha blending is turned off, colors will replace existing ones in this pixel, regardless of any
+         * transparency.
          *
          * @api
          *
@@ -187,7 +209,7 @@
         }
 
         /**
-         * Output image
+         * Output the image.
          *
          * @api
          *
@@ -226,7 +248,7 @@
         }
 
         /**
-         * Get the underlying GD image resource
+         * Get the underlying GD image resource.
          *
          * @api
          *
@@ -237,7 +259,7 @@
         }
 
         /**
-         * Register a color with this image
+         * Register a color with this image.
          *
          * @api
          *
@@ -258,7 +280,7 @@
         }
 
         /**
-         * Check if a color is registered with this image
+         * Check if a color is registered with this image.
          *
          * @api
          *
@@ -270,7 +292,7 @@
         }
 
         /**
-         * Get the underlying GD color
+         * Get the underlying GD color id.
          *
          * @api
          *
@@ -323,7 +345,7 @@
         }
 
         /**
-         * Get color of a specific pixel
+         * Get color of a specific pixel.
          *
          * @api
          *
@@ -343,6 +365,7 @@
 
         /**
          * Set the color of a specific pixel.
+         *
          * Make sure that the color is registered on the image! No additional tests will be performed!
          *
          * @api
@@ -373,7 +396,7 @@
         }
 
         /**
-         * Flip the image
+         * Flip the image.
          *
          * @api
          *
@@ -389,7 +412,7 @@
 
 
         /**
-         * Scale the image
+         * Scale the image.
          *
          * @api
          *
@@ -419,7 +442,7 @@
         }
 
         /**
-         * Crop the image to a given box
+         * Crop the image to a given box.
          *
          * @api
          *
@@ -496,7 +519,7 @@
         }
 
         /**
-         * Draw one or more primitives onto the image
+         * Draw one or more primitives onto the image.
          *
          * @api
          *
