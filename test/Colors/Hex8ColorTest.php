@@ -82,8 +82,8 @@
          * @covers \Chameleon\Colors\Hex8Color::fromRGBA
          */
         public function testFromRGBA() {
-            $expected = new Hex8Color("#aabbcc66");
-            $actual = Hex8Color::fromRGBA(new RGBAColor(170, 187, 204, 102));
+            $expected = new Hex8Color("#aabbcc7F");
+            $actual = Hex8Color::fromRGBA(new RGBAColor(170, 187, 204, 1));
 
             $this -> assertEquals($expected, $actual);
         }

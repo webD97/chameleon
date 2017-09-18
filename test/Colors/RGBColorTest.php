@@ -142,7 +142,7 @@
          */
         public function testFromRGBA() {
             $expected = new RGBColor(10, 20, 30);
-            $actual = RGBColor::fromRGBA(new RGBAColor(10, 20, 30, 40));
+            $actual = RGBColor::fromRGBA(new RGBAColor(10, 20, 30, 0.2));
 
             $this -> assertEquals($expected, $actual);
         }
