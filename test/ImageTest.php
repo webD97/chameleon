@@ -61,7 +61,7 @@
          * @covers \Chameleon\Image::isColorRegistered
          */
         public function testIsColorRegisteredYes() {
-            $color = new RGBColor(0, 0, 0);
+            $color = new RGBColor(0, 28, 0);
             $this -> image -> registerColor($color);
 
             $this -> assertTrue($this -> image -> isColorRegistered($color));
@@ -71,7 +71,7 @@
          * @covers \Chameleon\Image::isColorRegistered
          */
         public function testIsColorRegisteredNo() {
-            $color = new RGBColor(0, 0, 0);
+            $color = new RGBColor(0, 28, 0);
 
             $this -> assertFalse($this -> image -> isColorRegistered($color));
         }
