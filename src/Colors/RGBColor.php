@@ -163,9 +163,9 @@
          * {@inheritdoc}
          */
         public function lighten(float $percentage) : IColor {
-            $this -> red += 255 * $percentage;
-            $this -> green +=  255 *  $percentage;
-            $this -> blue += 255 * $percentage;
+            $this -> red += $this -> red * $percentage;
+            $this -> green += $this -> green *  $percentage;
+            $this -> blue += $this -> blue * $percentage;
 
             $threshold = 255;
             $max = max($this -> red, $this -> green, $this -> blue);
@@ -197,9 +197,9 @@
          * {@inheritdoc}
          */
         public function darken(float $percentage) : IColor {
-            $this -> red -= 255 * $percentage;
-            $this -> green -=  255 *  $percentage;
-            $this -> blue -= 255 * $percentage;
+            $this -> red -= (255 - $this -> red) * $percentage;
+            $this -> green -= (255 - $this -> green) *  $percentage;
+            $this -> blue -= (255 - $this -> blue) * $percentage;
 
             $threshold = 0;
             $min = min($this -> red, $this -> green, $this -> blue);
