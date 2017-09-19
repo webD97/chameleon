@@ -20,8 +20,8 @@
          * @covers \Chameleon\Vector2::__construct
          */
         public function testConstruct() {
-            $this -> assertObjectHasAttribute("xCoordinate", $this -> vector);
-            $this -> assertObjectHasAttribute("yCoordinate", $this -> vector);
+            $this -> assertObjectHasAttribute("x", $this -> vector);
+            $this -> assertObjectHasAttribute("y", $this -> vector);
         }
 
         /**
@@ -32,14 +32,14 @@
         }
 
         /**
-         * @covers \Chameleon\Vector2::getXCoordinate
+         * @covers \Chameleon\Vector2::getX
          */
         public function testGetX() {
             $this -> assertEquals(20, $this -> vector -> getX());
         }
 
         /**
-         * @covers \Chameleon\Vector2::setXCoordinate
+         * @covers \Chameleon\Vector2::setX
          */
         public function testSetX() {
             $this -> vector -> setX(55);
@@ -47,14 +47,14 @@
         }
 
         /**
-         * @covers \Chameleon\Vector2::getYCoordinate
+         * @covers \Chameleon\Vector2::getY
          */
         public function testGetY() {
             $this -> assertEquals(10, $this -> vector -> getY());
         }
 
         /**
-         * @covers \Chameleon\Vector2::setYCoordinate
+         * @covers \Chameleon\Vector2::setY
          */
         public function testSetY() {
             $this -> vector -> setY(35);
