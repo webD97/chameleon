@@ -1,9 +1,9 @@
 <?php
     namespace Chameleon\Primitives;
 
+    use Chameleon\Colors\RGBAColor;
     use Chameleon\Image;
     use Chameleon\Vector2;
-    use Chameleon\ColorFactory;
     use Chameleon\Colors\IColor;
 
     class Line implements IPrimitive {
@@ -23,7 +23,7 @@
             $this -> end = $end;
 
             $this -> thickness = 1;
-            $this -> color = ColorFactory::transparent();
+            $this -> color = RGBAColor::transparent();
         }
 
         /**

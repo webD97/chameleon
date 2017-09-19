@@ -9,6 +9,9 @@
 
     final class Hex6ColorTest extends TestCase {
 
+        /**
+         * @var Hex6Color
+         */
         private $color;
 
         /**

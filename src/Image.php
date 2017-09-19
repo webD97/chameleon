@@ -52,7 +52,7 @@
          *
          */
         public static function create(int $width, int $height, IColor $backgroundColor = null) : self {
-            $backgroundColor = $backgroundColor ?? ColorFactory::black();
+            $backgroundColor = $backgroundColor ?? RGBColor::black();
 
             $image = new Image(imagecreatetruecolor($width, $height));
             $image -> backgroundColor = $backgroundColor;
@@ -83,7 +83,7 @@
          * @throws Exception If file not found
          */
         public static function fromFile(string $path, IColor $backgroundColor = null) : self {
-            $backgroundColor = $backgroundColor ?? ColorFactory::black();
+            $backgroundColor = $backgroundColor ?? RGBColor::black();
 
             if (file_exists($path)) {
                 $rawImage = null;

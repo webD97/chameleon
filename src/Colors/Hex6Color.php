@@ -9,10 +9,10 @@
         /**
          * Class constructor
          *
-         * @param string $hexstring The 6-digit hexstring, e.g. #fe0da7
+         * @param string $hexString The 6-digit hexstring, e.g. #fe0da7
          */
-        public function __construct(string $hexstring) {
-            $this -> setHex($hexstring);
+        public function __construct(string $hexString) {
+            $this -> setHex($hexString);
         }
 
         /**
@@ -33,24 +33,21 @@
          * @return string
          */
         public function getHex() : string {
-            return strtoupper("#" .
-                (($this -> red < 16) ? "0" . dechex($this -> red) : dechex($this -> red)) .
-                (($this -> green < 16) ? "0" . dechex($this -> green) : dechex($this -> green)) .
-                (($this -> blue < 16) ? "0" . dechex($this -> blue) : dechex($this -> blue))
-            );
+            return sprintf("#%'.02X%'.02X%'.02X", $this -> red, $this -> green, $this -> blue);
         }
 
         /**
          * Set hexadecimal value for this color
          *
-         * @param string $hexstring The hexadecimal color value, Fomat: #rrggbb
+         * @param string $hexString The hexadecimal color value, Fomat: #rrggbb
+         *
          * @return void
          */
-        public function setHex(string $hexstring) {
-            $hexstring = str_replace("#", "", $hexstring);
-            $this -> setRed(hexdec(substr($hexstring, 0, 2)));
-            $this -> setGreen(hexdec(substr($hexstring, 2, 2)));
-            $this -> setBlue(hexdec(substr($hexstring, 4, 2)));
+        public function setHex(string $hexString) {
+            $hexString = str_replace("#", "", $hexString);
+            $this -> setRed(hexdec(substr($hexString, 0, 2)));
+            $this -> setGreen(hexdec(substr($hexString, 2, 2)));
+            $this -> setBlue(hexdec(substr($hexString, 4, 2)));
         }
 
         public static function fromRGBA(RGBAColor $rgba) {

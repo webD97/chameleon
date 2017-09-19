@@ -2,13 +2,11 @@
     namespace Chameleon\Primitives;
 
     use PHPUnit\Framework\TestCase;
-
-    use Chameleon\Primitives\Rectangle;
+;
     use Chameleon\Colors\RGBColor;
     use Chameleon\Patterns\BackgroundColor;
     use Chameleon\Vector2;
     use Chameleon\Image;
-    use Chameleon\ColorFactory;
 
     final class RectangleTest extends TestCase {
 
@@ -64,10 +62,10 @@
          */
         public function testDrawWithBackgroundColor() {
             $image = Image::create(4, 4);
-            $image -> setBackgroundPattern(new BackgroundColor(ColorFactory::black()));
+            $image -> setBackgroundPattern(new BackgroundColor(RGBColor::black()));
 
             $rectangle = new Rectangle(new Vector2(1, 1), 2, 2);
-            $rectangle -> setBackgroundPattern(new BackgroundColor(ColorFactory::white()));
+            $rectangle -> setBackgroundPattern(new BackgroundColor(RGBColor::white()));
 
             $image -> draw($rectangle);
 

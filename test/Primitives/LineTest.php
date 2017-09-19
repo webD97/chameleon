@@ -5,9 +5,7 @@
 
     use Chameleon\Image;
     use Chameleon\Vector2;
-    use Chameleon\ColorFactory;
     use Chameleon\Patterns\BackgroundColor;
-    use Chameleon\Primitives\Line;
     use Chameleon\Colors\RGBColor;
 
     final class LineTest extends TestCase {
@@ -121,10 +119,10 @@
          */
         public function testDraw() {
             $image = Image::create(2, 2);
-            $image -> setBackgroundPattern(new BackgroundColor(ColorFactory::black()));
+            $image -> setBackgroundPattern(new BackgroundColor(RGBColor::black()));
 
             $line = new Line(new Vector2(0, 0), new Vector2(1, 1));
-            $line -> setColor(ColorFactory::white());
+            $line -> setColor(RGBColor::white());
 
             $image -> draw($line);
 

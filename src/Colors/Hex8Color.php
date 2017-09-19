@@ -16,19 +16,19 @@
         /**
          * Class constructor
          *
-         * @param string $hexstring The 8-digit hexstring, e.g. #fe0da722
+         * @param string $hexString The 8-digit hexstring, e.g. #fe0da722
          */
-        public function __construct(string $hexstring) {
-            $this -> setHex($hexstring);
+        public function __construct(string $hexString) {
+            $this -> setHex($hexString);
         }
 
         public static function fromRGBA(RGBAColor $rgba) {
-            return new Hex8Color("#" . 
-                dechex($rgba -> getRed()) .
-                dechex($rgba -> getGreen()) .
-                dechex($rgba -> getBlue()) .
-                dechex($rgba -> getAlpha())
-            );
+            return new Hex8Color(sprintf("#%'.02X%'.02X%'.02X%'.02X",
+                 $rgba -> getRed(),
+                 $rgba -> getGreen(),
+                 $rgba -> getBlue(),
+                 $rgba -> getAlpha()
+             ));
         }
 
         /**
@@ -50,21 +50,21 @@
          */
         public function getHex() : string {
             $hex = parent::getHex();
-            $hex .= strtoupper(($this -> alpha < 0x10) ? "0" . dechex($this -> alpha) : dechex($this -> alpha));
+            $hex .= sprintf("%'.02X", $this -> alpha);
             return $hex;
         }
 
         /**
          * Set hexadecimal value for this color
          *
-         * @param string $hexstring The hexadecimal color value, Format: #rrggbb
+         * @param string $hexString The hexadecimal color value, Format: #rrggbb
+         *
          * @return self
          */
-        public function setHex(string $hexstring) : self{
-            parent::setHex($hexstring);
-
-            $hexstring = str_replace("#", "", $hexstring);
-            $this -> setAlpha(hexdec(substr($hexstring, 6, 2)));
+        public function setHex(string $hexString) : self {
+            parent::setHex($hexString);
+            $hexString = str_replace("#", "", $hexString);
+            $this -> setAlpha(hexdec(substr($hexString, 6, 2)));
 
             return $this;
         }

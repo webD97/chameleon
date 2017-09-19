@@ -3,12 +3,13 @@
     
     use PHPUnit\Framework\TestCase;
 
-    use Chameleon\Colors\Hex8Color;
-    use Chameleon\Colors\RGBAColor;
     use Chameleon\Exceptions\ValueOutOfBoundsException;
 
     final class Hex8ColorTest extends TestCase {
 
+        /**
+         * @var Hex8Color
+         */
         private $color;
 
         /**
