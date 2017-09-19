@@ -2,8 +2,6 @@
     declare(strict_types = 1);
     namespace Chameleon;
 
-    use Chameleon\Exceptions\ColorNotFoundException;
-
     use Chameleon\Filters\IFilter;
     use Chameleon\Primitives\IPrimitive;
     use Chameleon\Primitives\Rectangle;
@@ -14,7 +12,6 @@
     use Chameleon\Transformations\RotateMode;
     use Chameleon\Transformations\ScaleMode;
     use Exception;
-    use phpDocumentor\Console\Output\Output;
 
     /**
      * The Image class encapsulates a GD image resource and provides methods for manipulating images.
@@ -59,8 +56,6 @@
 
             $image = new Image(imagecreatetruecolor($width, $height));
             $image -> backgroundColor = $backgroundColor;
-
-            unset($backgroundColor);
 
             imagealphablending($image -> imageResource, false);
             imagesavealpha($image -> imageResource, true);
