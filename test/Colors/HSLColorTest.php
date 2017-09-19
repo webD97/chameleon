@@ -127,7 +127,7 @@
         }
 
         /**
-         * @covers \Chameleon\Colors\HSLColor::makeRGB
+         * @covers \Chameleon\Colors\HSLColor::getRGBA()
          */
         public function testGetRGBA() {
             // HSL: (200, 1, 0.63)
