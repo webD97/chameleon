@@ -469,10 +469,10 @@
          */
         public function crop(Vector2 $start, Vector2 $end, bool $override = true) : self {
             $crop = [
-                "x" => $start -> getXCoordinate(),
-                "y" => $start -> getYCoordinate(),
-                "width" => $end -> getXCoordinate() - $start -> getXCoordinate(),
-                "height" => $end -> getYCoordinate() - $start -> getYCoordinate()
+                "x" => $start -> getX(),
+                "y" => $start -> getY(),
+                "width" => $end -> getX() - $start -> getX(),
+                "height" => $end -> getY() - $start -> getY()
             ];
 
             $newImage = imagecrop($this -> imageResource, $crop);
