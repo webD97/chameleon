@@ -30,7 +30,7 @@
          * @covers \Chameleon\Colors\HSLColor::__toString
          */
         public function testToString() {
-            $this -> assertEquals("hsl(0, 1, 0.5)", $this -> color -> __toString());
+            $this -> assertEquals(sprintf("hsl(%d, %F, %F)", 0, 1, 0.5), $this -> color -> __toString());
         }
 
         /**
@@ -129,16 +129,31 @@
         /**
          * @covers \Chameleon\Colors\HSLColor::makeRGB
          */
-        public function testRGBConversion() {
-            // HSL: (300, 1, 0.75)
-            // RGB: (255, 128, 255)
+        public function testGetRGBA() {
+            // HSL: (200, 1, 0.63)
+            // RGB: (66, 192, 255)
 
-            $color = new HSLColor(200, 1, 0.63);
-            $converted = $color -> getRGBA();
+            $hsl = new HSLColor(200, 1, 0.63);
+            $rgba = $hsl -> getRGBA();
 
-            $this -> assertEquals(66, $converted -> getRed());
-            $this -> assertEquals(192, $converted -> getGreen());
-            $this -> assertEquals(255, $converted -> getBlue());
+            $this -> assertEquals(66, $rgba -> getRed(), "Bad red.");
+            $this -> assertEquals(192, $rgba -> getGreen(), "Bad green.");
+            $this -> assertEquals(255, $rgba -> getBlue(), "Bad blue.");
+        }
+
+        /**
+         * @covers \Chameleon\Colors\HSLColor::fromRGBA
+         */
+        public function testFromRGBA() {
+            // RGB: (66, 192, 255)
+            // HSL: (200, 1, 0.63)
+
+            $rgba = new RGBAColor(66, 192, 255, 0);
+            $hsl = HSLColor::fromRGBA($rgba);
+
+            $this -> assertEquals(200, $hsl -> getHue(), "Bad hue.", 0.001);
+            $this -> assertEquals(1, $hsl -> getSaturation(), "Bad saturation.", 0.001);
+            $this -> assertEquals(0.63, $hsl -> getLightness(), "Bad lightness.", 0.001);
         }
     }
 ?>
