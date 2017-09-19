@@ -432,24 +432,19 @@
          *
          * @param int $width New width
          * @param int $height (optional) New height. If omitted or negative, the aspect ratio will be preserved.
-         * @param bool $override (optional) If true, the existing image will be overridden, otherwise a new Image will be returned.
          * @param ScaleMode|null $mode (optional) The desired interpolation algorithm, default: ScaleMode::BICUBIC_FIXED().
          *
          * @return Image
          * @throws Exception If the call to imagescale() fails
          */
-        public function scale(int $width, int $height = -1, bool $override = true, ScaleMode $mode = null) : self {
+        public function scale(int $width, int $height = -1, ScaleMode $mode = null) : self {
             $mode = $mode ?? ScaleMode::BICUBIC_FIXED();
 
             $newImage = imagescale($this -> imageResource, $width, $height, $mode -> value());
 
             if ($newImage !== false) {
-                if ($override == true) {
-                    $this -> imageResource = $newImage;
-                    return $this;
-                }
-
-                return new Image($newImage);
+                $this -> imageResource = $newImage;
+                return $this;
             }
 
             throw new Exception("Image scale failed.");
@@ -462,12 +457,11 @@
          *
          * @param Vector2 $start The top left start position.
          * @param Vector2 $end The bottom right end position.
-         * @param bool $override (optional) If true, the existing image will be overridden, otherwise a new Image will be returned.
          *
          * @return Image
          * @throws Exception If call to imagecrop() fails
          */
-        public function crop(Vector2 $start, Vector2 $end, bool $override = true) : self {
+        public function crop(Vector2 $start, Vector2 $end) : self {
             $crop = [
                 "x" => $start -> getX(),
                 "y" => $start -> getY(),
@@ -478,12 +472,8 @@
             $newImage = imagecrop($this -> imageResource, $crop);
 
             if ($newImage !== false) {
-                if ($override == true) {
-                    $this -> imageResource = $newImage;
-                    return $this;
-                }
-
-                return new Image($newImage);
+                $this -> imageResource = $newImage;
+                return $this;
             }
 
             throw new Exception("Image crop failed.");
@@ -497,12 +487,11 @@
          * @param int $degrees Degrees [0, 360]
          * @param RotateMode|null $rotateMode (optional) Rotation orientation, defaults to RotateMode::CLOCKWISE()
          * @param IColor|null $backgroundColor (optional) The background color for areas that are not covered by the image, defaults to ColorFactory::black()
-         * @param bool $override (optional) If true, the existing image will be overridden, otherwise a new Image will be returned.
          *
          * @return Image
          * @throws Exception If call to imagerotate() fails
          */
-        public function rotate(int $degrees, RotateMode $rotateMode = null, IColor $backgroundColor = null, bool $override = true) : self {
+        public function rotate(int $degrees, RotateMode $rotateMode = null, IColor $backgroundColor = null) : self {
             $rotateMode = $rotateMode ?? RotateMode::CLOCKWISE();
             $backgroundColor = $backgroundColor ?? $this -> backgroundColor;
 
@@ -521,12 +510,8 @@
             );
 
             if ($newImage !== false) {
-                if ($override == true) {
-                    $this -> imageResource = $newImage;
-                    return $this;
-                }
-
-                return new Image($newImage);
+                $this -> imageResource = $newImage;
+                return $this;
             }
 
             throw new Exception("Image rotation failed.");
