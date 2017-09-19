@@ -70,7 +70,7 @@
         }
 
         public function getRGBA() : RGBAColor {
-            return new RGBAColor($this -> red, $this -> green, $this -> blue, $this -> alpha * 127);
+            return parent::getRGBA() -> setAlpha($this -> alpha);
         }
     }
 ?>
