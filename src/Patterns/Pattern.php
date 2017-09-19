@@ -6,7 +6,7 @@
     use Chameleon\Colors\IColor;
 
     abstract class Pattern extends SplFixedArray implements IPattern {
-        public abstract function getColorAt(int $x, int $y): IColor;
+        public abstract function getColorAt(int $xCoordinate, int $yCoordinate): IColor;
 
         /**
          * Pattern constructor.

@@ -59,24 +59,26 @@
         /**
          * Get value at (x, y) position of this Mask.
          *
-         * @param int $x
-         * @param int $y
+         * @param int $xCoordinate
+         * @param int $yCoordinate
+         *
          * @return bool|null
          */
-        public function getValueAt(int $x, int $y) : ?bool {
-            return $this -> offsetGet($y * $this -> width + $x);
+        public function getValueAt(int $xCoordinate, int $yCoordinate) : ?bool {
+            return $this -> offsetGet($yCoordinate * $this -> width + $xCoordinate);
         }
 
         /**
          * Set value at (x, y) position of this Mask.
          *
-         * @param int $x The x coordinate
-         * @param int $y The y coordinate
+         * @param int $xCoordinate The x coordinate
+         * @param int $yCoordinate The y coordinate
          * @param bool|null $value The value
+         *
          * @return self
          */
-        public function setValueAt(int $x, int $y, ?bool $value) : self {
-            $this -> offsetSet($y * $this -> width + $x, $value);
+        public function setValueAt(int $xCoordinate, int $yCoordinate, ?bool $value) : self {
+            $this -> offsetSet($yCoordinate * $this -> width + $xCoordinate, $value);
             return $this;
         }
     }

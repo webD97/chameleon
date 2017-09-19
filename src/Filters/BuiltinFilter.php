@@ -5,6 +5,7 @@
 
     use Chameleon\Image;
     use Chameleon\Options;
+    use PhpOption\None;
 
     /**
      * Class BuiltinFilter enables wrapping of PHP's builtin image filter functions
@@ -98,12 +99,11 @@
                     $this -> getArg1()
                 );
             }
-            else {
-                return imagefilter(
-                    $image -> getImageResource(),
-                    $this -> getFilterID()
-                );
-            }
+
+            return imagefilter(
+                $image -> getImageResource(),
+                $this -> getFilterID()
+            );
         }
 
         /**

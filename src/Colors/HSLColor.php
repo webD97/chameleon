@@ -187,15 +187,15 @@
             
             if($saturation == 0){
                 $this -> red = $this -> green = $this -> blue = $lightness;
+                return;
             }
-            else {
-                $q = ($lightness < 0.5) ? $lightness * (1 + $saturation) : $lightness + $saturation - $lightness * $saturation;
-                $p = 2 * $lightness - $q;
-                
-                $this -> red = round($this -> hue2rgb($p, $q, ($hue + 120) / 360));
-                $this -> green = round($this -> hue2rgb($p, $q, ($hue) / 360));
-                $this -> blue = round($this -> hue2rgb($p, $q, ($hue - 120) / 360));
-            }
+
+            $q = ($lightness < 0.5) ? $lightness * (1 + $saturation) : $lightness + $saturation - $lightness * $saturation;
+            $p = 2 * $lightness - $q;
+
+            $this -> red = round($this -> hue2rgb($p, $q, ($hue + 120) / 360));
+            $this -> green = round($this -> hue2rgb($p, $q, ($hue) / 360));
+            $this -> blue = round($this -> hue2rgb($p, $q, ($hue - 120) / 360));
         }
         
         private function hue2rgb($p, $q, $t){
@@ -215,6 +215,7 @@
             if ($t < 2/3) {
                 return ($p + ($q - $p) * (2/3 - $t) * 6) * 255;
             }
+
             return $p * 255;
         }
 

@@ -6,8 +6,8 @@
      * It contains multiple methods to set and manipulate its coordinates.
      */
     class Vector2 {
-        private $x;
-        private $y;
+        private $xCoordinate;
+        private $yCoordinate;
 
         /**
          * Vector2 constructor.
@@ -16,8 +16,8 @@
          * @param int $y The y coordinate
          */
         public function __construct(int $x, int $y) {
-            $this -> x = $x;
-            $this -> y = $y;
+            $this -> xCoordinate = $x;
+            $this -> yCoordinate = $y;
         }
 
         /**
@@ -26,7 +26,7 @@
          * @return int The X coordinate
          */
         public function getX() : int {
-            return $this -> x;
+            return $this -> xCoordinate;
         }
 
         /**
@@ -35,30 +35,30 @@
          * @return int The Y coordinate
          */
         public function getY() : int {
-            return $this -> y;
+            return $this -> yCoordinate;
         }
 
         /**
          * Set the vector's X coordinate.
          *
-         * @param int $x The x coordinate
+         * @param int $xCoordinate The x coordinate
          *
          * @return Vector2
          */
-        public function setX(int $x) : self {
-            $this -> x = $x;
+        public function setX(int $xCoordinate) : self {
+            $this -> xCoordinate = $xCoordinate;
             return $this;
         }
 
         /**
          * Set the vector's Y coordinate.
          *
-         * @param int $y The y coordinate
+         * @param int $yCoordinate The y coordinate
          *
          * @return Vector2
          */
-        public function setY(int $y) : self {
-            $this -> y = $y;
+        public function setY(int $yCoordinate) : self {
+            $this -> yCoordinate = $yCoordinate;
             return $this;
         }
 
@@ -70,7 +70,7 @@
          * @return Vector2
          */
         public function incX(int $inc = 1) : self {
-            $this -> x += $inc;
+            $this -> xCoordinate += $inc;
             return $this;
         }
 
@@ -82,7 +82,7 @@
          * @return Vector2
          */
         public function incY(int $inc = 1) : self {
-            $this -> y += $inc;
+            $this -> yCoordinate += $inc;
             return $this;
         }
 
@@ -94,7 +94,7 @@
          * @return Vector2
          */
         public function decX(int $dec = 1) : self {
-            $this -> x -= $dec;
+            $this -> xCoordinate -= $dec;
             return $this;
         }
 
@@ -106,7 +106,7 @@
          * @return Vector2
          */
         public function decY(int $dec = 1) : self {
-            $this -> y -= $dec;
+            $this -> yCoordinate -= $dec;
             return $this;
         }
 
@@ -116,7 +116,7 @@
          * @return string A string formatted as `(x, y)`
          */
         public function __toString() : string {
-            return "(" . $this -> x . ", " . $this -> y . ")";
+            return sprintf("(%d, %d)", $this -> xCoordinate, $this -> yCoordinate);
         }
     }
 ?>

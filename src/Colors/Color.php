@@ -20,16 +20,16 @@
         public final function getInt(): int {
             $rgba = $this -> getRGBA();
 
-            $id = 0;
-            $id |= $rgba -> getAlpha();
-            $id <<= 8;
-            $id |= $rgba -> getRed();
-            $id <<= 8;
-            $id |= $rgba -> getGreen();
-            $id <<= 8;
-            $id |= $rgba -> getBlue();
+            $colorId = 0;
+            $colorId |= $rgba -> getAlpha();
+            $colorId <<= 8;
+            $colorId |= $rgba -> getRed();
+            $colorId <<= 8;
+            $colorId |= $rgba -> getGreen();
+            $colorId <<= 8;
+            $colorId |= $rgba -> getBlue();
 
-            return $id;
+            return $colorId;
         }
 
         /**

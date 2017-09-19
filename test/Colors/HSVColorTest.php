@@ -30,7 +30,7 @@
          * @covers \Chameleon\Colors\HSVColor::__toString
          */
         public function testToString() {
-            $this -> assertEquals("hsv(0, 1, 0.5)", $this -> color -> __toString());
+            $this -> assertEquals(sprintf("hsv(%d, %F, %F)", 0, 1, 0.5), $this -> color -> __toString());
         }
 
         /**

@@ -15,25 +15,26 @@
         public function __construct(int $colors, int $alpha = 0) {
             parent::__construct($colors);
 
-            for ($i = 0; $i < $colors; $i++) {
+            for ($index = 0; $index < $colors; $index++) {
                 $randomInt = mt_rand(0, pow(2, 24) - 1);
 
                 $red = $randomInt >> 16 & 255;
                 $green = $randomInt >> 8 & 255;
                 $blue = $randomInt >> 0 & 255;
 
-                $this -> setColor($i, new RGBAColor($red, $green, $blue, $alpha));
+                $this -> setColor($index, new RGBAColor($red, $green, $blue, $alpha));
             }
         }
 
         /**
          * Get a random color for the position.
          *
-         * @param int $x x coordinate
-         * @param int $y y coordinate
+         * @param int $xCoordinate x coordinate
+         * @param int $yCoordinate y coordinate
+         *
          * @return IColor The color for the given position
          */
-        public function getColorAt(int $x, int $y) : IColor {
+        public function getColorAt(int $xCoordinate, int $yCoordinate) : IColor {
             return $this -> getColor(mt_rand(0, $this -> getSize() - 1));
         }
     }

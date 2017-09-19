@@ -8,11 +8,11 @@
         /**
          * Get color in this pattern at the given position
          *
-         * @param int $x The x coordinate
-         * @param int $y The y coordinate
+         * @param int $xCoordinate The x coordinate
+         * @param int $yCoordinate The y coordinate
          *
          * @return IColor The color at this position
          */
-        public function getColorAt(int $x, int $y) : IColor;
+        public function getColorAt(int $xCoordinate, int $yCoordinate) : IColor;
     }
 ?>

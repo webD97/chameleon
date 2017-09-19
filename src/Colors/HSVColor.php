@@ -38,35 +38,33 @@
             $green = $rgba -> getGreen() / 255;
             $blue = $rgba -> getBlue() / 255;
             
-            $min = min($red, $green, $blue);
-            $max = max($red, $green, $blue);
-    
-            $value = round($max, 2);
-            $delta = $max - $min;
-            
-            if ($delta == 0) {
-                $saturation = 0;
-                $hue = 0;
+            $minOfAll = min($red, $green, $blue);
+            $maxOfAll = max($red, $green, $blue);
+
+            $hue = 0;
+            $saturation = 0;
+            $value = round($maxOfAll, 2);
+
+            $deltaMaxMin = $maxOfAll - $minOfAll;
+
+            if ($deltaMaxMin == 0) {
+                return new HSVColor($hue, $saturation, $value);
+            }
+
+            $saturation = $deltaMaxMin / $maxOfAll;
+
+            if ($maxOfAll <= 0) {
                 return new HSVColor($hue, $saturation, $value);
             }
             
-            if ($max > 0) {
-                $saturation = $delta / $max;
+            if($red == $maxOfAll) {
+                $hue = ($green - $blue) / $deltaMaxMin;
             }
-            else {
-                $saturation = 0;
-                $hue = 0;
-                return new HSVColor($hue, $saturation, $value);
+            elseif ($green == $maxOfAll) {
+                $hue = 2 + ($blue - $red) / $deltaMaxMin;
             }
-            
-            if($red == $max) {
-                $hue = ($green - $blue) / $delta;
-            }
-            elseif ($green == $max) {
-                $hue = 2 + ($blue - $red) / $delta;
-            }
-            else {
-                $hue = 4 + ($red - $green) / $delta;
+            elseif ($blue == $maxOfAll) {
+                $hue = 4 + ($red - $green) / $deltaMaxMin;
             }
     
             $hue *= 60;
@@ -79,7 +77,7 @@
         }
 
         public function __toString() : string {
-            return "hsv(" . $this -> hue . ", " . $this -> saturation . ", " . $this -> value . ")";
+            return sprintf("hsv(%d, %F, %F)", $this -> hue, $this -> saturation, $this -> value);
         }
 
         /**
@@ -181,8 +179,8 @@
          * @internal
          *
         * @param int $red Red value [0, 255]
-        * @param int $red Red value [0, 255]
-        * @param int $red Red value [0, 255]
+        * @param int $green Green value [0, 255]
+        * @param int $blue Blue value [0, 255]
         */
         private function setRGB($red, $green, $blue) {
             $this -> red = round($red * 255);
@@ -196,14 +194,14 @@
          * @internal
          */
         private function makeRGB() : void {
-            $hi = floor($this -> hue / 60);
-            $f = ($this -> hue / 60) - $hi;
+            $hueSector = intdiv($this -> hue, 60);
+            $f = ($this -> hue / 60) - $hueSector;
 
             $p = $this -> value * (1 - $this -> saturation);
             $q = $this -> value * (1 - $this -> saturation * $f);
             $t = $this -> value * (1 - $this -> saturation * (1 - $f));
 
-            switch ($hi) {
+            switch ($hueSector) {
                 case 0:
                 case 6:
                     $this -> setRGB($this -> value, $t, $p);
@@ -227,10 +225,16 @@
             }
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public function getRGBA() : RGBAColor {
             return new RGBAColor($this -> red, $this -> green, $this -> blue, 0);
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public function lighten(float $percentage) : IColor {
             $this -> value += $percentage;
 
@@ -241,6 +245,9 @@
             return $this;
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public function darken(float $percentage) : IColor {
             $this -> value -= $percentage;
 

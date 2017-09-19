@@ -173,12 +173,13 @@
          * 
          * By default, all pixels have the background color, every nth pixel has the line color
          *
-         * @param int $x x coordinate
-         * @param int $y y coordinate
+         * @param int $xCoordinate x coordinate
+         * @param int $yCoordinate y coordinate
+         *
          * @return IColor The color for the given position
          */
-        public function getColorAt(int $x, int $y) : IColor {
-            if (($x - $this -> offsetX) % $this -> width == 0 || ($y - $this -> offsetY) % $this -> height == 0) {
+        public function getColorAt(int $xCoordinate, int $yCoordinate) : IColor {
+            if (($xCoordinate - $this -> offsetX) % $this -> width == 0 || ($yCoordinate - $this -> offsetY) % $this -> height == 0) {
                 return $this -> getColor(1);                
             }
             return $this -> getColor(0);

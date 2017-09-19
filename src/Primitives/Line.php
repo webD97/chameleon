@@ -128,12 +128,12 @@
          * @return self
          */
         public function setPosition(Vector2 $position) : self {
-            $dx = $this -> start -> getX() - $this -> end -> getX();
-            $dy = $this -> start -> getY() - $this -> end -> getY();
+            $deltaX = $this -> start -> getX() - $this -> end -> getX();
+            $deltaY = $this -> start -> getY() - $this -> end -> getY();
             $this -> start -> setX($position -> getX());
             $this -> start -> setY($position -> getY());
-            $this -> end -> setX($position -> getX() - $dx);
-            $this -> end -> setY($position -> getY() - $dy);
+            $this -> end -> setX($position -> getX() - $deltaX);
+            $this -> end -> setY($position -> getY() - $deltaY);
 
             return $this;
         }

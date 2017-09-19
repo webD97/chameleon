@@ -10,10 +10,10 @@
     class BackgroundColor extends Pattern {
         public function __construct(IColor $color) {
             parent::__construct(1);
-            parent::setColor(0, $color);
+            $this -> setColor(0, $color);
         }
 
-        public function getColorAt(int $x, int $y) : IColor {
+        public function getColorAt(int $xCoordinate, int $yCoordinate) : IColor {
             return parent::getColor(0);
         }
     }

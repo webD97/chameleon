@@ -79,22 +79,22 @@
             }
 
             // Cache total amount of pixels
-            $width = $mask -> getWidth();
-            $height = $mask -> getHeight();
-            $size = $width * $height;
+            $maskWidth = $mask -> getWidth();
+            $maskHeight = $mask -> getHeight();
+            $size = $maskWidth * $maskHeight;
 
             // Loop over all pixels
-            for ($i = 0; $i < $size; $i++) {
+            for ($maskIndex = 0; $maskIndex < $size; $maskIndex++) {
                 // Map the index of the pixel to image coordinates
-                $x = $i % $width;
-                $y = intdiv($i, $width);
+                $patternX = $maskIndex % $maskWidth;
+                $patternY = intdiv($maskIndex, $maskWidth);
 
                 // If mask allows this pixel, draw it onto the image
-                if ($mask -> offsetGet($i) === true) {
+                if ($mask -> offsetGet($maskIndex) === true) {
                     $image -> setPixel(
-                        $x + $startX,
-                        $y + $startY,
-                        $pattern -> getColorAt($x, $y)
+                        $patternX + $startX,
+                        $patternY + $startY,
+                        $pattern -> getColorAt($patternX, $patternY)
                     );
                 }
             }
@@ -113,8 +113,8 @@
             if ($this -> backgroundPattern) {
                 if ($this -> backgroundPattern instanceof BackgroundColor) {
                     // Unicolor background can make use of imagefilledrectangle()
-                    $color = $this -> backgroundPattern -> getColorAt(0, 0);
-                    $image -> registerColor($color);
+                    $backgroundColor = $this -> backgroundPattern -> getColorAt(0, 0);
+                    $image -> registerColor($backgroundColor);
 
                     imagefilledrectangle(
                         $image -> getImageResource(),
@@ -122,34 +122,35 @@
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() + $this -> getWidth() - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
-                        $color -> getInt()
+                        $backgroundColor -> getInt()
                     );
-                }
-                else {
-                    // Generate the mask for this pattern
-                    $backgroundMask = new Mask($this -> width, $this -> height);
-                    $size = $this -> width * $this -> height;
 
-                    for ($i = 0; $i < $size; $i++) {
-                        $backgroundMask -> offsetSet($i, true);
-                    }
-    
-                    // Draw pattern using mask
-                    $this -> drawPattern(
-                        $image,
-                        $this -> backgroundPattern,
-                        $backgroundMask,
-                        $this -> getPosition() -> getX(),
-                        $this -> getPosition() -> getY()
-                    );
+                    return $this;
                 }
+
+                // Generate the mask for this pattern
+                $backgroundMask = new Mask($this -> width, $this -> height);
+                $maskSize = $this -> width * $this -> height;
+
+                for ($i = 0; $i < $maskSize; $i++) {
+                    $backgroundMask -> offsetSet($i, true);
+                }
+
+                // Draw pattern using mask
+                $this -> drawPattern(
+                    $image,
+                    $this -> backgroundPattern,
+                    $backgroundMask,
+                    $this -> getPosition() -> getX(),
+                    $this -> getPosition() -> getY()
+                );
             }
 
             if ($this -> borderPattern && $this -> borderThickness > 0) {
                 if ($this -> borderPattern instanceof BackgroundColor) {
                     // Unicolor border can make use of imagefilledrectangle()
-                    $color = $this -> borderPattern -> getColorAt(0, 0);
-                    $image -> registerColor($color);
+                    $backgroundColor = $this -> borderPattern -> getColorAt(0, 0);
+                    $image -> registerColor($backgroundColor);
 
                     // Top
                     imagefilledrectangle(
@@ -158,7 +159,7 @@
                         $this -> getPosition() -> getY() - $this -> borderThickness,
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getY() - 1,
-                        $color -> getInt()
+                        $backgroundColor -> getInt()
                     );
                     // Bottom
                     imagefilledrectangle(
@@ -167,7 +168,7 @@
                         $this -> getPosition() -> getY() + $this -> getHeight() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight(),
-                        $color -> getInt()
+                        $backgroundColor -> getInt()
                     );
                     // Left
                     imagefilledrectangle(
@@ -176,7 +177,7 @@
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
-                        $color -> getInt()
+                        $backgroundColor -> getInt()
                     );
                     // Right
                     imagefilledrectangle(
@@ -185,38 +186,39 @@
                         $this -> getPosition() -> getY(),
                         $this -> getPosition() -> getX() + $this -> getWidth() + $this -> borderThickness - 1,
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
-                        $color -> getInt()
+                        $backgroundColor -> getInt()
                     );
+
+                    return $this;
                 }
-                else {
-                    // Generate the mask for this pattern
-                    $borderMask = new Mask($this -> width + 2 * $this -> borderThickness, $this -> height + 2 * $this -> borderThickness);
-    
-                    $width = $borderMask -> getWidth();
-                    $height = $borderMask -> getHeight();
-    
-                    for ($y = 0; $y < $height; $y++) {
-                        for ($x = 0; $x < $width; $x++) {
-                            if (
-                                $x < $this -> borderThickness ||                // left
-                                $x > $width - $this -> borderThickness - 1 ||   // right
-                                $y < $this -> borderThickness ||                // top
-                                $y > $height - $this -> borderThickness - 1     // bottom
-                            ) {
-                                $borderMask -> setValueAt($x, $y, true);
-                            }
+
+                // Generate the mask for this pattern
+                $borderMask = new Mask($this -> width + 2 * $this -> borderThickness, $this -> height + 2 * $this -> borderThickness);
+
+                $width = $borderMask -> getWidth();
+                $height = $borderMask -> getHeight();
+
+                for ($y = 0; $y < $height; $y++) {
+                    for ($x = 0; $x < $width; $x++) {
+                        if (
+                            $x < $this -> borderThickness ||                // left
+                            $x > $width - $this -> borderThickness - 1 ||   // right
+                            $y < $this -> borderThickness ||                // top
+                            $y > $height - $this -> borderThickness - 1     // bottom
+                        ) {
+                            $borderMask -> setValueAt($x, $y, true);
                         }
                     }
-
-                    // Draw pattern using mask
-                    $this -> drawPattern(
-                        $image,
-                        $this -> borderPattern,
-                        $borderMask,
-                        $this -> getPosition() -> getX() - $this -> borderThickness,
-                        $this -> getPosition() -> getY() - $this -> borderThickness
-                    );
                 }
+
+                // Draw pattern using mask
+                $this -> drawPattern(
+                    $image,
+                    $this -> borderPattern,
+                    $borderMask,
+                    $this -> getPosition() -> getX() - $this -> borderThickness,
+                    $this -> getPosition() -> getY() - $this -> borderThickness
+                );
             }
 
             return $this;
