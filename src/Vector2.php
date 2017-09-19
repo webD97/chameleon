@@ -12,12 +12,12 @@
         /**
          * Vector2 constructor.
          *
-         * @param int $x The x coordinate
-         * @param int $y The y coordinate
+         * @param int $xCoordinate The x coordinate
+         * @param int $yCoordinate The y coordinate
          */
-        public function __construct(int $x, int $y) {
-            $this -> xCoordinate = $x;
-            $this -> yCoordinate = $y;
+        public function __construct(int $xCoordinate, int $yCoordinate) {
+            $this -> xCoordinate = $xCoordinate;
+            $this -> yCoordinate = $yCoordinate;
         }
 
         /**
