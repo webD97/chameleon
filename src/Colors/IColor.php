@@ -1,11 +1,14 @@
 <?php
     namespace Chameleon\Colors;
 
-    use Chameleon\Colors\RGBAColor;
 
     interface IColor {
         /**
          * Construct from an RGBAColor
+         *
+         * @param RGBAColor $color A color.
+         *
+         * @api
          *
          * @return void
          */
@@ -14,6 +17,8 @@
         /**
          * Get the RGBA representation of the color
          *
+         * @api
+         *
          * @return RGBAColor
          */
         public function getRGBA() : RGBAColor;
@@ -21,27 +26,27 @@
         /**
          * Return the integer value of this color.
          *
+         * @api
+         *
          * @return int
          */
         public function getInt() : int;
 
         /**
-         * Find out if the color is transparent
-         *
-         * @return bool
-         */
-        public function isTransparent() : bool;
-
-        /**
          * Make the color lighter
          *
          * @param float $percentage
+         *
+         * @api
+         *
          * @return self
          */
         public function lighten(float $percentage) : IColor;
 
         /**
          * Make the color darker
+         *
+         * @api
          *
          * @param float $percentage
          * @return self
@@ -50,6 +55,8 @@
 
         /**
          * Return a string representation of the color.
+         *
+         * @api
          *
          * @return string
          */

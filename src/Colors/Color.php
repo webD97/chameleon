@@ -1,18 +1,31 @@
 <?php
     namespace Chameleon\Colors;
 
-    use Chameleon\Colors\RGBAColor;
-
     abstract class Color implements IColor {
+        /**
+         * {@inheritdoc}
+         */
         public static abstract function fromRGBA(RGBAColor $rgba);
-        public abstract function getRGBA() : RGBAColor;
-        public abstract function lighten(float $percentange) : IColor;
-        public abstract function darken(float $percentange) : IColor;
-        public abstract function __toString(): string;
 
-        public function isTransparent() : bool {
-            return $this -> getRGBA() -> getAlpha() == 127;
-        }
+        /**
+         * {@inheritdoc}
+         */
+        public abstract function getRGBA() : RGBAColor;
+
+        /**
+         * {@inheritdoc}
+         */
+        public abstract function lighten(float $percentage) : IColor;
+
+        /**
+         * {@inheritdoc}
+         */
+        public abstract function darken(float $percentage) : IColor;
+
+        /**
+         * {@inheritdoc}
+         */
+        public abstract function __toString(): string;
 
         /**
          * {@inheritdoc}
@@ -33,7 +46,7 @@
         }
 
         /**
-         * Check if a value is in a legal range
+         * Check if a value is in a legal range.
          *
          * @param float $value
          * @param float $min
@@ -46,7 +59,9 @@
         }
 
         /**
-         * Convert a color to another color system
+         * Convert a color to another color system.
+         *
+         * @api
          *
          * @param string $class The new color's class name, e.g. HSLColor::class
          * @return IColor|null New color object or null if $class is not a Chameleon\Colors\IColor
