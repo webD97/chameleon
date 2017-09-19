@@ -10,9 +10,9 @@
          * Pattern constructor
          *
          * @param int $colors Number of colors to be generated
-         * @param int $alpha Optional alpha channel value for the colors
+         * @param float $alpha Optional alpha channel value for the colors [0, 1]
          */
-        public function __construct(int $colors, int $alpha = 0) {
+        public function __construct(int $colors, float $alpha = 0) {
             parent::__construct($colors);
 
             for ($index = 0; $index < $colors; $index++) {
