@@ -20,8 +20,8 @@
          * @covers \Chameleon\Vector2::__construct
          */
         public function testConstruct() {
-            $this -> assertObjectHasAttribute("x", $this -> vector);
-            $this -> assertObjectHasAttribute("y", $this -> vector);
+            $this -> assertObjectHasAttribute("xCoordinate", $this -> vector);
+            $this -> assertObjectHasAttribute("yCoordinate", $this -> vector);
         }
 
         /**
