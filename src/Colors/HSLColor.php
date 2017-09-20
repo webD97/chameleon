@@ -4,14 +4,28 @@
     use Chameleon\Exceptions\ValueOutOfBoundsException;
 
     /**
-    * Color Class for HSL colors
-    *
-    * Represents a color based on the HSL (hue, saturation, value) system
-    * @api
+     * Class HSLColor
+     *
+     * Represents a color in the HSL system. No alpha channel!
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
     */
     class HSLColor extends Color {
+        /**
+         * @var int Hue value
+         */
         private $hue;
+
+        /**
+         * @var float Saturation value
+         */
         private $saturation;
+
+        /**
+         * @var float Lightness value
+         */
         private $lightness;
 
         /**

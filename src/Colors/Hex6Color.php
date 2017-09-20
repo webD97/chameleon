@@ -5,6 +5,15 @@
     use Chameleon\Colors\RGBColor;
     use Chameleon\Colors\RGBAColor;
 
+    /**
+     * Class Hex6Color
+     *
+     * Represents a color in the RGB system but constructed via a hex string (#rrggbb). No alpha channel!
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     class Hex6Color extends RGBColor {
         /**
          * Class constructor
@@ -50,6 +59,9 @@
             $this -> setBlue(hexdec(substr($hexString, 4, 2)));
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public static function fromRGBA(RGBAColor $rgba) {
             return new Hex6Color("#" . 
                 dechex($rgba -> getRed()) .

@@ -3,6 +3,15 @@
 
     use Exception;
 
+    /**
+     * Class Color
+     *
+     * Base implementation of IColor
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     abstract class Color implements IColor {
         /**
          * {@inheritdoc}
@@ -80,6 +89,8 @@
 
         /**
          * Get an instance of this color from a 6 or 8 digit hexstring
+         *
+         * @internal
          *
          * @param string $hexString The hexstring (#RRGGBB or #RRGGBBAA)
          *

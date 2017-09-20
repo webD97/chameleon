@@ -4,6 +4,15 @@
     use Chameleon\Exceptions\ValueOutOfBoundsException;
     use Chameleon\Colors\RGBColor;
 
+    /**
+     * Class RGBAColor
+     *
+     * The RGBAColor class represents a color in the RGB system (24b color depth) with alpha channel.
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     class RGBAColor extends RGBColor {
         /**
          * Alpha channel max value.

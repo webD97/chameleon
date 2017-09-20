@@ -3,24 +3,55 @@
 
     use Chameleon\Exceptions\ValueOutOfBoundsException;
     use Chameleon\Colors\RGBAColor;
+    use Guzzle\Http\RedirectPlugin;
 
     /**
-    * Color Class for HSV colors
-    *
-    * Represents a color based on the HSV (hue, saturation, value) system
-    * @api
-    */
+     * Color Class for HSV colors
+     *
+     * Represents a color based on the HSV (hue, saturation, value) system
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     class HSVColor extends Color {
+        /**
+         * @var int Hue value
+         */
         private $hue;
+
+        /**
+         * @var float Saturation value
+         */
         private $saturation;
+
+        /**
+         * @var float Value value
+         */
         private $value;
 
+        /**
+         * @var int Red
+         * @deprecated
+         */
         protected $red;
+
+        /**
+         * @var int Red
+         * @deprecated
+         */
         protected $green;
+
+        /**
+         * @var int Red
+         * @deprecated
+         */
         protected $blue;
 
         /**
          * Class constructor
+         *
+         * @api
          *
          * @param int $hue Hue value [0, 359]
          * @param float $saturation Saturation [0, 1]
@@ -32,6 +63,9 @@
             $this -> setValue($value);
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public static function fromRGBA(RGBAColor $rgba) : HSVColor {
             // https://stackoverflow.com/a/6930407
             $red = $rgba -> getRed() / 255;
@@ -76,6 +110,9 @@
             return new HSVColor($hue, $saturation, $value);         
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public function __toString() : string {
             return sprintf("hsv(%d, %F, %F)", $this -> hue, $this -> saturation, $this -> value);
         }

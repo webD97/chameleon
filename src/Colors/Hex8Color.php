@@ -5,6 +5,15 @@
     use Chameleon\Colors\Hex6Color;
     use Chameleon\Colors\RGBAColor;
 
+    /**
+     * Class Hex8Color
+     *
+     * Represents a color in the RGB system with alpha channel, but constructed via a hexstring (#rrggbbaa).
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     class Hex8Color extends Hex6Color {
         /**
          * The alpha channel value [0, 127]
@@ -22,6 +31,9 @@
             $this -> setHex($hexString);
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public static function fromRGBA(RGBAColor $rgba) {
             return new Hex8Color(sprintf("#%'.02X%'.02X%'.02X%'.02X",
                  $rgba -> getRed(),
@@ -96,6 +108,9 @@
             return $this;
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public function getRGBA() : RGBAColor {
             $rgba = parent::getRGBA();
             $rgba -> setAlpha($this -> alpha / RGBAColor::ALPHA_MAX);

@@ -2,6 +2,13 @@
     namespace Chameleon\Colors;
 
 
+    /**
+     * Interface IColor
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     interface IColor {
         /**
          * Construct from an RGBAColor

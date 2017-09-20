@@ -5,6 +5,15 @@
     use Chameleon\Colors\HSLColor;
     use Chameleon\Colors\RGBAColor;
 
+    /**
+     * Class HSLAColor
+     *
+     * Represents a color in the HSL system with alpha channel.
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     class HSLAColor extends HSLColor {
         /**
          * The alpha channel value [0, 127]
@@ -26,6 +35,9 @@
             $this -> setAlpha($alpha);
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public static function fromRGBA(RGBAColor $rgba) {
             $hsl = parent::fromRGBA($rgba);
             return new HSLAColor($hsl -> getHue(), $hsl -> getSaturation(), $hsl -> getLightness(), $rgba -> getAlpha() / 127);
@@ -69,6 +81,9 @@
             return $this;
         }
 
+        /**
+         * {@inheritdoc}
+         */
         public function getRGBA() : RGBAColor {
             return parent::getRGBA() -> setAlpha($this -> alpha);
         }

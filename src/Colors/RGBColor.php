@@ -3,6 +3,15 @@
 
     use Chameleon\Exceptions\ValueOutOfBoundsException;
 
+    /**
+     * Class RGBColor
+     *
+     * The RGBColor class represents a color in the RGB system (24b color depth). No alpha channel!
+     *
+     * @api
+     *
+     * @package Chameleon\Colors
+     */
     class RGBColor extends Color {
         /**
          * Red channel max value.
