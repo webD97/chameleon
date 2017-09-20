@@ -72,7 +72,6 @@
          */
         public function convertTo(string $class) : IColor {
             if (in_array(Color::class, class_parents($class))) {
-                $class = (object) $class;
                 return $class::fromRGBA($this -> getRGBA());
             }
 
