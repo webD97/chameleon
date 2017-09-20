@@ -1,7 +1,7 @@
 <?php
     namespace Chameleon\Colors;
 
-    use PHPUnit\Runner\Exception;
+    use Exception;
 
     abstract class Color implements IColor {
         /**
@@ -65,28 +65,39 @@
          *
          * @api
          *
-         * @param string $class The new color's class name, e.g. HSLColor::class
-         * @return IColor|null New color object or null if $class is not a Chameleon\Colors\IColor
+         * @param string $class The new color's FQCN, e.g. HSLColor::class
+         *
+         * @return IColor New color object of the desired color system
+         * @throws Exception if $class is not a Chameleon\Colors\IColor
          */
-        public function convertTo(string $class) : ?IColor {
-            if (in_array(IColor::class, class_implements($class))) {
+        public function convertTo(string $class) : IColor {
+            if (in_array(Color::class, class_parents($class))) {
+                $class = (object) $class;
                 return $class::fromRGBA($this -> getRGBA());
             }
 
-            return null;
+            throw new Exception(sprintf('%s must extend %s to support converting between color systems!', $class, Color::class));
         }
 
+        /**
+         * Get an instance of this color from a 6 or 8 digit hexstring
+         *
+         * @param string $hexString The hexstring (#RRGGBB or #RRGGBBAA)
+         *
+         * @throws Exception If called from an invalid context
+         */
         protected static final function fromHexString(string $hexString) {
-            if (get_called_class() == Color::class) {
-                throw new Exception("Cannot get predefined colors from this class!");
+            if (in_array(Color::class, class_parents(get_called_class()))) {
+                // TODO: Convert string to int and get channel via bit shifting
+                $red = hexdec(substr($hexString, 1, 2));
+                $green = hexdec(substr($hexString, 3, 2));
+                $blue = hexdec(substr($hexString, 5, 2));
+                $alpha = hexdec(substr($hexString, 7, 2)) / 127;
+
+                return static::fromRGBA(new RGBAColor($red, $green, $blue, $alpha));
             }
 
-            $red = hexdec(substr($hexString, 1, 2));
-            $green = hexdec(substr($hexString, 3, 2));
-            $blue = hexdec(substr($hexString, 5, 2));
-            $alpha = hexdec(substr($hexString, 7, 2)) / 127;
-
-            return static::fromRGBA(new RGBAColor($red, $green, $blue, $alpha));
+            throw new Exception(sprintf('%s must extend %s to support getting predefined colors!', get_called_class(), Color::class));
         }
 
         /**
