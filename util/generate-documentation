@@ -1,21 +1,17 @@
 #!/bin/bash
 
+set +e
+
 # Run phpdoc to create structure.xml
 echo "Running phpdocumentor"
 vendor/bin/phpdoc --force -n
-if [ $? -ne 0 ]; then
-    echo "phpdoc failed!"
-    exit 1
-fi
 
 # Run phpdoc-md to create Markdown files
 echo "Running phpdoc-md"
 #vendor/bin/phpdocmd -i docs/documentation/structure.xml -o docs/documentation -t docs/assets/twig/
 vendor/bin/phpdocmd generator:run docs/documentation/structure.xml docs/documentation docs/assets/twig/
-if [ $? -ne 0 ]; then
-    echo "phpdocmd failed!"
-    exit 1
-fi
 
 echo "Success!"
 exit 0
+
+set -e
