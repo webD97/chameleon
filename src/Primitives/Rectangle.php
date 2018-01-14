@@ -124,26 +124,25 @@
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
                         $backgroundColor -> getInt()
                     );
-
-                    return $this;
                 }
+                else {
+                    // Generate the mask for this pattern
+                    $backgroundMask = new Mask($this -> width, $this -> height);
+                    $maskSize = $this -> width * $this -> height;
 
-                // Generate the mask for this pattern
-                $backgroundMask = new Mask($this -> width, $this -> height);
-                $maskSize = $this -> width * $this -> height;
+                    for ($i = 0; $i < $maskSize; $i++) {
+                        $backgroundMask -> offsetSet($i, true);
+                    }
 
-                for ($i = 0; $i < $maskSize; $i++) {
-                    $backgroundMask -> offsetSet($i, true);
+                    // Draw pattern using mask
+                    $this -> drawPattern(
+                        $image,
+                        $this -> backgroundPattern,
+                        $backgroundMask,
+                        $this -> getPosition() -> getX(),
+                        $this -> getPosition() -> getY()
+                    );
                 }
-
-                // Draw pattern using mask
-                $this -> drawPattern(
-                    $image,
-                    $this -> backgroundPattern,
-                    $backgroundMask,
-                    $this -> getPosition() -> getX(),
-                    $this -> getPosition() -> getY()
-                );
             }
 
             if ($this -> borderPattern && $this -> borderThickness > 0) {
@@ -188,37 +187,36 @@
                         $this -> getPosition() -> getY() + $this -> getHeight() - 1,
                         $backgroundColor -> getInt()
                     );
-
-                    return $this;
                 }
+                else {
+                    // Generate the mask for this pattern
+                    $borderMask = new Mask($this->width + 2 * $this->borderThickness, $this->height + 2 * $this->borderThickness);
 
-                // Generate the mask for this pattern
-                $borderMask = new Mask($this -> width + 2 * $this -> borderThickness, $this -> height + 2 * $this -> borderThickness);
+                    $width = $borderMask->getWidth();
+                    $height = $borderMask->getHeight();
 
-                $width = $borderMask -> getWidth();
-                $height = $borderMask -> getHeight();
-
-                for ($y = 0; $y < $height; $y++) {
-                    for ($x = 0; $x < $width; $x++) {
-                        if (
-                            $x < $this -> borderThickness ||                // left
-                            $x > $width - $this -> borderThickness - 1 ||   // right
-                            $y < $this -> borderThickness ||                // top
-                            $y > $height - $this -> borderThickness - 1     // bottom
-                        ) {
-                            $borderMask -> setValueAt($x, $y, true);
+                    for ($y = 0; $y < $height; $y++) {
+                        for ($x = 0; $x < $width; $x++) {
+                            if (
+                                $x < $this->borderThickness ||                // left
+                                $x > $width - $this->borderThickness - 1 ||   // right
+                                $y < $this->borderThickness ||                // top
+                                $y > $height - $this->borderThickness - 1     // bottom
+                            ) {
+                                $borderMask->setValueAt($x, $y, true);
+                            }
                         }
                     }
-                }
 
-                // Draw pattern using mask
-                $this -> drawPattern(
-                    $image,
-                    $this -> borderPattern,
-                    $borderMask,
-                    $this -> getPosition() -> getX() - $this -> borderThickness,
-                    $this -> getPosition() -> getY() - $this -> borderThickness
-                );
+                    // Draw pattern using mask
+                    $this->drawPattern(
+                        $image,
+                        $this->borderPattern,
+                        $borderMask,
+                        $this->getPosition()->getX() - $this->borderThickness,
+                        $this->getPosition()->getY() - $this->borderThickness
+                    );
+                }
             }
 
             return $this;
