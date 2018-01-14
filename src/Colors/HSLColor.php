@@ -38,7 +38,7 @@
          * @param float $lightness Lightness value [0, 1]
          */
         public function __construct(int $hue, float $saturation, float $lightness) {
-            $this -> setHue($hue);
+            $this -> setHue($hue % 360);
             $this -> setSaturation($saturation);
             $this -> setLightness($lightness);
         }
